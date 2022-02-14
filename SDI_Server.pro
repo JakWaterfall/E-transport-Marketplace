@@ -18,8 +18,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += headers/
 
 SOURCES += \
+    src/accountcontroller.cpp \
+    src/connection.cpp \
+    src/context.cpp \
+    src/serverbroker.cpp \
+    src/shippercontext.cpp \
     src/broker.cpp \
     src/forwarder.cpp \
+    src/messageparser.cpp \
     src/order.cpp \
     src/ordercontract.cpp \
     src/server.cpp \
@@ -33,10 +39,16 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    headers/accountcontroller.h \
+    headers/connection.h \
+    headers/context.h \
     headers/broker.h \
     headers/forwarder.h \
+    headers/messageparser.h \
     headers/order.h \
     headers/ordercontract.h \
     headers/server.h \
     headers/shipper.h \
-    headers/user.h
+    headers/user.h \
+    headers/serverbroker.h \
+    headers/shippercontext.h

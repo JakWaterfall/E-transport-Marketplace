@@ -9,8 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(loginIndex);
 
+    socket = new QTcpSocket(this);
+    socket->connectToHost(QHostAddress::LocalHost, 1234);
 
-
+    connect(socket, &QTcpSocket::connected, this, &MainWindow::TEST_SERVER_MSG);
 //    mqttClient = new QMqttClient(this);
 //    mqttClient->setPort(1883);
 //    mqttClient->setHostname("test.mosquitto.org");
@@ -50,3 +52,15 @@ void MainWindow::on_actionqwe_triggered()
     }
 }
 
+void MainWindow::TEST_SERVER_MSG()
+{
+    socket->write("Hello!");
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    TEST_SERVER_MSG();
+    TEST_SERVER_MSG();
+
+}

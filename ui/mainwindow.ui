@@ -104,6 +104,19 @@
       <zorder>userLabel</zorder>
       <zorder>loginBtn</zorder>
      </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>260</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>send</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

@@ -20,6 +20,8 @@ public:
     QJsonObject orderToJSONObject(const Order* order) const;
     Order* orderFromJSONObject(const QJsonObject &JSONObject) const;
 
+    QJsonDocument toJSONdocument(const QByteArray& message);
+
 
 
 signals:

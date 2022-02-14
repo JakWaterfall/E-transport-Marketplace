@@ -57,7 +57,20 @@ Order * MessageParser::orderFromJSONObject(const QJsonObject &JSONObject) const
                     JSONObject["fragile"].toBool(),
                     JSONObject["type"].toString(),
                     QDateTime::fromString(JSONObject["creationDate"].toString()),
-                    JSONObject["ID"].toString());
+            JSONObject["ID"].toString());
+}
+
+QJsonDocument MessageParser::toJSONdocument(const QByteArray &message)
+{
+    // check if fromJSON worked
+    QJsonParseError * errorCode = nullptr;
+    QJsonDocument document = QJsonDocument::fromJson(message, errorCode);
+    if(document.isNull())
+    {
+        // emit failure
+        qDebug() << errorCode->errorString();
+    }
+    return document;
 }
 
 
