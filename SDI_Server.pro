@@ -18,11 +18,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += headers/
 
 SOURCES += \
-    src/accountcontroller.cpp \
+    src/accountmanager.cpp \
     src/connection.cpp \
-    src/context.cpp \
+    src/controller.cpp \
     src/serverbroker.cpp \
-    src/shippercontext.cpp \
     src/broker.cpp \
     src/forwarder.cpp \
     src/messageparser.cpp \
@@ -31,6 +30,7 @@ SOURCES += \
     src/server.cpp \
     src/main_server.cpp \
     src/shipper.cpp \
+    src/shippercontroller.cpp \
     src/user.cpp
 
 # Default rules for deployment.
@@ -39,16 +39,16 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    headers/accountcontroller.h \
+    headers/accountmanager.h \
     headers/connection.h \
-    headers/context.h \
     headers/broker.h \
+    headers/controller.h \
     headers/forwarder.h \
     headers/messageparser.h \
     headers/order.h \
     headers/ordercontract.h \
     headers/server.h \
     headers/shipper.h \
+    headers/shippercontroller.h \
     headers/user.h \
-    headers/serverbroker.h \
-    headers/shippercontext.h
+    headers/serverbroker.h

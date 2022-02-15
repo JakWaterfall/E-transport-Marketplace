@@ -5,11 +5,11 @@
 #include <QTcpSocket>
 #include "serverbroker.h"
 
-class Context : public QObject
+class Controller : public QObject
 {
     Q_OBJECT
 public:
-    explicit Context(ServerBroker* broker, QObject *parent = nullptr);
+    explicit Controller(ServerBroker* broker, QObject *parent = nullptr);
 
 signals:
 

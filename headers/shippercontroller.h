@@ -1,14 +1,14 @@
 #ifndef SHIPPERCONTEXT_H
 #define SHIPPERCONTEXT_H
 
-#include "context.h"
+#include "controller.h"
 #include "shipper.h"
 
-class ShipperContext : public Context
+class ShipperController : public Controller
 {
     Q_OBJECT
 public:
-    ShipperContext(Shipper* user, ServerBroker* broker, QObject *parent = nullptr);
+    ShipperController(Shipper* user, ServerBroker* broker, QObject *parent = nullptr);
     // make new order? put it in shipper class?
     //
 

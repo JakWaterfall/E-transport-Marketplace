@@ -1,7 +1,7 @@
 #include "connection.h"
 
 Connection::Connection(QTcpSocket *socket, QMap<QString, OrderContract> *marketplace, QObject *parent)
-    : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), context(nullptr), accountController(new AccountController(this))
+    : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), context(nullptr), accountController(new AccountManager(this))
 {
     qDebug() << "connection created";
     connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
@@ -29,12 +29,12 @@ void Connection::logIn(QString email, QString password)
     {
         switch (accountController->getUserType(email))
         {
-        case AccountController::UserType::ShipperUser:
-            context = new ShipperContext(accountController->getShipper(email, password), broker, this);
+        case AccountManager::UserType::ShipperUser:
+            context = new ShipperController(accountController->getShipper(email, password), broker, this);
             break;
             // change this to forwarder context
-        case AccountController::UserType::ForwarderUser:
-            context = new ShipperContext(accountController->getShipper(email, password), broker, this);
+        case AccountManager::UserType::ForwarderUser:
+            context = new ShipperController(accountController->getShipper(email, password), broker, this);
             break;
         }
         changeSlotsAndSignalsToContext();

@@ -5,7 +5,7 @@
 #include <shipper.h>
 #include <forwarder.h>
 
-class AccountController : public QObject
+class AccountManager : public QObject
 {
     Q_OBJECT
 
@@ -13,7 +13,7 @@ public:
     enum UserType {ShipperUser, ForwarderUser, DriverUser};
 
 public:
-    explicit AccountController(QObject *parent = nullptr);
+    explicit AccountManager(QObject *parent = nullptr);
     bool verifyLogIn(QString email, QString password);
     UserType getUserType(QString email) const;
     Shipper* getShipper(QString email, QString password);

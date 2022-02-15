@@ -8,8 +8,8 @@
 #include "ordercontract.h"
 #include "shipper.h"
 #include "forwarder.h"
-#include "shippercontext.h"
-#include "accountcontroller.h"
+#include "shippercontroller.h"
+#include "accountmanager.h"
 #include "serverbroker.h"
 
 class Connection : public QObject
@@ -32,8 +32,8 @@ private slots:
 private:
     ServerBroker* broker;
     QMap<QString, OrderContract>* marketplace;
-    Context* context;
-    AccountController* accountController;
+    Controller* context;
+    AccountManager* accountController;
 };
 
 #endif // CONNECTION_H
