@@ -13,7 +13,7 @@ public:
 
 signals:
 
-private:
+protected:
     ServerBroker* broker;
 };
 

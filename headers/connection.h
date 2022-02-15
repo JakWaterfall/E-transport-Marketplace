@@ -19,6 +19,9 @@ public:
     explicit Connection(QTcpSocket* socket, QMap<QString, OrderContract>* marketplace, QObject *parent = nullptr);
     ~Connection();
 
+private:
+    void changeSlotsAndSignalsToContext();
+
 signals:
     void disconnected(Connection* connection);
 

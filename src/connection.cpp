@@ -17,24 +17,34 @@ Connection::~Connection()
         context->deleteLater();
 }
 
+void Connection::changeSlotsAndSignalsToContext()
+{
+    disconnect(broker, &ServerBroker::logInAttempt, this, &Connection::logIn);
+    // maybe disconnect broker disconnect here? unless it can save conext data to database before context is deleted?
+}
+
 void Connection::logIn(QString email, QString password)
 {
-//    if(accountController->verifyLogIn(email, password))
-//    {
-//        switch (accountController->getUserType(email))
-//        {
-//        case AccountController::UserType::ShipperUser:
-//            context = new ShipperContext(accountController->getShipper(email, password), broker, this);
-//            break;
-//        }
+    if(accountController->verifyLogIn(email, password))
+    {
+        switch (accountController->getUserType(email))
+        {
+        case AccountController::UserType::ShipperUser:
+            context = new ShipperContext(accountController->getShipper(email, password), broker, this);
+            break;
+            // change this to forwarder context
+        case AccountController::UserType::ForwarderUser:
+            context = new ShipperContext(accountController->getShipper(email, password), broker, this);
+            break;
+        }
+        changeSlotsAndSignalsToContext();
+    }
+    else
+    {
+        // repost error to user
+        //broker->sendErrorMessage(accountController->getError());
 
-//    }
-//    else
-//    {
-//        // repost error to user
-//        broker->sendErrorMessage(accountController->getError());
-
-    //    }
+    }
 }
 
 void Connection::brokerDisconnected()
