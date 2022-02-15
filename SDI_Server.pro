@@ -39,6 +39,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    headers/PersonalDetails.h \
     headers/accountmanager.h \
     headers/connection.h \
     headers/broker.h \

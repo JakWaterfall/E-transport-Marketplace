@@ -24,12 +24,12 @@ AccountManager::UserType AccountManager::getUserType(QString email) const
     }
 }
 
-Shipper *AccountManager::getShipper(QString email, QString password)
+Shipper *AccountManager::createShipper(QString email, QString password)
 {
-    return new Shipper("Jak", "Shipper", "J@email.com", "1234", "123 address lane");
+    return new Shipper("Jak", "J@email.com", "1234", "123 address lane");
 }
 
-Forwarder *AccountManager::getForwarder(QString email, QString password)
+Forwarder *AccountManager::createForwarder(QString email, QString password)
 {
-    return new Forwarder("Liam", "Forwarder", "L@email.com", "1234", "321 address lane");
+    return new Forwarder("Liam", "L@email.com", "1234", "321 address lane");
 }

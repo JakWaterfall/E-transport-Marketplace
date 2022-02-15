@@ -38,7 +38,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLabel" name="userLabel">
+        <widget class="QLabel" name="emailLabel">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -52,7 +52,7 @@
           </size>
          </property>
          <property name="text">
-          <string>User Name</string>
+          <string>Email</string>
          </property>
          <property name="scaledContents">
           <bool>false</bool>
@@ -64,12 +64,12 @@
           <bool>false</bool>
          </property>
          <property name="buddy">
-          <cstring>usernameInput</cstring>
+          <cstring>emailInput</cstring>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="usernameInput"/>
+        <widget class="QLineEdit" name="emailInput"/>
        </item>
        <item>
         <widget class="QLabel" name="passLabel">
@@ -98,24 +98,11 @@
         </widget>
        </item>
       </layout>
-      <zorder>usernameInput</zorder>
+      <zorder>emailInput</zorder>
       <zorder>passInput</zorder>
       <zorder>passLabel</zorder>
-      <zorder>userLabel</zorder>
+      <zorder>emailLabel</zorder>
       <zorder>loginBtn</zorder>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>260</y>
-        <width>89</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>send</string>
-      </property>
      </widget>
     </widget>
    </widget>
@@ -133,11 +120,11 @@
     <property name="title">
      <string>file</string>
     </property>
-    <addaction name="actionqwe"/>
+    <addaction name="logOutAction"/>
    </widget>
    <addaction name="menufile"/>
   </widget>
-  <action name="actionqwe">
+  <action name="logOutAction">
    <property name="text">
     <string>Log Out</string>
    </property>

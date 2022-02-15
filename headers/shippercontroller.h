@@ -9,8 +9,10 @@ class ShipperController : public Controller
     Q_OBJECT
 public:
     ShipperController(Shipper* user, ServerBroker* broker, QObject *parent = nullptr);
-    // make new order? put it in shipper class?
-    //
+    ~ShipperController();
+
+private slots:
+    void makeNewOrder();
 
 private:
     Shipper* user;

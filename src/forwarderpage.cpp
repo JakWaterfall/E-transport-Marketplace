@@ -24,7 +24,7 @@ ForwarderPage::~ForwarderPage()
 
 void ForwarderPage::setupBidPage(OrderContract *contract)
 {
-    ui->shipperNameLineEdit->setText(contract->getSellerName());
+    //ui->shipperNameLineEdit->setText(contract->getSellerName());
     ui->shipperEmailLineEdit->setText(contract->getSellerEmail());
     const Order * order = contract->getOrder();
     ui->typeLineEdit->setText(order->getType());
@@ -51,7 +51,7 @@ void ForwarderPage::on_orderMarketList_itemDoubleClicked(QListWidgetItem *item)
 
 void ForwarderPage::onNewOrderContract(OrderContract *contract)
 {
-    marketOrderContracts.insert(contract->getOrder()->getID(), contract);
+    //marketOrderContracts.insert(contract->getOrder()->getID(), contract);
     buildListWidget(ui->orderMarketList, marketOrderContracts);
 }
 

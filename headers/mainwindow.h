@@ -2,9 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtMqtt/QtMqtt>
 #include <QtCore/QDateTime>
-#include <QtMqtt/QMqttClient>
 #include <QtWidgets/QMessageBox>
 #include <QDebug>
 #include <QTcpSocket>
@@ -12,6 +10,7 @@
 #include "sellerpage.h"
 #include "forwarderpage.h"
 #include "shipper.h"
+#include "clientbroker.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,16 +27,14 @@ public:
 private slots:
     void on_loginBtn_clicked();
     void on_actionqwe_triggered();
-    void TEST_SERVER_MSG();
 
     void on_pushButton_clicked();
 
 private:
 
     Ui::MainWindow *ui;
-//    QMqttClient *mqttClient;
     QWidget * mainPage = nullptr;
-    QTcpSocket* socket;
+    ClientBroker* broker;
 
     const int loginIndex = 0;
     const int mainPageIndex = 1;

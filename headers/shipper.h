@@ -10,15 +10,11 @@
 class Shipper : public User
 {
 public:
-    Shipper(QString firstName, QString lastName, QString email, QString password, QString address);
+    Shipper(QString name, QString email, QString password, QString address);
     ~Shipper();
 
-    void addPendingOrder(OrderContract* contract);
-    const QMap<QString, OrderContract*>& getPendingOrders();
-
 private:
-    QMap<QString, OrderContract*> pendingOrders;
-    QMap<QString, OrderContract*> compleatedOrders;
+
 };
 
 #endif // SHIPPER_H

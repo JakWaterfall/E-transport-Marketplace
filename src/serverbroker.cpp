@@ -14,6 +14,7 @@ void ServerBroker::sendErrorMessage(QString message)
 
 void ServerBroker::processLogIn(QJsonDocument messageJSON)
 {
+    qDebug() << "processing log in";
     QString email = messageJSON["email"].toString();
     QString password = messageJSON["password"].toString();
     emit(logInAttempt(email, password));
@@ -21,27 +22,39 @@ void ServerBroker::processLogIn(QJsonDocument messageJSON)
 
 void ServerBroker::processMessage()
 {
-    QString hello = socket->readAll();
-    qDebug() << hello;
-    qDebug() << hello.size();
+//    QString hello = socket->readAll();
+//    qDebug() << hello;
+//    qDebug() << hello.size();
 
+    qDebug() << "processing message";
 
-//    QByteArray message = socket->readAll();
-//    QJsonDocument messageJSON = parser.toJSONdocument(message);
-//    QString header = messageJSON["header"].toString();
+    QDataStream inStream(socket);
+    inStream.startTransaction();
 
-//    if(header == "login")
-//    {
-//        processLogIn(messageJSON);
-//    }
-//    else if (header == "register")
-//    {
+    QByteArray message;
+    inStream >> message;
 
-//    }
-//    else
-//    {
+    if (!inStream.commitTransaction())
+    {
+        qDebug() << "waiting for more data";
+        return;
+    }
 
-//    }
+    QJsonDocument messageJSON = parser.toJSONdocument(message);
+    QString header = messageJSON["header"].toString();
+
+    if(header == "login")
+    {
+        processLogIn(messageJSON);
+    }
+    else if (header == "register")
+    {
+
+    }
+    else
+    {
+
+    }
 }
 
 void ServerBroker::socketDisconnected()

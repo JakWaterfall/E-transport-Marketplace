@@ -10,15 +10,15 @@
 class Forwarder : public User
 {
 public:
-    Forwarder(QString firstName, QString lastName, QString email, QString password, QString address);
+    Forwarder(QString name, QString email, QString password, QString address);
     ~Forwarder();
 
-    void addPendingOrder(OrderContract* contract);
-    const QMap<QString, OrderContract*>& getPendingOrders();
+//    void addPendingOrder(OrderContract* contract);
+//    const QMap<QString, OrderContract*>& getPendingOrders();
 
 private:
-    QMap<QString, OrderContract*> pendingOrders;
-    QMap<QString, OrderContract*> compleatedOrders;
+//    QMap<QString, OrderContract*> pendingOrders;
+//    QMap<QString, OrderContract*> compleatedOrders;
 };
 
 #endif // FORWARDER_H

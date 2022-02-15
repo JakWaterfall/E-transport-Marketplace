@@ -1,7 +1,7 @@
 #include "connection.h"
 
 Connection::Connection(QTcpSocket *socket, QMap<QString, OrderContract> *marketplace, QObject *parent)
-    : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), context(nullptr), accountController(new AccountManager(this))
+    : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), controller(nullptr), accountManager(new AccountManager(this))
 {
     qDebug() << "connection created";
     connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
@@ -12,9 +12,9 @@ Connection::~Connection()
 {
     qDebug() << "Connection destroyed";
     broker->deleteLater();
-    accountController->deleteLater();
-    if (context)
-        context->deleteLater();
+    accountManager->deleteLater();
+    if (controller)
+        controller->deleteLater();
 }
 
 void Connection::changeSlotsAndSignalsToContext()
@@ -25,16 +25,17 @@ void Connection::changeSlotsAndSignalsToContext()
 
 void Connection::logIn(QString email, QString password)
 {
-    if(accountController->verifyLogIn(email, password))
+    qDebug() << "Log in attempt";
+    if(accountManager->verifyLogIn(email, password))
     {
-        switch (accountController->getUserType(email))
+        switch (accountManager->getUserType(email))
         {
         case AccountManager::UserType::ShipperUser:
-            context = new ShipperController(accountController->getShipper(email, password), broker, this);
+            controller = new ShipperController(accountManager->createShipper(email, password), broker, this);
             break;
-            // change this to forwarder context
+            // change this to forwarder controller
         case AccountManager::UserType::ForwarderUser:
-            context = new ShipperController(accountController->getShipper(email, password), broker, this);
+            controller = new ShipperController(accountManager->createShipper(email, password), broker, this);
             break;
         }
         changeSlotsAndSignalsToContext();

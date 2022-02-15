@@ -16,8 +16,8 @@ public:
     explicit AccountManager(QObject *parent = nullptr);
     bool verifyLogIn(QString email, QString password);
     UserType getUserType(QString email) const;
-    Shipper* getShipper(QString email, QString password);
-    Forwarder*  getForwarder(QString email, QString password);
+    Shipper* createShipper(QString email, QString password);
+    Forwarder*  createForwarder(QString email, QString password);
     const QString getError();
 signals:
 

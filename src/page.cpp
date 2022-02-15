@@ -15,8 +15,8 @@ void Page::buildListWidget(QListWidget * list, const QMap<QString, OrderContract
     list->clear();
     for (auto& contract : contracts)
     {
-        QListWidgetItem* item = new QListWidgetItem(contract->getSellerName() + " " + contract->getSellerEmail(), list);
-        item->setData(Qt::UserRole, contract->getOrder()->getID());
+        //QListWidgetItem* item = new QListWidgetItem(contract->getSellerName() + " " + contract->getSellerEmail(), list);
+        //item->setData(Qt::UserRole, contract->getOrder()->getID());
     }
     list->sortItems();
 }

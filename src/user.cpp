@@ -1,7 +1,7 @@
 #include "user.h"
 
-User::User(QString firstName, QString lastName, QString email, QString password, QString address)
-    : firstName(firstName), lastName(lastName), email(email), password(password), address(address)
+User::User(QString name, QString email, QString password, QString address)
+    : name(name), email(email), password(password), address(address)
 {
 
 }
@@ -11,14 +11,9 @@ User::~User()
 
 }
 
-const QString &User::getFirstName()
+const QString &User::getName()
 {
-    return firstName;
-}
-
-const QString &User::getLastName()
-{
-    return lastName;
+    return name;
 }
 
 const QString &User::getEmail()
@@ -34,4 +29,14 @@ const QString &User::getPassword()
 const QString &User::getAddress()
 {
     return address;
+}
+
+const QVector<QString> User::getOrderIDs()
+{
+    return ordersIDs;
+}
+
+void User::insertOrderID(QString ID)
+{
+    ordersIDs.push_back(ID);
 }

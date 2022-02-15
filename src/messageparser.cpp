@@ -2,16 +2,16 @@
 
 MessageParser::MessageParser(QObject *parent) : QObject(parent)
 {
-
+    // change all string indexs to consts so they are only changed in one place
 }
 
 const QByteArray MessageParser::orderContractToJSON(const OrderContract *contract) const
 {
     QJsonObject orderObject = orderToJSONObject(contract->getOrder());
+
     QJsonObject contractObject;
-    contractObject["sellerName"] = contract->getSellerName();
+    contractObject["ID"] = contract->getID();
     contractObject["sellerEmail"] = contract->getSellerEmail();
-    contractObject["responceTopic"] = contract->getResponceTopic();
     contractObject["order"] = orderObject;
 
     return QJsonDocument(contractObject).toJson();
@@ -29,15 +29,13 @@ OrderContract *MessageParser::orderContractFromJSON(const QByteArray& JSON) cons
         return nullptr;
     }
     return new OrderContract(orderFromJSONObject(doc["order"].toObject()),
-                                                    doc["sellerName"].toString(),
                                                     doc["sellerEmail"].toString(),
-                                                    doc["responceTopic"].toString());
+                                                    doc["ID"].toString());
 }
 
 QJsonObject MessageParser::orderToJSONObject(const Order *order) const
 {
     QJsonObject JSON;
-    JSON["ID"] = order->getID();
     JSON["type"] = order->getType();
     JSON["weight"] = order->getWeight();
     JSON["dismensions"] = order->getDismensions();
@@ -56,8 +54,7 @@ Order * MessageParser::orderFromJSONObject(const QJsonObject &JSONObject) const
                     JSONObject["weight"].toInt(),
                     JSONObject["fragile"].toBool(),
                     JSONObject["type"].toString(),
-                    QDateTime::fromString(JSONObject["creationDate"].toString()),
-            JSONObject["ID"].toString());
+                    QDateTime::fromString(JSONObject["creationDate"].toString()));
 }
 
 QJsonDocument MessageParser::toJSONdocument(const QByteArray &message)
@@ -72,5 +69,16 @@ QJsonDocument MessageParser::toJSONdocument(const QByteArray &message)
     }
     return document;
 }
+
+const QByteArray MessageParser::logInAttemptToJSON(const QString email, const QString password)
+{
+    QJsonObject logInAttempt;
+    logInAttempt["header"] = "login";
+    logInAttempt["email"] = email;
+    logInAttempt["password"] = password;
+
+    return QJsonDocument(logInAttempt).toJson();
+}
+
 
 

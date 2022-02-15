@@ -2,26 +2,30 @@
 #define USER_H
 
 #include <QObject>
+#include <QVector>
 
 class User
 {
 public:
-    User(QString firstName, QString lastName, QString email, QString password, QString address);
+    User(QString name, QString email, QString password, QString address);
    ~User();
 
 public:
-    const QString& getFirstName();
-    const QString& getLastName();
+    const QString& getName();
     const QString& getEmail();
     const QString& getPassword();
     const QString& getAddress();
+    const QVector<QString> getOrderIDs();
+    void insertOrderID(QString ID);
 
 protected:
-    QString firstName;
-    QString lastName;
+    QString name;
     QString email;
     QString password; // ?? change this to only be in database ? encypted
     QString address;
+
+    QVector<QString> ordersIDs; // just the one?
+    //QVector<QString> completedOrdersIDs;
 };
 
 #endif // USER_H

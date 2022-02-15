@@ -5,3 +5,13 @@ ShipperController::ShipperController(Shipper* user, ServerBroker *broker, QObjec
     // send msg to client allowing them into shipper page
     // send user details and order ids they hold?
 }
+
+ShipperController::~ShipperController()
+{
+
+}
+
+void ShipperController::makeNewOrder()
+{
+
+}

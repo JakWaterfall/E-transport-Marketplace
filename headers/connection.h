@@ -32,8 +32,8 @@ private slots:
 private:
     ServerBroker* broker;
     QMap<QString, OrderContract>* marketplace;
-    Controller* context;
-    AccountManager* accountController;
+    Controller* controller;
+    AccountManager* accountManager;
 };
 
 #endif // CONNECTION_H

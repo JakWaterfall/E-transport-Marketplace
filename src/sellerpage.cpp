@@ -30,13 +30,13 @@ void SellerPage::onSellerSubmitBtn_clicked()
 {
     Order* order = new Order(ui->sourceEdit->text(), ui->destEdit->text(), ui->dimensionsEdit->text(), ui->weightSpinBox->value(),
                              ui->fragileCheckBox->isChecked(), ui->typeEdit->text());
-    OrderContract * contract = new OrderContract(order, user.getFirstName(), user.getEmail(), "responce/" + order->getID());
+    //OrderContract * contract = new OrderContract(order, user.getFirstName(), user.getEmail(), "responce/" + order->getID());
 
-    user.addPendingOrder(contract);
+   // user.addPendingOrder(contract);
 
-    broker.sendOrderToMarket(contract);
+    //broker.sendOrderToMarket(contract);
 
-    buildListWidget(ui->orderList, user.getPendingOrders());
+    //buildListWidget(ui->orderList, user.getPendingOrders());
 }
 
 
@@ -61,7 +61,7 @@ void SellerPage::on_orderList_itemDoubleClicked(QListWidgetItem *item)
 {
     QString orderID = item->data(Qt::UserRole).toString();
 
-    ui->buyerTextBox->insertPlainText(user.getPendingOrders().value(orderID)->getOrder()->getID() + "\n");
+    //ui->buyerTextBox->insertPlainText(user.getPendingOrders().value(orderID)->getOrder()->getID() + "\n");
 }
 
 void SellerPage::on_homeBtn_clicked()

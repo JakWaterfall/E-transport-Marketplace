@@ -22,9 +22,16 @@ public:
 
     QJsonDocument toJSONdocument(const QByteArray& message);
 
+    const QByteArray logInAttemptToJSON(const QString email, const QString password);
+
 
 
 signals:
+
+public:
+    const QString headerStr = "header";
+    const QString loginStr = "login";
+    const QString newOrderStr = "newOrder";
 
 };
 
