@@ -2,6 +2,7 @@
 
 Server::Server(QObject *parent) : QObject(parent)
 {
+    marketplace = new ThreadSafeMap<QString, OrderContract*>();
     tcpServer = new QTcpServer(this);
     if (tcpServer->listen(QHostAddress::Any, 1234))
     {
@@ -24,11 +25,10 @@ Server::~Server()
 
 void Server::newConnection()
 {
-    auto connection = new Connection(tcpServer->nextPendingConnection(), &marketplace, this);
+    auto connection = new Connection(tcpServer->nextPendingConnection(), marketplace, this);
     connect(connection, &Connection::disconnected, this, &Server::removeConnection);
     connections.push_back(connection);
     qDebug() << "new connection";
-
 }
 
 void Server::removeConnection(Connection *connection)

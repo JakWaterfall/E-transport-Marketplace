@@ -27,7 +27,7 @@ class SellerPage : public Page
     Q_OBJECT
 
 public:
-    explicit SellerPage(Shipper user, QWidget *parent = nullptr);
+    explicit SellerPage(ClientBroker* broker, QWidget *parent = nullptr);
     ~SellerPage();
 
 
@@ -43,9 +43,12 @@ private slots:
 
     void on_sendOrderScreenBtn_clicked();
 
+    void on_viewOrderScreenBtn_clicked();
+
+    void addOrderDetialsToOrderView(const QString& name, const QString& ID);
+
 private:
     Ui::SellerPage *ui;
-    Shipper user;
 };
 
 #endif // SELLERPAGE_H

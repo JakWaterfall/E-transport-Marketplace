@@ -1,24 +1,30 @@
 #include "sellerpage.h"
 #include "ui_sellerpage.h"
 
-SellerPage::SellerPage(Shipper user, QWidget *parent) :
-    Page(parent),
-    ui(new Ui::SellerPage),
-    user(user)
+#include "QStandardItemModel"
+
+SellerPage::SellerPage(ClientBroker *broker, QWidget *parent) :
+    Page(broker, parent),
+    ui(new Ui::SellerPage)
 {
     ui->setupUi(this);
 
     ui->sellerWindow->setCurrentIndex(0);
 
-    connect(broker.getClient(), &QMqttClient::messageReceived, this, &SellerPage::onMessageRecived);
     connect(ui->sellerSubmitBtn, &QPushButton::clicked, this, &SellerPage::onSellerSubmitBtn_clicked);
-
-
-    //connect(&broker, &Broker::newOrderContract, this, &SellerPage::onContractReceieved); // test buyer slot
+    connect(broker, &ClientBroker::pendingOrder, this, &SellerPage::addOrderDetialsToOrderView);
 
     //QListWidgetItem* item = new QListWidgetItem("item 1", ui->orderList, QListWidgetItem::UserType);
 //    item->setData(Qt::UserRole, s.c_str());
 //    ui->orderList->addItem("order1");
+
+//    QStandardItemModel* model = new QStandardItemModel(4,1);
+//    for (auto i = 0; i < 2; i++) {
+//        QStandardItem * itam = new QStandardItem(QString("Name: %0, ID: %1").arg("my order").arg("qweewqqweewq"));
+//        model->setItem(i, itam);
+//    }
+//    ui->listView->setModel(model);
+
 }
 
 SellerPage::~SellerPage()
@@ -30,20 +36,18 @@ void SellerPage::onSellerSubmitBtn_clicked()
 {
     Order* order = new Order(ui->sourceEdit->text(), ui->destEdit->text(), ui->dimensionsEdit->text(), ui->weightSpinBox->value(),
                              ui->fragileCheckBox->isChecked(), ui->typeEdit->text());
-    //OrderContract * contract = new OrderContract(order, user.getFirstName(), user.getEmail(), "responce/" + order->getID());
+    OrderContract * contract = new OrderContract(order);
 
-   // user.addPendingOrder(contract);
+    broker->sendOrderToMarketplace(contract);
 
-    //broker.sendOrderToMarket(contract);
-
-    //buildListWidget(ui->orderList, user.getPendingOrders());
+    delete contract;
 }
 
 
 void SellerPage::onMessageRecived(const QByteArray &message, const QMqttTopicName &topic)
 {
     const QString mes = "Received Topic: " + topic.name() + " Message: " + message + "\n";
-    ui->buyerTextBox->insertPlainText(mes);
+    //ui->buyerTextBox->insertPlainText(mes);
 }
 
 void SellerPage::subscribe()
@@ -72,4 +76,17 @@ void SellerPage::on_homeBtn_clicked()
 void SellerPage::on_sendOrderScreenBtn_clicked()
 {
     ui->sellerWindow->setCurrentIndex(1);
+}
+
+
+void SellerPage::on_viewOrderScreenBtn_clicked()
+{
+    ui->sellerWindow->setCurrentIndex(2);
+    ui->pendingOrdersListWidget->clear();
+    broker->buildOrderScreen();
+}
+
+void SellerPage::addOrderDetialsToOrderView(const QString &name, const QString &ID)
+{
+    addToListWidget(ui->pendingOrdersListWidget, name, ID);
 }

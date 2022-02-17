@@ -12,47 +12,88 @@ void ServerBroker::sendErrorMessage(QString message)
 
 }
 
+void ServerBroker::sendMessage(QByteArray message) const
+{
+    if (socket)
+    {
+        if (socket->isOpen())
+        {
+            QDataStream outStream(socket);
+            outStream << message;
+        }
+        else
+            qDebug() << "socket is not open";
+    }
+    else
+        qDebug() << "socket is not connected";
+}
+
 void ServerBroker::processLogIn(QJsonDocument messageJSON)
 {
     qDebug() << "processing log in";
-    QString email = messageJSON["email"].toString();
-    QString password = messageJSON["password"].toString();
+    auto [email, password] = parser.getLogInFromJSON(messageJSON);
     emit(logInAttempt(email, password));
+}
+
+void ServerBroker::processNewOrder(QJsonDocument orderContractJSON)
+{
+    OrderContract * contract = parser.orderContractFromJSON(orderContractJSON);
+    //OrderContract * contract = new OrderContract(new Order("wqe", "wqe", "wqe", 1, true, "wqe"));
+    //Order * order = new Order("wqe", "wqe", "wqe", 1, true, "wqe");
+    if (contract)
+    {
+        qDebug() << "real";
+    }
+    emit(newOrderContract(contract));
+}
+
+void ServerBroker::sendOrderDetails(const QString & header, const QString &name, const QString &ID)
+{
+    sendMessage(parser.orderDetailsToJSON(header, name, ID));
+}
+
+void ServerBroker::sendPageSignIn(const QString pageName) const
+{
+    sendMessage(parser.pageSignInToJSON(pageName));
 }
 
 void ServerBroker::processMessage()
 {
-//    QString hello = socket->readAll();
-//    qDebug() << hello;
-//    qDebug() << hello.size();
-
-    qDebug() << "processing message";
-
-    QDataStream inStream(socket);
-    inStream.startTransaction();
-
-    QByteArray message;
-    inStream >> message;
-
-    if (!inStream.commitTransaction())
+    while(socket->isReadable())
     {
-        qDebug() << "waiting for more data";
-        return;
-    }
+        qDebug() << "processing message";
 
-    QJsonDocument messageJSON = parser.toJSONdocument(message);
-    QString header = messageJSON["header"].toString();
+        QDataStream inStream(socket);
+        inStream.startTransaction();
 
-    if(header == "login")
-    {
-        processLogIn(messageJSON);
-    }
-    else if (header == "register")
-    {
+        QByteArray message;
+        inStream >> message;
 
-    }
-    else
-    {
+        if (!inStream.commitTransaction())
+        {
+            qDebug() << "waiting for more data";
+            return;
+        }
+
+        QJsonDocument messageJSON = parser.toJSONdocument(message);
+        QString header = messageJSON["header"].toString();
+
+        if(header == "login")
+        {
+            processLogIn(messageJSON);
+        }
+        else if (header == "register")
+        {
+
+        }
+        else if (header == "newOrder")
+        {
+            processNewOrder(messageJSON);
+        }
+        else if (header == "getShipperOrderScreen")
+        {
+            emit(requestForOrderDetails());
+        }
 
     }
 }

@@ -29,6 +29,7 @@ private slots:
     void on_actionqwe_triggered();
 
     void on_pushButton_clicked();
+    void signIntoPage(QString pageName);
 
 private:
 

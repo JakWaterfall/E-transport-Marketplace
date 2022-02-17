@@ -20,16 +20,17 @@ public:
     };
 
 public:
-    explicit OrderContract(Order* order, QString sellerEmail, QString _ID = nullptr, State state = State::onMarket, QObject *parent = nullptr);
+    explicit OrderContract(Order* order, QString _ID = nullptr, State state = State::onMarket, QObject *parent = nullptr);
     ~OrderContract();
 
     const QString& getID() const;
     const Order* getOrder() const;
-    const QString& getSellerEmail() const;
+    const QString& getShipperEmail() const;
     const QString& getForwarderEmail() const;
     double getFinalBid() const;
     const QString getState() const;
 
+    void setShipperEmail(const QString email);
     void setForwarderEmail(const QString email);
     void setForwarderBid(const double amount);
 
@@ -38,7 +39,7 @@ signals:
 private:
     QString ID;
     Order* order;
-    QString sellerEmail;
+    QString shipperEmail;
     QString forwarderEmail;
     QString driverEmail;
     double finalBid;

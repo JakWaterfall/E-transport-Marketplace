@@ -23,32 +23,9 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="homePage">
-    <widget class="QListWidget" name="orderList">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>410</y>
-       <width>501</width>
-       <height>91</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPlainTextEdit" name="buyerTextBox">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>310</y>
-       <width>501</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="sendOrderScreenBtn">
      <property name="geometry">
       <rect>
@@ -60,6 +37,19 @@
      </property>
      <property name="text">
       <string>Send New Order</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewOrderScreenBtn">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>160</y>
+       <width>121</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>View Orders</string>
      </property>
     </widget>
    </widget>
@@ -255,6 +245,28 @@
        </layout>
       </item>
      </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page">
+    <widget class="QListWidget" name="pendingOrdersListWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>721</width>
+       <height>271</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QListView" name="listView">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>250</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
     </widget>
    </widget>
   </widget>

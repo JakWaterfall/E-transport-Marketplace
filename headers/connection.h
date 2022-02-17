@@ -11,12 +11,13 @@
 #include "shippercontroller.h"
 #include "accountmanager.h"
 #include "serverbroker.h"
+#include "threadsafemap.h"
 
 class Connection : public QObject
 {
     Q_OBJECT
 public:
-    explicit Connection(QTcpSocket* socket, QMap<QString, OrderContract>* marketplace, QObject *parent = nullptr);
+    explicit Connection(QTcpSocket* socket, ThreadSafeMap<QString, OrderContract*>* marketplace, QObject *parent = nullptr);
     ~Connection();
 
 private:
@@ -31,7 +32,7 @@ private slots:
 
 private:
     ServerBroker* broker;
-    QMap<QString, OrderContract>* marketplace;
+    ThreadSafeMap<QString, OrderContract*>* marketplace;
     Controller* controller;
     AccountManager* accountManager;
 };

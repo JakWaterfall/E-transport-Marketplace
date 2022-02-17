@@ -1,6 +1,6 @@
 #include "connection.h"
 
-Connection::Connection(QTcpSocket *socket, QMap<QString, OrderContract> *marketplace, QObject *parent)
+Connection::Connection(QTcpSocket *socket, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent)
     : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), controller(nullptr), accountManager(new AccountManager(this))
 {
     qDebug() << "connection created";
@@ -31,11 +31,13 @@ void Connection::logIn(QString email, QString password)
         switch (accountManager->getUserType(email))
         {
         case AccountManager::UserType::ShipperUser:
-            controller = new ShipperController(accountManager->createShipper(email, password), broker, this);
+            controller = new ShipperController(accountManager->createShipper(email, password), broker, marketplace, this);
+            broker->sendPageSignIn("shipper");
             break;
             // change this to forwarder controller
         case AccountManager::UserType::ForwarderUser:
-            controller = new ShipperController(accountManager->createShipper(email, password), broker, this);
+            controller = new ShipperController(accountManager->createShipper(email, password), broker, marketplace, this);
+            broker->sendPageSignIn("forwarder");
             break;
         }
         changeSlotsAndSignalsToContext();

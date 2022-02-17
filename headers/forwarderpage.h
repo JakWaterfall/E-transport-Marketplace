@@ -18,7 +18,7 @@ class ForwarderPage : public Page
     Q_OBJECT
 
 public:
-    explicit ForwarderPage(Forwarder user, QWidget *parent = nullptr);
+    explicit ForwarderPage(ClientBroker* broker, QWidget *parent = nullptr);
     ~ForwarderPage();
 
 private:
@@ -32,8 +32,7 @@ private slots:
 
 private:
     Ui::ForwarderPage *ui;
-    QMap<QString, OrderContract*> marketOrderContracts;
-    Forwarder user;
+//    QMap<QString, OrderContract*> marketOrderContracts;
 
     const int homePage = 0;
     const int marketPage = 1;

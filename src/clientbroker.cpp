@@ -16,6 +16,16 @@ void ClientBroker::logInAttempt(QString email, QString password)
     sendMessage(parser.logInAttemptToJSON(email, password));
 }
 
+void ClientBroker::sendOrderToMarketplace(const OrderContract *orderContract)
+{
+    sendMessage(parser.orderContractToJSON(orderContract));
+}
+
+void ClientBroker::buildOrderScreen()
+{
+    sendMessage(parser.headerMessageToJSON("getShipperOrderScreen"));
+}
+
 void ClientBroker::sendMessage(QByteArray message)
 {
     if (socket)
@@ -32,9 +42,54 @@ void ClientBroker::sendMessage(QByteArray message)
         qDebug() << "socket is not connected";
 }
 
+void ClientBroker::processPageSignIn(QJsonDocument pageSignInJSON)
+{
+    QString pageName = pageSignInJSON["pageName"].toString();
+    emit(signInToPage(pageName));
+}
+
+void ClientBroker::processPendingOrders(QJsonDocument pendingOrdersJSON)
+{
+    auto[name, ID] = parser.orderDetailsFromJSON(pendingOrdersJSON);
+
+    emit(pendingOrder(name, ID));
+}
+
 void ClientBroker::processMessage()
 {
+    while (socket->isReadable())
+    {
+        qDebug() << "processing message";
 
+        QDataStream inStream(socket);
+        inStream.startTransaction();
+
+        QByteArray message;
+        inStream >> message;
+
+        if (!inStream.commitTransaction())
+        {
+            qDebug() << "waiting for more data";
+            return;
+        }
+
+        QJsonDocument messageJSON = parser.toJSONdocument(message);
+        QString header = messageJSON["header"].toString();
+
+        if(header == "pageSignIn")
+        {
+            processPageSignIn(messageJSON);
+
+        }
+        else if (header == "register")
+        {
+
+        }
+        else if (header == "pendingOrders")
+        {
+            processPendingOrders(messageJSON);
+        }
+    }
 }
 
 void ClientBroker::socketDisconnected()

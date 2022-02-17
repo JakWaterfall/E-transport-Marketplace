@@ -4,17 +4,18 @@
 #include <QWidget>
 #include <QListWidgetItem>
 
-#include "broker.h"
+#include "clientbroker.h"
 #include "ordercontract.h"
 
 class Page : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Page(QWidget *parent = nullptr);
+    explicit Page(ClientBroker* broker, QWidget *parent = nullptr);
 
 protected:
     void buildListWidget(QListWidget * list, const QMap<QString, OrderContract*> &contracts);
+    void addToListWidget(QListWidget * list, const QString& name, const QString& ID);
 
 private slots:
     void onErrorOccurred(const QString &message);
@@ -22,7 +23,7 @@ private slots:
 signals:
 
 protected:
-    Broker broker;
+    ClientBroker* broker;
 };
 
 #endif // PAGE_H

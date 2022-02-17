@@ -1,7 +1,7 @@
 #include "ordercontract.h"
 
-OrderContract::OrderContract(Order* order, QString sellerEmail, QString _ID, State state, QObject *parent)
-    : QObject(parent), order(order), sellerEmail(sellerEmail), state(state)
+OrderContract::OrderContract(Order* order, QString _ID, State state, QObject *parent)
+    : QObject(parent), order(order), state(state)
 {
     if (_ID == nullptr)
     {
@@ -30,9 +30,9 @@ const Order* OrderContract::getOrder() const
     return order;
 }
 
-const QString &OrderContract::getSellerEmail() const
+const QString &OrderContract::getShipperEmail() const
 {
-    return sellerEmail;
+    return shipperEmail;
 }
 
 const QString &OrderContract::getForwarderEmail() const
@@ -43,6 +43,11 @@ const QString &OrderContract::getForwarderEmail() const
 double OrderContract::getFinalBid() const
 {
     return finalBid;
+}
+
+void OrderContract::setShipperEmail(const QString email)
+{
+    shipperEmail = email;
 }
 
 void OrderContract::setForwarderEmail(const QString email)

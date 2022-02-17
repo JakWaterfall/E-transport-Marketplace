@@ -15,9 +15,13 @@ public:
     explicit ClientBroker(QObject *parent = nullptr);
 
     void logInAttempt(QString email, QString password);
+    void sendOrderToMarketplace(const OrderContract *orderContract);
+    void buildOrderScreen();
 
 private:
     void sendMessage(QByteArray message);
+    void processPageSignIn(QJsonDocument pageSignInJSON);
+    void processPendingOrders(QJsonDocument pendingOrdersJSON);
 
 private slots:
     void processMessage();
@@ -28,6 +32,8 @@ signals:
     void logInAsForwarder();
     void logInAsDriver();
     void disconnected();
+    void signInToPage(QString pageName);
+    void pendingOrder(const QString& name, const QString& ID);
 
 private:
     QTcpSocket* socket;

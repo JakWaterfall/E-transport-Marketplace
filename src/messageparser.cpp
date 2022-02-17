@@ -10,27 +10,17 @@ const QByteArray MessageParser::orderContractToJSON(const OrderContract *contrac
     QJsonObject orderObject = orderToJSONObject(contract->getOrder());
 
     QJsonObject contractObject;
+    contractObject["header"] = "newOrder";
     contractObject["ID"] = contract->getID();
-    contractObject["sellerEmail"] = contract->getSellerEmail();
     contractObject["order"] = orderObject;
 
     return QJsonDocument(contractObject).toJson();
 }
 
-OrderContract *MessageParser::orderContractFromJSON(const QByteArray& JSON) const
+OrderContract * MessageParser::orderContractFromJSON(const QJsonDocument &orderContractJSON) const
 {
-    // check if fromJSON worked
-    QJsonParseError * errorCode = nullptr;
-    QJsonDocument doc = QJsonDocument::fromJson(JSON, errorCode);
-    if(doc.isNull())
-    {
-        // emit failure
-        qDebug() << errorCode->errorString();
-        return nullptr;
-    }
-    return new OrderContract(orderFromJSONObject(doc["order"].toObject()),
-                                                    doc["sellerEmail"].toString(),
-                                                    doc["ID"].toString());
+    return new OrderContract(orderFromJSONObject(orderContractJSON["order"].toObject()),
+                                                    orderContractJSON["ID"].toString());
 }
 
 QJsonObject MessageParser::orderToJSONObject(const Order *order) const
@@ -80,5 +70,45 @@ const QByteArray MessageParser::logInAttemptToJSON(const QString email, const QS
     return QJsonDocument(logInAttempt).toJson();
 }
 
+std::tuple<QString, QString> MessageParser::getLogInFromJSON(QJsonDocument messageJSON)
+{
+    QString email = messageJSON["email"].toString();
+    QString password = messageJSON["password"].toString();
+    return  {email, password};
+}
+
+const QByteArray MessageParser::pageSignInToJSON(const QString pageName) const
+{
+    QJsonObject pageSignIn;
+    pageSignIn["header"] = "pageSignIn";
+    pageSignIn["pageName"] = pageName;
+
+    return QJsonDocument(pageSignIn).toJson();
+}
+
+const QByteArray MessageParser::headerMessageToJSON(const QString headerMessage) const
+{
+    QJsonObject headerJSON;
+    headerJSON["header"] = headerMessage;
+
+    return QJsonDocument(headerJSON).toJson();
+}
+
+const QByteArray MessageParser::orderDetailsToJSON(const QString header, const QString name, const QString ID) const
+{
+    QJsonObject orderDetailsJSON;
+    orderDetailsJSON["header"] = header;
+    orderDetailsJSON["name"] = name;
+    orderDetailsJSON["ID"] = ID;
+
+    return QJsonDocument(orderDetailsJSON).toJson();
+}
+
+std::tuple<QString, QString> MessageParser::orderDetailsFromJSON(QJsonDocument &messageJSON)
+{
+    QString name = messageJSON["name"].toString();
+    QString ID = messageJSON["ID"].toString();
+    return  {name, ID};
+}
 
 

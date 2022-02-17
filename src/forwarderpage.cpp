@@ -1,20 +1,19 @@
 #include "forwarderpage.h"
 #include "ui_forwarderpage.h"
 
-ForwarderPage::ForwarderPage(Forwarder user, QWidget *parent) :
-    Page(parent),
-    ui(new Ui::ForwarderPage),
-    user(user)
+ForwarderPage::ForwarderPage(ClientBroker *broker, QWidget *parent) :
+    Page(broker, parent),
+    ui(new Ui::ForwarderPage)
 {
     ui->setupUi(this);
 
     ui->forwarderWindow->setCurrentIndex(0);
 
 //    broker.subscribeToTopic("OrderMarket/");
-    connect(broker.getClient(), &QMqttClient::connected, this, [this]() {
-        broker.subscribeToTopic("OrderMarket/");
-    });
-    connect(&broker, &Broker::newOrderContract, this, &ForwarderPage::onNewOrderContract);
+//    connect(broker.getClient(), &QMqttClient::connected, this, [this]() {
+//        broker.subscribeToTopic("OrderMarket/");
+//    });
+//    connect(&broker, &Broker::newOrderContract, this, &ForwarderPage::onNewOrderContract);
 }
 
 ForwarderPage::~ForwarderPage()
@@ -25,7 +24,7 @@ ForwarderPage::~ForwarderPage()
 void ForwarderPage::setupBidPage(OrderContract *contract)
 {
     //ui->shipperNameLineEdit->setText(contract->getSellerName());
-    ui->shipperEmailLineEdit->setText(contract->getSellerEmail());
+    ui->shipperEmailLineEdit->setText(contract->getShipperEmail());
     const Order * order = contract->getOrder();
     ui->typeLineEdit->setText(order->getType());
     ui->dimensionsLineEdit->setText(order->getDismensions());
@@ -44,15 +43,15 @@ void ForwarderPage::on_homeScreenBtn_clicked()
 
 void ForwarderPage::on_orderMarketList_itemDoubleClicked(QListWidgetItem *item)
 {
-    QString orderID = item->data(Qt::UserRole).toString();
-    OrderContract* contract = marketOrderContracts[orderID];
-    setupBidPage(contract);
+//    QString orderID = item->data(Qt::UserRole).toString();
+//    OrderContract* contract = marketOrderContracts[orderID];
+//    setupBidPage(contract);
 }
 
 void ForwarderPage::onNewOrderContract(OrderContract *contract)
 {
     //marketOrderContracts.insert(contract->getOrder()->getID(), contract);
-    buildListWidget(ui->orderMarketList, marketOrderContracts);
+//    buildListWidget(ui->orderMarketList, marketOrderContracts);
 }
 
 void ForwarderPage::on_orderMarketBtn_clicked()

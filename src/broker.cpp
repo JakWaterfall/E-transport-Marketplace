@@ -59,8 +59,8 @@ void Broker::onMessageRecived(const QByteArray &message, const QMqttTopicName &t
 {
     //maybe do isValid()?
 
-    if (topic.name() == "OrderMarket/")
-        emit(newOrderContract(JSONParser.orderContractFromJSON(message))); // doing this will parse the message evertime even if its not needed
+    //if (topic.name() == "OrderMarket/")
+        //emit(newOrderContract(JSONParser.orderContractFromJSON(message))); // doing this will parse the message evertime even if its not needed
                                                                            // emit the byte array and if a page wants it they can parse it themselfs
 }
 

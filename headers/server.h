@@ -11,6 +11,7 @@
 #include "ordercontract.h"
 #include "broker.h"
 #include "connection.h"
+#include "threadsafemap.h"
 
 class Server : public QObject
 {
@@ -27,8 +28,7 @@ signals:
 
 
 private:
-    QMap<QString, OrderContract> marketplace;
-    //Broker broker;
+    ThreadSafeMap<QString, OrderContract*>* marketplace;
     QTcpServer* tcpServer;
     QVector<Connection*> connections;
 };

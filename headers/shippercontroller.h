@@ -3,16 +3,18 @@
 
 #include "controller.h"
 #include "shipper.h"
+#include "ordercontract.h"
 
 class ShipperController : public Controller
 {
     Q_OBJECT
 public:
-    ShipperController(Shipper* user, ServerBroker* broker, QObject *parent = nullptr);
+    ShipperController(Shipper* user, ServerBroker* broker, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent = nullptr);
     ~ShipperController();
 
 private slots:
-    void makeNewOrder();
+    void makeNewOrder(OrderContract * orderContract);
+    void sendOrderDetails();
 
 private:
     Shipper* user;

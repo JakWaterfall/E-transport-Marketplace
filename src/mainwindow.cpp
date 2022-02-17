@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(loginIndex);
 
     broker = new ClientBroker();
+
+    connect(broker, &ClientBroker::signInToPage, this, &MainWindow::signIntoPage);
 }
 
 MainWindow::~MainWindow()
@@ -24,16 +26,7 @@ void MainWindow::on_loginBtn_clicked()
     broker->logInAttempt(ui->emailInput->text(), ui->passInput->text());
     // blank password on attempt.
 
-//    if (ui->usernameInput->text() == "q")
-//    {
-//        mainPage = new ForwarderPage(Forwarder("Bill", "Bill@email.com", "qwe", "123 church road"), this);
-//    }
-//    else
-//    {
-//        mainPage = new SellerPage(Shipper("Jak", "j@email.com", "qwe", "123 church road"), this);
-//    }
-//    ui->stackedWidget->insertWidget(mainPageIndex, mainPage);
-//    ui->stackedWidget->setCurrentIndex(mainPageIndex);
+
 }
 
 void MainWindow::on_actionqwe_triggered()
@@ -50,4 +43,22 @@ void MainWindow::on_actionqwe_triggered()
 void MainWindow::on_pushButton_clicked()
 {
 
+}
+
+void MainWindow::signIntoPage(QString pageName)
+{
+        if (pageName == "shipper")
+        {
+            mainPage = new SellerPage(broker, this);
+        }
+        else if (pageName == "forwarder")
+        {
+            mainPage = new ForwarderPage(broker, this);
+        }
+        else
+        {
+            // error?
+        }
+        ui->stackedWidget->insertWidget(mainPageIndex, mainPage);
+        ui->stackedWidget->setCurrentIndex(mainPageIndex);
 }

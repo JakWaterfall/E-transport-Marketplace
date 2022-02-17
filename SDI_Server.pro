@@ -1,7 +1,7 @@
 QT +=  network mqtt
 QT -= gui
 
-CONFIG += c++11 console
+CONFIG += c++17 console
 CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
@@ -52,4 +52,5 @@ HEADERS += \
     headers/shipper.h \
     headers/shippercontroller.h \
     headers/user.h \
-    headers/serverbroker.h
+    headers/serverbroker.h \
+    threadsafemap.h

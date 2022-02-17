@@ -13,9 +13,14 @@ class ServerBroker : public QObject
 public:
     explicit ServerBroker(QTcpSocket* socket, QObject *parent = nullptr);
     void sendErrorMessage(QString message);
+    void sendPageSignIn(const QString pageName) const;
+    void sendOrderDetails(const QString &header, const QString& name, const QString& ID);
 
 private:
+    void sendMessage(QByteArray message) const;
     void processLogIn(QJsonDocument messageJSON);
+    void processNewOrder(QJsonDocument orderContractJSON);
+
 
 private slots:
     void processMessage();
@@ -23,7 +28,9 @@ private slots:
 
 signals:
     void logInAttempt(QString email, QString password);
+    void newOrderContract(OrderContract* orderContract);
     void disconnected();
+    void requestForOrderDetails();
 
 private:
     QTcpSocket* socket;
