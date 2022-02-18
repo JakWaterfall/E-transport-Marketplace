@@ -24,7 +24,6 @@ SOURCES += \
     src/serverbroker.cpp \
     src/broker.cpp \
     src/forwarder.cpp \
-    src/messageparser.cpp \
     src/order.cpp \
     src/ordercontract.cpp \
     src/server.cpp \
@@ -45,7 +44,6 @@ HEADERS += \
     headers/broker.h \
     headers/controller.h \
     headers/forwarder.h \
-    headers/messageparser.h \
     headers/order.h \
     headers/ordercontract.h \
     headers/server.h \
@@ -53,4 +51,4 @@ HEADERS += \
     headers/shippercontroller.h \
     headers/user.h \
     headers/serverbroker.h \
-    threadsafemap.h
+    headers/threadsafemap.h

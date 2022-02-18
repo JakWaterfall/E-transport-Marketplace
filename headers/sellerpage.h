@@ -45,7 +45,7 @@ private slots:
 
     void on_viewOrderScreenBtn_clicked();
 
-    void addOrderDetialsToOrderView(const QString& name, const QString& ID);
+    void addOrderDetialsToOrderView(QVector<OrderContract> orderContracts);
 
 private:
     Ui::SellerPage *ui;

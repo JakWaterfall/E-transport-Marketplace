@@ -17,6 +17,7 @@ public:
     const QString& getAddress();
     const QVector<QString> getOrderIDs();
     void insertOrderID(QString ID);
+    void removeOrderID(const QString& ID);
 
 protected:
     QString name;

@@ -2,7 +2,6 @@
 #define CONTEXT_H
 
 #include <QObject>
-#include <QTcpSocket>
 #include "serverbroker.h"
 #include "threadsafemap.h"
 

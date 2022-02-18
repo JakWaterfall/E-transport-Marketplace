@@ -2,14 +2,8 @@
 #define SERVER_H
 
 #include <QObject>
-#include <QMap>
 #include <QTcpServer>
-#include <QVector>
-#include <QTcpSocket>
-#include <algorithm>
 
-#include "ordercontract.h"
-#include "broker.h"
 #include "connection.h"
 #include "threadsafemap.h"
 

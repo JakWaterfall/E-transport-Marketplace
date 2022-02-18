@@ -2,43 +2,34 @@
 #define BROKER_H
 
 #include <QObject>
-#include <QtMqtt/QtMqtt>
-#include <QtCore/QDateTime>
-#include <QtMqtt/QMqttClient>
-#include <QtWidgets/QMessageBox>
-#include "order.h"
-#include "user.h"
+#include <QTcpSocket>
+#include <QDataStream>
 #include "ordercontract.h"
-#include "messageparser.h"
 
 class Broker : public QObject
 {
     Q_OBJECT
 
-public:
-    explicit Broker(QObject *parent = nullptr);
+protected:
+    explicit Broker(QTcpSocket* socket, QObject *parent = nullptr);
     ~Broker();
 
-    const QMqttClient * getClient();
-    void sendOrderToMarket(const OrderContract *contract);
-    void subscribeToTopic(const QString &topic);
+protected:
+    bool socketReady() const;
+    bool readHeader(QDataStream& inStream);
+    virtual bool readBody(QDataStream& inStream) = 0;
 
-private:
-
-    bool publishPackage(const QString &topic, const QString &package) const;
-
-private slots:
-    void subscribeToAllCurrentTopics();
-    void onMessageRecived(const QByteArray &message, const QMqttTopicName &topic);
+protected slots:
+    void processMessage();
+    void socketDisconnected();
 
 signals:
-    void errorOccurred(const QString &message);
-    void newOrderContract(OrderContract *contract);
+    void disconnected();
 
-private:
-    QMqttClient *client;
-    QVector<QString> currentTopics;
-    MessageParser JSONParser;
+protected:
+    QTcpSocket* socket;
+    QString currentHeader;
+    bool headerAquired;
 };
 
 #endif // BROKER_H

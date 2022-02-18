@@ -1,6 +1,6 @@
 #include "serverbroker.h"
 
-ServerBroker::ServerBroker(QTcpSocket *socket, QObject *parent) : QObject(parent), socket(socket)
+ServerBroker::ServerBroker(QTcpSocket *socket, QObject *parent) : Broker(socket, parent)
 {
     qDebug() << "ServerBroker created";
     connect(socket, &QTcpSocket::disconnected, this, &ServerBroker::socketDisconnected);
@@ -28,77 +28,73 @@ void ServerBroker::sendMessage(QByteArray message) const
         qDebug() << "socket is not connected";
 }
 
-void ServerBroker::processLogIn(QJsonDocument messageJSON)
+bool ServerBroker::processLogIn(QDataStream& inStream)
 {
-    qDebug() << "processing log in";
-    auto [email, password] = parser.getLogInFromJSON(messageJSON);
+    QString email;
+    QString password;
+    inStream >> email >> password;
+
+    if(!inStream.commitTransaction())
+        return false;
+
     emit(logInAttempt(email, password));
+    return true;
 }
 
-void ServerBroker::processNewOrder(QJsonDocument orderContractJSON)
+bool ServerBroker::processNewOrder(QDataStream &inStream)
 {
-    OrderContract * contract = parser.orderContractFromJSON(orderContractJSON);
-    //OrderContract * contract = new OrderContract(new Order("wqe", "wqe", "wqe", 1, true, "wqe"));
-    //Order * order = new Order("wqe", "wqe", "wqe", 1, true, "wqe");
-    if (contract)
-    {
-        qDebug() << "real";
-    }
+    OrderContract * contract = new OrderContract();
+    inStream >> *contract;
+
+    if(!inStream.commitTransaction())
+        return false;
+
     emit(newOrderContract(contract));
+    return true;
 }
 
-void ServerBroker::sendOrderDetails(const QString & header, const QString &name, const QString &ID)
+
+bool ServerBroker::readBody(QDataStream &inStream)
 {
-    sendMessage(parser.orderDetailsToJSON(header, name, ID));
+    // Header only messages
+    if(currentHeader == "getShipperOrderScreen")
+    {
+        emit(requestForOrderDetails());
+        return true;
+    }
+
+    // Header and body messages
+    inStream.startTransaction();
+    if(currentHeader == "login")
+    {
+        return processLogIn(inStream);
+    }
+    else if (currentHeader == "register")
+    {
+
+    }
+    else if (currentHeader == "newOrder")
+    {
+        return processNewOrder(inStream);
+    }
+}
+
+void ServerBroker::sendOrderDetails(const QVector<OrderContract> orders)
+{
+    QString header = "shipperOrderContracts";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header << orders;
+    }
 }
 
 void ServerBroker::sendPageSignIn(const QString pageName) const
 {
-    sendMessage(parser.pageSignInToJSON(pageName));
-}
-
-void ServerBroker::processMessage()
-{
-    while(socket->isReadable())
+    QString header = "pageSignIn";
+    if(socketReady())
     {
-        qDebug() << "processing message";
-
-        QDataStream inStream(socket);
-        inStream.startTransaction();
-
-        QByteArray message;
-        inStream >> message;
-
-        if (!inStream.commitTransaction())
-        {
-            qDebug() << "waiting for more data";
-            return;
-        }
-
-        QJsonDocument messageJSON = parser.toJSONdocument(message);
-        QString header = messageJSON["header"].toString();
-
-        if(header == "login")
-        {
-            processLogIn(messageJSON);
-        }
-        else if (header == "register")
-        {
-
-        }
-        else if (header == "newOrder")
-        {
-            processNewOrder(messageJSON);
-        }
-        else if (header == "getShipperOrderScreen")
-        {
-            emit(requestForOrderDetails());
-        }
-
+        QDataStream outStream(socket);
+        outStream << header << pageName;
     }
-}
-
-void ServerBroker::socketDisconnected()
-{
-    emit(disconnected());
 }

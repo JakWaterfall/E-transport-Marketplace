@@ -3,7 +3,6 @@
 
 #include "controller.h"
 #include "shipper.h"
-#include "ordercontract.h"
 
 class ShipperController : public Controller
 {

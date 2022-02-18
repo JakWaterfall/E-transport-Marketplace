@@ -24,7 +24,6 @@ SOURCES += \
     src/forwarderpage.cpp \
     src/main_client.cpp \
     src/mainwindow.cpp \
-    src/messageparser.cpp \
     src/order.cpp \
     src/ordercontract.cpp \
     src/page.cpp \
@@ -38,7 +37,6 @@ HEADERS += \
     headers/forwarder.h \
     headers/forwarderpage.h \
     headers/mainwindow.h \
-    headers/messageparser.h \
     headers/order.h \
     headers/ordercontract.h \
     headers/page.h \

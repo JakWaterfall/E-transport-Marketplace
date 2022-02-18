@@ -40,3 +40,8 @@ void User::insertOrderID(QString ID)
 {
     ordersIDs.push_back(ID);
 }
+
+void User::removeOrderID(const QString &ID)
+{
+    ordersIDs.erase(std::remove(std::begin(ordersIDs), std::end(ordersIDs), ID), std::end(ordersIDs));
+}

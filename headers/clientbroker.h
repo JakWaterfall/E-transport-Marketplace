@@ -2,13 +2,10 @@
 #define CLIENTBROKER_H
 
 #include <QObject>
-#include <QTcpSocket>
 #include <QHostAddress>
-#include <QDataStream>
+#include <broker.h>
 
-#include "messageparser.h"
-
-class ClientBroker : public QObject
+class ClientBroker : public Broker
 {
     Q_OBJECT
 public:
@@ -19,25 +16,20 @@ public:
     void buildOrderScreen();
 
 private:
-    void sendMessage(QByteArray message);
-    void processPageSignIn(QJsonDocument pageSignInJSON);
-    void processPendingOrders(QJsonDocument pendingOrdersJSON);
+    bool readBody(QDataStream& inStream) override;
+    bool processPageSignIn(QDataStream& inStream);
+    bool processPendingOrders(QDataStream& inStream);
 
 private slots:
-    void processMessage();
-    void socketDisconnected();
 
 signals:
     void logInAsShipper();
     void logInAsForwarder();
     void logInAsDriver();
-    void disconnected();
     void signInToPage(QString pageName);
-    void pendingOrder(const QString& name, const QString& ID);
+    void pendingOrderReceived(QVector<OrderContract> orderContracts);
 
 private:
-    QTcpSocket* socket;
-    MessageParser parser;
 
 };
 

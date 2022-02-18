@@ -2,12 +2,6 @@
 #define CONNECTION_H
 
 #include <QObject>
-#include <QTcpSocket>
-#include <QJsonDocument>
-
-#include "ordercontract.h"
-#include "shipper.h"
-#include "forwarder.h"
 #include "shippercontroller.h"
 #include "accountmanager.h"
 #include "serverbroker.h"

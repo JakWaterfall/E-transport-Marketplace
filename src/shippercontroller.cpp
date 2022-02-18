@@ -34,17 +34,20 @@ void ShipperController::makeNewOrder(OrderContract *orderContract)
 
 void ShipperController::sendOrderDetails()
 {
+    QVector<OrderContract> orders;
     for(auto& ID : user->getOrderIDs())
     {
         if(marketplace->contains(ID))
         {
             marketplace->getMutex().lock();
-            broker->sendOrderDetails("pendingOrders", marketplace->get(ID)->getShipperEmail(), ID);
+            orders.push_back(*marketplace->get(ID)); // change this becasue its not thread safe. maybe make the marketplace hold non pointers to orders.
             marketplace->getMutex().unlock();
         }
         else
         {
+            user->removeOrderID(ID);
             // delete ID from users list as it does not exist?
         }
     }
+    broker->sendOrderDetails(orders);
 }

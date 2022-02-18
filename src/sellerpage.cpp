@@ -12,7 +12,7 @@ SellerPage::SellerPage(ClientBroker *broker, QWidget *parent) :
     ui->sellerWindow->setCurrentIndex(0);
 
     connect(ui->sellerSubmitBtn, &QPushButton::clicked, this, &SellerPage::onSellerSubmitBtn_clicked);
-    connect(broker, &ClientBroker::pendingOrder, this, &SellerPage::addOrderDetialsToOrderView);
+    connect(broker, &ClientBroker::pendingOrderReceived, this, &SellerPage::addOrderDetialsToOrderView);
 
     //QListWidgetItem* item = new QListWidgetItem("item 1", ui->orderList, QListWidgetItem::UserType);
 //    item->setData(Qt::UserRole, s.c_str());
@@ -34,7 +34,7 @@ SellerPage::~SellerPage()
 
 void SellerPage::onSellerSubmitBtn_clicked()
 {
-    Order* order = new Order(ui->sourceEdit->text(), ui->destEdit->text(), ui->dimensionsEdit->text(), ui->weightSpinBox->value(),
+    Order order(ui->sourceEdit->text(), ui->destEdit->text(), ui->dimensionsEdit->text(), ui->weightSpinBox->value(),
                              ui->fragileCheckBox->isChecked(), ui->typeEdit->text());
     OrderContract * contract = new OrderContract(order);
 
@@ -86,7 +86,11 @@ void SellerPage::on_viewOrderScreenBtn_clicked()
     broker->buildOrderScreen();
 }
 
-void SellerPage::addOrderDetialsToOrderView(const QString &name, const QString &ID)
+void SellerPage::addOrderDetialsToOrderView(QVector<OrderContract> orderContracts)
 {
-    addToListWidget(ui->pendingOrdersListWidget, name, ID);
+    for(auto& order : orderContracts)
+    {
+        addToListWidget(ui->pendingOrdersListWidget, order.getShipperEmail(), order.getID());
+    }
+
 }

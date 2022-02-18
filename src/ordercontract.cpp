@@ -1,7 +1,12 @@
 #include "ordercontract.h"
 
-OrderContract::OrderContract(Order* order, QString _ID, State state, QObject *parent)
-    : QObject(parent), order(order), state(state)
+OrderContract::OrderContract()
+{
+
+}
+
+OrderContract::OrderContract(Order order, QString _ID, State state)
+    : order(order), state(state)
 {
     if (_ID == nullptr)
     {
@@ -17,7 +22,7 @@ OrderContract::OrderContract(Order* order, QString _ID, State state, QObject *pa
 
 OrderContract::~OrderContract()
 {
-    delete order;
+
 }
 
 const QString &OrderContract::getID() const
@@ -25,7 +30,7 @@ const QString &OrderContract::getID() const
     return ID;
 }
 
-const Order* OrderContract::getOrder() const
+const Order &OrderContract::getOrder() const
 {
     return order;
 }
@@ -58,4 +63,34 @@ void OrderContract::setForwarderEmail(const QString email)
 void OrderContract::setForwarderBid(const double amount)
 {
     finalBid = amount;
+}
+
+void OrderContract::makeBid(const QString email, double amount)
+{
+    bids.push_back({email, amount});
+}
+
+QDataStream & operator<<(QDataStream &stream, const OrderContract &orderContract)
+{
+    return orderContract.write(stream);
+}
+
+QDataStream & operator>>(QDataStream &stream, OrderContract &orderContract)
+{
+    return orderContract.read(stream);
+}
+
+QDataStream &OrderContract::read(QDataStream &stream)
+{
+    stream >> ID >> order >> shipperEmail >> forwarderEmail >> driverEmail >> finalBid >> bids;
+    qint32 state_int = 0;
+    stream >> state_int;
+    state = static_cast<State>(state_int);
+    return stream;
+}
+
+QDataStream &OrderContract::write(QDataStream &stream) const
+{
+    stream << ID << order << shipperEmail << forwarderEmail << driverEmail << finalBid << bids << static_cast<qint32>(state);
+    return stream;
 }
