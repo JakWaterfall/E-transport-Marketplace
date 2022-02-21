@@ -2,28 +2,33 @@
 
 Page::Page(ClientBroker *broker, QWidget *parent) : QWidget(parent), broker(broker)
 {
-//    connect(&broker, &Broker::errorOccurred, this, &Page::onErrorOccurred);
+    //    connect(&broker, &Broker::errorOccurred, this, &Page::onErrorOccurred);
 }
 
-void Page::onErrorOccurred(const QString &message)
+void Page::refreshOrders()
 {
-//    QMessageBox::critical(this, QLatin1String("Error"), message);
+    broker->requestOrderContracts();
 }
 
-void Page::buildListWidget(QListWidget * list, const QMap<QString, OrderContract *> &contracts)
+void Page::refreshMarket()
 {
-    list->clear();
-    // send message to build whatever list
-    for (auto& contract : contracts)
-    {
-        //QListWidgetItem* item = new QListWidgetItem(contract->getSellerName() + " " + contract->getSellerEmail(), list);
-        //item->setData(Qt::UserRole, contract->getOrder()->getID());
-    }
-    list->sortItems();
+    broker->requestMarket();
 }
 
-void Page::addToListWidget(QListWidget *list, const QString &name, const QString &ID)
+void Page::addToListWidget(QListWidget *list, const QString &name, const QVariant &ID)
 {
     QListWidgetItem* item = new QListWidgetItem(name, list);
     item->setData(Qt::UserRole, ID);
+}
+
+void Page::clearAssortedWidgets(QVector<QLineEdit*> lineEdits, QVector<QPlainTextEdit*> plainTexts, QVector<QDoubleSpinBox*> spinBoxs)
+{
+    for(auto& lineEdit : lineEdits)
+        lineEdit->clear();
+
+    for(auto& plainTextEdit : plainTexts)
+        plainTextEdit->clear();
+
+    for(auto& spinBox : spinBoxs)
+        spinBox->setValue(0.0);
 }

@@ -8,15 +8,16 @@ class ShipperController : public Controller
 {
     Q_OBJECT
 public:
-    ShipperController(Shipper* user, ServerBroker* broker, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent = nullptr);
+    ShipperController(Shipper user, ServerBroker* broker, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent = nullptr);
     ~ShipperController();
 
 private slots:
     void makeNewOrder(OrderContract * orderContract);
-    void sendOrderDetails();
+    void sendOrderContracts();
+    void acceptBidOnOrder(const QString& orderID, OrderContract::Bid& bid);
 
 private:
-    Shipper* user;
+    Shipper user;
 };
 
 #endif // SHIPPERCONTEXT_H

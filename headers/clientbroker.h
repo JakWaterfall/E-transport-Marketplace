@@ -11,23 +11,26 @@ class ClientBroker : public Broker
 public:
     explicit ClientBroker(QObject *parent = nullptr);
 
-    void logInAttempt(QString email, QString password);
-    void sendOrderToMarketplace(const OrderContract *orderContract);
-    void buildOrderScreen();
+    void logInAttempt(const QString& email, const QString& password);
+    void sendOrderToMarketplace(const OrderContract& orderContract);
+    void makeBidOnOrder(const QString& orderID, const OrderContract::Bid& bid);
+    void sendAcceptBidMessage(const QString& currentlySelectedOrderID, OrderContract::Bid& currentlySelectedBid);
+    void requestOrderContracts();
+    void requestMarket();
 
 private:
     bool readBody(QDataStream& inStream) override;
     bool processPageSignIn(QDataStream& inStream);
-    bool processPendingOrders(QDataStream& inStream);
+    bool processErrorMessage(QDataStream& inStream);
+    bool processOrderContracts(QDataStream& inStream, void(ClientBroker::*func)(QMap<QString, OrderContract>&));
 
 private slots:
 
 signals:
-    void logInAsShipper();
-    void logInAsForwarder();
-    void logInAsDriver();
-    void signInToPage(QString pageName);
-    void pendingOrderReceived(QVector<OrderContract> orderContracts);
+    void signInToPage(const QString& pageName);
+    void receivedErrorMessage(const QString& errorMessage);
+    void ordersReceived(QMap<QString, OrderContract>& orderContracts);
+    void marketReceived(QMap<QString, OrderContract>& marketOrders);
 
 private:
 

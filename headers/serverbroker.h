@@ -9,24 +9,28 @@ class ServerBroker : public Broker
     Q_OBJECT
 public:
     explicit ServerBroker(QTcpSocket* socket, QObject *parent = nullptr);
-    void sendErrorMessage(QString message);
-    void sendPageSignIn(const QString pageName) const;
-    void sendOrderDetails(const QVector<OrderContract> orders);
+    void sendErrorMessage(const QString& message);
+    void sendPageSignIn(const QString& pageName) const;
+    void sendUserRelatedOrderContracts(const QMap<QString, OrderContract> &orders);
+    void sendMarketOrderContracts(const QMap<QString, OrderContract> &marketOrders);
 
 private:
-    void sendMessage(QByteArray message) const;
     bool processLogIn(QDataStream& inStream);
     bool processNewOrder(QDataStream& inStream);
-
+    bool processNewBid(QDataStream& inStream);
+    bool processAcceptBid(QDataStream& inStream);
     bool readBody(QDataStream& inStream) override;
-
+    void sendOrderContracts(const QString& header, const QMap<QString, OrderContract> &orders);
 
 private slots:
 
 signals:
-    void logInAttempt(QString email, QString password);
+    void logInAttempt(const QString& email, const QString& password);
     void newOrderContract(OrderContract* orderContract);
-    void requestForOrderDetails();
+    void newBidOnOrder(const QString& orderID, OrderContract::Bid& bid);
+    void acceptBid(const QString& orderID, OrderContract::Bid& bid);
+    void requestForOrderContracts();
+    void requestForMarket();
 
 private:
 

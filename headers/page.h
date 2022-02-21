@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
+#include <QPlainTextEdit>
+#include <QSpinBox>
+#include <QLineEdit>
 
 #include "clientbroker.h"
 #include "ordercontract.h"
@@ -14,16 +17,19 @@ public:
     explicit Page(ClientBroker* broker, QWidget *parent = nullptr);
 
 protected:
-    void buildListWidget(QListWidget * list, const QMap<QString, OrderContract*> &contracts);
-    void addToListWidget(QListWidget * list, const QString& name, const QString& ID);
+    void refreshOrders();
+    void refreshMarket();
+    void addToListWidget(QListWidget * list, const QString& name, const QVariant &ID);
+    void clearAssortedWidgets(QVector<QLineEdit*> lineEdits, QVector<QPlainTextEdit*> plainTexts, QVector<QDoubleSpinBox*> spinBoxs);
 
 private slots:
-    void onErrorOccurred(const QString &message);
 
 signals:
 
 protected:
     ClientBroker* broker;
+    QMap<QString, OrderContract> cashedOrderContracts;
+    QMap<QString, OrderContract> cashedMarket;
 };
 
 #endif // PAGE_H

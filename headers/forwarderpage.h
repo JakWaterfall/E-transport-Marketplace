@@ -1,13 +1,8 @@
 #ifndef FORWARDERPAGE_H
 #define FORWARDERPAGE_H
 
-#include <QWidget>
-#include <QListWidgetItem>
-
 #include "page.h"
-#include "forwarder.h"
-#include "ordercontract.h"
-#include "order.h"
+
 
 namespace Ui {
 class ForwarderPage;
@@ -22,21 +17,51 @@ public:
     ~ForwarderPage();
 
 private:
-    void setupBidPage(OrderContract * contract);
+    void setBidPage(const QString& orderID);
+    void setOrderDetailsPage(const QString& orderID);
 
 private slots:
-    void on_homeScreenBtn_clicked();
-    void on_orderMarketList_itemDoubleClicked(QListWidgetItem *item);
-    void onNewOrderContract(OrderContract * contract);
     void on_orderMarketBtn_clicked();
+
+    void on_homeBtn_clicked();
+
+    void on_refreshBtn_clicked();
+
+    void on_viewOrderScreenBtn_clicked();
+
+    void on_viewCompletedOrderScreenBtn_clicked();
+
+    void processOrderContracts(QMap<QString, OrderContract> &orderContracts);
+
+    void processMarket(QMap<QString, OrderContract> &marketOrders);
+
+    void on_backBtn_Bid_clicked();
+
+    void on_makeBidBtn_Bid_clicked();
+
+    void on_marketOrdersListWidget_Market_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_offersMadeListWidget_Orders_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_viewBidBtn_OrderDetails_clicked();
+
+    void on_backBtn_ViewBid_clicked();
+
+    void on_awaitingDeliveryListWidget_Orders_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_backBtn_OrderDetails_clicked();
 
 private:
     Ui::ForwarderPage *ui;
-//    QMap<QString, OrderContract*> marketOrderContracts;
+    QString currentlySelectedOrderID;
 
     const int homePage = 0;
     const int marketPage = 1;
-    const int bidPage = 2;
+    const int makeBidPage = 2;
+    const int ordersPage = 3;
+    const int completeOrdersPage = 4;
+    const int orderDetailsPage = 5;
+    const int viewBidPage = 6;
 };
 
 #endif // FORWARDERPAGE_H

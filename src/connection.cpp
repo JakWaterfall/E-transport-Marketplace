@@ -1,7 +1,7 @@
 #include "connection.h"
 
 Connection::Connection(QTcpSocket *socket, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent)
-    : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), controller(nullptr), accountManager(new AccountManager(this))
+    : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), controller(nullptr), accountManager(AccountManager(this))
 {
     qDebug() << "connection created";
     connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
@@ -12,7 +12,6 @@ Connection::~Connection()
 {
     qDebug() << "Connection destroyed";
     broker->deleteLater();
-    accountManager->deleteLater();
     if (controller)
         controller->deleteLater();
 }
@@ -26,17 +25,17 @@ void Connection::changeSlotsAndSignalsToContext()
 void Connection::logIn(QString email, QString password)
 {
     qDebug() << "Log in attempt";
-    if(accountManager->verifyLogIn(email, password))
+    if(accountManager.verifyLogIn(email, password))
     {
-        switch (accountManager->getUserType(email))
+        switch (accountManager.getUserType(email))
         {
         case AccountManager::UserType::ShipperUser:
-            controller = new ShipperController(accountManager->createShipper(email, password), broker, marketplace, this);
+            controller = new ShipperController(accountManager.createShipper(email, password), broker, marketplace, this);
             broker->sendPageSignIn("shipper");
             break;
-            // change this to forwarder controller
+
         case AccountManager::UserType::ForwarderUser:
-            controller = new ShipperController(accountManager->createShipper(email, password), broker, marketplace, this);
+            controller = new ForwarderController(accountManager.createForwarder(email, password), broker, marketplace, this);
             broker->sendPageSignIn("forwarder");
             break;
         }

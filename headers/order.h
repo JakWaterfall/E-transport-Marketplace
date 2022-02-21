@@ -10,16 +10,22 @@ class Order
 
 public:
     Order();
-    Order(QString source, QString destination, QString dimensions, int weight, bool fragile,
-          QString type, QDateTime _orderCreated = QDateTime::currentDateTimeUtc());
+    Order(QString description, QString source, QString destination, QString sourcePostcode, QString destinationPostcode, QString otherDetails,
+          int width, int height, int depth, int weight, bool fragile, QDateTime _orderCreated = QDateTime::currentDateTimeUtc());
 
 public:
     const QString& getSourceAddress() const;
     const QString& getDestinationAddress() const;
-    const QString& getDismensions() const;
-    float getWeight() const;
+    const QString& getSourcePostcode() const;
+    const QString& getDestinationPostcode() const;
+
+    const QString& getDescription() const;
+    const QString& getOtherDetails() const;
+    int getWidth() const;
+    int getHeight() const;
+    int getDepth() const;
+    int getWeight() const;
     bool isFragile() const;
-    const QString& getType() const;
     const QDateTime& getCreationDate() const;
 
     friend QDataStream &operator<< (QDataStream& stream, const Order &order);
@@ -29,7 +35,7 @@ public:
 
     friend QDebug operator<<(QDebug debug, const Order& order)
     {
-        debug << order.getType() << order.getCreationDate();
+        debug << order.getDescription() << order.getCreationDate();
         return debug;
     }
 
@@ -37,10 +43,15 @@ public:
 private:
     QString sourceAddress;
     QString destinationAddress;
-    QString dimensions;
+    QString sourcePostcode;
+    QString destinationPostcode;
+    int width;
+    int height;
+    int depth;
     int weight;
     bool fragile;
-    QString type;
+    QString description;
+    QString otherDetails;
     QDateTime orderCreated;
 };
 

@@ -10,7 +10,7 @@ ClientBroker::ClientBroker(QObject *parent) : Broker(new QTcpSocket(), parent)
     connect(socket, &QTcpSocket::readyRead, this, &ClientBroker::processMessage);
 }
 
-void ClientBroker::logInAttempt(QString email, QString password)
+void ClientBroker::logInAttempt(const QString& email, const QString& password)
 {
     QString header = "login";
     if(socketReady())
@@ -20,19 +20,49 @@ void ClientBroker::logInAttempt(QString email, QString password)
     }
 }
 
-void ClientBroker::sendOrderToMarketplace(const OrderContract *orderContract)
+void ClientBroker::sendOrderToMarketplace(const OrderContract& orderContract)
 {
     QString header = "newOrder";
     if(socketReady())
     {
         QDataStream outStream(socket);
-        outStream << header << *orderContract;
+        outStream << header << orderContract;
     }
 }
 
-void ClientBroker::buildOrderScreen()
+void ClientBroker::makeBidOnOrder(const QString &orderID, const OrderContract::Bid &bid)
 {
-    QString header = "getShipperOrderScreen";
+    QString header = "newBid";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header << orderID << bid;
+    }
+}
+
+void ClientBroker::sendAcceptBidMessage(const QString &currentlySelectedOrderID, OrderContract::Bid &currentlySelectedBid)
+{
+    QString header = "acceptBid";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header << currentlySelectedOrderID << currentlySelectedBid;
+    }
+}
+
+void ClientBroker::requestOrderContracts()
+{
+    QString header = "requestOrderContracts";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header;
+    }
+}
+
+void ClientBroker::requestMarket()
+{
+    QString header = "requestMarket";
     if(socketReady())
     {
         QDataStream outStream(socket);
@@ -54,9 +84,17 @@ bool ClientBroker::readBody(QDataStream &inStream)
     {
         return processPageSignIn(inStream);
     }
-    else if (currentHeader == "shipperOrderContracts")
+    else if (currentHeader == "orderContracts")
     {
-        return processPendingOrders(inStream);
+        return processOrderContracts(inStream, &ClientBroker::ordersReceived);
+    }
+    else if (currentHeader == "marketOrders")
+    {
+        return processOrderContracts(inStream, &ClientBroker::marketReceived);
+    }
+    else if (currentHeader == "errorMessage")
+    {
+        return processErrorMessage(inStream);
     }
 }
 
@@ -72,14 +110,26 @@ bool ClientBroker::processPageSignIn(QDataStream& inStream)
     return true;
 }
 
-bool ClientBroker::processPendingOrders(QDataStream& inStream)
+bool ClientBroker::processErrorMessage(QDataStream &inStream)
 {
-    QVector<OrderContract> orders;
+    QString errorMessage;
+    inStream >> errorMessage;
+
+    if(!inStream.commitTransaction())
+        return false;
+
+    emit(receivedErrorMessage(errorMessage));
+    return true;
+}
+
+bool ClientBroker::processOrderContracts(QDataStream& inStream, void(ClientBroker::*func)(QMap<QString, OrderContract>&)) // maybe make this a function template that has the emit functions as a parameter?
+{
+    QMap<QString, OrderContract> orders;
     inStream >> orders;
 
     if(!inStream.commitTransaction())
         return false;
 
-    emit(pendingOrderReceived(orders));
+    emit(this->*func)(orders);
     return true;
 }

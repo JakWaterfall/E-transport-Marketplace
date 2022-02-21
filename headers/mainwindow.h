@@ -2,14 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtCore/QDateTime>
-#include <QtWidgets/QMessageBox>
-#include <QDebug>
-#include <QTcpSocket>
+#include <QMessageBox>
 
 #include "sellerpage.h"
 #include "forwarderpage.h"
-#include "shipper.h"
 #include "clientbroker.h"
 
 QT_BEGIN_NAMESPACE
@@ -26,15 +22,12 @@ public:
 
 private slots:
     void on_loginBtn_clicked();
-    void on_actionqwe_triggered();
-
-    void on_pushButton_clicked();
-    void signIntoPage(QString pageName);
+    void signIntoPage(const QString& pageName);
+    void onErrorRecived(const QString& errorMessage);
 
 private:
-
     Ui::MainWindow *ui;
-    QWidget * mainPage = nullptr;
+    Page* mainPage = nullptr;
     ClientBroker* broker;
 
     const int loginIndex = 0;

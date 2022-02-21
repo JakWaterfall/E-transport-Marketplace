@@ -7,25 +7,14 @@ ServerBroker::ServerBroker(QTcpSocket *socket, QObject *parent) : Broker(socket,
     connect(socket, &QTcpSocket::readyRead, this, &ServerBroker::processMessage);
 }
 
-void ServerBroker::sendErrorMessage(QString message)
+void ServerBroker::sendErrorMessage(const QString& message)
 {
-
-}
-
-void ServerBroker::sendMessage(QByteArray message) const
-{
-    if (socket)
+    QString header = "errorMessage";
+    if(socketReady())
     {
-        if (socket->isOpen())
-        {
-            QDataStream outStream(socket);
-            outStream << message;
-        }
-        else
-            qDebug() << "socket is not open";
+        QDataStream outStream(socket);
+        outStream << header << message;
     }
-    else
-        qDebug() << "socket is not connected";
 }
 
 bool ServerBroker::processLogIn(QDataStream& inStream)
@@ -53,13 +42,43 @@ bool ServerBroker::processNewOrder(QDataStream &inStream)
     return true;
 }
 
+bool ServerBroker::processNewBid(QDataStream &inStream)
+{
+    QString orderID;
+    OrderContract::Bid bid;
+    inStream >> orderID >> bid;
+
+    if(!inStream.commitTransaction())
+        return false;
+
+    emit(newBidOnOrder(orderID, bid));
+    return true;
+}
+
+bool ServerBroker::processAcceptBid(QDataStream &inStream)
+{
+    QString orderID;
+    OrderContract::Bid bid;
+    inStream >> orderID >> bid;
+
+    if(!inStream.commitTransaction())
+        return false;
+
+    emit(acceptBid(orderID, bid));
+    return true;
+}
 
 bool ServerBroker::readBody(QDataStream &inStream)
 {
     // Header only messages
-    if(currentHeader == "getShipperOrderScreen")
+    if(currentHeader == "requestOrderContracts")
     {
-        emit(requestForOrderDetails());
+        emit(requestForOrderContracts());
+        return true;
+    }
+    else if (currentHeader == "requestMarket")
+    {
+        emit(requestForMarket());
         return true;
     }
 
@@ -77,11 +96,18 @@ bool ServerBroker::readBody(QDataStream &inStream)
     {
         return processNewOrder(inStream);
     }
+    else if (currentHeader == "newBid")
+    {
+        return processNewBid(inStream);
+    }
+    else if (currentHeader == "acceptBid")
+    {
+        return processAcceptBid(inStream);
+    }
 }
 
-void ServerBroker::sendOrderDetails(const QVector<OrderContract> orders)
+void ServerBroker::sendOrderContracts(const QString& header, const QMap<QString, OrderContract>& orders)
 {
-    QString header = "shipperOrderContracts";
     if(socketReady())
     {
         QDataStream outStream(socket);
@@ -89,7 +115,7 @@ void ServerBroker::sendOrderDetails(const QVector<OrderContract> orders)
     }
 }
 
-void ServerBroker::sendPageSignIn(const QString pageName) const
+void ServerBroker::sendPageSignIn(const QString& pageName) const
 {
     QString header = "pageSignIn";
     if(socketReady())
@@ -97,4 +123,14 @@ void ServerBroker::sendPageSignIn(const QString pageName) const
         QDataStream outStream(socket);
         outStream << header << pageName;
     }
+}
+
+void ServerBroker::sendUserRelatedOrderContracts(const QMap<QString, OrderContract> &orders)
+{
+    sendOrderContracts("orderContracts", orders);
+}
+
+void ServerBroker::sendMarketOrderContracts(const QMap<QString, OrderContract> &marketOrders)
+{
+    sendOrderContracts("marketOrders", marketOrders);
 }

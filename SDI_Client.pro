@@ -20,29 +20,23 @@ INCLUDEPATH += headers/
 SOURCES += \
     src/clientbroker.cpp \
     src/broker.cpp \
-    src/forwarder.cpp \
     src/forwarderpage.cpp \
     src/main_client.cpp \
     src/mainwindow.cpp \
     src/order.cpp \
     src/ordercontract.cpp \
     src/page.cpp \
-    src/sellerpage.cpp \
-    src/shipper.cpp \
-    src/user.cpp
+    src/sellerpage.cpp
 
 HEADERS += \
     headers/clientbroker.h \
     headers/broker.h \
-    headers/forwarder.h \
     headers/forwarderpage.h \
     headers/mainwindow.h \
     headers/order.h \
     headers/ordercontract.h \
     headers/page.h \
-    headers/sellerpage.h \
-    headers/shipper.h \
-    headers/user.h
+    headers/sellerpage.h
 
 FORMS += \
     ui/forwarderpage.ui \

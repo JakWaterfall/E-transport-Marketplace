@@ -1,20 +1,14 @@
 #include "order.h"
 
 Order::Order()
-{
+{}
 
-}
+Order::Order(QString description, QString source, QString destination, QString sourcePostcode, QString destinationPostcode, QString otherDetails,
+             int width, int height, int depth, int weight, bool fragile, QDateTime _orderCreated)
 
-Order::Order(QString source, QString destination, QString dimensions, int weight, bool fragile, QString type, QDateTime _orderCreated)
-    : sourceAddress(source), destinationAddress(destination), dimensions(dimensions), weight(weight), fragile(fragile), type(type), orderCreated(_orderCreated)
-{
-
-}
-
-const QString& Order::getType() const
-{
-    return type;
-}
+    : sourceAddress(source), destinationAddress(destination), sourcePostcode(sourcePostcode), destinationPostcode(destinationPostcode), width(width),
+      height(height), depth(depth), weight(weight), fragile(fragile), description(description), otherDetails(otherDetails), orderCreated(_orderCreated)
+{}
 
 const QString& Order::getSourceAddress() const
 {
@@ -26,12 +20,42 @@ const QString& Order::getDestinationAddress() const
     return destinationAddress;
 }
 
-const QString& Order::getDismensions() const
+const QString &Order::getSourcePostcode() const
 {
-    return dimensions;
+    return sourcePostcode;
 }
 
-float Order::getWeight() const
+const QString &Order::getDestinationPostcode() const
+{
+    return destinationPostcode;
+}
+
+const QString &Order::getDescription() const
+{
+    return description;
+}
+
+const QString &Order::getOtherDetails() const
+{
+    return otherDetails;
+}
+
+int Order::getWidth() const
+{
+    return width;
+}
+
+int Order::getHeight() const
+{
+    return height;
+}
+
+int Order::getDepth() const
+{
+    return depth;
+}
+
+int Order::getWeight() const
 {
     return weight;
 }
@@ -48,13 +72,13 @@ const QDateTime& Order::getCreationDate() const
 
 QDataStream &Order::read(QDataStream &stream)
 {
-    stream >> sourceAddress >> destinationAddress >> dimensions >> weight >> fragile >> type >> orderCreated;
+    stream >> sourceAddress >> destinationAddress >> sourcePostcode >> destinationPostcode >> width >> height >> depth >> weight >> fragile >> description >> otherDetails >> orderCreated;
     return stream;
 }
 
 QDataStream &Order::write(QDataStream &stream) const
 {
-    stream << sourceAddress << destinationAddress << dimensions << weight << fragile << type << orderCreated;
+    stream << sourceAddress << destinationAddress << sourcePostcode << destinationPostcode << width << height << depth << weight << fragile << description << otherDetails << orderCreated;
     return stream;
 }
 

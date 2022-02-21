@@ -24,6 +24,7 @@ protected:
     QString email;
     QString password; // ?? change this to only be in database ? encypted
     QString address;
+    QString postCode;
 
     QVector<QString> ordersIDs; // just the one?
     //QVector<QString> completedOrdersIDs;

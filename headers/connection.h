@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "shippercontroller.h"
+#include "forwardercontroller.h"
 #include "accountmanager.h"
 #include "serverbroker.h"
 #include "threadsafemap.h"
@@ -28,7 +29,7 @@ private:
     ServerBroker* broker;
     ThreadSafeMap<QString, OrderContract*>* marketplace;
     Controller* controller;
-    AccountManager* accountManager;
+    AccountManager accountManager;
 };
 
 #endif // CONNECTION_H

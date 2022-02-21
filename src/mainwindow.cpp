@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     broker = new ClientBroker();
 
     connect(broker, &ClientBroker::signInToPage, this, &MainWindow::signIntoPage);
+    connect(broker, &ClientBroker::receivedErrorMessage, this, &MainWindow::onErrorRecived);
 }
 
 MainWindow::~MainWindow()
@@ -25,27 +26,19 @@ void MainWindow::on_loginBtn_clicked()
 {
     broker->logInAttempt(ui->emailInput->text(), ui->passInput->text());
     // blank password on attempt.
-
-
 }
 
-void MainWindow::on_actionqwe_triggered()
-{
-    if (mainPage)
-    {
-        delete mainPage;
-        ui->stackedWidget->removeWidget(mainPage);
-        mainPage = nullptr;
-    }
-}
+//void MainWindow::on_actionqwe_triggered() // this needs to disconnect from server aswell
+//{
+//    if (mainPage)
+//    {
+//        delete mainPage;
+//        ui->stackedWidget->removeWidget(mainPage);
+//        mainPage = nullptr;
+//    }
+//}
 
-
-void MainWindow::on_pushButton_clicked()
-{
-
-}
-
-void MainWindow::signIntoPage(QString pageName)
+void MainWindow::signIntoPage(const QString &pageName)
 {
         if (pageName == "shipper")
         {
@@ -61,4 +54,9 @@ void MainWindow::signIntoPage(QString pageName)
         }
         ui->stackedWidget->insertWidget(mainPageIndex, mainPage);
         ui->stackedWidget->setCurrentIndex(mainPageIndex);
+}
+
+void MainWindow::onErrorRecived(const QString& errorMessage)
+{
+    QMessageBox::critical(this, QLatin1String("Error!"), errorMessage);
 }
