@@ -22,15 +22,6 @@ void ShipperController::makeNewOrder(OrderContract *orderContract)
 
     user.insertOrderID(ID);
     marketplace->insert(ID, orderContract);
-    qDebug() << "new order made";
-    qDebug() << "marketplace size:" << marketplace->size();
-
-    marketplace->getMutex().lock();
-    for(auto it = marketplace->begin(); it != marketplace->end(); it++)
-    {
-        qDebug() << it.key();
-    }
-    marketplace->getMutex().unlock();
 }
 
 void ShipperController::sendOrderContracts()
@@ -41,7 +32,7 @@ void ShipperController::sendOrderContracts()
         if(marketplace->contains(ID))
         {
             marketplace->getMutex().lock();
-            orders[ID] = *marketplace->get(ID); // change this becasue its not thread safe. maybe make the marketplace hold non pointers to orders.
+            orders[ID] = *marketplace->get(ID);
             marketplace->getMutex().unlock();
         }
         else

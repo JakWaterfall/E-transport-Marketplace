@@ -2,6 +2,8 @@
 #define CONNECTION_H
 
 #include <QObject>
+#include <QThread>
+
 #include "shippercontroller.h"
 #include "forwardercontroller.h"
 #include "accountmanager.h"
