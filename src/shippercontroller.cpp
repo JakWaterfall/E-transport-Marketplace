@@ -19,9 +19,11 @@ void ShipperController::makeNewOrder(OrderContract *orderContract)
 {
     QString ID = orderContract->getID();
     orderContract->setShipperEmail(user.getEmail());
-
     user.insertOrderID(ID);
     marketplace->insert(ID, orderContract);
+
+    qDebug() << orderContract;
+    qDebug() << "market size: " << marketplace->size();
 }
 
 void ShipperController::sendOrderContracts()

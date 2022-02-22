@@ -10,6 +10,7 @@ Connection::Connection(QTcpSocket *socket, ThreadSafeMap<QString, OrderContract 
 Connection::~Connection()
 {
     qDebug() << "Connection destroyed";
+    quit(); // Quit thread loop
     broker->deleteLater();
     if (controller)
         controller->deleteLater();
@@ -60,7 +61,6 @@ void Connection::logIn(QString email, QString password)
 void Connection::brokerDisconnected()
 {
     emit(disconnected(this));
-    exit(0);
 }
 
 

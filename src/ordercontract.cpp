@@ -18,8 +18,7 @@ OrderContract::OrderContract(Order order, QString consigneeName, QString consign
 {
     if (_ID == nullptr)
     {
-        QDateTime now = QDateTime::currentDateTimeUtc();
-        ID = now.toString();
+        ID = QUuid::createUuid().toString();
     }
     else
     {

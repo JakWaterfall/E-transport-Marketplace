@@ -2,6 +2,7 @@
 #define ORDERCONTRACT_H
 
 #include <QVector>
+#include <QUuid>
 #include <QDebug>
 
 #include "order.h"
