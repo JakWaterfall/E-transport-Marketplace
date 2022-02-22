@@ -28,6 +28,8 @@ void Server::newConnection()
     auto connection = new Connection(tcpServer->nextPendingConnection(), marketplace, this);
     connect(connection, &Connection::disconnected, this, &Server::removeConnection);
     connections.push_back(connection);
+    connection->start();
+
     qDebug() << "new connection";
 }
 

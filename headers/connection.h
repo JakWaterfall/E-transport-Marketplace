@@ -10,12 +10,13 @@
 #include "serverbroker.h"
 #include "threadsafemap.h"
 
-class Connection : public QObject
+class Connection : public QThread
 {
     Q_OBJECT
 public:
     explicit Connection(QTcpSocket* socket, ThreadSafeMap<QString, OrderContract*>* marketplace, QObject *parent = nullptr);
     ~Connection();
+    void run() override;
 
 private:
     void changeSlotsAndSignalsToContext();

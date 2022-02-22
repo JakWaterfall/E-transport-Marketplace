@@ -1,11 +1,10 @@
 #include "connection.h"
 
 Connection::Connection(QTcpSocket *socket, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent)
-    : QObject(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), controller(nullptr), accountManager(AccountManager(this))
+    : QThread(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), controller(nullptr), accountManager(AccountManager(this))
 {
     qDebug() << "connection created";
-    connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
-    connect(broker, &ServerBroker::logInAttempt, this, &Connection::logIn);
+
 }
 
 Connection::~Connection()
@@ -14,6 +13,15 @@ Connection::~Connection()
     broker->deleteLater();
     if (controller)
         controller->deleteLater();
+}
+
+void Connection::run()
+{
+    qDebug() << "Thread started";
+    connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
+    connect(broker, &ServerBroker::logInAttempt, this, &Connection::logIn);
+
+    exec(); // Loops the thread to stay alive while connection is active
 }
 
 void Connection::changeSlotsAndSignalsToContext()
@@ -52,6 +60,7 @@ void Connection::logIn(QString email, QString password)
 void Connection::brokerDisconnected()
 {
     emit(disconnected(this));
+    exit(0);
 }
 
 
