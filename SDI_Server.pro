@@ -18,6 +18,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += headers/
 
 SOURCES += \
+    src/driver.cpp \
+    src/drivercontroller.cpp \
     src/forwardercontroller.cpp \
     src/accountmanager.cpp \
     src/connection.cpp \
@@ -39,8 +41,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    headers/driver.h \
+    headers/drivercontroller.h \
     headers/forwardercontroller.h \
-    headers/PersonalDetails.h \
     headers/accountmanager.h \
     headers/connection.h \
     headers/broker.h \

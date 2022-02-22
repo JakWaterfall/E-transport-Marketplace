@@ -8,7 +8,8 @@ const QMap<OrderContract::DeliveryState, QString> OrderContract::DeliveryStateTo
                                                                                           {DeliveryState::atDepot, "At The Depot"},
                                                                                           {DeliveryState::inTransit, "Currently in Transit"},
                                                                                           {DeliveryState::outForDelivery, "Out For Delivery"},
-                                                                                          {DeliveryState::failedToDeliver, "Failed To Deliver"}};
+                                                                                          {DeliveryState::failedToDeliver, "Failed To Deliver"},
+                                                                                          {DeliveryState::successfullyDelivered, "Successfully Delivered"}};
 
 OrderContract::OrderContract()
 {}
@@ -24,7 +25,6 @@ OrderContract::OrderContract(Order order, QString consigneeName, QString consign
     {
         ID = _ID;
     }
-    // use UUID for id
 }
 
 OrderContract::~OrderContract()

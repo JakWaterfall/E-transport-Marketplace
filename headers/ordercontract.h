@@ -12,7 +12,7 @@ class OrderContract
 
 public:
     enum class State {onMarket, inForwarderInventory, inDriverInventory};
-    enum class DeliveryState {notApplicable, inTransit, atDepot, outForDelivery, failedToDeliver};
+    enum class DeliveryState {notApplicable, inTransit, atDepot, outForDelivery, failedToDeliver, successfullyDelivered};
     const static QMap<State, QString> stateToString;
     const static QMap<DeliveryState, QString> DeliveryStateToString;
 

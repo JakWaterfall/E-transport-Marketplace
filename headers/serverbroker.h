@@ -19,6 +19,7 @@ private:
     bool processNewOrder(QDataStream& inStream);
     bool processNewBid(QDataStream& inStream);
     bool processAcceptBid(QDataStream& inStream);
+    bool processAcceptJob(QDataStream& inStream);
     bool readBody(QDataStream& inStream) override;
     void sendOrderContracts(const QString& header, const QMap<QString, OrderContract> &orders);
 
@@ -29,6 +30,7 @@ signals:
     void newOrderContract(OrderContract* orderContract);
     void newBidOnOrder(const QString& orderID, OrderContract::Bid& bid);
     void acceptBid(const QString& orderID, OrderContract::Bid& bid);
+    void acceptJob(const QString& orderID);
     void requestForOrderContracts();
     void requestForMarket();
 

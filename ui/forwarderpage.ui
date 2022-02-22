@@ -35,7 +35,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="homePage">
     <widget class="QPushButton" name="orderMarketBtn">

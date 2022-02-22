@@ -22,33 +22,19 @@ private:
 
 private slots:
     void on_orderMarketBtn_clicked();
-
     void on_homeBtn_clicked();
-
     void on_refreshBtn_clicked();
-
     void on_viewOrderScreenBtn_clicked();
-
     void on_viewCompletedOrderScreenBtn_clicked();
-
     void processOrderContracts(QMap<QString, OrderContract> &orderContracts);
-
     void processMarket(QMap<QString, OrderContract> &marketOrders);
-
     void on_backBtn_Bid_clicked();
-
     void on_makeBidBtn_Bid_clicked();
-
     void on_marketOrdersListWidget_Market_itemDoubleClicked(QListWidgetItem *item);
-
     void on_offersMadeListWidget_Orders_itemDoubleClicked(QListWidgetItem *item);
-
     void on_viewBidBtn_OrderDetails_clicked();
-
     void on_backBtn_ViewBid_clicked();
-
     void on_awaitingDeliveryListWidget_Orders_itemDoubleClicked(QListWidgetItem *item);
-
     void on_backBtn_OrderDetails_clicked();
 
 private:

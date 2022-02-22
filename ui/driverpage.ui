@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SellerPage</class>
- <widget class="QWidget" name="SellerPage">
+ <class>DriverPage</class>
+ <widget class="QWidget" name="DriverPage">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -25,7 +25,20 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QStackedWidget" name="sellerWindow">
+  <widget class="QPushButton" name="refreshBtn">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+  </widget>
+  <widget class="QStackedWidget" name="driverWindow">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -47,10 +60,10 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="homePage">
-    <widget class="QPushButton" name="sendOrderScreenBtn">
+    <widget class="QPushButton" name="jobBoardBtn">
      <property name="geometry">
       <rect>
        <x>300</x>
@@ -60,28 +73,15 @@
       </rect>
      </property>
      <property name="text">
-      <string>Send New Order</string>
+      <string>Job Board</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="viewOrderScreenBtn">
+    <widget class="QLabel" name="driverHeaderLabel">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>170</y>
-       <width>171</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>View Orders</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="shipperHeaderLabel">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
+       <x>280</x>
        <y>40</y>
-       <width>179</width>
+       <width>217</width>
        <height>34</height>
       </rect>
      </property>
@@ -89,7 +89,7 @@
       <string notr="true">font-size:30px;</string>
      </property>
      <property name="text">
-      <string>Shipper Page</string>
+      <string>Driver Page</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -108,27 +108,27 @@
       <string>View Complated Orders</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="sendOrderPage">
-    <widget class="QPushButton" name="submitBtn_NewOrder">
+    <widget class="QPushButton" name="viewOrderScreenBtn">
      <property name="geometry">
       <rect>
-       <x>350</x>
-       <y>460</y>
-       <width>80</width>
-       <height>25</height>
+       <x>300</x>
+       <y>170</y>
+       <width>171</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>Submit</string>
+      <string>View Orders</string>
      </property>
     </widget>
-    <widget class="QLabel" name="headerLabel_NewOrder">
+   </widget>
+   <widget class="QWidget" name="jobBoardPage">
+    <widget class="QLabel" name="headerLabel_JobBoard">
      <property name="geometry">
       <rect>
        <x>320</x>
        <y>0</y>
-       <width>150</width>
+       <width>140</width>
        <height>34</height>
       </rect>
      </property>
@@ -136,7 +136,7 @@
       <string notr="true">font-size:30px;</string>
      </property>
      <property name="text">
-      <string>New Order</string>
+      <string>Job Board</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -145,22 +145,78 @@
       <cstring>descEdit_NewOrder</cstring>
      </property>
     </widget>
+    <widget class="QLabel" name="doubleClickLabel_JobBoard">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>50</y>
+       <width>186</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Double click to view more...</string>
+     </property>
+     <property name="buddy">
+      <cstring>sourceEdit_NewOrder</cstring>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>721</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="ListWidgetsBox_JobBoard">
+      <item>
+       <widget class="QLabel" name="jobBoardLabel_JobBoard">
+        <property name="text">
+         <string>Job Board</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="jobOrdersListWidget_JobBoard"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="JobOffer">
+    <widget class="QPushButton" name="acceptBtn_JobOffer">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>390</y>
+       <width>201</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Accept Job</string>
+     </property>
+    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>40</y>
+       <x>20</x>
+       <y>60</y>
        <width>522</width>
        <height>401</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="mainBox_NewOrder">
+     <layout class="QVBoxLayout" name="mainBox_JobOffer">
       <item>
-       <layout class="QHBoxLayout" name="topBox_NewOrder">
+       <layout class="QHBoxLayout" name="topBox_JobOffer">
         <item>
-         <layout class="QFormLayout" name="descDetailsForm_NewOrder">
+         <layout class="QFormLayout" name="descDetailsForm_JobOffer">
           <item row="0" column="0">
-           <widget class="QLabel" name="descLabel_NewOrder">
+           <widget class="QLabel" name="descLabel_JobOffer">
             <property name="text">
              <string>Description</string>
             </property>
@@ -173,14 +229,17 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="descEdit_NewOrder">
+           <widget class="QLineEdit" name="descEdit_JobOffer">
             <property name="text">
              <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="otherDetailsLabel_NewOrder">
+           <widget class="QLabel" name="otherDetailsLabel_JobOffer">
             <property name="text">
              <string>Other Details</string>
             </property>
@@ -190,14 +249,24 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QPlainTextEdit" name="otherDetailsEdit_NewOrder"/>
+           <widget class="QPlainTextEdit" name="otherDetailsEdit_JobOffer">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="plainText">
+             <string/>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QFormLayout" name="dimentionsForm_NewOrder">
+         <layout class="QFormLayout" name="dimentionsForm_JobOffer">
           <item row="0" column="0">
-           <widget class="QLabel" name="widthLabel_NewOrder">
+           <widget class="QLabel" name="widthLabel_JobOffer">
             <property name="text">
              <string>Width</string>
             </property>
@@ -210,9 +279,12 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QDoubleSpinBox" name="widthSpinBox_NewOrder">
+           <widget class="QDoubleSpinBox" name="widthSpinBox_JobOffer">
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
             <property name="prefix">
              <string/>
@@ -229,7 +301,7 @@
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="heightLabel_NewOrder">
+           <widget class="QLabel" name="heightLabel_JobOffer">
             <property name="text">
              <string>Height</string>
             </property>
@@ -242,9 +314,12 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QDoubleSpinBox" name="heightSpinBox_NewOrder">
+           <widget class="QDoubleSpinBox" name="heightSpinBox_JobOffer">
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
             <property name="prefix">
              <string/>
@@ -261,7 +336,7 @@
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="depthLabel_NewOrder">
+           <widget class="QLabel" name="depthLabel_JobOffer">
             <property name="text">
              <string>Depth</string>
             </property>
@@ -274,9 +349,12 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QDoubleSpinBox" name="depthSpinBox_NewOrder">
+           <widget class="QDoubleSpinBox" name="depthSpinBox_JobOffer">
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
             <property name="prefix">
              <string/>
@@ -293,7 +371,7 @@
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QLabel" name="weightLabel_NewOrder">
+           <widget class="QLabel" name="weightLabel_JobOffer">
             <property name="text">
              <string>Weight</string>
             </property>
@@ -306,9 +384,12 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QDoubleSpinBox" name="weightSpinBox_NewOrder">
+           <widget class="QDoubleSpinBox" name="weightSpinBox_JobOffer">
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
             <property name="prefix">
              <string/>
@@ -325,7 +406,7 @@
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QLabel" name="fragileLabel_NewOrder">
+           <widget class="QLabel" name="fragileLabel_JobOffer">
             <property name="text">
              <string>Fragile</string>
             </property>
@@ -338,18 +419,12 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QCheckBox" name="fragileCheckBox_NewOrder">
+           <widget class="QLineEdit" name="fragileEdit_JobOffer">
             <property name="text">
              <string/>
             </property>
-            <property name="checkable">
+            <property name="readOnly">
              <bool>true</bool>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-            <property name="tristate">
-             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -358,9 +433,9 @@
        </layout>
       </item>
       <item>
-       <layout class="QGridLayout" name="middleBox_NewOrder">
+       <layout class="QGridLayout" name="middleBox_JobOffer">
         <item row="0" column="0">
-         <widget class="QLabel" name="sourceLabel_NewOrder">
+         <widget class="QLabel" name="sourceLabel_JobOffer">
           <property name="text">
            <string>Source Address</string>
           </property>
@@ -370,16 +445,19 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QPlainTextEdit" name="destEdit_NewOrder">
+         <widget class="QPlainTextEdit" name="destEdit_JobOffer">
           <property name="readOnly">
-           <bool>false</bool>
+           <bool>true</bool>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::TextSelectableByMouse</set>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
-         <layout class="QHBoxLayout" name="leftPostcodeBox_NewOrder">
+         <layout class="QHBoxLayout" name="leftPostcodeBox_JobOffer">
           <item>
-           <widget class="QLabel" name="sourcePostcodeLabel_NewOrder">
+           <widget class="QLabel" name="sourcePostcodeLabel_JobOffer">
             <property name="text">
              <string>Post code:</string>
             </property>
@@ -389,18 +467,21 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="sourcePostcodeEdit_NewOrder">
+           <widget class="QLineEdit" name="sourcePostcodeEdit_JobOffer">
             <property name="text">
              <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item row="2" column="1">
-         <layout class="QHBoxLayout" name="rightPostCodeBox_NewOrder">
+         <layout class="QHBoxLayout" name="rightPostCodeBox_JobOffer">
           <item>
-           <widget class="QLabel" name="destPostcodeLabel_NewOrder">
+           <widget class="QLabel" name="destPostcodeLabel_JobOffer">
             <property name="text">
              <string>Post code:</string>
             </property>
@@ -410,23 +491,29 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="destPostcodeEdit_NewOrder">
+           <widget class="QLineEdit" name="destPostcodeEdit_JobOffer">
             <property name="text">
              <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item row="1" column="0">
-         <widget class="QPlainTextEdit" name="sourceEdit_NewOrder">
+         <widget class="QPlainTextEdit" name="sourceEdit_JobOffer">
           <property name="readOnly">
-           <bool>false</bool>
+           <bool>true</bool>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::TextSelectableByMouse</set>
           </property>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLabel" name="destLabel_NewOrder">
+         <widget class="QLabel" name="destLabel_JobOffer">
           <property name="text">
            <string>Destination Address</string>
           </property>
@@ -438,9 +525,9 @@
        </layout>
       </item>
       <item>
-       <layout class="QFormLayout" name="bottomBox_NewOrder">
+       <layout class="QFormLayout" name="bottomBox_JobOffer">
         <item row="0" column="0">
-         <widget class="QLabel" name="consigneeNameLabel_NewOrder">
+         <widget class="QLabel" name="consigneeNameLabel_JobOffer">
           <property name="text">
            <string>Consignee Name</string>
           </property>
@@ -453,14 +540,17 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="consigneeNameEdit_NewOrder">
+         <widget class="QLineEdit" name="consigneeNameEdit_JobOffer">
           <property name="text">
            <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QLabel" name="consigneeNumLabel_NewOrder">
+         <widget class="QLabel" name="consigneeNumLabel_JobOffer">
           <property name="text">
            <string>Consignee Contact Number</string>
           </property>
@@ -473,9 +563,12 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="consigneeNumEdit_NewOrder">
+         <widget class="QLineEdit" name="consigneeNumEdit_JobOffer">
           <property name="text">
            <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -483,8 +576,161 @@
       </item>
      </layout>
     </widget>
+    <widget class="QWidget" name="layoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>60</y>
+       <width>201</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="JobBox_JobOffer">
+      <item>
+       <widget class="QLabel" name="optionalLabel_JobOffer">
+        <property name="text">
+         <string>Optinal Extras</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>descEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPlainTextEdit" name="optionalExtrasEdit_JobOffer">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+        <property name="plainText">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="driverPriceLabel_JobOffer">
+        <property name="text">
+         <string>Driver Salery</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>descEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="driverPriceSpinBox_JobOffer">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="prefix">
+         <string>£</string>
+        </property>
+        <property name="suffix">
+         <string/>
+        </property>
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="maximum">
+         <double>9999.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="backBtn_JobOffer">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>430</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Back</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="headerLabel_JobOffer">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>0</y>
+       <width>133</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:30px;</string>
+     </property>
+     <property name="text">
+      <string>Job Offer</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="buddy">
+      <cstring>descEdit_NewOrder</cstring>
+     </property>
+    </widget>
    </widget>
-   <widget class="QWidget" name="pendingOrdersPage">
+   <widget class="QWidget" name="ordersPage">
+    <widget class="QWidget" name="layoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>721</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="listWidgetsBox_Orders">
+      <item>
+       <widget class="QLabel" name="inInventoryLabel_Orders">
+        <property name="text">
+         <string>Orders in inventory</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="inInventoryOrdersListWidget_Orders"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="inVehicleLabel_Orders">
+        <property name="text">
+         <string>Orders in vehicle</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="inVehicleListWidget_Orders"/>
+      </item>
+     </layout>
+     <zorder>inVehicleLabel_Orders</zorder>
+     <zorder>inVehicleListWidget_Orders</zorder>
+     <zorder>inInventoryLabel_Orders</zorder>
+     <zorder>inInventoryOrdersListWidget_Orders</zorder>
+    </widget>
     <widget class="QLabel" name="headerLabel_Orders">
      <property name="geometry">
       <rect>
@@ -523,51 +769,25 @@
       <cstring>sourceEdit_NewOrder</cstring>
      </property>
     </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>50</y>
-       <width>721</width>
-       <height>441</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="listWidgetsBox_Orders">
-      <item>
-       <widget class="QLabel" name="awaitingBidsLabel_Orders">
-        <property name="text">
-         <string>Orders awaiting bids</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QListWidget" name="awaitingBidsListWidget_Orders"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="awaitingDeliveryLabel_Orders">
-        <property name="text">
-         <string>Orders awaiting delivery</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QListWidget" name="awaitingDeliveryListWidget_Orders"/>
-      </item>
-     </layout>
-     <zorder>awaitingDeliveryLabel_Orders</zorder>
-     <zorder>awaitingDeliveryListWidget_Orders</zorder>
-     <zorder>awaitingBidsLabel_Orders</zorder>
-     <zorder>awaitingBidsListWidget_Orders</zorder>
-    </widget>
    </widget>
    <widget class="QWidget" name="completeOrdersPage">
-    <widget class="QWidget" name="layoutWidget_2">
+    <widget class="QLabel" name="doubleClickLabel_CompOrders">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>50</y>
+       <width>186</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Double click to view more...</string>
+     </property>
+     <property name="buddy">
+      <cstring>sourceEdit_NewOrder</cstring>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_5">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -614,28 +834,187 @@
       <cstring>descEdit_NewOrder</cstring>
      </property>
     </widget>
-    <widget class="QLabel" name="doubleClickLabel_CompOrders">
+   </widget>
+   <widget class="QWidget" name="orderDetailsPage">
+    <widget class="QWidget" name="layoutWidget_6">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>50</y>
-       <width>186</width>
-       <height>17</height>
+       <x>550</x>
+       <y>60</y>
+       <width>201</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="contractDetails_OrderDetails">
+      <item>
+       <widget class="QLabel" name="shipperEmailLabel_OrderDetails">
+        <property name="text">
+         <string>Shipper Email</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="shipperEmailEdit_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="forwarderEmailLabel_OrderDetails">
+        <property name="text">
+         <string>Forwarder Email</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="forwarderEmailEdit_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="driverEmailLabel_OrderDetails">
+        <property name="text">
+         <string>Driver Email</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="driverEmailEdit_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="orderStateLabel_OrderDetails">
+        <property name="text">
+         <string>Order State</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="orderStateEdit_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="deliveryStateLabel_OrderDetails">
+        <property name="text">
+         <string>Delivery State</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="deliveryStateEdit_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="finalPriceLabel_OrderDetails">
+        <property name="text">
+         <string>Driver Salery</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="finalPriceSpinBox_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="prefix">
+         <string>£</string>
+        </property>
+        <property name="suffix">
+         <string/>
+        </property>
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="maximum">
+         <double>9999.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="updateDeliveryStateBtn_OrderDetails">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>400</y>
+       <width>201</width>
+       <height>25</height>
       </rect>
      </property>
      <property name="text">
-      <string>Double click to view more...</string>
-     </property>
-     <property name="buddy">
-      <cstring>sourceEdit_NewOrder</cstring>
+      <string>Update Delivery State</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="orderDetailsPage">
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QWidget" name="layoutWidget_7">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>60</y>
        <width>522</width>
        <height>401</height>
@@ -1007,23 +1386,23 @@
       </item>
      </layout>
     </widget>
-    <widget class="QPushButton" name="viewBidsBtn_OrderDetails">
+    <widget class="QPushButton" name="backBtn_OrderDetails">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>400</y>
+       <x>550</x>
+       <y>440</y>
        <width>201</width>
-       <height>25</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>View Bids</string>
+      <string>Back</string>
      </property>
     </widget>
     <widget class="QLabel" name="headerLabel_OrderDetails">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>290</x>
        <y>0</y>
        <width>183</width>
        <height>34</height>
@@ -1042,189 +1421,14 @@
       <cstring>descEdit_NewOrder</cstring>
      </property>
     </widget>
-    <widget class="QPushButton" name="backBtn_OrderDetails">
-     <property name="geometry">
-      <rect>
-       <x>560</x>
-       <y>440</y>
-       <width>201</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Back</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>560</x>
-       <y>60</y>
-       <width>201</width>
-       <height>321</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="contractDetails_OrderDetails">
-      <item>
-       <widget class="QLabel" name="shipperEmailLabel_OrderDetails">
-        <property name="text">
-         <string>Shipper Email</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="shipperEmailEdit_OrderDetails">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="forwarderEmailLabel_OrderDetails">
-        <property name="text">
-         <string>Forwarder Email</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="forwarderEmailEdit_OrderDetails">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="driverEmailLabel_OrderDetails">
-        <property name="text">
-         <string>Driver Email</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="driverEmailEdit_OrderDetails">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="orderStateLabel_OrderDetails">
-        <property name="text">
-         <string>Order State</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="orderStateEdit_OrderDetails">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="deliveryStateLabel_OrderDetails">
-        <property name="text">
-         <string>Delivery State</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="deliveryStateEdit_OrderDetails">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="finalPriceLabel_OrderDetails">
-        <property name="text">
-         <string>Final Price</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QDoubleSpinBox" name="finalPriceSpinBox_OrderDetails">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="prefix">
-         <string>£</string>
-        </property>
-        <property name="suffix">
-         <string/>
-        </property>
-        <property name="decimals">
-         <number>2</number>
-        </property>
-        <property name="maximum">
-         <double>9999.000000000000000</double>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
    </widget>
-   <widget class="QWidget" name="BidsPage">
-    <widget class="QLabel" name="headerLabel_Bids">
+   <widget class="QWidget" name="DeliveryStatePage">
+    <widget class="QLabel" name="headerLabel_Delivery">
      <property name="geometry">
       <rect>
-       <x>360</x>
+       <x>290</x>
        <y>0</y>
-       <width>58</width>
+       <width>192</width>
        <height>34</height>
       </rect>
      </property>
@@ -1232,7 +1436,7 @@
       <string notr="true">font-size:30px;</string>
      </property>
      <property name="text">
-      <string>Bids</string>
+      <string>Delivery State</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1241,49 +1445,46 @@
       <cstring>descEdit_NewOrder</cstring>
      </property>
     </widget>
-    <widget class="QListWidget" name="bidsListWidget_Bids">
+    <widget class="QPushButton" name="backBtn_Delivery">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>80</y>
-       <width>341</width>
-       <height>351</height>
-      </rect>
-     </property>
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="selectBidsLabel_Bids">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>60</y>
-       <width>68</width>
-       <height>17</height>
+       <x>330</x>
+       <y>410</y>
+       <width>121</width>
+       <height>25</height>
       </rect>
      </property>
      <property name="text">
-      <string>Select Bid</string>
-     </property>
-     <property name="buddy">
-      <cstring>sourceEdit_NewOrder</cstring>
+      <string>Back</string>
      </property>
     </widget>
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QPushButton" name="acceptBtn_Delivery">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>80</y>
-       <width>331</width>
-       <height>311</height>
+       <x>330</x>
+       <y>380</y>
+       <width>121</width>
+       <height>25</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="DetailsBox_Bids">
+     <property name="text">
+      <string>Accept</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>100</y>
+       <width>241</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="StateBox">
       <item>
-       <widget class="QLabel" name="priceLabel_Bids">
+       <widget class="QLabel" name="currentDeliveryStateLabel_Delivery">
         <property name="text">
-         <string>Bid Price</string>
+         <string>Current Delivery State</string>
         </property>
         <property name="buddy">
          <cstring>sourceEdit_NewOrder</cstring>
@@ -1291,77 +1492,55 @@
        </widget>
       </item>
       <item>
-       <widget class="QDoubleSpinBox" name="bidPriceSpinBox_Bids">
+       <widget class="QLineEdit" name="deliveryStateEdit_Delivery">
         <property name="enabled">
          <bool>true</bool>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
+        <property name="text">
+         <string/>
         </property>
         <property name="readOnly">
          <bool>true</bool>
         </property>
-        <property name="prefix">
-         <string>£</string>
-        </property>
-        <property name="suffix">
-         <string/>
-        </property>
-        <property name="decimals">
-         <number>2</number>
-        </property>
-        <property name="maximum">
-         <double>9999.000000000000000</double>
-        </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="optionalExtrasLabel_Bids">
+       <widget class="QLabel" name="newDeliveryStateLabel_Delivery">
         <property name="text">
-         <string>Optional Extras</string>
+         <string>New Delivery State</string>
         </property>
         <property name="buddy">
-         <cstring>otherDetailsEdit_NewOrder</cstring>
+         <cstring>sourceEdit_NewOrder</cstring>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="optionalExtrasEdit_Bids">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="plainText">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>400</y>
-       <width>271</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="buttonBox_Bids">
-      <item>
-       <widget class="QPushButton" name="acceptBtn_Bids">
-        <property name="text">
-         <string>Accept Bid</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="backBtn_Bids">
-        <property name="text">
-         <string>Back</string>
-        </property>
+       <widget class="QComboBox" name="deliveryStateComboBox_Delivery">
+        <item>
+         <property name="text">
+          <string>At Depot</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>In Transit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Out For Delivery</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Failed To Deliver</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Successfully Delivered</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
@@ -1381,19 +1560,9 @@
     <string>Home</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="refreshBtn">
-   <property name="geometry">
-    <rect>
-     <x>680</x>
-     <y>10</y>
-     <width>89</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Refresh</string>
-   </property>
-  </widget>
+  <zorder>driverWindow</zorder>
+  <zorder>refreshBtn</zorder>
+  <zorder>homeBtn</zorder>
  </widget>
  <resources/>
  <connections/>

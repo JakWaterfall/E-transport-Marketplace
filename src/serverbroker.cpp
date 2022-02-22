@@ -67,6 +67,18 @@ bool ServerBroker::processAcceptBid(QDataStream &inStream)
     return true;
 }
 
+bool ServerBroker::processAcceptJob(QDataStream &inStream)
+{
+    QString orderID;
+    inStream >> orderID;
+
+    if(!inStream.commitTransaction())
+        return false;
+
+    emit(acceptJob(orderID));
+    return true;
+}
+
 bool ServerBroker::readBody(QDataStream &inStream)
 {
     // Header only messages
@@ -102,6 +114,10 @@ bool ServerBroker::readBody(QDataStream &inStream)
     else if (currentHeader == "acceptBid")
     {
         return processAcceptBid(inStream);
+    }
+    else if (currentHeader == "acceptJob")
+    {
+        return processAcceptJob(inStream);
     }
 }
 

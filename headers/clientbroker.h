@@ -14,7 +14,8 @@ public:
     void logInAttempt(const QString& email, const QString& password);
     void sendOrderToMarketplace(const OrderContract& orderContract);
     void makeBidOnOrder(const QString& orderID, const OrderContract::Bid& bid);
-    void sendAcceptBidMessage(const QString& currentlySelectedOrderID, OrderContract::Bid& currentlySelectedBid);
+    void sendAcceptBidMessage(const QString& orderID, OrderContract::Bid& bid);
+    void acceptJob(const QString& orderID);
     void requestOrderContracts();
     void requestMarket();
 

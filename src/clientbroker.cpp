@@ -40,13 +40,23 @@ void ClientBroker::makeBidOnOrder(const QString &orderID, const OrderContract::B
     }
 }
 
-void ClientBroker::sendAcceptBidMessage(const QString &currentlySelectedOrderID, OrderContract::Bid &currentlySelectedBid)
+void ClientBroker::sendAcceptBidMessage(const QString &orderID, OrderContract::Bid &bid)
 {
     QString header = "acceptBid";
     if(socketReady())
     {
         QDataStream outStream(socket);
-        outStream << header << currentlySelectedOrderID << currentlySelectedBid;
+        outStream << header << orderID << bid;
+    }
+}
+
+void ClientBroker::acceptJob(const QString &orderID)
+{
+    QString header = "acceptJob";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header << orderID;
     }
 }
 
