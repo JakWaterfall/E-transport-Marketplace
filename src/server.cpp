@@ -25,7 +25,7 @@ Server::~Server()
 
 void Server::newConnection()
 {
-    auto connection = new Connection(tcpServer->nextPendingConnection(), marketplace, this);
+    auto connection = new Connection(tcpServer->nextPendingConnection(), marketplace);
     connect(connection, &Connection::disconnected, this, &Server::removeConnection);
     connections.push_back(connection);
     connection->start();
@@ -35,6 +35,7 @@ void Server::newConnection()
 
 void Server::removeConnection(Connection *connection)
 {
+    qDebug() << "connection destroyed";
     connection->deleteLater();
     connections.erase(std::remove(std::begin(connections), std::end(connections), connection), std::end(connections));
 }

@@ -3,8 +3,6 @@
 ForwarderController::ForwarderController(Forwarder user, ServerBroker* broker, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent)
     : Controller(broker, marketplace, parent), user(user)
 {
-    qDebug() << "Forwarder created";
-
     connect(broker, &ServerBroker::requestForOrderContracts, this, &ForwarderController::sendOrderContracts);
     connect(broker, &ServerBroker::requestForMarket, this, &ForwarderController::sendMarketContracts);
     connect(broker, &ServerBroker::newBidOnOrder, this, &ForwarderController::addBidToOrder);

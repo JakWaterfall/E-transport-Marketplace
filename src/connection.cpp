@@ -2,15 +2,12 @@
 
 Connection::Connection(QTcpSocket *socket, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent)
     : QThread(parent), broker(new ServerBroker(socket, this)), marketplace(marketplace), controller(nullptr), accountManager(AccountManager(this))
-{
-    qDebug() << "connection created";
-
-}
+{}
 
 Connection::~Connection()
 {
-    qDebug() << "Connection destroyed";
     quit(); // Quit thread loop
+    wait(); // wait till event queue has been excicuted before deleting objects
     broker->deleteLater();
     if (controller)
         controller->deleteLater();
@@ -18,7 +15,7 @@ Connection::~Connection()
 
 void Connection::run()
 {
-    qDebug() << "Thread started";
+//    qDebug() << "Thread started";
     connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
     connect(broker, &ServerBroker::logInAttempt, this, &Connection::logIn);
 
@@ -33,7 +30,6 @@ void Connection::changeSlotsAndSignalsToContext()
 
 void Connection::logIn(QString email, QString password)
 {
-    qDebug() << "Log in attempt";
     if(accountManager.verifyLogIn(email, password))
     {
         switch (accountManager.getUserType(email))
@@ -52,9 +48,7 @@ void Connection::logIn(QString email, QString password)
     }
     else
     {
-        // repost error to user
-        //broker->sendErrorMessage(accountController->getError());
-
+        broker->sendErrorMessage("Log In Credientails are incorrect");
     }
 }
 

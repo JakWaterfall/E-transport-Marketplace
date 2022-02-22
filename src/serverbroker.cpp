@@ -2,7 +2,6 @@
 
 ServerBroker::ServerBroker(QTcpSocket *socket, QObject *parent) : Broker(socket, parent)
 {
-    qDebug() << "ServerBroker created";
     connect(socket, &QTcpSocket::disconnected, this, &ServerBroker::socketDisconnected);
     connect(socket, &QTcpSocket::readyRead, this, &ServerBroker::processMessage);
 }

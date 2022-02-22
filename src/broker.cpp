@@ -24,8 +24,6 @@ void Broker::processMessage()
 {
     while(socket->isReadable())
     {
-        qDebug() << "processing message";
-
         QDataStream inStream(socket);
 
         if(!headerAquired)
@@ -35,7 +33,7 @@ void Broker::processMessage()
                 headerAquired = true;
             }
             else
-                return; qDebug() << "waiting for more data";
+                return;
         }
 
         if(readBody(inStream))
@@ -43,7 +41,7 @@ void Broker::processMessage()
             headerAquired = false;
         }
         else
-            return; qDebug() << "waiting for more data";
+            return;
     }
 }
 
@@ -55,11 +53,7 @@ bool Broker::socketReady() const
         {
             return true;
         }
-        else
-            qDebug() << "socket is not open";
     }
-    else
-        qDebug() << "socket is not connected";
     return false;
 }
 

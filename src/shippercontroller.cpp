@@ -3,7 +3,6 @@
 ShipperController::ShipperController(Shipper user, ServerBroker *broker, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent)
     : Controller(broker, marketplace, parent), user(user)
 {
-    qDebug() << "Shipper controller created";
     // send user details and order ids they hold?
     connect(broker, &ServerBroker::newOrderContract, this, &ShipperController::makeNewOrder);
     connect(broker, &ServerBroker::requestForOrderContracts, this, &ShipperController::sendOrderContracts);
@@ -21,9 +20,6 @@ void ShipperController::makeNewOrder(OrderContract *orderContract)
     orderContract->setShipperEmail(user.getEmail());
     user.insertOrderID(ID);
     marketplace->insert(ID, orderContract);
-
-    qDebug() << orderContract;
-    qDebug() << "market size: " << marketplace->size();
 }
 
 void ShipperController::sendOrderContracts()
