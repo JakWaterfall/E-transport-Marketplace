@@ -4,6 +4,7 @@ Server::Server(QObject *parent) : QObject(parent)
 {
     marketplace = new ThreadSafeMap<QString, OrderContract*>();
     tcpServer = new QTcpServer(this);
+
     if (tcpServer->listen(QHostAddress::Any, 1234))
     {
         connect(tcpServer, &QTcpServer::newConnection, this, &Server::newConnection);

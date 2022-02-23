@@ -6,6 +6,7 @@
 
 #include "shippercontroller.h"
 #include "forwardercontroller.h"
+#include "drivercontroller.h"
 #include "accountmanager.h"
 #include "serverbroker.h"
 #include "threadsafemap.h"

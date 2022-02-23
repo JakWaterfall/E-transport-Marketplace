@@ -43,6 +43,11 @@ void Connection::logIn(QString email, QString password)
             controller = new ForwarderController(accountManager.createForwarder(email, password), broker, marketplace, this);
             broker->sendPageSignIn("forwarder");
             break;
+
+        case AccountManager::UserType::DriverUser:
+            controller = new DriverController(accountManager.createDriver(email, password), broker, marketplace, this);
+            broker->sendPageSignIn("driver");
+            break;
         }
         changeSlotsAndSignalsToContext();
     }

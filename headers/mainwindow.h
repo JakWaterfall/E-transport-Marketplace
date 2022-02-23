@@ -7,6 +7,7 @@
 #include "sellerpage.h"
 #include "forwarderpage.h"
 #include "clientbroker.h"
+#include "driverpage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

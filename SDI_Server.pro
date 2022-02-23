@@ -1,4 +1,4 @@
-QT +=  network mqtt
+QT +=  network
 QT -= gui
 
 CONFIG += c++17 console

@@ -28,16 +28,6 @@ void MainWindow::on_loginBtn_clicked()
     // blank password on attempt.
 }
 
-//void MainWindow::on_actionqwe_triggered() // this needs to disconnect from server aswell
-//{
-//    if (mainPage)
-//    {
-//        delete mainPage;
-//        ui->stackedWidget->removeWidget(mainPage);
-//        mainPage = nullptr;
-//    }
-//}
-
 void MainWindow::signIntoPage(const QString &pageName)
 {
         if (pageName == "shipper")
@@ -47,6 +37,10 @@ void MainWindow::signIntoPage(const QString &pageName)
         else if (pageName == "forwarder")
         {
             mainPage = new ForwarderPage(broker, this);
+        }
+        else if (pageName == "driver")
+        {
+            mainPage = new DriverPage(broker, this);
         }
         else
         {

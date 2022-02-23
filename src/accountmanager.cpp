@@ -18,18 +18,27 @@ AccountManager::UserType AccountManager::getUserType(QString email) const
     {
         return UserType::ShipperUser;
     }
-    else
+    else if(email == "f")
     {
         return UserType::ForwarderUser;
+    }
+    else
+    {
+        return UserType::DriverUser;
     }
 }
 
 Shipper AccountManager::createShipper(QString email, QString password)
 {
-    return Shipper("Jak", "J@email.com", "1234", "123 address lane");
+    return Shipper("Jak", "Jak@email.com", "1234", "123 address lane");
 }
 
 Forwarder AccountManager::createForwarder(QString email, QString password)
 {
-    return Forwarder("Liam", "L@email.com", "1234", "321 address lane");
+    return Forwarder("Liam", "Liam@email.com", "1234", "321 address lane");
+}
+
+Driver AccountManager::createDriver(QString email, QString password)
+{
+    return Driver("Carl", "carlTheDriver@email.com", "pass1234", "214 watson street");
 }

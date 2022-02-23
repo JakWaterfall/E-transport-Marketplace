@@ -4,6 +4,7 @@
 #include <QObject>
 #include <shipper.h>
 #include <forwarder.h>
+#include <driver.h>
 
 class AccountManager : public QObject
 {
@@ -18,6 +19,7 @@ public:
     UserType getUserType(QString email) const;
     Shipper createShipper(QString email, QString password);
     Forwarder createForwarder(QString email, QString password);
+    Driver createDriver(QString email, QString password);
     const QString getError();
 signals:
 
