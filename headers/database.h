@@ -21,6 +21,7 @@ private:
     QSqlDatabase db;
     bool createUserTable();
     bool createOrderTable();
+    bool createOrderContractTable();
     bool createIdTable();
 
 };

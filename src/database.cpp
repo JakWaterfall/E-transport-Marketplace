@@ -1,4 +1,4 @@
-#include "database.h"
+ #include "database.h"
 
 database::database()
 {
@@ -39,6 +39,7 @@ bool database::insertUserTable(QString firstName, QString lastName, QString emai
 }
 
 bool database::containsAllTables(){
+    // QStringList allTables = {};
     QStringList myTables = db.tables();
     if(myTables.contains("User")){
         qDebug() << "Table user already here";
@@ -49,8 +50,8 @@ bool database::containsAllTables(){
 bool database::createUserTable(){
     bool ok;
     QSqlQuery query1;
-    if(query1.exec("CREATE TABLE User(firstName VARCHAR(30), lastName VARCHAR(30), "
-                   "email VARCHAR(40), password VARCHAR(40), address VARCHAR(50))")){
+    if(query1.exec("CREATE TABLE User(userId INT, firstName TEXT, lastName TEXT, "
+                   "email TEXT, password TEXT, address TEXT, userType TEXT), orderIds")){
         ok = true;
     }
     else
@@ -62,7 +63,53 @@ bool database::createUserTable(){
 }
 
 bool database::createOrderTable(){
-    return true;
+    bool ok;
+    QSqlQuery query1;
+    if(query1.exec("CREATE TABLE Order(orderId INT, sourceAddress TEXT, destAddress TEXT, "
+                   "sourcePostcode TEXT, destPostcode TEXT, width INT, height INT), "
+                   "depth INT, weight INT, fragile BOOLEAN, description TEXT, "
+                   "otherDetails TEXT, orderCreated DATETIME")){
+        ok = true;
+    }
+    else
+    {
+        qDebug() << "Error = " << query1.lastError().text();
+        ok = false;
+    }
+    return ok;
+}
+
+bool createOrderContractTable(){
+    bool ok;
+    QSqlQuery query1;
+    if(query1.exec("CREATE TABLE OrderContract(contractId INT, orderId INT, "
+                   "shipperEmail TEXT, forwarderEmail TEXT, driverEmail TEXT, "
+                   "consigneeName TEXT, consigneeNumber TEXT, finalBid DOUBLE, "
+                   "finalDriverPrice DOUBLE, state TEXT, bids")){
+        ok = true;
+    }
+    else
+    {
+        qDebug() << "Error = " << query1.lastError().text();
+        ok = false;
+    }
+    return ok;
+}
+
+bool createInvoiceTable(){
+    bool ok;
+    QSqlQuery query1;
+    if(query1.exec("CREATE TABLE OrderContract(invoiceId INT, shipperName TEXT, "
+                   "forwarderName TEXT, shipperEmail TEXT, forwarderEmail TEXT, "
+                   "date DATETIME, dueDate DATETIME, price INT")){
+        ok = true;
+    }
+    else
+    {
+        qDebug() << "Error = " << query1.lastError().text();
+        ok = false;
+    }
+    return ok;
 }
 
 bool database::createIdTable(){
