@@ -1,4 +1,5 @@
 QT +=  network
+QT += sql
 QT -= gui
 
 CONFIG += c++17 console
@@ -18,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += headers/
 
 SOURCES += \
+    src/database.cpp \
     src/driver.cpp \
     src/drivercontroller.cpp \
     src/forwardercontroller.cpp \
@@ -41,6 +43,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    headers/database.h \
     headers/driver.h \
     headers/drivercontroller.h \
     headers/forwardercontroller.h \
