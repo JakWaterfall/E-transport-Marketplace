@@ -14,6 +14,8 @@ public:
     database();
     ~database();
     bool openMyDB();
+
+    // All insert functions for each table
     bool insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address, QString userType);
     bool insertOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
                           QString destPostcode, int width, int height, int depth, int weight, bool fragile,
@@ -23,6 +25,13 @@ public:
                                   double finalBid, double finalDriverPrice, QString state, QString bids);
     bool insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderName, QString shipperEmail,
                             QString forwarderEmail, QDateTime &date, QDateTime &dueDate, int price);
+
+    // All delete fucntions for each table
+    bool deleteFromUserTable();
+    bool deleteFromOrderTable();
+    bool deleteFromOrderContractTable();
+    bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTime &date);
+
     bool containsAllTables();
 
 private:

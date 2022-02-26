@@ -121,6 +121,37 @@ bool insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderNam
     }
 }
 
+bool deleteFromUserTable(){
+    // STUB DEFINITION
+    return true;
+}
+
+bool deleteFromOrderTable(){
+    // STUB DEFINITION
+    return true;
+}
+
+bool deleteFromOrderContractTable(){
+    // STUB DEFINITION
+    return true;
+}
+
+bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTime &date){
+    QSqlQuery query1;
+    query1.prepare("DELETE FROM Invoice WHERE shipperName = ? AND forwarderName = ? AND date = ?");
+    query1.bindValue(0, shipperName);
+    query1.bindValue(1, forwarderName);
+    query1.bindValue(2, date);
+    if(query1.exec()){
+        return true;
+    }
+    else
+    {
+        qDebug() << "Error = " << query1.lastError().text();
+        return false;
+    }
+}
+
 bool database::containsAllTables(){
     QStringList allTables = {"User", "Order", "OrderContract", "Invoice"};
     QStringList myTables = db.tables();
