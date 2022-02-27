@@ -60,7 +60,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>6</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="homePage">
     <widget class="QPushButton" name="jobBoardBtn">
@@ -686,24 +686,7 @@
       <item>
        <widget class="QListWidget" name="inInventoryOrdersListWidget_Orders"/>
       </item>
-      <item>
-       <widget class="QLabel" name="inVehicleLabel_Orders">
-        <property name="text">
-         <string>Orders in vehicle</string>
-        </property>
-        <property name="buddy">
-         <cstring>sourceEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QListWidget" name="inVehicleListWidget_Orders"/>
-      </item>
      </layout>
-     <zorder>inVehicleLabel_Orders</zorder>
-     <zorder>inVehicleListWidget_Orders</zorder>
-     <zorder>inInventoryLabel_Orders</zorder>
-     <zorder>inInventoryOrdersListWidget_Orders</zorder>
     </widget>
     <widget class="QLabel" name="headerLabel_Orders">
      <property name="geometry">

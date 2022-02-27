@@ -92,25 +92,11 @@ void DriverPage::processOrderContracts(QMap<QString, OrderContract> &orderContra
 {
     cashedOrderContracts = orderContracts;
     ui->inInventoryOrdersListWidget_Orders->clear();
-    ui->inVehicleListWidget_Orders->clear();
     ui->compOrdersListWidget_CompOrders->clear();
 
     for(auto& orderContract : orderContracts)
     {
-        switch (orderContract.getDeliveryState())
-        {
-        case OrderContract::DeliveryState::notApplicable:
-        case OrderContract::DeliveryState::atDepot:
-        case OrderContract::DeliveryState::failedToDeliver:
-            addToListWidget(ui->inInventoryOrdersListWidget_Orders, orderContract.getOrder().getDescription(), orderContract.getID());
-            break;
-
-        case OrderContract::DeliveryState::inTransit:
-        case OrderContract::DeliveryState::outForDelivery:
-        case OrderContract::DeliveryState::successfullyDelivered:
-            addToListWidget(ui->inVehicleListWidget_Orders, orderContract.getOrder().getDescription(), orderContract.getID());
-            break;
-        }
+        addToListWidget(ui->inInventoryOrdersListWidget_Orders, orderContract.getOrder().getDescription(), orderContract.getID());
     }
 }
 
