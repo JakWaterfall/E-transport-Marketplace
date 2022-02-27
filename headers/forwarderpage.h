@@ -17,8 +17,8 @@ public:
     ~ForwarderPage();
 
 private:
-    void setBidPage(const QString& orderID);
-    void setOrderDetailsPage(const QString& orderID);
+    void setupBidPage(const QString& orderID);
+    void setupOrderDetailsPage(const QString& orderID);
 
 private slots:
     void on_orderMarketBtn_clicked();

@@ -79,6 +79,19 @@ bool ServerBroker::processAcceptJob(QDataStream &inStream)
     return true;
 }
 
+bool ServerBroker::processUpdateDeliveryState(QDataStream &inStream)
+{
+    QString orderID;
+    OrderContract::DeliveryState deliveryState;
+    inStream >> orderID >> deliveryState;
+
+    if(!inStream.commitTransaction())
+        return false;
+
+    emit(updateDeliveryState(orderID, deliveryState));
+    return true;
+}
+
 bool ServerBroker::readBody(QDataStream &inStream)
 {
     // Header only messages
@@ -118,6 +131,10 @@ bool ServerBroker::readBody(QDataStream &inStream)
     else if (currentHeader == "acceptJob")
     {
         return processAcceptJob(inStream);
+    }
+    else if (currentHeader == "updateDeliveryState")
+    {
+        return processUpdateDeliveryState(inStream);
     }
 }
 

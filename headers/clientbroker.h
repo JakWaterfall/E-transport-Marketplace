@@ -16,6 +16,7 @@ public:
     void makeBidOnOrder(const QString& orderID, const OrderContract::Bid& bid);
     void sendAcceptBidMessage(const QString& orderID, OrderContract::Bid& bid);
     void acceptJob(const QString& orderID);
+    void updateDeliveryState(const QString& orderID, const OrderContract::DeliveryState &deliveryState);
     void requestOrderContracts();
     void requestMarket();
 

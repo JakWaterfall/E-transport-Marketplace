@@ -70,6 +70,9 @@ public:
     QDataStream & read(QDataStream & stream);
     QDataStream & write(QDataStream & stream) const;
 
+    friend QDataStream &operator<< (QDataStream& stream, const OrderContract::DeliveryState & state);
+    friend QDataStream &operator>> (QDataStream& stream, OrderContract::DeliveryState & state);
+
     friend QDebug operator<<(QDebug debug, const OrderContract& contract)
     {
         debug << contract.getID() << contract.getOrder();

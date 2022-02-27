@@ -60,7 +60,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>6</number>
    </property>
    <widget class="QWidget" name="homePage">
     <widget class="QPushButton" name="jobBoardBtn">
@@ -580,38 +580,12 @@
      <property name="geometry">
       <rect>
        <x>560</x>
-       <y>60</y>
+       <y>320</y>
        <width>201</width>
-       <height>311</height>
+       <height>51</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="JobBox_JobOffer">
-      <item>
-       <widget class="QLabel" name="optionalLabel_JobOffer">
-        <property name="text">
-         <string>Optinal Extras</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-        <property name="buddy">
-         <cstring>descEdit_NewOrder</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPlainTextEdit" name="optionalExtrasEdit_JobOffer">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="readOnly">
-         <bool>false</bool>
-        </property>
-        <property name="plainText">
-         <string/>
-        </property>
-       </widget>
-      </item>
       <item>
        <widget class="QLabel" name="driverPriceLabel_JobOffer">
         <property name="text">
@@ -1471,7 +1445,7 @@
       <string>Accept</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -1515,33 +1489,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="deliveryStateComboBox_Delivery">
-        <item>
-         <property name="text">
-          <string>At Depot</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>In Transit</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Out For Delivery</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Failed To Deliver</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Successfully Delivered</string>
-         </property>
-        </item>
-       </widget>
+       <widget class="QComboBox" name="deliveryStateComboBox_Delivery"/>
       </item>
      </layout>
     </widget>

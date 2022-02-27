@@ -17,8 +17,8 @@ public:
 
 private:
     void clearNewOrderScreen();
-    void setOrderDetailsPage(const QString& orderID);
-    void setBidsPage(const QString& orderID);
+    void setupOrderDetailsPage(const QString& orderID);
+    void setupBidsPage(const QString& orderID);
 
 private slots:
     void on_homeBtn_clicked();

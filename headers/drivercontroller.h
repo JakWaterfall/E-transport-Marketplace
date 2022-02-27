@@ -14,6 +14,7 @@ private slots:
     void sendOrderContracts();
     void sendMarketContracts();
     void acceptJobOffer(const QString& orderID);
+    void updateDeliveryState(const QString& orderID, const OrderContract::DeliveryState &deliveryState);
 
 private:
     Driver user;

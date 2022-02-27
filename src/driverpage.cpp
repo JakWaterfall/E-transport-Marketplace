@@ -8,6 +8,7 @@ DriverPage::DriverPage(ClientBroker *broker, QWidget *parent) :
     ui->setupUi(this);
     ui->driverWindow->setCurrentIndex(homePage);
 
+    setupDeliveryComboBox();
     connect(broker, &ClientBroker::ordersReceived, this, &DriverPage::processOrderContracts);
     connect(broker, &ClientBroker::marketReceived, this, &DriverPage::processMarket);
     refreshOrders(); // get orders on login
@@ -19,7 +20,12 @@ DriverPage::~DriverPage()
     delete ui;
 }
 
-void DriverPage::setJobOfferPage(const QString &orderID)
+void DriverPage::setupDeliveryComboBox()
+{
+    ui->deliveryStateComboBox_Delivery->addItems(OrderContract::DeliveryStateToString.values());
+}
+
+void DriverPage::setupJobOfferPage(const QString &orderID)
 {
     ui->driverWindow->setCurrentIndex(jobOfferPage);
 
@@ -44,6 +50,42 @@ void DriverPage::setJobOfferPage(const QString &orderID)
     ui->driverPriceSpinBox_JobOffer->setValue(contract.getFinalDriverPrice());
 
     currentlySelectedOrderID = contract.getID(); // cashe ID incase user accepts job
+}
+
+void DriverPage::setupOrderDetailsPage(const QString &orderID)
+{
+    ui->driverWindow->setCurrentIndex(orderDetailsPage);
+
+    OrderContract contract = cashedOrderContracts.value(orderID);
+    Order order = contract.getOrder();
+
+    currentlySelectedOrderID = orderID;
+
+    ui->descEdit_OrderDetails->setText(order.getDescription());
+    ui->otherDetailsEdit_OrderDetails->setPlainText(order.getOtherDetails());
+    ui->widthSpinBox_OrderDetails->setValue(order.getWidth());
+    ui->heightSpinBox_OrderDetails->setValue(order.getHeight());
+    ui->depthSpinBox_OrderDetails->setValue(order.getDepth());
+    ui->weightSpinBox_OrderDetails->setValue(order.getWeight());
+    ui->fragileEdit_OrderDetails->setText(order.isFragile() ? "True" : "False");
+    ui->sourceEdit_OrderDetails->setPlainText(order.getSourceAddress());
+    ui->destEdit_OrderDetails->setPlainText(order.getDestinationAddress());
+    ui->sourcePostcodeEdit_OrderDetails->setText(order.getSourcePostcode());
+    ui->destPostcodeEdit_OrderDetails->setText(order.getDestinationPostcode());
+    ui->consigneeNameEdit_OrderDetails->setText(contract.getConsigneeName());
+    ui->consigneeNumEdit_OrderDetails->setText(contract.getConsigneeNumber());
+    ui->shipperEmailEdit_OrderDetails->setText(contract.getShipperEmail());
+    ui->forwarderEmailEdit_OrderDetails->setText(contract.getForwarderEmail());
+    ui->driverEmailEdit_OrderDetails->setText(contract.getDriverEmail());
+    ui->finalPriceSpinBox_OrderDetails->setValue(contract.getFinalBid());
+    ui->orderStateEdit_OrderDetails->setText(OrderContract::stateToString[contract.getState()]);
+    ui->deliveryStateEdit_OrderDetails->setText(OrderContract::DeliveryStateToString[contract.getDeliveryState()]);
+}
+
+void DriverPage::setupDeliveryStatePage()
+{
+    OrderContract contract = cashedOrderContracts.value(currentlySelectedOrderID);
+    ui->deliveryStateEdit_Delivery->setText(OrderContract::DeliveryStateToString[contract.getDeliveryState()]);
 }
 
 void DriverPage::processOrderContracts(QMap<QString, OrderContract> &orderContracts)
@@ -114,7 +156,7 @@ void DriverPage::on_viewCompletedOrderScreenBtn_clicked()
 void DriverPage::on_jobOrdersListWidget_JobBoard_itemDoubleClicked(QListWidgetItem *item)
 {
     QString ID = item->data(Qt::UserRole).toString();
-    setJobOfferPage(ID);
+    setupJobOfferPage(ID);
 }
 
 void DriverPage::on_acceptBtn_JobOffer_clicked()
@@ -129,4 +171,37 @@ void DriverPage::on_backBtn_JobOffer_clicked()
 {
     refreshMarket();
     ui->driverWindow->setCurrentIndex(jobBoardPage);
+}
+
+void DriverPage::on_inInventoryOrdersListWidget_Orders_itemDoubleClicked(QListWidgetItem *item)
+{
+    QString ID = item->data(Qt::UserRole).toString();
+    setupOrderDetailsPage(ID);
+}
+
+void DriverPage::on_backBtn_OrderDetails_clicked()
+{
+    refreshOrders();
+    ui->driverWindow->setCurrentIndex(orderDetailsPage);
+}
+
+void DriverPage::on_updateDeliveryStateBtn_OrderDetails_clicked()
+{
+    ui->driverWindow->setCurrentIndex(deliveryStatePage);
+    setupDeliveryStatePage();
+}
+
+void DriverPage::on_backBtn_Delivery_clicked()
+{
+    ui->driverWindow->setCurrentIndex(orderDetailsPage);
+}
+
+void DriverPage::on_acceptBtn_Delivery_clicked()
+{
+    QString deliveryStateFromComboBox = ui->deliveryStateComboBox_Delivery->currentText();
+
+    broker->updateDeliveryState(currentlySelectedOrderID, OrderContract::DeliveryStateToString.key(deliveryStateFromComboBox));
+
+    refreshOrders();
+    ui->driverWindow->setCurrentIndex(ordersPage);
 }

@@ -20,7 +20,7 @@ ForwarderPage::~ForwarderPage()
     delete ui;
 }
 
-void ForwarderPage::setBidPage(const QString &orderID)
+void ForwarderPage::setupBidPage(const QString &orderID)
 {
     // clear old bid
     ui->bidAmountSpinBox_Bid->setValue(0.0);
@@ -49,7 +49,7 @@ void ForwarderPage::setBidPage(const QString &orderID)
     currentlySelectedOrderID = contract.getID(); // cashe ID incase user makes a bid.
 }
 
-void ForwarderPage::setOrderDetailsPage(const QString &orderID)
+void ForwarderPage::setupOrderDetailsPage(const QString &orderID)
 {
     ui->forwarderWindow->setCurrentIndex(orderDetailsPage);
 
@@ -160,13 +160,13 @@ void ForwarderPage::on_makeBidBtn_Bid_clicked()
 void ForwarderPage::on_marketOrdersListWidget_Market_itemDoubleClicked(QListWidgetItem *item)
 {
     QString ID = item->data(Qt::UserRole).toString();
-    setBidPage(ID);
+    setupBidPage(ID);
 }
 
 void ForwarderPage::on_offersMadeListWidget_Orders_itemDoubleClicked(QListWidgetItem *item)
 {
     QString ID = item->data(Qt::UserRole).toString();
-    setOrderDetailsPage(ID);
+    setupOrderDetailsPage(ID);
 }
 
 void ForwarderPage::on_viewBidBtn_OrderDetails_clicked()
@@ -187,7 +187,7 @@ void ForwarderPage::on_backBtn_ViewBid_clicked()
 void ForwarderPage::on_awaitingDeliveryListWidget_Orders_itemDoubleClicked(QListWidgetItem *item)
 {
     QString ID = item->data(Qt::UserRole).toString();
-    setOrderDetailsPage(ID);
+    setupOrderDetailsPage(ID);
 }
 
 void ForwarderPage::on_backBtn_OrderDetails_clicked()

@@ -58,7 +58,7 @@ void SellerPage::clearNewOrderScreen()
     clearAssortedWidgets(newOrderLineEdits, newOrderPlainTextEdits, newOrderSpinBoxes);
 }
 
-void SellerPage::setOrderDetailsPage(const QString &orderID)
+void SellerPage::setupOrderDetailsPage(const QString &orderID)
 {
     ui->sellerWindow->setCurrentIndex(orderDetailsPage);
 
@@ -169,7 +169,7 @@ void SellerPage::on_submitBtn_NewOrder_clicked()
 void SellerPage::on_awaitingBidsListWidget_Orders_itemDoubleClicked(QListWidgetItem *item)
 {
     QString ID = item->data(Qt::UserRole).toString();
-    setOrderDetailsPage(ID);
+    setupOrderDetailsPage(ID);
 }
 
 void SellerPage::on_backBtn_OrderDetails_clicked()
@@ -180,22 +180,22 @@ void SellerPage::on_backBtn_OrderDetails_clicked()
 void SellerPage::on_awaitingDeliveryListWidget_Orders_itemDoubleClicked(QListWidgetItem *item)
 {
     QString ID = item->data(Qt::UserRole).toString();
-    setOrderDetailsPage(ID);
+    setupOrderDetailsPage(ID);
 }
 
 void SellerPage::on_compOrdersListWidget_CompOrders_itemDoubleClicked(QListWidgetItem *item)
 {
     QString ID = item->data(Qt::UserRole).toString();
-    setOrderDetailsPage(ID);
+    setupOrderDetailsPage(ID);
 }
 
 void SellerPage::on_viewBidsBtn_OrderDetails_clicked()
 {
     ui->sellerWindow->setCurrentIndex(bidsPage);
-    setBidsPage(currentlySelectedOrderID);
+    setupBidsPage(currentlySelectedOrderID);
 }
 
-void SellerPage::setBidsPage(const QString &orderID)
+void SellerPage::setupBidsPage(const QString &orderID)
 {
     ui->sellerWindow->setCurrentIndex(bidsPage);
 
@@ -236,7 +236,7 @@ void SellerPage::on_acceptBtn_Bids_clicked()
 {
     broker->sendAcceptBidMessage(currentlySelectedOrderID, currentlySelectedBid);
     refreshOrders();
-    setOrderDetailsPage(currentlySelectedOrderID);
+    setupOrderDetailsPage(currentlySelectedOrderID);
 }
 
 void SellerPage::on_backBtn_Bids_clicked()

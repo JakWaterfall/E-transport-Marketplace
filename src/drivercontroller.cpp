@@ -6,6 +6,7 @@ DriverController::DriverController(Driver user, ServerBroker* broker, ThreadSafe
     connect(broker, &ServerBroker::requestForOrderContracts, this, &DriverController::sendOrderContracts);
     connect(broker, &ServerBroker::requestForMarket, this, &DriverController::sendMarketContracts);
     connect(broker, &ServerBroker::acceptJob, this, &DriverController::acceptJobOffer);
+    connect(broker, &ServerBroker::updateDeliveryState, this, &DriverController::updateDeliveryState);
 }
 
 void DriverController::sendOrderContracts()
@@ -65,6 +66,21 @@ void DriverController::acceptJobOffer(const QString &orderID)
         {
             broker->sendErrorMessage("Job has been accept by another driver.");
         }
+        marketplace->getMutex().unlock();
+    }
+    else
+    {
+        broker->sendErrorMessage("Order is no longer in the marketplace.");
+    }
+}
+
+void DriverController::updateDeliveryState(const QString &orderID, const OrderContract::DeliveryState &deliveryState)
+{
+    if(marketplace->contains(orderID))
+    {
+        marketplace->getMutex().lock();
+        OrderContract * contract = marketplace->get(orderID);
+        contract->setDelveryState(deliveryState);
         marketplace->getMutex().unlock();
     }
     else

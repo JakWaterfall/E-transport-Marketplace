@@ -183,3 +183,18 @@ QDataStream &OrderContract::write(QDataStream &stream) const
     stream << static_cast<qint32>(state) << static_cast<qint32>(deliveryState);
     return stream;
 }
+
+QDataStream &operator<< (QDataStream& stream, const OrderContract::DeliveryState & state)
+{
+    stream << static_cast<qint32>(state);
+    return stream;
+}
+
+QDataStream &operator>> (QDataStream& stream, OrderContract::DeliveryState & state)
+{
+    qint32 deliveryState_int = 0;
+    stream >> deliveryState_int;
+
+    state = static_cast<OrderContract::DeliveryState>(deliveryState_int);
+    return stream;
+}

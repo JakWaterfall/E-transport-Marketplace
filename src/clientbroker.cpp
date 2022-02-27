@@ -60,6 +60,16 @@ void ClientBroker::acceptJob(const QString &orderID)
     }
 }
 
+void ClientBroker::updateDeliveryState(const QString &orderID, const OrderContract::DeliveryState &deliveryState)
+{
+    QString header = "updateDeliveryState";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header << orderID << deliveryState;
+    }
+}
+
 void ClientBroker::requestOrderContracts()
 {
     QString header = "requestOrderContracts";
