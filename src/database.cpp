@@ -3,6 +3,7 @@
 database::database()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
+    containsAllTables();
 }
 
 database::~database(){
@@ -150,6 +151,41 @@ bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTim
         qDebug() << "Error = " << query1.lastError().text();
         return false;
     }
+}
+
+bool verifyLoginFromDatabase(QString email, QString password){
+    // INSERT INTO User(firstName, lastName, email, password, address, userType)
+    bool ok = false;
+    QSqlQuery query1;
+    query1.prepare("SELECT password FROM User WHERE email = ?");
+    query1.bindValue(0, email);
+    if(!query1.exec()){
+        qDebug() << "Error = " << query1.lastError().text();
+    }
+    else {
+        query1.next();
+        QString actualPassword = query1.value(0).toString();
+        if(actualPassword == password){
+            ok = true;
+        }
+    }
+    return ok;
+}
+
+QString getUserTypeFromDatabase(QString email){
+    // INSERT INTO User(firstName, lastName, email, password, address, userType)
+    QSqlQuery query1;
+    query1.prepare("SELECT userType FROM User WHERE email = ?");
+    query1.bindValue(0, email);
+    if(!query1.exec()){
+        qDebug() << "Error = " << query1.lastError().text();
+    }
+    else {
+        query1.next();
+        QString thisUserType = query1.value(0).toString();
+        return thisUserType;
+    }
+    return "";
 }
 
 bool database::containsAllTables(){

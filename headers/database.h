@@ -16,7 +16,8 @@ public:
     bool openMyDB();
 
     // All insert functions for each table
-    bool insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address, QString userType);
+    bool insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address,
+                         QString userType);
     bool insertOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
                           QString destPostcode, int width, int height, int depth, int weight, bool fragile,
                           QString description, QString otherDetails, QDateTime &orderCreated);
@@ -31,6 +32,10 @@ public:
     bool deleteFromOrderTable();
     bool deleteFromOrderContractTable();
     bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTime &date);
+
+    bool verifyLoginFromDatabase(QString email, QString password);
+    // returns empty string "" if error occurs
+    bool getUserTypeFromDatabase(QString email);
 
     bool containsAllTables();
 
