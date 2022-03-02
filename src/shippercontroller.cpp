@@ -20,6 +20,7 @@ void ShipperController::makeNewOrder(OrderContract *orderContract)
     orderContract->setShipperEmail(user.getEmail());
     user.insertOrderID(ID);
     marketplace->insert(ID, orderContract);
+    broker->sendErrorMessage("Order Compleate!"); // change this to normal message
 }
 
 void ShipperController::sendOrderContracts()
