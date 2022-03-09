@@ -35,7 +35,8 @@ SOURCES += \
     src/main_server.cpp \
     src/shipper.cpp \
     src/shippercontroller.cpp \
-    src/user.cpp
+    src/user.cpp \
+    tests/BoostExample.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
