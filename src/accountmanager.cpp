@@ -39,13 +39,15 @@ AccountManager::UserType AccountManager::getUserType(QString email) const
 
 }
 
-Shipper AccountManager::createShipper(QString firstName, QString lastName, QString email, QString password, QString address)
+Shipper AccountManager::createShipper(QString email, QString password)
 {
+    // QString firstName, QString lastName, QString email, QString password, QString address
     // INSERT INTO User(firstName, lastName, email, password, address, userType)
     database databaseController;
-    databaseController.insertUserTable(firstName, lastName, email, password, address, "Shipper");
+    // databaseController.insertUserTable(firstName, lastName, email, password, address, "Shipper");
     databaseController.~database();
-    return Shipper(firstName, email, password, address);
+    // return Shipper(firstName, email, password, address)
+    return Shipper("Jak", "Jak@email.com", "1234", "123 address lane");
 }
 
 Forwarder AccountManager::createForwarder(QString firstName, QString lastName, QString email, QString password, QString address)
@@ -53,7 +55,7 @@ Forwarder AccountManager::createForwarder(QString firstName, QString lastName, Q
     database databaseController;
     databaseController.insertUserTable(firstName, lastName, email, password, address, "Forwarder");
     databaseController.~database();
-    return Forwarder(firstName, email, password, address);
+    return Forwarder("Liam", "Liam@email.com", "1234", "321 address lane");
 }
 
 Driver AccountManager::createDriver(QString firstName, QString lastName, QString email, QString password, QString address)
@@ -61,5 +63,5 @@ Driver AccountManager::createDriver(QString firstName, QString lastName, QString
     database databaseController;
     databaseController.insertUserTable(firstName, lastName, email, password, address, "Driver");
     databaseController.~database();
-    return Driver(firstName, email, password, address);
+    return Driver("Carl", "carlTheDriver@email.com", "pass1234", "214 watson street");
 }
