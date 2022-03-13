@@ -16,6 +16,7 @@ public:
     bool openMyDB();
 
     // All insert functions for each table
+    // Binds inputted column vaiables to the insert statement and then executes the insert on the database
     bool insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address,
                          QString userType);
     bool insertOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
@@ -31,6 +32,7 @@ public:
     bool deleteFromUserTable();
     bool deleteFromOrderTable();
     bool deleteFromOrderContractTable();
+    // The only delete that is implemented so far
     bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTime &date);
 
     bool verifyLoginFromDatabase(QString email, QString password);
