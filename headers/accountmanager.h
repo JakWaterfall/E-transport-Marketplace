@@ -17,9 +17,9 @@ public:
     explicit AccountManager(QObject *parent = nullptr);
     bool verifyLogIn(QString email, QString password);
     UserType getUserType(QString email) const;
-    Shipper createShipper(QString email, QString password);
-    Forwarder createForwarder(QString email, QString password);
-    Driver createDriver(QString email, QString password);
+    Shipper createShipper(QString firstName, QString lastName, QString email, QString password, QString address);
+    Forwarder createForwarder(QString firstName, QString lastName, QString email, QString password, QString address);
+    Driver createDriver(QString firstName, QString lastName, QString email, QString password, QString address);
     const QString getError();
 signals:
 

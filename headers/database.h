@@ -35,7 +35,7 @@ public:
 
     bool verifyLoginFromDatabase(QString email, QString password);
     // returns empty string "" if error occurs
-    bool getUserTypeFromDatabase(QString email);
+    std::string getUserTypeFromDatabase(QString email);
 
     bool containsAllTables();
 
