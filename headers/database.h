@@ -28,6 +28,7 @@ public:
     bool insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderName, QString shipperEmail,
                             QString forwarderEmail, QDateTime &date, QDateTime &dueDate, int price);
 
+
     // All delete fucntions for each table
     bool deleteFromUserTable();
     bool deleteFromOrderTable();
@@ -35,9 +36,19 @@ public:
     // The only delete that is implemented so far
     bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTime &date);
 
+
+    // These are the fucntions that use SELECT
     bool verifyLoginFromDatabase(QString email, QString password);
     // returns empty string "" if error occurs
-    std::string getUserTypeFromDatabase(QString email);
+    QString getUserTypeFromDatabase(QString email);
+
+
+    bool updateOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
+                          QString destPostcode, int width, int height, int depth, int weight, bool fragile,
+                          QString description, QString otherDetails, QDateTime &orderCreated);
+    bool updateOrderContractTable(QString contractId, int orderId, QString shipperEmail, QString forwarderEmail,
+                                  QString driverEmail, QString consigneeName, QString consigneeNumber,
+                                  double finalBid, double finalDriverPrice, QString state, QString bids);
 
     bool containsAllTables();
 

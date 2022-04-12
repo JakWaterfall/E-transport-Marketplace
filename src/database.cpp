@@ -19,7 +19,7 @@ bool database::openMyDB(){
     return ok;
 }
 
-bool database::insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address, QString userType)
+bool database::database::insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address, QString userType)
 {
     QSqlQuery query2;
     query2.prepare("INSERT INTO User(firstName, lastName, email, password, address, userType) "
@@ -40,7 +40,7 @@ bool database::insertUserTable(QString firstName, QString lastName, QString emai
     }
 }
 
-bool insertOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
+bool database::insertOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
                       QString destPostcode, int width, int height, int depth, int weight, bool fragile,
                       QString description, QString otherDetails, QDateTime &orderCreated){
     QSqlQuery query2;
@@ -61,7 +61,7 @@ bool insertOrderTable(int orderId, QString sourceAddress, QString destAddress, Q
     query2.bindValue(11, otherDetails);
     query2.bindValue(12, orderCreated);
     if(query2.exec()){
-        qDebug() << "User table inserted";
+        qDebug() << "Order table inserted";
         return true;
     }
     else{
@@ -70,7 +70,7 @@ bool insertOrderTable(int orderId, QString sourceAddress, QString destAddress, Q
     }
 }
 
-bool insertOrderContractTable(QString contractId, int orderId, QString shipperEmail, QString forwarderEmail,
+bool database::insertOrderContractTable(QString contractId, int orderId, QString shipperEmail, QString forwarderEmail,
                               QString driverEmail, QString consigneeName, QString consigneeNumber,
                               double finalBid, double finalDriverPrice, QString state, QString bids){
     QSqlQuery query2;
@@ -89,7 +89,7 @@ bool insertOrderContractTable(QString contractId, int orderId, QString shipperEm
     query2.bindValue(9, state);
     query2.bindValue(10, bids);
     if(query2.exec()){
-        qDebug() << "User table inserted";
+        qDebug() << "OrderContract table inserted";
         return true;
     }
     else{
@@ -98,7 +98,7 @@ bool insertOrderContractTable(QString contractId, int orderId, QString shipperEm
     }
 }
 
-bool insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderName, QString shipperEmail,
+bool database::insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderName, QString shipperEmail,
                         QString forwarderEmail, QDateTime &date, QDateTime &dueDate, int price){
     QSqlQuery query2;
     query2.prepare("INSERT INTO Invoice(invoiceId, shipperName, forwarderName, shipperEmail, forwarderEmail, date, "
@@ -113,7 +113,7 @@ bool insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderNam
     query2.bindValue(6, dueDate);
     query2.bindValue(7, price);
     if(query2.exec()){
-        qDebug() << "User table inserted";
+        qDebug() << "Invoice table inserted";
         return true;
     }
     else{
@@ -122,22 +122,22 @@ bool insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderNam
     }
 }
 
-bool deleteFromUserTable(){
+bool database::deleteFromUserTable(){
     // STUB DEFINITION
     return true;
 }
 
-bool deleteFromOrderTable(){
+bool database::deleteFromOrderTable(){
     // STUB DEFINITION
     return true;
 }
 
-bool deleteFromOrderContractTable(){
+bool database::deleteFromOrderContractTable(){
     // STUB DEFINITION
     return true;
 }
 
-bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTime &date){
+bool database::deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTime &date){
     QSqlQuery query1;
     query1.prepare("DELETE FROM Invoice WHERE shipperName = ? AND forwarderName = ? AND date = ?");
     query1.bindValue(0, shipperName);
@@ -153,7 +153,7 @@ bool deleteFromInvoiceTable(QString shipperName, QString forwarderName, QDateTim
     }
 }
 
-bool verifyLoginFromDatabase(QString email, QString password){
+bool database::verifyLoginFromDatabase(QString email, QString password){
     // INSERT INTO User(firstName, lastName, email, password, address, userType)
     bool ok = false;
     QSqlQuery query1;
@@ -172,7 +172,7 @@ bool verifyLoginFromDatabase(QString email, QString password){
     return ok;
 }
 
-QString getUserTypeFromDatabase(QString email){
+QString database::getUserTypeFromDatabase(QString email){
     // INSERT INTO User(firstName, lastName, email, password, address, userType)
     QSqlQuery query1;
     query1.prepare("SELECT userType FROM User WHERE email = ?");
@@ -216,6 +216,64 @@ bool database::containsAllTables(){
            }
     }
     return true;
+}
+
+bool database::updateOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
+                      QString destPostcode, int width, int height, int depth, int weight, bool fragile,
+                      QString description, QString otherDetails, QDateTime &orderCreated){
+    QSqlQuery query2;
+    query2.prepare("UPDATE Order SET sourceAddress = ?, destAddress = ?, sourcePostcode = ?, destPostcode = ?, width = ?, "
+                   "height = ?, depth = ?, weight = ?, fragile = ?, description = ?, otherDetails = ?, orderCreated = ? "
+                   "WHERE orderId = ?");
+    query2.bindValue(0, sourceAddress);
+    query2.bindValue(1, destAddress);
+    query2.bindValue(2, sourcePostcode);
+    query2.bindValue(3, destPostcode);
+    query2.bindValue(4, width);
+    query2.bindValue(5, height);
+    query2.bindValue(6, depth);
+    query2.bindValue(7, weight);
+    query2.bindValue(8, fragile);
+    query2.bindValue(9, description);
+    query2.bindValue(10, otherDetails);
+    query2.bindValue(11, orderCreated);
+    query2.bindValue(12, orderId);
+    if(query2.exec()){
+        qDebug() << "Order table updated";
+        return true;
+    }
+    else{
+        qDebug() << "Error = " << query2.lastError().text();
+        return false;
+    }
+}
+
+bool database::updateOrderContractTable(QString contractId, int orderId, QString shipperEmail, QString forwarderEmail,
+                              QString driverEmail, QString consigneeName, QString consigneeNumber,
+                              double finalBid, double finalDriverPrice, QString state, QString bids){
+    QSqlQuery query2;
+    query2.prepare("UPDATE OrderContract SET orderId = ?, shipperEmail = ?, forwarderEmail = ?, driverEmail = ?, consigneeName = ?, "
+                   "consigneeNumber = ?, finalBid = ?, finalDriverPrice = ?, state = ?, bids = ? "
+                   "WHERE contractId = ?");
+    query2.bindValue(0, orderId);
+    query2.bindValue(1, shipperEmail);
+    query2.bindValue(2, forwarderEmail);
+    query2.bindValue(3, driverEmail);
+    query2.bindValue(4, consigneeName);
+    query2.bindValue(5, consigneeNumber);
+    query2.bindValue(6, finalBid);
+    query2.bindValue(7, finalDriverPrice);
+    query2.bindValue(8, state);
+    query2.bindValue(9, bids);
+    query2.bindValue(10, contractId);
+    if(query2.exec()){
+        qDebug() << "OrderContract table updated";
+        return true;
+    }
+    else{
+        qDebug() << "Error = " << query2.lastError().text();
+        return false;
+    }
 }
 
 bool database::createUserTable(){
