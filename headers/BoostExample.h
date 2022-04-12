@@ -1,0 +1,4 @@
+#ifndef BOOSTEXAMPLE_H
+#define BOOSTEXAMPLE_H
+
+#endif // BOOSTEXAMPLE_H

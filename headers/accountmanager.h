@@ -18,8 +18,8 @@ public:
     bool verifyLogIn(QString email, QString password);
     UserType getUserType(QString email) const;
     Shipper createShipper(QString email, QString password);
-    Forwarder createForwarder(QString firstName, QString lastName, QString email, QString password, QString address);
-    Driver createDriver(QString firstName, QString lastName, QString email, QString password, QString address);
+    Forwarder createForwarder(QString email, QString password);
+    Driver createDriver(QString email, QString password);
     const QString getError();
 signals:
 

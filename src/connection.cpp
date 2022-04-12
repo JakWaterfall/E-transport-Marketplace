@@ -40,6 +40,7 @@ void Connection::logIn(QString email, QString password)
             break;
 
         case AccountManager::UserType::ForwarderUser:
+            // QString firstName, QString lastName, QString email, QString password, QString address
             controller = new ForwarderController(accountManager.createForwarder(email, password), broker, marketplace, this);
             broker->sendPageSignIn("forwarder");
             break;
