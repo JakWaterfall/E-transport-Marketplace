@@ -8,6 +8,36 @@
 #include <QtDebug>
 #include <QSqlError>
 
+struct OrderData {
+    int orderId;
+    QString sourceAddress;
+    QString destAddress;
+    QString sourcePostcode;
+    QString destPostcode;
+    int width;
+    int height;
+    int depth;
+    int weight;
+    bool fragile;
+    QString description;
+    QString otherDetails;
+    QDateTime orderCreated();
+};
+
+struct OrderContractData {
+    QString contractId;
+    int orderId;
+    QString shipperEmail;
+    QString forwarderEmail;
+    QString driverEmail;
+    QString consigneeName;
+    QString consigneeNumber;
+    double finalBid;
+    double finalDriverPrice;
+    QString state;
+    QString bids;
+};
+
 class database
 {
 public:
@@ -49,6 +79,9 @@ public:
     bool updateOrderContractTable(QString contractId, int orderId, QString shipperEmail, QString forwarderEmail,
                                   QString driverEmail, QString consigneeName, QString consigneeNumber,
                                   double finalBid, double finalDriverPrice, QString state, QString bids);
+
+    OrderData selectOrderTable(int orderId);
+    OrderContractData selectOrderContractTable(QString contractId);
 
     bool containsAllTables();
 

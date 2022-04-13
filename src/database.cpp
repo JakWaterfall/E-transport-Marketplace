@@ -276,6 +276,96 @@ bool database::updateOrderContractTable(QString contractId, int orderId, QString
     }
 }
 
+/*
+struct OrderData {
+    int orderId;
+    QString sourceAddress;
+    QString destAddress;
+    QString sourcePostcode;
+    QString destPostcode;
+    int width;
+    int height;
+    int depth;
+    int weight;
+    bool fragile;
+    QString description;
+    QString otherDetails;
+    QDateTime &orderCreated;
+};
+*/
+
+OrderData database::selectOrderTable(int orderId){
+    OrderData thisOrderData;
+    QSqlQuery query1;
+    query1.prepare("SELECT orderId, sourceAddress, destAddress, sourcePostcode, destPostcode, width, "
+                   "height, depth, weight, fragile, description, otherDetails, orderCreated FROM Order WHERE orderId = ?");
+    query1.bindValue(0, orderId);
+    if(!query1.exec()){
+        qDebug() << "Error = " << query1.lastError().text();
+    }
+    else {
+        query1.next();
+        thisOrderData.orderId = query1.value(0).toInt();
+        thisOrderData.sourceAddress = query1.value(1).toString();
+        thisOrderData.destAddress = query1.value(2).toString();
+        thisOrderData.sourcePostcode = query1.value(3).toString();
+        thisOrderData.destPostcode = query1.value(4).toString();
+        thisOrderData.width = query1.value(5).toInt();
+        thisOrderData.height = query1.value(6).toInt();
+        thisOrderData.depth = query1.value(7).toInt();
+        thisOrderData.weight = query1.value(8).toInt();
+        thisOrderData.fragile = query1.value(9).toBool();
+        thisOrderData.description = query1.value(10).toString();
+        thisOrderData.otherDetails = query1.value(11).toString();
+        //thisOrderData.orderCreated() = query1.value(12).toDateTime();
+        //return thisUserType;
+    }
+    //return "";
+}
+
+/*
+struct OrderContractData {
+    QString contractId;
+    int orderId;
+    QString shipperEmail;
+    QString forwarderEmail;
+    QString driverEmail;
+    QString consigneeName;
+    QString consigneeNumber;
+    double finalBid;
+    double finalDriverPrice;
+    QString state;
+    QString bids;
+};
+*/
+
+OrderContractData database::selectOrderContractTable(QString contractId){
+    OrderContractData thisOrderContarct;
+    QSqlQuery query1;
+    query1.prepare("SELECT contractId, orderId, shipperEmail, forwarderEmail, driverEmail, consigneeName, "
+                   "consigneeNumber, finalBid, finalDriverPrice, state, bids FROM OrderContract WHERE contractId = ?");
+    query1.bindValue(0, contractId);
+    if(!query1.exec()){
+        qDebug() << "Error = " << query1.lastError().text();
+    }
+    else {
+        query1.next();
+        thisOrderContarct.contractId = query1.value(0).toString();
+        thisOrderContarct.orderId = query1.value(1).toInt();
+        thisOrderContarct.shipperEmail = query1.value(2).toString();
+        thisOrderContarct.forwarderEmail = query1.value(3).toString();
+        thisOrderContarct.driverEmail = query1.value(4).toString();
+        thisOrderContarct.consigneeName = query1.value(5).toString();
+        thisOrderContarct.consigneeNumber = query1.value(6).toString();
+        thisOrderContarct.finalBid = query1.value(7).toDouble();
+        thisOrderContarct.finalDriverPrice = query1.value(8).toDouble();
+        thisOrderContarct.state = query1.value(9).toString();
+        thisOrderContarct.bids = query1.value(10).toString();
+        //return thisUserType;
+    }
+    //return "";
+}
+
 bool database::createUserTable(){
     bool ok;
     QSqlQuery query1;
