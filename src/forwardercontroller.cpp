@@ -8,6 +8,11 @@ ForwarderController::ForwarderController(Forwarder user, ServerBroker* broker, T
     connect(broker, &ServerBroker::newBidOnOrder, this, &ForwarderController::addBidToOrder);
 }
 
+ForwarderController::~ForwarderController()
+{
+    saveOrderIdsToDatabase(user.getEmail(), user.getOrderIDs());
+}
+
 void ForwarderController::removeOtherForwardersBids(QMap<QString, OrderContract> &orders)
 {
     for(auto& orderContract : orders)
@@ -87,6 +92,7 @@ void ForwarderController::addBidToOrder(const QString &orderID, OrderContract::B
             broker->sendErrorMessage("Order is no longer on the marketplace");
 
         marketplace->getMutex().unlock();
+        broker->sendMessage("Bid Sent!");
     }
     else
     {

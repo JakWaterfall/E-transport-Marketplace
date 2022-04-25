@@ -6,7 +6,7 @@
 class Driver : public User
 {
 public:
-    Driver(QString name, QString email, QString password, QString address);
+    Driver(QString name, QString email, QString address, QString postcode, QVector<QString> orderIds);
 };
 
 #endif // DRIVER_H

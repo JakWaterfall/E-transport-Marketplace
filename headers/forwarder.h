@@ -10,7 +10,7 @@
 class Forwarder : public User
 {
 public:
-    Forwarder(QString name, QString email, QString password, QString address);
+    Forwarder(QString name, QString email, QString address, QString postcode, QVector<QString> orderIds);
     ~Forwarder();
 private:
 };

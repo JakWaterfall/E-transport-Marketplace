@@ -11,7 +11,7 @@ ShipperController::ShipperController(Shipper user, ServerBroker *broker, ThreadS
 
 ShipperController::~ShipperController()
 {
-
+    saveOrderIdsToDatabase(user.getEmail(), user.getOrderIDs());
 }
 
 void ShipperController::makeNewOrder(OrderContract *orderContract)
@@ -20,7 +20,7 @@ void ShipperController::makeNewOrder(OrderContract *orderContract)
     orderContract->setShipperEmail(user.getEmail());
     user.insertOrderID(ID);
     marketplace->insert(ID, orderContract);
-    broker->sendErrorMessage("Order Compleate!"); // change this to normal message
+    broker->sendMessage("Order Complete!");
 }
 
 void ShipperController::sendOrderContracts()
@@ -37,7 +37,7 @@ void ShipperController::sendOrderContracts()
         else
         {
             user.removeOrderID(ID);
-            // delete ID from users list as it does not exist?
+            // delete ID from users list as it does not exist
         }
     }
     broker->sendUserRelatedOrderContracts(orders);
@@ -58,6 +58,7 @@ void ShipperController::acceptBidOnOrder(const QString &orderID, OrderContract::
         contract->setState(OrderContract::State::inForwarderInventory);
 
         marketplace->getMutex().unlock();
+        broker->sendMessage("Bid Accepted!");
     }
     else
     {
@@ -65,3 +66,4 @@ void ShipperController::acceptBidOnOrder(const QString &orderID, OrderContract::
         broker->sendErrorMessage("Order no longer exists.");
     }
 }
+

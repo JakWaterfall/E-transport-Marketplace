@@ -12,12 +12,8 @@ bool Broker::readHeader(QDataStream &inStream)
 {
     inStream.startTransaction();
     inStream >> currentHeader;
-    if(inStream.commitTransaction())
-    {
-        return true;
-    }
-    else
-        return false;
+
+    return inStream.commitTransaction();
 }
 
 void Broker::processMessage()

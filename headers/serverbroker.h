@@ -10,12 +10,14 @@ class ServerBroker : public Broker
 public:
     explicit ServerBroker(QTcpSocket* socket, QObject *parent = nullptr);
     void sendErrorMessage(const QString& message);
+    void sendMessage(const QString& message);
     void sendPageSignIn(const QString& pageName) const;
     void sendUserRelatedOrderContracts(const QMap<QString, OrderContract> &orders);
     void sendMarketOrderContracts(const QMap<QString, OrderContract> &marketOrders);
 
 private:
     bool processLogIn(QDataStream& inStream);
+    bool processRegister(QDataStream& inStream);
     bool processNewOrder(QDataStream& inStream);
     bool processNewBid(QDataStream& inStream);
     bool processAcceptBid(QDataStream& inStream);
@@ -28,6 +30,7 @@ private slots:
 
 signals:
     void logInAttempt(const QString& email, const QString& password);
+    void registerAttempt(const QString& name, const QString& email, const QString& password, const QString& confirmPass, const QString& address, const QString& postcode, const QString& userType);
     void newOrderContract(OrderContract* orderContract);
     void newBidOnOrder(const QString& orderID, OrderContract::Bid& bid);
     void acceptBid(const QString& orderID, OrderContract::Bid& bid);

@@ -7,14 +7,14 @@
 class User
 {
 public:
-    User(QString name, QString email, QString password, QString address);
+    User(QString name, QString email, QString address, QString postcode, QVector<QString> ordersIDs);
    ~User();
 
 public:
     const QString& getName();
     const QString& getEmail();
-    const QString& getPassword();
     const QString& getAddress();
+    const QString &getPostcode();
     const QVector<QString> getOrderIDs();
     void insertOrderID(QString ID);
     void removeOrderID(const QString& ID);
@@ -22,12 +22,10 @@ public:
 protected:
     QString name;
     QString email;
-    QString password; // ?? change this to only be in database ? encypted
     QString address;
-    QString postCode;
+    QString postcode;
 
-    QVector<QString> ordersIDs; // just the one?
-    //QVector<QString> completedOrdersIDs;
+    QVector<QString> ordersIDs;
 };
 
 #endif // USER_H

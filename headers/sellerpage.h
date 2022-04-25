@@ -19,6 +19,7 @@ private:
     void clearNewOrderScreen();
     void setupOrderDetailsPage(const QString& orderID);
     void setupBidsPage(const QString& orderID);
+    void calculateShippingRate();
 
 private slots:
     void on_homeBtn_clicked();
@@ -42,6 +43,10 @@ private slots:
     void on_backBtn_Bids_clicked();
 
     void on_acceptBtn_Bids_clicked();
+
+    void on_sourcePostcodeComboBox_NewOrder_activated(const QString &arg1);
+
+    void on_destPostcodeComboBox_NewOrder_activated(const QString &arg1);
 
 private:
     Ui::SellerPage *ui;

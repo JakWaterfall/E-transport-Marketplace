@@ -10,7 +10,7 @@
 class Shipper : public User
 {
 public:
-    Shipper(QString name, QString email, QString password, QString address);
+    Shipper(QString name, QString email, QString address, QString postcode, QVector<QString> orderIds);
     ~Shipper();
 
 private:

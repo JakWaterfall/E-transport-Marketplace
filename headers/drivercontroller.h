@@ -9,6 +9,7 @@ class DriverController : public Controller
     Q_OBJECT
 public:
     DriverController(Driver user, ServerBroker* broker, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent = nullptr);
+    ~DriverController();
 
 private slots:
     void sendOrderContracts();

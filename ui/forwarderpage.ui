@@ -35,7 +35,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="homePage">
     <widget class="QPushButton" name="orderMarketBtn">
@@ -663,7 +663,7 @@
       <item>
        <widget class="QLabel" name="driverPriceLabel_Bid">
         <property name="text">
-         <string>Driver Price</string>
+         <string>Driver Price Offer</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -855,7 +855,7 @@
        <x>550</x>
        <y>60</y>
        <width>201</width>
-       <height>321</height>
+       <height>401</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="contractDetails_OrderDetails">
@@ -977,7 +977,7 @@
       <item>
        <widget class="QLabel" name="finalPriceLabel_OrderDetails">
         <property name="text">
-         <string>Final Price</string>
+         <string>Final Bid Amount</string>
         </property>
         <property name="buddy">
          <cstring>sourceEdit_NewOrder</cstring>
@@ -1009,15 +1009,85 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="commissionLabel_OrderDetails">
+        <property name="text">
+         <string>Commission</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="commissionSpinBox_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="prefix">
+         <string>£</string>
+        </property>
+        <property name="suffix">
+         <string/>
+        </property>
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="maximum">
+         <double>9999.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="finalDriverPriceLabel_OrderDetails">
+        <property name="text">
+         <string>Driver Salery</string>
+        </property>
+        <property name="buddy">
+         <cstring>sourceEdit_NewOrder</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="finalDriverPriceSpinBox_OrderDetails">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="prefix">
+         <string>£</string>
+        </property>
+        <property name="suffix">
+         <string/>
+        </property>
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="maximum">
+         <double>9999.000000000000000</double>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
     <widget class="QPushButton" name="viewBidBtn_OrderDetails">
      <property name="geometry">
       <rect>
-       <x>550</x>
-       <y>400</y>
+       <x>330</x>
+       <y>470</y>
        <width>201</width>
-       <height>25</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -1403,7 +1473,7 @@
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>440</y>
+       <y>470</y>
        <width>201</width>
        <height>41</height>
       </rect>

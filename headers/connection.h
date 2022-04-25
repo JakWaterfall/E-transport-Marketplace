@@ -27,6 +27,7 @@ signals:
 
 private slots:
     void logIn(QString email, QString password);
+    void registerAttempt(QString name, QString email, QString password, QString confirmPass, QString address, QString postcode, QString userType);
     void brokerDisconnected();
 
 private:

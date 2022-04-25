@@ -3,32 +3,32 @@
 database::database()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    containsAllTables();
+    auto dbPath = qApp->applicationDirPath() + "E-TransportDa"
+                                               "tabase.db";
+    db.setDatabaseName(dbPath);
+    db.open();
+
+    createTables();
 }
 
 database::~database(){
     db.close();
+    auto dbName = db.connectionName();
+    db = QSqlDatabase();
+    QSqlDatabase::removeDatabase(dbName);
+    qDebug() << "Database Destroyed";
 }
 
-bool database::openMyDB(){
-    db.setHostName("EtransportCompany");
-    db.setDatabaseName("thisBase");
-    db.setUserName("NSmith");
-    db.setPassword("HelloWorld37");
-    bool ok = db.open();
-    return ok;
-}
-
-bool database::database::insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address, QString userType)
+bool database::database::insertUserTable(QString name, QString email, QString password, QString address, QString postcode, QString userType)
 {
     QSqlQuery query2;
-    query2.prepare("INSERT INTO User(firstName, lastName, email, password, address, userType) "
+    query2.prepare("INSERT INTO User(Name, Email, Password, address, postcode, userType) "
                    "VALUES (?, ?, ?, ?, ?, ?)");
-    query2.bindValue(0, firstName);
-    query2.bindValue(1, lastName);
-    query2.bindValue(2, email);
-    query2.bindValue(3, password);
-    query2.bindValue(4, address);
+    query2.bindValue(0, name);
+    query2.bindValue(1, email);
+    query2.bindValue(2, password);
+    query2.bindValue(3, address);
+    query2.bindValue(4, postcode);
     query2.bindValue(5, userType);
     if(query2.exec()){
         qDebug() << "User table inserted";
@@ -122,6 +122,19 @@ bool database::insertInvoiceTable(int invoiceId, QString shipperName, QString fo
     }
 }
 
+void database::insertUserOrderIds(const QString &email, const QString &orderIds)
+{
+    qDebug() << "running insert to orderid";
+
+    QSqlQuery query2;
+    query2.prepare("UPDATE User SET orderIds = ? WHERE Email = ?");
+    query2.bindValue(0, orderIds);
+    query2.bindValue(1, email);
+
+    if(!query2.exec())
+        qDebug() << "Error = " << query2.lastError().text();
+}
+
 bool database::deleteFromUserTable(){
     // STUB DEFINITION
     return true;
@@ -153,69 +166,75 @@ bool database::deleteFromInvoiceTable(QString shipperName, QString forwarderName
     }
 }
 
-bool database::verifyLoginFromDatabase(QString email, QString password){
-    // INSERT INTO User(firstName, lastName, email, password, address, userType)
-    bool ok = false;
-    QSqlQuery query1;
-    query1.prepare("SELECT password FROM User WHERE email = ?");
-    query1.bindValue(0, email);
-    if(!query1.exec()){
-        qDebug() << "Error = " << query1.lastError().text();
+bool database::emailExists(const QString &email)
+{
+    QSqlQuery emailQuery;
+    emailQuery.prepare("SELECT Email FROM User WHERE Email = ?");
+    emailQuery.bindValue(0, email);
+
+    if(!emailQuery.exec())
+    {
+        qDebug() << "Error = " << emailQuery.lastError().text();
+        return false;
     }
-    else {
-        query1.next();
-        QString actualPassword = query1.value(0).toString();
-        if(actualPassword == password){
-            ok = true;
+    else
+    {
+        return emailQuery.next();
+    }
+}
+
+
+QString database::getUserType(const QString &email)
+{
+    return getUserValueByEmail("userType", email);
+}
+
+QString database::getPassword(const QString &email)
+{
+    return getUserValueByEmail("Password", email);
+}
+
+QStringList database::getUserDetails(const QString &email)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM User WHERE Email = ?");
+    query.bindValue(0, email);
+
+    if(!query.exec())
+        qDebug() << "Error = " << query.lastError().text();
+
+    if(query.next())
+    {
+        auto name = query.value(0).toString();
+        auto email = query.value(1).toString();
+        auto address = query.value(3).toString();
+        auto postcode = query.value(4).toString();
+        auto orderIds = query.value(6).toString();
+
+        return {name, email, address, postcode, orderIds};
+    }
+    else
+    {
+        return {};
+    }
+}
+
+void database::createTables()
+{
+    QString userTableStr = "create table if not exists User(Name TEXT, Email TEXT PRIMARY KEY, Password TEXT, address TEXT, postcode TEXT, userType TEXT, orderIds TEXT)";
+    QString orderTableStr = "create table if not exists Orders(Id TEXT PRIMARY KEY, sourceAddress TEXT, destAddress TEXT, sourcePostcode TEXT, destPostcode TEXT, width INT, height INT, depth INT, weight INT, fragile TEXT, description TEXT, otherDetails TEXT, orderCreated TEXT)";
+    QString orderContractTableStr = "create table if not exists OrderContract(Id TEXT PRIMARY KEY, orderId INT, shipperEmail TEXT, forwarderEmail TEXT, driverEmail TEXT, consigneeName TEXT, consigneeNumber TEXT, finalBid DOUBLE, finalDriverPrice DOUBLE, state TEXT, bids TEXT)";
+
+    QStringList createTableQueries = {userTableStr, orderTableStr, orderContractTableStr};
+
+    QSqlQuery createTableQuery;
+    for(auto i = 0; i < createTableQueries.size(); i++)
+    {
+        if(!createTableQuery.exec(createTableQueries[i]))
+        {
+            qDebug() << "Error = " << createTableQuery.lastError().text();
         }
     }
-    return ok;
-}
-
-QString database::getUserTypeFromDatabase(QString email){
-    // INSERT INTO User(firstName, lastName, email, password, address, userType)
-    QSqlQuery query1;
-    query1.prepare("SELECT userType FROM User WHERE email = ?");
-    query1.bindValue(0, email);
-    if(!query1.exec()){
-        qDebug() << "Error = " << query1.lastError().text();
-    }
-    else {
-        query1.next();
-        QString thisUserType = query1.value(0).toString();
-        return thisUserType;
-    }
-    return "";
-}
-
-bool database::containsAllTables(){
-    QStringList allTables = {"User", "Order", "OrderContract", "Invoice"};
-    QStringList myTables = db.tables();
-    for(int i = 0; i < 4; i++){
-        if(!myTables.contains(allTables[i])){
-            qDebug() << "Table not here: " << allTables[i];
-            if(i == 0){
-                qDebug() << "Creating User table";
-                createUserTable();
-            }
-            else if(i == 1){
-                qDebug() << "Creating Order table";
-                createOrderTable();
-            }
-            else if(i == 2){
-                qDebug() << "Creating OrderContract table";
-                createOrderContractTable();
-            }
-            else if(i == 3){
-                qDebug() << "Creating Invoice table";
-                createInvoiceTable();
-            }
-            else{
-                qDebug() << "Error: table with index 4 or above does not exist";
-            }
-           }
-    }
-    return true;
 }
 
 bool database::updateOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
@@ -366,61 +385,13 @@ OrderContractData database::selectOrderContractTable(QString contractId){
     //return "";
 }
 
-bool database::createUserTable(){
-    bool ok;
-    QSqlQuery query1;
-    if(query1.exec("CREATE TABLE User(userId INT, firstName TEXT, lastName TEXT, "
-                   "email TEXT, password TEXT, address TEXT, userType TEXT), orderIds")){
-        ok = true;
-    }
-    else
-    {
-        qDebug() << "Error = " << query1.lastError().text();
-        ok = false;
-    }
-    return ok;
-}
-
-bool database::createOrderTable(){
-    bool ok;
-    QSqlQuery query1;
-    if(query1.exec("CREATE TABLE Order(orderId INT, sourceAddress TEXT, destAddress TEXT, "
-                   "sourcePostcode TEXT, destPostcode TEXT, width INT, height INT), "
-                   "depth INT, weight INT, fragile BOOLEAN, description TEXT, "
-                   "otherDetails TEXT, orderCreated DATETIME")){
-        ok = true;
-    }
-    else
-    {
-        qDebug() << "Error = " << query1.lastError().text();
-        ok = false;
-    }
-    return ok;
-}
-
-bool database::createOrderContractTable(){
-    bool ok;
-    QSqlQuery query1;
-    if(query1.exec("CREATE TABLE OrderContract(contractId TEXT, orderId INT, "
-                   "shipperEmail TEXT, forwarderEmail TEXT, driverEmail TEXT, "
-                   "consigneeName TEXT, consigneeNumber TEXT, finalBid DOUBLE, "
-                   "finalDriverPrice DOUBLE, state TEXT, bids")){
-        ok = true;
-    }
-    else
-    {
-        qDebug() << "Error = " << query1.lastError().text();
-        ok = false;
-    }
-    return ok;
-}
 
 bool database::createInvoiceTable(){
     bool ok;
     QSqlQuery query1;
     if(query1.exec("CREATE TABLE Invoice(invoiceId INT, shipperName TEXT, "
                    "forwarderName TEXT, shipperEmail TEXT, forwarderEmail TEXT, "
-                   "date DATETIME, dueDate DATETIME, price INT")){
+                   "date DATETIME, dueDate DATETIME, price INT)")){
         ok = true;
     }
     else
@@ -434,6 +405,25 @@ bool database::createInvoiceTable(){
 // REDUNDANT ATM
 bool database::createIdTable(){
     return true;
+}
+
+QString database::getUserValueByEmail(const QString &tableColumnName, const QString &email)
+{
+    QSqlQuery query;
+    query.prepare("SELECT " + tableColumnName + " FROM User WHERE Email = ?");
+    query.bindValue(0, email);
+
+    if(!query.exec())
+        qDebug() << "Error = " << query.lastError().text();
+
+    if(query.next())
+    {
+        return query.value(0).toString();
+    }
+    else
+    {
+        return "";
+    }
 }
 
 

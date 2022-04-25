@@ -31,20 +31,12 @@ SellerPage::SellerPage(ClientBroker *broker, QWidget *parent) :
 
     ui->sellerWindow->setCurrentIndex(homePage);
 
+    ui->sourcePostcodeComboBox_NewOrder->addItems(postcodeToPoint.keys());
+    ui->destPostcodeComboBox_NewOrder->addItems(postcodeToPoint.keys());
+    calculateShippingRate();
+
     connect(broker, &ClientBroker::ordersReceived, this, &SellerPage::processOrderContracts);
     refreshOrders(); // get orders on login
-
-    //QListWidgetItem* item = new QListWidgetItem("item 1", ui->orderList, QListWidgetItem::UserType);
-//    item->setData(Qt::UserRole, s.c_str());
-//    ui->orderList->addItem("order1");
-
-//    QStandardItemModel* model = new QStandardItemModel(4,1);
-//    for (auto i = 0; i < 2; i++) {
-//        QStandardItem * itam = new QStandardItem(QString("Name: %0, ID: %1").arg("my order").arg("qweewqqweewq"));
-//        model->setItem(i, itam);
-//    }
-//    ui->listView->setModel(model);
-
 }
 
 SellerPage::~SellerPage()
@@ -148,8 +140,8 @@ void SellerPage::on_submitBtn_NewOrder_clicked()
     Order order(ui->descEdit_NewOrder->text(),
                 ui->sourceEdit_NewOrder->toPlainText(),
                 ui->destEdit_NewOrder->toPlainText(),
-                ui->sourcePostcodeEdit_NewOrder->text(),
-                ui->destPostcodeEdit_NewOrder->text(),
+                ui->sourcePostcodeComboBox_NewOrder->currentText() + ui->sourcePostcodeEdit_NewOrder->text(),
+                ui->destPostcodeComboBox_NewOrder->currentText() + ui->destPostcodeEdit_NewOrder->text(),
                 ui->otherDetailsEdit_NewOrder->toPlainText(),
                 ui->widthSpinBox_NewOrder->value(),
                 ui->heightSpinBox_NewOrder->value(),
@@ -216,6 +208,13 @@ void SellerPage::setupBidsPage(const QString &orderID)
     }
 }
 
+void SellerPage::calculateShippingRate()
+{
+    auto source = ui->sourcePostcodeComboBox_NewOrder->currentText();
+    auto destination = ui->destPostcodeComboBox_NewOrder->currentText();
+    ui->shippingRateSpinBox_NewOrder->setValue(getShippingRate(source, destination));
+}
+
 void SellerPage::on_bidsListWidget_Bids_itemClicked(QListWidgetItem *item)
 {
     int bidIndex = item->data(Qt::UserRole).toInt();
@@ -242,4 +241,14 @@ void SellerPage::on_acceptBtn_Bids_clicked()
 void SellerPage::on_backBtn_Bids_clicked()
 {
     ui->sellerWindow->setCurrentIndex(orderDetailsPage);
+}
+
+void SellerPage::on_sourcePostcodeComboBox_NewOrder_activated(const QString &arg1)
+{
+    calculateShippingRate();
+}
+
+void SellerPage::on_destPostcodeComboBox_NewOrder_activated(const QString &arg1)
+{
+    calculateShippingRate();
 }

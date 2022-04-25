@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(broker, &ClientBroker::signInToPage, this, &MainWindow::signIntoPage);
     connect(broker, &ClientBroker::receivedErrorMessage, this, &MainWindow::onErrorRecived);
+    connect(broker, &ClientBroker::receivedMessage, this, &MainWindow::onMessageRecived);
+
+    setupUserTypeComboBox();
 }
 
 MainWindow::~MainWindow()
@@ -21,6 +24,10 @@ MainWindow::~MainWindow()
     delete mainPage;
 }
 
+void MainWindow::setupUserTypeComboBox()
+{
+    ui->UserTypeRegistercomboBox->addItems({"Shipper", "Forwarder", "Driver"});
+}
 
 void MainWindow::on_loginBtn_clicked()
 {
@@ -53,4 +60,54 @@ void MainWindow::signIntoPage(const QString &pageName)
 void MainWindow::onErrorRecived(const QString& errorMessage)
 {
     QMessageBox::critical(this, QLatin1String("Error!"), errorMessage);
+}
+
+void MainWindow::onMessageRecived(const QString &message)
+{
+    QMessageBox::information(this, QLatin1String("Infomation!"), message);
+}
+
+void MainWindow::on_registerBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(registerIndex);
+}
+
+void MainWindow::on_backRegisterBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(loginIndex);
+}
+
+void MainWindow::on_confirmRegisterBtn_clicked()
+{
+    // Send Register attempt
+    QString name = ui->nameRegisterlineEdit->text();
+    QString email = ui->EmailRegisterlineEdit->text();
+    QString password = ui->PassRegisterlineEdit->text();
+    QString confirmPass = ui->confirmPassRegisterlineEdit->text();
+    QString address = ui->AddressRegisterTextEdit->toPlainText();
+    QString postcode = ui->postcodeRegisterlineEdit->text();
+    QString userType = ui->UserTypeRegistercomboBox->currentText();
+
+    broker->registerAttempt(name, email, password, confirmPass, address, postcode, userType);
+}
+
+void MainWindow::on_actionLog_out_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(loginIndex);
+
+    if(mainPage)
+    {
+        ui->stackedWidget->removeWidget(mainPage);
+        delete mainPage;
+        mainPage = nullptr;
+    }
+
+    if(broker)
+    {
+        delete broker;
+        broker = new ClientBroker();
+        connect(broker, &ClientBroker::signInToPage, this, &MainWindow::signIntoPage);
+        connect(broker, &ClientBroker::receivedErrorMessage, this, &MainWindow::onErrorRecived);
+        connect(broker, &ClientBroker::receivedMessage, this, &MainWindow::onMessageRecived);
+    }
 }

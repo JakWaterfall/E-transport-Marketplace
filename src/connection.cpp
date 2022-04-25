@@ -18,6 +18,7 @@ void Connection::run()
 //    qDebug() << "Thread started";
     connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
     connect(broker, &ServerBroker::logInAttempt, this, &Connection::logIn);
+    connect(broker, &ServerBroker::registerAttempt, this, &Connection::registerAttempt);
 
     exec(); // Loops the thread to stay alive while connection is active
 }
@@ -35,18 +36,18 @@ void Connection::logIn(QString email, QString password)
         switch (accountManager.getUserType(email))
         {
         case AccountManager::UserType::ShipperUser:
-            controller = new ShipperController(accountManager.createShipper(email, password), broker, marketplace, this);
+            controller = new ShipperController(accountManager.createShipper(email), broker, marketplace, this);
             broker->sendPageSignIn("shipper");
             break;
 
         case AccountManager::UserType::ForwarderUser:
             // QString firstName, QString lastName, QString email, QString password, QString address
-            controller = new ForwarderController(accountManager.createForwarder(email, password), broker, marketplace, this);
+            controller = new ForwarderController(accountManager.createForwarder(email), broker, marketplace, this);
             broker->sendPageSignIn("forwarder");
             break;
 
         case AccountManager::UserType::DriverUser:
-            controller = new DriverController(accountManager.createDriver(email, password), broker, marketplace, this);
+            controller = new DriverController(accountManager.createDriver(email), broker, marketplace, this);
             broker->sendPageSignIn("driver");
             break;
         }
@@ -56,6 +57,48 @@ void Connection::logIn(QString email, QString password)
     {
         broker->sendErrorMessage("Log In Credientails are incorrect");
     }
+}
+
+void Connection::registerAttempt(QString name, QString email, QString password, QString confirmPass, QString address, QString postcode, QString userType)
+{
+    // verify no black enties
+    if(name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPass.isEmpty() || address.isEmpty() || postcode.isEmpty())
+    {
+        broker->sendErrorMessage("Must fill out each input to register");
+        return;
+    }
+
+    if(accountManager.emailExists(email))
+    {
+        broker->sendErrorMessage("Email is already registered with this system. Try Logging in.");
+        return;
+    }
+
+    // Test email aganst regex
+    QRegExp emailRegEx("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+    if(!emailRegEx.exactMatch(email))
+    {
+        broker->sendErrorMessage("Incorrect format for email.");
+        return;
+    }
+
+    // Test Password
+    QRegExp passRegEx("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
+    if(!passRegEx.exactMatch(password))
+    {
+        broker->sendErrorMessage("Incorrect format for password. Password must contain at least 1 uppercase and lowercase letter and 1 number.");
+        return;
+    }
+
+    if(password != confirmPass)
+    {
+        broker->sendErrorMessage("The passwords provided do not match.");
+        return;
+    }
+
+    accountManager.createUser(name, email, password, address, postcode, userType);
+    logIn(email, password);
+
 }
 
 void Connection::brokerDisconnected()

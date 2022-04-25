@@ -9,6 +9,7 @@ class ForwarderController : public Controller
     Q_OBJECT
 public:
     ForwarderController(Forwarder user, ServerBroker* broker, ThreadSafeMap<QString, OrderContract *> *marketplace, QObject *parent = nullptr);
+    ~ForwarderController();
 
 private:
     void removeOtherForwardersBids(QMap<QString, OrderContract>& orders);

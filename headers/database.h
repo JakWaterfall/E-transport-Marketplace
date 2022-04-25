@@ -43,12 +43,10 @@ class database
 public:
     database();
     ~database();
-    bool openMyDB();
 
     // All insert functions for each table
     // Binds inputted column vaiables to the insert statement and then executes the insert on the database
-    bool insertUserTable(QString firstName, QString lastName, QString email, QString password, QString address,
-                         QString userType);
+    bool insertUserTable(QString name, QString email, QString password, QString address, QString postcode, QString userType);
     bool insertOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
                           QString destPostcode, int width, int height, int depth, int weight, bool fragile,
                           QString description, QString otherDetails, QDateTime &orderCreated);
@@ -57,6 +55,7 @@ public:
                                   double finalBid, double finalDriverPrice, QString state, QString bids);
     bool insertInvoiceTable(int invoiceId, QString shipperName, QString forwarderName, QString shipperEmail,
                             QString forwarderEmail, QDateTime &date, QDateTime &dueDate, int price);
+    void insertUserOrderIds(const QString& email, const QString& orderIds);
 
 
     // All delete fucntions for each table
@@ -68,9 +67,12 @@ public:
 
 
     // These are the fucntions that use SELECT
-    bool verifyLoginFromDatabase(QString email, QString password);
+    bool emailExists(const QString& email);
+
     // returns empty string "" if error occurs
-    QString getUserTypeFromDatabase(QString email);
+    QString getUserType(const QString& email);
+    QString getPassword(const QString& email);
+    QStringList getUserDetails(const QString& email);
 
 
     bool updateOrderTable(int orderId, QString sourceAddress, QString destAddress, QString sourcePostcode,
@@ -83,16 +85,14 @@ public:
     OrderData selectOrderTable(int orderId);
     OrderContractData selectOrderContractTable(QString contractId);
 
-    bool containsAllTables();
-
 private:
     QSqlDatabase db;
-    bool createUserTable();
-    bool createOrderTable();
-    bool createOrderContractTable();
+    void createTables();
+
     bool createInvoiceTable();
     bool createIdTable(); // REDUNDANT ATM
 
+    QString getUserValueByEmail(const QString& tableColumnName, const QString& email);
 };
 
 #endif // DATABASE_H

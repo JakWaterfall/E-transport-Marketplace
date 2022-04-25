@@ -9,6 +9,11 @@ DriverController::DriverController(Driver user, ServerBroker* broker, ThreadSafe
     connect(broker, &ServerBroker::updateDeliveryState, this, &DriverController::updateDeliveryState);
 }
 
+DriverController::~DriverController()
+{
+    saveOrderIdsToDatabase(user.getEmail(), user.getOrderIDs());
+}
+
 void DriverController::sendOrderContracts()
 {
     QMap<QString, OrderContract> orders;
@@ -67,6 +72,7 @@ void DriverController::acceptJobOffer(const QString &orderID)
             broker->sendErrorMessage("Job has been accept by another driver.");
         }
         marketplace->getMutex().unlock();
+        broker->sendMessage("Job Accepted!");
     }
     else
     {
@@ -82,6 +88,7 @@ void DriverController::updateDeliveryState(const QString &orderID, const OrderCo
         OrderContract * contract = marketplace->get(orderID);
         contract->setDelveryState(deliveryState);
         marketplace->getMutex().unlock();
+        broker->sendMessage("Delivery Updated!");
     }
     else
     {

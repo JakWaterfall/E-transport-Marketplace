@@ -16,6 +16,16 @@ void ServerBroker::sendErrorMessage(const QString& message)
     }
 }
 
+void ServerBroker::sendMessage(const QString &message)
+{
+    QString header = "message";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header << message;
+    }
+}
+
 bool ServerBroker::processLogIn(QDataStream& inStream)
 {
     QString email;
@@ -26,6 +36,25 @@ bool ServerBroker::processLogIn(QDataStream& inStream)
         return false;
 
     emit(logInAttempt(email, password));
+    return true;
+}
+
+bool ServerBroker::processRegister(QDataStream &inStream)
+{
+    QString name;
+    QString email;
+    QString password;
+    QString confirmPass;
+    QString address;
+    QString postcode;
+    QString userType;
+
+    inStream >> name >> email >> password >> confirmPass >> address >> postcode >> userType;
+
+    if(!inStream.commitTransaction())
+        return false;
+
+    emit(registerAttempt(name, email, password, confirmPass, address, postcode, userType));
     return true;
 }
 
@@ -114,7 +143,7 @@ bool ServerBroker::readBody(QDataStream &inStream)
     }
     else if (currentHeader == "register")
     {
-
+        return processRegister(inStream);
     }
     else if (currentHeader == "newOrder")
     {

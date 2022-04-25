@@ -77,7 +77,7 @@ void DriverPage::setupOrderDetailsPage(const QString &orderID)
     ui->shipperEmailEdit_OrderDetails->setText(contract.getShipperEmail());
     ui->forwarderEmailEdit_OrderDetails->setText(contract.getForwarderEmail());
     ui->driverEmailEdit_OrderDetails->setText(contract.getDriverEmail());
-    ui->finalPriceSpinBox_OrderDetails->setValue(contract.getFinalBid());
+    ui->finalPriceSpinBox_OrderDetails->setValue(contract.getFinalDriverPrice());
     ui->orderStateEdit_OrderDetails->setText(OrderContract::stateToString[contract.getState()]);
     ui->deliveryStateEdit_OrderDetails->setText(OrderContract::DeliveryStateToString[contract.getDeliveryState()]);
 }

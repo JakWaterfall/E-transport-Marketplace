@@ -21,10 +21,22 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private:
+    void setupUserTypeComboBox();
+
 private slots:
     void on_loginBtn_clicked();
     void signIntoPage(const QString& pageName);
     void onErrorRecived(const QString& errorMessage);
+    void onMessageRecived(const QString& message);
+
+    void on_registerBtn_clicked();
+
+    void on_backRegisterBtn_clicked();
+
+    void on_confirmRegisterBtn_clicked();
+
+    void on_actionLog_out_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -32,6 +44,7 @@ private:
     ClientBroker* broker;
 
     const int loginIndex = 0;
-    const int mainPageIndex = 1;
+    const int registerIndex = 1;
+    const int mainPageIndex = 2;
 };
 #endif // MAINWINDOW_H

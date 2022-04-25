@@ -4,7 +4,6 @@ ClientBroker::ClientBroker(QObject *parent) : Broker(new QTcpSocket(), parent)
 {
     qDebug() << "ClientBroker created";
     socket->connectToHost(QHostAddress::LocalHost, 1234);
-    // possibly waitForConnected here?
 
     connect(socket, &QTcpSocket::disconnected, this, &ClientBroker::socketDisconnected);
     connect(socket, &QTcpSocket::readyRead, this, &ClientBroker::processMessage);
@@ -17,6 +16,16 @@ void ClientBroker::logInAttempt(const QString& email, const QString& password)
     {
         QDataStream outStream(socket);
         outStream << header << email << password;
+    }
+}
+
+void ClientBroker::registerAttempt(const QString &name, const QString &email, const QString &password, const QString &confirmPassword, const QString &address, const QString &postcode, const QString &userType)
+{
+    QString header = "register";
+    if(socketReady())
+    {
+        QDataStream outStream(socket);
+        outStream << header << name << email << password << confirmPassword << address << postcode << userType;
     }
 }
 
@@ -114,7 +123,11 @@ bool ClientBroker::readBody(QDataStream &inStream)
     }
     else if (currentHeader == "errorMessage")
     {
-        return processErrorMessage(inStream);
+        return processNewMessage(inStream, &ClientBroker::receivedErrorMessage);
+    }
+    else if (currentHeader == "message")
+    {
+        return processNewMessage(inStream, &ClientBroker::receivedMessage);
     }
 }
 
@@ -130,19 +143,7 @@ bool ClientBroker::processPageSignIn(QDataStream& inStream)
     return true;
 }
 
-bool ClientBroker::processErrorMessage(QDataStream &inStream)
-{
-    QString errorMessage;
-    inStream >> errorMessage;
-
-    if(!inStream.commitTransaction())
-        return false;
-
-    emit(receivedErrorMessage(errorMessage));
-    return true;
-}
-
-bool ClientBroker::processOrderContracts(QDataStream& inStream, void(ClientBroker::*func)(QMap<QString, OrderContract>&)) // maybe make this a function template that has the emit functions as a parameter?
+bool ClientBroker::processOrderContracts(QDataStream& inStream, void(ClientBroker::*func)(QMap<QString, OrderContract>&))
 {
     QMap<QString, OrderContract> orders;
     inStream >> orders;
@@ -151,5 +152,17 @@ bool ClientBroker::processOrderContracts(QDataStream& inStream, void(ClientBroke
         return false;
 
     emit(this->*func)(orders);
+    return true;
+}
+
+bool ClientBroker::processNewMessage(QDataStream &inStream, void (ClientBroker::*func)(const QString &))
+{
+    QString message;
+    inStream >> message;
+
+    if(!inStream.commitTransaction())
+        return false;
+
+    emit(this->*func)(message);
     return true;
 }

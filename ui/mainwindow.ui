@@ -45,7 +45,7 @@
         <x>320</x>
         <y>190</y>
         <width>144</width>
-        <height>151</height>
+        <height>166</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -97,12 +97,26 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="passInput"/>
+        <widget class="QLineEdit" name="passInput">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="loginBtn">
          <property name="text">
           <string>Login</string>
+         </property>
+         <property name="shortcut">
+          <string>Return</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="registerBtn">
+         <property name="text">
+          <string>Register</string>
          </property>
          <property name="shortcut">
           <string>Return</string>
@@ -115,6 +129,158 @@
       <zorder>passLabel</zorder>
       <zorder>emailLabel</zorder>
       <zorder>loginBtn</zorder>
+      <zorder>registerBtn</zorder>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="registerPage">
+     <widget class="QLabel" name="headerLabel_OrderDetails">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>20</y>
+        <width>114</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>Register</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="buddy">
+       <cstring>descEdit_NewOrder</cstring>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="confirmRegisterBtn">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>480</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Confirm</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backRegisterBtn">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>480</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>60</y>
+        <width>411</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Email Address</string>
+         </property>
+         <property name="buddy">
+          <cstring>EmailRegisterlineEdit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLineEdit" name="postcodeRegisterlineEdit"/>
+       </item>
+       <item row="9" column="0">
+        <widget class="QPlainTextEdit" name="AddressRegisterTextEdit"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Confirm Password</string>
+         </property>
+         <property name="buddy">
+          <cstring>confirmPassRegisterlineEdit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Postcode</string>
+         </property>
+         <property name="buddy">
+          <cstring>postcodeRegisterlineEdit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLineEdit" name="EmailRegisterlineEdit"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Address</string>
+         </property>
+         <property name="buddy">
+          <cstring>AddressRegisterTextEdit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLineEdit" name="confirmPassRegisterlineEdit">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Name</string>
+         </property>
+         <property name="buddy">
+          <cstring>nameRegisterlineEdit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLineEdit" name="PassRegisterlineEdit">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Password</string>
+         </property>
+         <property name="buddy">
+          <cstring>PassRegisterlineEdit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="nameRegisterlineEdit"/>
+       </item>
+       <item row="12" column="0">
+        <widget class="QComboBox" name="UserTypeRegistercomboBox"/>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -132,16 +298,31 @@
     <property name="title">
      <string>file</string>
     </property>
-    <addaction name="logOutAction"/>
+    <addaction name="actionLog_out"/>
    </widget>
    <addaction name="menufile"/>
   </widget>
-  <action name="logOutAction">
+  <action name="actionLog_out">
    <property name="text">
-    <string>Log Out</string>
+    <string>Log out</string>
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>emailInput</tabstop>
+  <tabstop>passInput</tabstop>
+  <tabstop>loginBtn</tabstop>
+  <tabstop>registerBtn</tabstop>
+  <tabstop>nameRegisterlineEdit</tabstop>
+  <tabstop>EmailRegisterlineEdit</tabstop>
+  <tabstop>PassRegisterlineEdit</tabstop>
+  <tabstop>confirmPassRegisterlineEdit</tabstop>
+  <tabstop>AddressRegisterTextEdit</tabstop>
+  <tabstop>postcodeRegisterlineEdit</tabstop>
+  <tabstop>UserTypeRegistercomboBox</tabstop>
+  <tabstop>confirmRegisterBtn</tabstop>
+  <tabstop>backRegisterBtn</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
