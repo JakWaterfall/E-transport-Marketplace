@@ -1,0 +1,5 @@
+<map id="SellerPage" name="SellerPage">
+<area shape="rect" id="node1" title="The SellerPage class holds all the logic for the Shippers client side view." alt="" coords="5,155,96,181"/>
+<area shape="rect" id="node2" href="$class_page.html" title="The Page class that acts as an interface for other types of pages." alt="" coords="24,80,77,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="11,5,90,32"/>
+</map>

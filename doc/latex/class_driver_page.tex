@@ -1,0 +1,416 @@
+\hypertarget{class_driver_page}{}\doxysection{Driver\+Page Class Reference}
+\label{class_driver_page}\index{DriverPage@{DriverPage}}
+
+
+The \mbox{\hyperlink{class_driver_page}{Driver\+Page}} class holds all the logic for the \mbox{\hyperlink{class_driver}{Driver}} client side view.  
+
+
+
+
+{\ttfamily \#include $<$driverpage.\+h$>$}
+
+
+
+Inheritance diagram for Driver\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{class_driver_page__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Driver\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_driver_page__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_driver_page_abf1e3f7b414b3aacde4e9c7996b08813}{Driver\+Page}} (\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$\mbox{\hyperlink{class_page_a13d51915e40d10dd54134a91b81cb395}{broker}}, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_driver_page}{Driver\+Page}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_driver_page_a8fd6616f3641b8591dc874e008490b9d}{$\sim$\+Driver\+Page}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_driver_page_aa902fab944e23777bae2b0f23a4c49de}{process\+Order\+Contracts}} (Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&order\+Contracts)
+\begin{DoxyCompactList}\small\item\em Processes and places order contracts into the correct list widget for display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_a8b0c9eb6e9382bfb29c0711878440442}{process\+Market}} (Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&market\+Orders)
+\begin{DoxyCompactList}\small\item\em Processes and places marketplace orders into the Job Board list widget for display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_ad5ef95354f498c6a9c24d3cf965ffc06}{on\+\_\+home\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens the home page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_a09e9d16ffe72befb8b817bbc87beb372}{on\+\_\+refresh\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Triggers request from the server to refreash the users related order contracts and the marketplace Job Board orders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_a7d23bcc7ca569f0992aedcb57506d6da}{on\+\_\+job\+Board\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens Job Board \mbox{\hyperlink{class_page}{Page}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_aa0e64c81992d9448bcac9fa35adfc99e}{on\+\_\+view\+Order\+Screen\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens orders page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_aaae0b553cba9afe2dfea7ab96662fe57}{on\+\_\+view\+Completed\+Order\+Screen\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens completed Orders \mbox{\hyperlink{class_page}{Page}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_a71046704451eb24936f8ee2d8a7d62f4}{on\+\_\+job\+Orders\+List\+Widget\+\_\+\+Job\+Board\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the job offer page with order that was double clicked on from the Job Orders list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_aa1d14e9c820734a0e037bbe309b19187}{on\+\_\+accept\+Btn\+\_\+\+Job\+Offer\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sends message to server to accept a job offer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_af704d27f1c6106d5873829174fbd31a6}{on\+\_\+back\+Btn\+\_\+\+Job\+Offer\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns back to the job board page from the job offer pafe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_aca429be2910794503e73df62c0faa84f}{on\+\_\+in\+Inventory\+Orders\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the order details page with order that was double clicked on from the In Inventory Orders list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_ac5ce219297bbb36b95857bf05af4cf27}{on\+\_\+back\+Btn\+\_\+\+Order\+Details\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns back to the orders page from the order details page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_a7f6ef2548a06563445ebc816e22145f8}{on\+\_\+update\+Delivery\+State\+Btn\+\_\+\+Order\+Details\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens the delivery state page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_adc613d624b55be04fc286c5d079337b2}{on\+\_\+back\+Btn\+\_\+\+Delivery\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns back to the order details page from the delivery state page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_ab4c4249e96b277b3a07972c939bb7176}{on\+\_\+accept\+Btn\+\_\+\+Delivery\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sends to the server a update to the delivery state of the currently selected order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_driver_page_a7d71291e307339bfbe2641ffba9bea0e}{setup\+Delivery\+Combo\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Sets up the Delivery state combo box with all possible delivery states in string form. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_a6c36fcd40da3472d641e7503e7e729e4}{setup\+Job\+Offer\+Page}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Sets up job offer page with infomation from a order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_a9a08b98db13af197e87f7fdb63577527}{setup\+Order\+Details\+Page}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Sets up the order details screen with the data from an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_page_ace763e680a68e7250697c61c6d1b5344}{setup\+Delivery\+State\+Page}} ()
+\begin{DoxyCompactList}\small\item\em Sets up delivery state page with data from the currently selected order contract. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Driver\+Page $\ast$ \mbox{\hyperlink{class_driver_page_a9aed60b79ec88e31a834dadc9150f80c}{ui}}
+\item 
+Q\+String \mbox{\hyperlink{class_driver_page_a08929a0077bc7c4c37a548391254531f}{currently\+Selected\+Order\+ID}}
+\item 
+const int \mbox{\hyperlink{class_driver_page_a6ac19bf054b2f817df5c86ee20b44d18}{home\+Page}} = 0
+\item 
+const int \mbox{\hyperlink{class_driver_page_a4fff8f03848f9141a62549eaac529b8e}{job\+Board\+Page}} = 1
+\item 
+const int \mbox{\hyperlink{class_driver_page_abfc29183f36fb180fec91cc5685bdbbf}{job\+Offer\+Page}} = 2
+\item 
+const int \mbox{\hyperlink{class_driver_page_a79406f584bb06f3df2be219a2a67d2ad}{orders\+Page}} = 3
+\item 
+const int \mbox{\hyperlink{class_driver_page_aa3ee280260afcbc698a0d37e25bc9f1c}{complete\+Orders\+Page}} = 4
+\item 
+const int \mbox{\hyperlink{class_driver_page_a78763f5583566699f4cc6ce4201254e2}{order\+Details\+Page}} = 5
+\item 
+const int \mbox{\hyperlink{class_driver_page_a5088abf0f57bac8b81a1e1209148d4fd}{delivery\+State\+Page}} = 6
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_driver_page}{Driver\+Page}} class holds all the logic for the \mbox{\hyperlink{class_driver}{Driver}} client side view. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_driver_page_abf1e3f7b414b3aacde4e9c7996b08813}\label{class_driver_page_abf1e3f7b414b3aacde4e9c7996b08813}} 
+\index{DriverPage@{DriverPage}!DriverPage@{DriverPage}}
+\index{DriverPage@{DriverPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{DriverPage()}{DriverPage()}}
+{\footnotesize\ttfamily Driver\+Page\+::\+Driver\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$}]{broker,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_driver_page}{Driver\+Page}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em broker} & The Message broker for the client. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_page_a8fd6616f3641b8591dc874e008490b9d}\label{class_driver_page_a8fd6616f3641b8591dc874e008490b9d}} 
+\index{DriverPage@{DriverPage}!````~DriverPage@{$\sim$DriverPage}}
+\index{````~DriverPage@{$\sim$DriverPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{$\sim$DriverPage()}{~DriverPage()}}
+{\footnotesize\ttfamily Driver\+Page\+::$\sim$\+Driver\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_driver_page_ab4c4249e96b277b3a07972c939bb7176}\label{class_driver_page_ab4c4249e96b277b3a07972c939bb7176}} 
+\index{DriverPage@{DriverPage}!on\_acceptBtn\_Delivery\_clicked@{on\_acceptBtn\_Delivery\_clicked}}
+\index{on\_acceptBtn\_Delivery\_clicked@{on\_acceptBtn\_Delivery\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_acceptBtn\_Delivery\_clicked}{on\_acceptBtn\_Delivery\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+accept\+Btn\+\_\+\+Delivery\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends to the server a update to the delivery state of the currently selected order. 
+
+\mbox{\Hypertarget{class_driver_page_aa1d14e9c820734a0e037bbe309b19187}\label{class_driver_page_aa1d14e9c820734a0e037bbe309b19187}} 
+\index{DriverPage@{DriverPage}!on\_acceptBtn\_JobOffer\_clicked@{on\_acceptBtn\_JobOffer\_clicked}}
+\index{on\_acceptBtn\_JobOffer\_clicked@{on\_acceptBtn\_JobOffer\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_acceptBtn\_JobOffer\_clicked}{on\_acceptBtn\_JobOffer\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+accept\+Btn\+\_\+\+Job\+Offer\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends message to server to accept a job offer. 
+
+\mbox{\Hypertarget{class_driver_page_adc613d624b55be04fc286c5d079337b2}\label{class_driver_page_adc613d624b55be04fc286c5d079337b2}} 
+\index{DriverPage@{DriverPage}!on\_backBtn\_Delivery\_clicked@{on\_backBtn\_Delivery\_clicked}}
+\index{on\_backBtn\_Delivery\_clicked@{on\_backBtn\_Delivery\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_Delivery\_clicked}{on\_backBtn\_Delivery\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+back\+Btn\+\_\+\+Delivery\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns back to the order details page from the delivery state page. 
+
+\mbox{\Hypertarget{class_driver_page_af704d27f1c6106d5873829174fbd31a6}\label{class_driver_page_af704d27f1c6106d5873829174fbd31a6}} 
+\index{DriverPage@{DriverPage}!on\_backBtn\_JobOffer\_clicked@{on\_backBtn\_JobOffer\_clicked}}
+\index{on\_backBtn\_JobOffer\_clicked@{on\_backBtn\_JobOffer\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_JobOffer\_clicked}{on\_backBtn\_JobOffer\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+back\+Btn\+\_\+\+Job\+Offer\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns back to the job board page from the job offer pafe. 
+
+\mbox{\Hypertarget{class_driver_page_ac5ce219297bbb36b95857bf05af4cf27}\label{class_driver_page_ac5ce219297bbb36b95857bf05af4cf27}} 
+\index{DriverPage@{DriverPage}!on\_backBtn\_OrderDetails\_clicked@{on\_backBtn\_OrderDetails\_clicked}}
+\index{on\_backBtn\_OrderDetails\_clicked@{on\_backBtn\_OrderDetails\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_OrderDetails\_clicked}{on\_backBtn\_OrderDetails\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+back\+Btn\+\_\+\+Order\+Details\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns back to the orders page from the order details page. 
+
+\mbox{\Hypertarget{class_driver_page_ad5ef95354f498c6a9c24d3cf965ffc06}\label{class_driver_page_ad5ef95354f498c6a9c24d3cf965ffc06}} 
+\index{DriverPage@{DriverPage}!on\_homeBtn\_clicked@{on\_homeBtn\_clicked}}
+\index{on\_homeBtn\_clicked@{on\_homeBtn\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_homeBtn\_clicked}{on\_homeBtn\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+home\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens the home page. 
+
+\mbox{\Hypertarget{class_driver_page_aca429be2910794503e73df62c0faa84f}\label{class_driver_page_aca429be2910794503e73df62c0faa84f}} 
+\index{DriverPage@{DriverPage}!on\_inInventoryOrdersListWidget\_Orders\_itemDoubleClicked@{on\_inInventoryOrdersListWidget\_Orders\_itemDoubleClicked}}
+\index{on\_inInventoryOrdersListWidget\_Orders\_itemDoubleClicked@{on\_inInventoryOrdersListWidget\_Orders\_itemDoubleClicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_inInventoryOrdersListWidget\_Orders\_itemDoubleClicked}{on\_inInventoryOrdersListWidget\_Orders\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+in\+Inventory\+Orders\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the order details page with order that was double clicked on from the In Inventory Orders list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_page_a7d23bcc7ca569f0992aedcb57506d6da}\label{class_driver_page_a7d23bcc7ca569f0992aedcb57506d6da}} 
+\index{DriverPage@{DriverPage}!on\_jobBoardBtn\_clicked@{on\_jobBoardBtn\_clicked}}
+\index{on\_jobBoardBtn\_clicked@{on\_jobBoardBtn\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_jobBoardBtn\_clicked}{on\_jobBoardBtn\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+job\+Board\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens Job Board \mbox{\hyperlink{class_page}{Page}}. 
+
+\mbox{\Hypertarget{class_driver_page_a71046704451eb24936f8ee2d8a7d62f4}\label{class_driver_page_a71046704451eb24936f8ee2d8a7d62f4}} 
+\index{DriverPage@{DriverPage}!on\_jobOrdersListWidget\_JobBoard\_itemDoubleClicked@{on\_jobOrdersListWidget\_JobBoard\_itemDoubleClicked}}
+\index{on\_jobOrdersListWidget\_JobBoard\_itemDoubleClicked@{on\_jobOrdersListWidget\_JobBoard\_itemDoubleClicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_jobOrdersListWidget\_JobBoard\_itemDoubleClicked}{on\_jobOrdersListWidget\_JobBoard\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+job\+Orders\+List\+Widget\+\_\+\+Job\+Board\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the job offer page with order that was double clicked on from the Job Orders list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_page_a09e9d16ffe72befb8b817bbc87beb372}\label{class_driver_page_a09e9d16ffe72befb8b817bbc87beb372}} 
+\index{DriverPage@{DriverPage}!on\_refreshBtn\_clicked@{on\_refreshBtn\_clicked}}
+\index{on\_refreshBtn\_clicked@{on\_refreshBtn\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_refreshBtn\_clicked}{on\_refreshBtn\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+refresh\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Triggers request from the server to refreash the users related order contracts and the marketplace Job Board orders. 
+
+\mbox{\Hypertarget{class_driver_page_a7f6ef2548a06563445ebc816e22145f8}\label{class_driver_page_a7f6ef2548a06563445ebc816e22145f8}} 
+\index{DriverPage@{DriverPage}!on\_updateDeliveryStateBtn\_OrderDetails\_clicked@{on\_updateDeliveryStateBtn\_OrderDetails\_clicked}}
+\index{on\_updateDeliveryStateBtn\_OrderDetails\_clicked@{on\_updateDeliveryStateBtn\_OrderDetails\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_updateDeliveryStateBtn\_OrderDetails\_clicked}{on\_updateDeliveryStateBtn\_OrderDetails\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+update\+Delivery\+State\+Btn\+\_\+\+Order\+Details\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens the delivery state page. 
+
+\mbox{\Hypertarget{class_driver_page_aaae0b553cba9afe2dfea7ab96662fe57}\label{class_driver_page_aaae0b553cba9afe2dfea7ab96662fe57}} 
+\index{DriverPage@{DriverPage}!on\_viewCompletedOrderScreenBtn\_clicked@{on\_viewCompletedOrderScreenBtn\_clicked}}
+\index{on\_viewCompletedOrderScreenBtn\_clicked@{on\_viewCompletedOrderScreenBtn\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewCompletedOrderScreenBtn\_clicked}{on\_viewCompletedOrderScreenBtn\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+view\+Completed\+Order\+Screen\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens completed Orders \mbox{\hyperlink{class_page}{Page}}. 
+
+\mbox{\Hypertarget{class_driver_page_aa0e64c81992d9448bcac9fa35adfc99e}\label{class_driver_page_aa0e64c81992d9448bcac9fa35adfc99e}} 
+\index{DriverPage@{DriverPage}!on\_viewOrderScreenBtn\_clicked@{on\_viewOrderScreenBtn\_clicked}}
+\index{on\_viewOrderScreenBtn\_clicked@{on\_viewOrderScreenBtn\_clicked}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewOrderScreenBtn\_clicked}{on\_viewOrderScreenBtn\_clicked}}
+{\footnotesize\ttfamily void Driver\+Page\+::on\+\_\+view\+Order\+Screen\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens orders page. 
+
+\mbox{\Hypertarget{class_driver_page_a8b0c9eb6e9382bfb29c0711878440442}\label{class_driver_page_a8b0c9eb6e9382bfb29c0711878440442}} 
+\index{DriverPage@{DriverPage}!processMarket@{processMarket}}
+\index{processMarket@{processMarket}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{processMarket}{processMarket}}
+{\footnotesize\ttfamily void Driver\+Page\+::process\+Market (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&}]{market\+Orders }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Processes and places marketplace orders into the Job Board list widget for display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em market\+Orders} & The order contracts from the marketplace. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_page_aa902fab944e23777bae2b0f23a4c49de}\label{class_driver_page_aa902fab944e23777bae2b0f23a4c49de}} 
+\index{DriverPage@{DriverPage}!processOrderContracts@{processOrderContracts}}
+\index{processOrderContracts@{processOrderContracts}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{processOrderContracts}{processOrderContracts}}
+{\footnotesize\ttfamily void Driver\+Page\+::process\+Order\+Contracts (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&}]{order\+Contracts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Processes and places order contracts into the correct list widget for display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Contracts} & The order contracts. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_page_a7d71291e307339bfbe2641ffba9bea0e}\label{class_driver_page_a7d71291e307339bfbe2641ffba9bea0e}} 
+\index{DriverPage@{DriverPage}!setupDeliveryComboBox@{setupDeliveryComboBox}}
+\index{setupDeliveryComboBox@{setupDeliveryComboBox}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{setupDeliveryComboBox()}{setupDeliveryComboBox()}}
+{\footnotesize\ttfamily void Driver\+Page\+::setup\+Delivery\+Combo\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the Delivery state combo box with all possible delivery states in string form. 
+
+\mbox{\Hypertarget{class_driver_page_ace763e680a68e7250697c61c6d1b5344}\label{class_driver_page_ace763e680a68e7250697c61c6d1b5344}} 
+\index{DriverPage@{DriverPage}!setupDeliveryStatePage@{setupDeliveryStatePage}}
+\index{setupDeliveryStatePage@{setupDeliveryStatePage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{setupDeliveryStatePage()}{setupDeliveryStatePage()}}
+{\footnotesize\ttfamily void Driver\+Page\+::setup\+Delivery\+State\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up delivery state page with data from the currently selected order contract. 
+
+\mbox{\Hypertarget{class_driver_page_a6c36fcd40da3472d641e7503e7e729e4}\label{class_driver_page_a6c36fcd40da3472d641e7503e7e729e4}} 
+\index{DriverPage@{DriverPage}!setupJobOfferPage@{setupJobOfferPage}}
+\index{setupJobOfferPage@{setupJobOfferPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{setupJobOfferPage()}{setupJobOfferPage()}}
+{\footnotesize\ttfamily void Driver\+Page\+::setup\+Job\+Offer\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up job offer page with infomation from a order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_page_a9a08b98db13af197e87f7fdb63577527}\label{class_driver_page_a9a08b98db13af197e87f7fdb63577527}} 
+\index{DriverPage@{DriverPage}!setupOrderDetailsPage@{setupOrderDetailsPage}}
+\index{setupOrderDetailsPage@{setupOrderDetailsPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{setupOrderDetailsPage()}{setupOrderDetailsPage()}}
+{\footnotesize\ttfamily void Driver\+Page\+::setup\+Order\+Details\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the order details screen with the data from an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_driver_page_aa3ee280260afcbc698a0d37e25bc9f1c}\label{class_driver_page_aa3ee280260afcbc698a0d37e25bc9f1c}} 
+\index{DriverPage@{DriverPage}!completeOrdersPage@{completeOrdersPage}}
+\index{completeOrdersPage@{completeOrdersPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{completeOrdersPage}{completeOrdersPage}}
+{\footnotesize\ttfamily const int Driver\+Page\+::complete\+Orders\+Page = 4\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_a08929a0077bc7c4c37a548391254531f}\label{class_driver_page_a08929a0077bc7c4c37a548391254531f}} 
+\index{DriverPage@{DriverPage}!currentlySelectedOrderID@{currentlySelectedOrderID}}
+\index{currentlySelectedOrderID@{currentlySelectedOrderID}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{currentlySelectedOrderID}{currentlySelectedOrderID}}
+{\footnotesize\ttfamily Q\+String Driver\+Page\+::currently\+Selected\+Order\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_a5088abf0f57bac8b81a1e1209148d4fd}\label{class_driver_page_a5088abf0f57bac8b81a1e1209148d4fd}} 
+\index{DriverPage@{DriverPage}!deliveryStatePage@{deliveryStatePage}}
+\index{deliveryStatePage@{deliveryStatePage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{deliveryStatePage}{deliveryStatePage}}
+{\footnotesize\ttfamily const int Driver\+Page\+::delivery\+State\+Page = 6\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_a6ac19bf054b2f817df5c86ee20b44d18}\label{class_driver_page_a6ac19bf054b2f817df5c86ee20b44d18}} 
+\index{DriverPage@{DriverPage}!homePage@{homePage}}
+\index{homePage@{homePage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{homePage}{homePage}}
+{\footnotesize\ttfamily const int Driver\+Page\+::home\+Page = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_a4fff8f03848f9141a62549eaac529b8e}\label{class_driver_page_a4fff8f03848f9141a62549eaac529b8e}} 
+\index{DriverPage@{DriverPage}!jobBoardPage@{jobBoardPage}}
+\index{jobBoardPage@{jobBoardPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{jobBoardPage}{jobBoardPage}}
+{\footnotesize\ttfamily const int Driver\+Page\+::job\+Board\+Page = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_abfc29183f36fb180fec91cc5685bdbbf}\label{class_driver_page_abfc29183f36fb180fec91cc5685bdbbf}} 
+\index{DriverPage@{DriverPage}!jobOfferPage@{jobOfferPage}}
+\index{jobOfferPage@{jobOfferPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{jobOfferPage}{jobOfferPage}}
+{\footnotesize\ttfamily const int Driver\+Page\+::job\+Offer\+Page = 2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_a78763f5583566699f4cc6ce4201254e2}\label{class_driver_page_a78763f5583566699f4cc6ce4201254e2}} 
+\index{DriverPage@{DriverPage}!orderDetailsPage@{orderDetailsPage}}
+\index{orderDetailsPage@{orderDetailsPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{orderDetailsPage}{orderDetailsPage}}
+{\footnotesize\ttfamily const int Driver\+Page\+::order\+Details\+Page = 5\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_a79406f584bb06f3df2be219a2a67d2ad}\label{class_driver_page_a79406f584bb06f3df2be219a2a67d2ad}} 
+\index{DriverPage@{DriverPage}!ordersPage@{ordersPage}}
+\index{ordersPage@{ordersPage}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{ordersPage}{ordersPage}}
+{\footnotesize\ttfamily const int Driver\+Page\+::orders\+Page = 3\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_page_a9aed60b79ec88e31a834dadc9150f80c}\label{class_driver_page_a9aed60b79ec88e31a834dadc9150f80c}} 
+\index{DriverPage@{DriverPage}!ui@{ui}}
+\index{ui@{ui}!DriverPage@{DriverPage}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Driver\+Page$\ast$ Driver\+Page\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{driverpage_8h}{driverpage.\+h}}\end{DoxyCompactItemize}

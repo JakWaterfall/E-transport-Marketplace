@@ -1,0 +1,155 @@
+\hypertarget{class_driver_controller}{}\doxysection{Driver\+Controller Class Reference}
+\label{class_driver_controller}\index{DriverController@{DriverController}}
+
+
+The \mbox{\hyperlink{class_driver_controller}{Driver\+Controller}} class holds all the logic for the \mbox{\hyperlink{class_driver}{Driver}}.  
+
+
+
+
+{\ttfamily \#include $<$drivercontroller.\+h$>$}
+
+
+
+Inheritance diagram for Driver\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_driver_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Driver\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_driver_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_driver_controller_a5e79cae6c3c6c179bd692d723a982a99}{Driver\+Controller}} (\mbox{\hyperlink{class_driver}{Driver}} \mbox{\hyperlink{class_driver_controller_ac40642dee09551c3ba27d27ea089e74f}{user}}, \mbox{\hyperlink{class_server_broker}{Server\+Broker}} $\ast$\mbox{\hyperlink{class_controller_a3435931e388fa78d1fc5675c17f20b63}{broker}}, \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$\mbox{\hyperlink{class_controller_a95311d13244668a78c4d2f0dd7e5b0ec}{marketplace}}, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_driver_controller}{Driver\+Controller}} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_driver_controller_a005fbee7f1ec5b6f2a2b3e228557a1b9}{$\sim$\+Driver\+Controller}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_driver_controller_aaf79517b5bad002697b97c4e9b000ee9}{send\+Order\+Contracts}} ()
+\begin{DoxyCompactList}\small\item\em Sends the order contracts associated with the driver user to the client via the broker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_controller_a50c00fba71c96f31cfa6fdcec1507935}{send\+Market\+Contracts}} ()
+\begin{DoxyCompactList}\small\item\em Sends all the order contacts that are currently in a forwarders inventory. This will be a list of potential orders that the user may want to accept a job offer on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_controller_af2013bf3aae313a5173a0ad07daf68d3}{accept\+Job\+Offer}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Accepts a job offer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_driver_controller_adeff51467ac73f6077b7a1e823880853}{update\+Delivery\+State}} (const Q\+String \&order\+ID, const \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&delivery\+State)
+\begin{DoxyCompactList}\small\item\em Updates the Delivery state of an order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_driver}{Driver}} \mbox{\hyperlink{class_driver_controller_ac40642dee09551c3ba27d27ea089e74f}{user}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_driver_controller}{Driver\+Controller}} class holds all the logic for the \mbox{\hyperlink{class_driver}{Driver}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_driver_controller_a5e79cae6c3c6c179bd692d723a982a99}\label{class_driver_controller_a5e79cae6c3c6c179bd692d723a982a99}} 
+\index{DriverController@{DriverController}!DriverController@{DriverController}}
+\index{DriverController@{DriverController}!DriverController@{DriverController}}
+\doxysubsubsection{\texorpdfstring{DriverController()}{DriverController()}}
+{\footnotesize\ttfamily Driver\+Controller\+::\+Driver\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_driver}{Driver}}}]{user,  }\item[{\mbox{\hyperlink{class_server_broker}{Server\+Broker}} $\ast$}]{broker,  }\item[{\mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$}]{marketplace,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_driver_controller}{Driver\+Controller}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & the user of the system. \\
+\hline
+{\em broker} & The Message broker for the server. \\
+\hline
+{\em marketplace} & The marketplace of orders. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_controller_a005fbee7f1ec5b6f2a2b3e228557a1b9}\label{class_driver_controller_a005fbee7f1ec5b6f2a2b3e228557a1b9}} 
+\index{DriverController@{DriverController}!````~DriverController@{$\sim$DriverController}}
+\index{````~DriverController@{$\sim$DriverController}!DriverController@{DriverController}}
+\doxysubsubsection{\texorpdfstring{$\sim$DriverController()}{~DriverController()}}
+{\footnotesize\ttfamily Driver\+Controller\+::$\sim$\+Driver\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_driver_controller_af2013bf3aae313a5173a0ad07daf68d3}\label{class_driver_controller_af2013bf3aae313a5173a0ad07daf68d3}} 
+\index{DriverController@{DriverController}!acceptJobOffer@{acceptJobOffer}}
+\index{acceptJobOffer@{acceptJobOffer}!DriverController@{DriverController}}
+\doxysubsubsection{\texorpdfstring{acceptJobOffer}{acceptJobOffer}}
+{\footnotesize\ttfamily void Driver\+Controller\+::accept\+Job\+Offer (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Accepts a job offer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The orders ID that the driver wishes to accept. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_controller_a50c00fba71c96f31cfa6fdcec1507935}\label{class_driver_controller_a50c00fba71c96f31cfa6fdcec1507935}} 
+\index{DriverController@{DriverController}!sendMarketContracts@{sendMarketContracts}}
+\index{sendMarketContracts@{sendMarketContracts}!DriverController@{DriverController}}
+\doxysubsubsection{\texorpdfstring{sendMarketContracts}{sendMarketContracts}}
+{\footnotesize\ttfamily void Driver\+Controller\+::send\+Market\+Contracts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends all the order contacts that are currently in a forwarders inventory. This will be a list of potential orders that the user may want to accept a job offer on. 
+
+\mbox{\Hypertarget{class_driver_controller_aaf79517b5bad002697b97c4e9b000ee9}\label{class_driver_controller_aaf79517b5bad002697b97c4e9b000ee9}} 
+\index{DriverController@{DriverController}!sendOrderContracts@{sendOrderContracts}}
+\index{sendOrderContracts@{sendOrderContracts}!DriverController@{DriverController}}
+\doxysubsubsection{\texorpdfstring{sendOrderContracts}{sendOrderContracts}}
+{\footnotesize\ttfamily void Driver\+Controller\+::send\+Order\+Contracts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends the order contracts associated with the driver user to the client via the broker. 
+
+\mbox{\Hypertarget{class_driver_controller_adeff51467ac73f6077b7a1e823880853}\label{class_driver_controller_adeff51467ac73f6077b7a1e823880853}} 
+\index{DriverController@{DriverController}!updateDeliveryState@{updateDeliveryState}}
+\index{updateDeliveryState@{updateDeliveryState}!DriverController@{DriverController}}
+\doxysubsubsection{\texorpdfstring{updateDeliveryState}{updateDeliveryState}}
+{\footnotesize\ttfamily void Driver\+Controller\+::update\+Delivery\+State (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID,  }\item[{const \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&}]{delivery\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Updates the Delivery state of an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The order ID to be updated. \\
+\hline
+{\em delivery\+State} & The new delivery state to be added. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_driver_controller_ac40642dee09551c3ba27d27ea089e74f}\label{class_driver_controller_ac40642dee09551c3ba27d27ea089e74f}} 
+\index{DriverController@{DriverController}!user@{user}}
+\index{user@{user}!DriverController@{DriverController}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_driver}{Driver}} Driver\+Controller\+::user\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{drivercontroller_8h}{drivercontroller.\+h}}\end{DoxyCompactItemize}

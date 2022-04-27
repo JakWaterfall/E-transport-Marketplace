@@ -1,0 +1,225 @@
+\hypertarget{classdatabase}{}\doxysection{database Class Reference}
+\label{classdatabase}\index{database@{database}}
+
+
+The database class holds all the logic for sending and retrieving infomation from the database.  
+
+
+
+
+{\ttfamily \#include $<$database.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdatabase_a35ec480ed529a9d092a7ebc5472b767f}{database}} ()
+\begin{DoxyCompactList}\small\item\em database Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdatabase_a31008de680565a626cd975c25d4351db}{$\sim$database}} ()
+\item 
+void \mbox{\hyperlink{classdatabase_a33f740cb1d8b48d6cdb75dc3a60042d7}{insert\+User\+Table}} (Q\+String name, Q\+String email, Q\+String password, Q\+String address, Q\+String postcode, Q\+String user\+Type)
+\begin{DoxyCompactList}\small\item\em Inserts a new row into the user table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdatabase_a11f9c55f59773de42df2e29de4d506e1}{insert\+User\+Order\+Ids}} (const Q\+String \&email, const Q\+String \&order\+Ids)
+\begin{DoxyCompactList}\small\item\em Inserts the users related I\+Ds into the user table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdatabase_a0fc60082f038c3fa6db0eb10cb5c7267}{email\+Exists}} (const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Tests if a email exists in the database. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classdatabase_aa3ce00c2bf56ba8c9d0b53e5d1234d60}{get\+User\+Type}} (const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Returns a users user type by email. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classdatabase_a9ee15e7b0ac43b1dc70dc01553df690b}{get\+Password}} (const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Returns a users password by email. \end{DoxyCompactList}\item 
+Q\+String\+List \mbox{\hyperlink{classdatabase_a1b0bf089920bfa470afb72222a001a85}{get\+User\+Details}} (const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Returns all of a users details by email. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdatabase_a62c551f50fabf081f114f6f5a364b1c7}{create\+Tables}} ()
+\begin{DoxyCompactList}\small\item\em Creates the database tables. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classdatabase_a4091af30d2245941af9298b72e4b628a}{get\+User\+Value\+By\+Email}} (const Q\+String \&table\+Column\+Name, const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Returns a value in the user table by email. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Sql\+Database \mbox{\hyperlink{classdatabase_a18bd155c93a8c3038bc7fc7291f8a103}{db}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The database class holds all the logic for sending and retrieving infomation from the database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdatabase_a35ec480ed529a9d092a7ebc5472b767f}\label{classdatabase_a35ec480ed529a9d092a7ebc5472b767f}} 
+\index{database@{database}!database@{database}}
+\index{database@{database}!database@{database}}
+\doxysubsubsection{\texorpdfstring{database()}{database()}}
+{\footnotesize\ttfamily database\+::database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+database Constructor. 
+
+\mbox{\Hypertarget{classdatabase_a31008de680565a626cd975c25d4351db}\label{classdatabase_a31008de680565a626cd975c25d4351db}} 
+\index{database@{database}!````~database@{$\sim$database}}
+\index{````~database@{$\sim$database}!database@{database}}
+\doxysubsubsection{\texorpdfstring{$\sim$database()}{~database()}}
+{\footnotesize\ttfamily database\+::$\sim$database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdatabase_a62c551f50fabf081f114f6f5a364b1c7}\label{classdatabase_a62c551f50fabf081f114f6f5a364b1c7}} 
+\index{database@{database}!createTables@{createTables}}
+\index{createTables@{createTables}!database@{database}}
+\doxysubsubsection{\texorpdfstring{createTables()}{createTables()}}
+{\footnotesize\ttfamily void database\+::create\+Tables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates the database tables. 
+
+\mbox{\Hypertarget{classdatabase_a0fc60082f038c3fa6db0eb10cb5c7267}\label{classdatabase_a0fc60082f038c3fa6db0eb10cb5c7267}} 
+\index{database@{database}!emailExists@{emailExists}}
+\index{emailExists@{emailExists}!database@{database}}
+\doxysubsubsection{\texorpdfstring{emailExists()}{emailExists()}}
+{\footnotesize\ttfamily bool database\+::email\+Exists (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Tests if a email exists in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The emails being tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True of the email exists in the database. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdatabase_a9ee15e7b0ac43b1dc70dc01553df690b}\label{classdatabase_a9ee15e7b0ac43b1dc70dc01553df690b}} 
+\index{database@{database}!getPassword@{getPassword}}
+\index{getPassword@{getPassword}!database@{database}}
+\doxysubsubsection{\texorpdfstring{getPassword()}{getPassword()}}
+{\footnotesize\ttfamily Q\+String database\+::get\+Password (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Returns a users password by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The password of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdatabase_a1b0bf089920bfa470afb72222a001a85}\label{classdatabase_a1b0bf089920bfa470afb72222a001a85}} 
+\index{database@{database}!getUserDetails@{getUserDetails}}
+\index{getUserDetails@{getUserDetails}!database@{database}}
+\doxysubsubsection{\texorpdfstring{getUserDetails()}{getUserDetails()}}
+{\footnotesize\ttfamily Q\+String\+List database\+::get\+User\+Details (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Returns all of a users details by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+All of the users details. (name, email, address, postcode, order I\+Ds) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdatabase_aa3ce00c2bf56ba8c9d0b53e5d1234d60}\label{classdatabase_aa3ce00c2bf56ba8c9d0b53e5d1234d60}} 
+\index{database@{database}!getUserType@{getUserType}}
+\index{getUserType@{getUserType}!database@{database}}
+\doxysubsubsection{\texorpdfstring{getUserType()}{getUserType()}}
+{\footnotesize\ttfamily Q\+String database\+::get\+User\+Type (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Returns a users user type by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The user type(\+Shipper, Forwarder or Driver) of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdatabase_a4091af30d2245941af9298b72e4b628a}\label{classdatabase_a4091af30d2245941af9298b72e4b628a}} 
+\index{database@{database}!getUserValueByEmail@{getUserValueByEmail}}
+\index{getUserValueByEmail@{getUserValueByEmail}!database@{database}}
+\doxysubsubsection{\texorpdfstring{getUserValueByEmail()}{getUserValueByEmail()}}
+{\footnotesize\ttfamily Q\+String database\+::get\+User\+Value\+By\+Email (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{table\+Column\+Name,  }\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns a value in the user table by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Column\+Name} & The column name of the value to be returned. \\
+\hline
+{\em email} & The email of the user to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the column name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdatabase_a11f9c55f59773de42df2e29de4d506e1}\label{classdatabase_a11f9c55f59773de42df2e29de4d506e1}} 
+\index{database@{database}!insertUserOrderIds@{insertUserOrderIds}}
+\index{insertUserOrderIds@{insertUserOrderIds}!database@{database}}
+\doxysubsubsection{\texorpdfstring{insertUserOrderIds()}{insertUserOrderIds()}}
+{\footnotesize\ttfamily void database\+::insert\+User\+Order\+Ids (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email,  }\item[{const Q\+String \&}]{order\+Ids }\end{DoxyParamCaption})}
+
+
+
+Inserts the users related I\+Ds into the user table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user whos order I\+Ds are being inserted. \\
+\hline
+{\em order\+Ids} & The order I\+Ds beinf inserted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classdatabase_a33f740cb1d8b48d6cdb75dc3a60042d7}\label{classdatabase_a33f740cb1d8b48d6cdb75dc3a60042d7}} 
+\index{database@{database}!insertUserTable@{insertUserTable}}
+\index{insertUserTable@{insertUserTable}!database@{database}}
+\doxysubsubsection{\texorpdfstring{insertUserTable()}{insertUserTable()}}
+{\footnotesize\ttfamily void database\+::insert\+User\+Table (\begin{DoxyParamCaption}\item[{Q\+String}]{name,  }\item[{Q\+String}]{email,  }\item[{Q\+String}]{password,  }\item[{Q\+String}]{address,  }\item[{Q\+String}]{postcode,  }\item[{Q\+String}]{user\+Type }\end{DoxyParamCaption})}
+
+
+
+Inserts a new row into the user table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the user. \\
+\hline
+{\em email} & The email of the user. \\
+\hline
+{\em password} & The password of the user. \\
+\hline
+{\em address} & The address of the user. \\
+\hline
+{\em postcode} & The postcode of the user. \\
+\hline
+{\em user\+Type} & The user type of the user.(\mbox{\hyperlink{class_shipper}{Shipper}}, \mbox{\hyperlink{class_forwarder}{Forwarder}} or \mbox{\hyperlink{class_driver}{Driver}}) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classdatabase_a18bd155c93a8c3038bc7fc7291f8a103}\label{classdatabase_a18bd155c93a8c3038bc7fc7291f8a103}} 
+\index{database@{database}!db@{db}}
+\index{db@{db}!database@{database}}
+\doxysubsubsection{\texorpdfstring{db}{db}}
+{\footnotesize\ttfamily Q\+Sql\+Database database\+::db\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{database_8h}{database.\+h}}\end{DoxyCompactItemize}

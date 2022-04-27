@@ -1,0 +1,201 @@
+\hypertarget{class_broker}{}\doxysection{Broker Class Reference}
+\label{class_broker}\index{Broker@{Broker}}
+
+
+The \mbox{\hyperlink{class_broker}{Broker}} class is the parent class of the client and server brokers. It holds logic that is needed by both.  
+
+
+
+
+{\ttfamily \#include $<$broker.\+h$>$}
+
+
+
+Inheritance diagram for Broker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{class_broker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Broker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{class_broker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_broker_a03caf9e1da6f568d7e45c90efbe80920}{disconnected}} ()
+\begin{DoxyCompactList}\small\item\em disconnected Signal \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_broker_a36f24a025712f36fc866b7cd5ef17695}{process\+Message}} ()
+\begin{DoxyCompactList}\small\item\em Processes an incoming message be first reading the header and then the body. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_broker_ae25ba5a5986753059d5469411166d37f}{socket\+Disconnected}} ()
+\begin{DoxyCompactList}\small\item\em Emits a signal if the T\+CP socket disconnects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_broker_a426413296696ff7bbc7a296b4378d76a}{Broker}} (Q\+Tcp\+Socket $\ast$\mbox{\hyperlink{class_broker_a9d6b1e2dd74ad0f406902758abc50ec6}{socket}}, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_broker}{Broker}} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_broker_a2f2c3977cc9595469022f23e4fc793f5}{$\sim$\+Broker}} ()
+\item 
+bool \mbox{\hyperlink{class_broker_a157f4e0fa211921e182bc74f35cbca92}{socket\+Ready}} () const
+\begin{DoxyCompactList}\small\item\em Tests if the socket is ready for use. @return\+True if the socket is open and ready. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_broker_a90ebd2673fb2c0cce13fa5af90d89ea8}{read\+Header}} (Q\+Data\+Stream \&in\+Stream)
+\begin{DoxyCompactList}\small\item\em Reads the header of an incomming message. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_broker_ae78db18e5cc9d307548676b74e4f5134}{read\+Body}} (Q\+Data\+Stream \&in\+Stream)=0
+\begin{DoxyCompactList}\small\item\em Abstract method that the client or server broekr must override. Reads the body of the message after the header. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Tcp\+Socket $\ast$ \mbox{\hyperlink{class_broker_a9d6b1e2dd74ad0f406902758abc50ec6}{socket}}
+\item 
+Q\+String \mbox{\hyperlink{class_broker_aa188905d9f3f28cdeffe904135444730}{current\+Header}}
+\item 
+bool \mbox{\hyperlink{class_broker_a3fccf8d57153cca44d918e34fc869efa}{header\+Aquired}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_broker}{Broker}} class is the parent class of the client and server brokers. It holds logic that is needed by both. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_broker_a426413296696ff7bbc7a296b4378d76a}\label{class_broker_a426413296696ff7bbc7a296b4378d76a}} 
+\index{Broker@{Broker}!Broker@{Broker}}
+\index{Broker@{Broker}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{Broker()}{Broker()}}
+{\footnotesize\ttfamily Broker\+::\+Broker (\begin{DoxyParamCaption}\item[{Q\+Tcp\+Socket $\ast$}]{socket,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{class_broker}{Broker}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The T\+CP socket that connects client and server. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_broker_a2f2c3977cc9595469022f23e4fc793f5}\label{class_broker_a2f2c3977cc9595469022f23e4fc793f5}} 
+\index{Broker@{Broker}!````~Broker@{$\sim$Broker}}
+\index{````~Broker@{$\sim$Broker}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{$\sim$Broker()}{~Broker()}}
+{\footnotesize\ttfamily Broker\+::$\sim$\+Broker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_broker_a03caf9e1da6f568d7e45c90efbe80920}\label{class_broker_a03caf9e1da6f568d7e45c90efbe80920}} 
+\index{Broker@{Broker}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{disconnected}{disconnected}}
+{\footnotesize\ttfamily void Broker\+::disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+disconnected Signal 
+
+\mbox{\Hypertarget{class_broker_a36f24a025712f36fc866b7cd5ef17695}\label{class_broker_a36f24a025712f36fc866b7cd5ef17695}} 
+\index{Broker@{Broker}!processMessage@{processMessage}}
+\index{processMessage@{processMessage}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{processMessage}{processMessage}}
+{\footnotesize\ttfamily void Broker\+::process\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+
+Processes an incoming message be first reading the header and then the body. 
+
+\mbox{\Hypertarget{class_broker_ae78db18e5cc9d307548676b74e4f5134}\label{class_broker_ae78db18e5cc9d307548676b74e4f5134}} 
+\index{Broker@{Broker}!readBody@{readBody}}
+\index{readBody@{readBody}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{readBody()}{readBody()}}
+{\footnotesize\ttfamily virtual bool Broker\+::read\+Body (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{in\+Stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Abstract method that the client or server broekr must override. Reads the body of the message after the header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Stream} & The datastream of the socket for incoming messages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the body was successfully read. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_server_broker_a4cfaecbda9c75597d178c788b5aaf923}{Server\+Broker}}, and \mbox{\hyperlink{class_client_broker_a8a2fb78b689c31466644318cf250a731}{Client\+Broker}}.
+
+\mbox{\Hypertarget{class_broker_a90ebd2673fb2c0cce13fa5af90d89ea8}\label{class_broker_a90ebd2673fb2c0cce13fa5af90d89ea8}} 
+\index{Broker@{Broker}!readHeader@{readHeader}}
+\index{readHeader@{readHeader}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{readHeader()}{readHeader()}}
+{\footnotesize\ttfamily bool Broker\+::read\+Header (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{in\+Stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reads the header of an incomming message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Stream} & The datastream of the socket for incoming messages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the header was successfully read. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_broker_ae25ba5a5986753059d5469411166d37f}\label{class_broker_ae25ba5a5986753059d5469411166d37f}} 
+\index{Broker@{Broker}!socketDisconnected@{socketDisconnected}}
+\index{socketDisconnected@{socketDisconnected}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{socketDisconnected}{socketDisconnected}}
+{\footnotesize\ttfamily void Broker\+::socket\+Disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+
+Emits a signal if the T\+CP socket disconnects. 
+
+\mbox{\Hypertarget{class_broker_a157f4e0fa211921e182bc74f35cbca92}\label{class_broker_a157f4e0fa211921e182bc74f35cbca92}} 
+\index{Broker@{Broker}!socketReady@{socketReady}}
+\index{socketReady@{socketReady}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{socketReady()}{socketReady()}}
+{\footnotesize\ttfamily bool Broker\+::socket\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Tests if the socket is ready for use. @return\+True if the socket is open and ready. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_broker_aa188905d9f3f28cdeffe904135444730}\label{class_broker_aa188905d9f3f28cdeffe904135444730}} 
+\index{Broker@{Broker}!currentHeader@{currentHeader}}
+\index{currentHeader@{currentHeader}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{currentHeader}{currentHeader}}
+{\footnotesize\ttfamily Q\+String Broker\+::current\+Header\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_broker_a3fccf8d57153cca44d918e34fc869efa}\label{class_broker_a3fccf8d57153cca44d918e34fc869efa}} 
+\index{Broker@{Broker}!headerAquired@{headerAquired}}
+\index{headerAquired@{headerAquired}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{headerAquired}{headerAquired}}
+{\footnotesize\ttfamily bool Broker\+::header\+Aquired\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_broker_a9d6b1e2dd74ad0f406902758abc50ec6}\label{class_broker_a9d6b1e2dd74ad0f406902758abc50ec6}} 
+\index{Broker@{Broker}!socket@{socket}}
+\index{socket@{socket}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{socket}{socket}}
+{\footnotesize\ttfamily Q\+Tcp\+Socket$\ast$ Broker\+::socket\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{broker_8h}{broker.\+h}}\end{DoxyCompactItemize}

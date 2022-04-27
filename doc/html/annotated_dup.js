@@ -1,0 +1,26 @@
+var annotated_dup =
+[
+    [ "AccountManager", "class_account_manager.html", "class_account_manager" ],
+    [ "Broker", "class_broker.html", "class_broker" ],
+    [ "ClientBroker", "class_client_broker.html", "class_client_broker" ],
+    [ "Connection", "class_connection.html", "class_connection" ],
+    [ "Controller", "class_controller.html", "class_controller" ],
+    [ "database", "classdatabase.html", "classdatabase" ],
+    [ "Driver", "class_driver.html", "class_driver" ],
+    [ "DriverController", "class_driver_controller.html", "class_driver_controller" ],
+    [ "DriverPage", "class_driver_page.html", "class_driver_page" ],
+    [ "Forwarder", "class_forwarder.html", "class_forwarder" ],
+    [ "ForwarderController", "class_forwarder_controller.html", "class_forwarder_controller" ],
+    [ "ForwarderPage", "class_forwarder_page.html", "class_forwarder_page" ],
+    [ "MainWindow", "class_main_window.html", "class_main_window" ],
+    [ "Order", "class_order.html", "class_order" ],
+    [ "OrderContract", "class_order_contract.html", "class_order_contract" ],
+    [ "Page", "class_page.html", "class_page" ],
+    [ "SellerPage", "class_seller_page.html", "class_seller_page" ],
+    [ "Server", "class_server.html", "class_server" ],
+    [ "ServerBroker", "class_server_broker.html", "class_server_broker" ],
+    [ "Shipper", "class_shipper.html", "class_shipper" ],
+    [ "ShipperController", "class_shipper_controller.html", "class_shipper_controller" ],
+    [ "ThreadSafeMap", "class_thread_safe_map.html", "class_thread_safe_map" ],
+    [ "User", "class_user.html", "class_user" ]
+];

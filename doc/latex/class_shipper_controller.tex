@@ -1,0 +1,143 @@
+\hypertarget{class_shipper_controller}{}\doxysection{Shipper\+Controller Class Reference}
+\label{class_shipper_controller}\index{ShipperController@{ShipperController}}
+
+
+The \mbox{\hyperlink{class_shipper_controller}{Shipper\+Controller}} class holds all the logic for the \mbox{\hyperlink{class_shipper}{Shipper}}.  
+
+
+
+
+{\ttfamily \#include $<$shippercontroller.\+h$>$}
+
+
+
+Inheritance diagram for Shipper\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{class_shipper_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Shipper\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shipper_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shipper_controller_ac5c93fb67670a592ed7e17e4aafbaeeb}{Shipper\+Controller}} (\mbox{\hyperlink{class_shipper}{Shipper}} \mbox{\hyperlink{class_shipper_controller_aeea46d577819e84b15a73270a51ecb3f}{user}}, \mbox{\hyperlink{class_server_broker}{Server\+Broker}} $\ast$\mbox{\hyperlink{class_controller_a3435931e388fa78d1fc5675c17f20b63}{broker}}, \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$\mbox{\hyperlink{class_controller_a95311d13244668a78c4d2f0dd7e5b0ec}{marketplace}}, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_shipper_controller}{Shipper\+Controller}} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shipper_controller_aeefbb4bb5e79cc6f1b54aafc54044fcc}{$\sim$\+Shipper\+Controller}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_shipper_controller_a8ee1ff4824627e68cd6017b803383c97}{make\+New\+Order}} (\mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$order\+Contract)
+\begin{DoxyCompactList}\small\item\em Places a new order contract into the marketplace. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shipper_controller_ab2e968c986958e75f2a7c86c08bc3855}{send\+Order\+Contracts}} ()
+\begin{DoxyCompactList}\small\item\em Sends the order contracts associated with the user to the client via the broker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shipper_controller_a06de61bd8545e1c2f434309d22fa3df7}{accept\+Bid\+On\+Order}} (const Q\+String \&order\+ID, \mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} \&bid)
+\begin{DoxyCompactList}\small\item\em Accepts a bid made by a forwarder on the shippers order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shipper}{Shipper}} \mbox{\hyperlink{class_shipper_controller_aeea46d577819e84b15a73270a51ecb3f}{user}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_shipper_controller}{Shipper\+Controller}} class holds all the logic for the \mbox{\hyperlink{class_shipper}{Shipper}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shipper_controller_ac5c93fb67670a592ed7e17e4aafbaeeb}\label{class_shipper_controller_ac5c93fb67670a592ed7e17e4aafbaeeb}} 
+\index{ShipperController@{ShipperController}!ShipperController@{ShipperController}}
+\index{ShipperController@{ShipperController}!ShipperController@{ShipperController}}
+\doxysubsubsection{\texorpdfstring{ShipperController()}{ShipperController()}}
+{\footnotesize\ttfamily Shipper\+Controller\+::\+Shipper\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shipper}{Shipper}}}]{user,  }\item[{\mbox{\hyperlink{class_server_broker}{Server\+Broker}} $\ast$}]{broker,  }\item[{\mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$}]{marketplace,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_shipper_controller}{Shipper\+Controller}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & The user of the system. \\
+\hline
+{\em broker} & The Message broker for the server. \\
+\hline
+{\em marketplace} & The marketplace of orders. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shipper_controller_aeefbb4bb5e79cc6f1b54aafc54044fcc}\label{class_shipper_controller_aeefbb4bb5e79cc6f1b54aafc54044fcc}} 
+\index{ShipperController@{ShipperController}!````~ShipperController@{$\sim$ShipperController}}
+\index{````~ShipperController@{$\sim$ShipperController}!ShipperController@{ShipperController}}
+\doxysubsubsection{\texorpdfstring{$\sim$ShipperController()}{~ShipperController()}}
+{\footnotesize\ttfamily Shipper\+Controller\+::$\sim$\+Shipper\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shipper_controller_a06de61bd8545e1c2f434309d22fa3df7}\label{class_shipper_controller_a06de61bd8545e1c2f434309d22fa3df7}} 
+\index{ShipperController@{ShipperController}!acceptBidOnOrder@{acceptBidOnOrder}}
+\index{acceptBidOnOrder@{acceptBidOnOrder}!ShipperController@{ShipperController}}
+\doxysubsubsection{\texorpdfstring{acceptBidOnOrder}{acceptBidOnOrder}}
+{\footnotesize\ttfamily void Shipper\+Controller\+::accept\+Bid\+On\+Order (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID,  }\item[{\mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} \&}]{bid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Accepts a bid made by a forwarder on the shippers order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The Id of the order. \\
+\hline
+{\em bid} & The bid to be accepted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shipper_controller_a8ee1ff4824627e68cd6017b803383c97}\label{class_shipper_controller_a8ee1ff4824627e68cd6017b803383c97}} 
+\index{ShipperController@{ShipperController}!makeNewOrder@{makeNewOrder}}
+\index{makeNewOrder@{makeNewOrder}!ShipperController@{ShipperController}}
+\doxysubsubsection{\texorpdfstring{makeNewOrder}{makeNewOrder}}
+{\footnotesize\ttfamily void Shipper\+Controller\+::make\+New\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$}]{order\+Contract }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Places a new order contract into the marketplace. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Contract} & The order to be placed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shipper_controller_ab2e968c986958e75f2a7c86c08bc3855}\label{class_shipper_controller_ab2e968c986958e75f2a7c86c08bc3855}} 
+\index{ShipperController@{ShipperController}!sendOrderContracts@{sendOrderContracts}}
+\index{sendOrderContracts@{sendOrderContracts}!ShipperController@{ShipperController}}
+\doxysubsubsection{\texorpdfstring{sendOrderContracts}{sendOrderContracts}}
+{\footnotesize\ttfamily void Shipper\+Controller\+::send\+Order\+Contracts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends the order contracts associated with the user to the client via the broker. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_shipper_controller_aeea46d577819e84b15a73270a51ecb3f}\label{class_shipper_controller_aeea46d577819e84b15a73270a51ecb3f}} 
+\index{ShipperController@{ShipperController}!user@{user}}
+\index{user@{user}!ShipperController@{ShipperController}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shipper}{Shipper}} Shipper\+Controller\+::user\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{shippercontroller_8h}{shippercontroller.\+h}}\end{DoxyCompactItemize}

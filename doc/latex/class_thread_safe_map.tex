@@ -1,0 +1,188 @@
+\hypertarget{class_thread_safe_map}{}\doxysection{Thread\+Safe\+Map$<$ K, V $>$ Class Template Reference}
+\label{class_thread_safe_map}\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+
+
+The \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}} class used for storage and manipulation of order safey between threads.  
+
+
+
+
+{\ttfamily \#include $<$threadsafemap.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_thread_safe_map_afad0a7132b9818e06fc3125429654aa0}{Thread\+Safe\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Default \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}} Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_thread_safe_map_aef0ff739f3c5b4a1b4d5e2f5d135b0cc}{insert}} (K key, V value)
+\begin{DoxyCompactList}\small\item\em Inserts a value. \end{DoxyCompactList}\item 
+V \mbox{\hyperlink{class_thread_safe_map_aeba086ee6f206d714b5920d0d5f3b0ed}{get}} (K key)
+\begin{DoxyCompactList}\small\item\em Gets a value from the map using a key. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_thread_safe_map_a9663fc606c355c6129d20bce03ebe456}{size}} ()
+\begin{DoxyCompactList}\small\item\em Returns the size of the map. \end{DoxyCompactList}\item 
+Q\+Mutex \& \mbox{\hyperlink{class_thread_safe_map_af865ad75c4c6cd7a1b50e1fb493ed11d}{get\+Mutex}} ()
+\begin{DoxyCompactList}\small\item\em Gets the mutex the map is useing to make it thread safe. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_thread_safe_map_ab93de2a3e1b72cbc81dd53b663746ac8}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the start of the map. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_thread_safe_map_a73d531fd98de0ca27adac5c6dfd4c998}{end}} ()
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the end of the map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_thread_safe_map_a3d9cf17b43381fed10056359e64a4c13}{contains}} (const K key)
+\begin{DoxyCompactList}\small\item\em Returns whether or not an key is contined in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Mutex \mbox{\hyperlink{class_thread_safe_map_ad6750f17d9725957b9c9ed07b7d747c6}{mutex}}
+\item 
+Q\+Map$<$ K, V $>$ \mbox{\hyperlink{class_thread_safe_map_acdfc11f5981bc858fba5fbf8fc616af6}{map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class K, class V$>$\newline
+class Thread\+Safe\+Map$<$ K, V $>$}
+
+The \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}} class used for storage and manipulation of order safey between threads. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_thread_safe_map_afad0a7132b9818e06fc3125429654aa0}\label{class_thread_safe_map_afad0a7132b9818e06fc3125429654aa0}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!ThreadSafeMap@{ThreadSafeMap}}
+\index{ThreadSafeMap@{ThreadSafeMap}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{ThreadSafeMap()}{ThreadSafeMap()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+\mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::\mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Default \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}} Constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_thread_safe_map_ab93de2a3e1b72cbc81dd53b663746ac8}\label{class_thread_safe_map_ab93de2a3e1b72cbc81dd53b663746ac8}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!begin@{begin}}
+\index{begin@{begin}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+auto \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns an iterator to the start of the map. 
+
+\mbox{\Hypertarget{class_thread_safe_map_a3d9cf17b43381fed10056359e64a4c13}\label{class_thread_safe_map_a3d9cf17b43381fed10056359e64a4c13}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!contains@{contains}}
+\index{contains@{contains}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+bool \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::contains (\begin{DoxyParamCaption}\item[{const K}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether or not an key is contined in the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to be tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the key is contained, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_thread_safe_map_a73d531fd98de0ca27adac5c6dfd4c998}\label{class_thread_safe_map_a73d531fd98de0ca27adac5c6dfd4c998}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!end@{end}}
+\index{end@{end}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+auto \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns an iterator to the end of the map. 
+
+\mbox{\Hypertarget{class_thread_safe_map_aeba086ee6f206d714b5920d0d5f3b0ed}\label{class_thread_safe_map_aeba086ee6f206d714b5920d0d5f3b0ed}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!get@{get}}
+\index{get@{get}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+V \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::get (\begin{DoxyParamCaption}\item[{K}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a value from the map using a key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value pointed at by the key. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_thread_safe_map_af865ad75c4c6cd7a1b50e1fb493ed11d}\label{class_thread_safe_map_af865ad75c4c6cd7a1b50e1fb493ed11d}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!getMutex@{getMutex}}
+\index{getMutex@{getMutex}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{getMutex()}{getMutex()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+Q\+Mutex\& \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::get\+Mutex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the mutex the map is useing to make it thread safe. 
+
+\begin{DoxyReturn}{Returns}
+The mutex. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_thread_safe_map_aef0ff739f3c5b4a1b4d5e2f5d135b0cc}\label{class_thread_safe_map_aef0ff739f3c5b4a1b4d5e2f5d135b0cc}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!insert@{insert}}
+\index{insert@{insert}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+void \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::insert (\begin{DoxyParamCaption}\item[{K}]{key,  }\item[{V}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for the value. \\
+\hline
+{\em value} & The value to be inserted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_thread_safe_map_a9663fc606c355c6129d20bce03ebe456}\label{class_thread_safe_map_a9663fc606c355c6129d20bce03ebe456}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!size@{size}}
+\index{size@{size}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+int \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the size of the map. 
+
+\begin{DoxyReturn}{Returns}
+How many elements are in the map. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_thread_safe_map_acdfc11f5981bc858fba5fbf8fc616af6}\label{class_thread_safe_map_acdfc11f5981bc858fba5fbf8fc616af6}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!map@{map}}
+\index{map@{map}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+Q\+Map$<$K, V$>$ \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::map\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_thread_safe_map_ad6750f17d9725957b9c9ed07b7d747c6}\label{class_thread_safe_map_ad6750f17d9725957b9c9ed07b7d747c6}} 
+\index{ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}!mutex@{mutex}}
+\index{mutex@{mutex}!ThreadSafeMap$<$ K, V $>$@{ThreadSafeMap$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{mutex}{mutex}}
+{\footnotesize\ttfamily template$<$class K , class V $>$ \\
+Q\+Mutex \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ K, V $>$\+::mutex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{threadsafemap_8h}{threadsafemap.\+h}}\end{DoxyCompactItemize}

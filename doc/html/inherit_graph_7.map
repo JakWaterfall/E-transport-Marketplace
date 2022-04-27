@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,84,83"/>
+<area shape="rect" id="node2" href="$class_page.html" title="The Page class that acts as an interface for other types of pages." alt="" coords="132,56,185,83"/>
+<area shape="rect" id="node3" href="$class_driver_page.html" title="The DriverPage class holds all the logic for the Driver client side view." alt="" coords="246,5,339,32"/>
+<area shape="rect" id="node4" href="$class_forwarder_page.html" title="The ForwarderPage class holds all the logic for the Forwarder client side view." alt="" coords="233,56,352,83"/>
+<area shape="rect" id="node5" href="$class_seller_page.html" title="The SellerPage class holds all the logic for the Shippers client side view." alt="" coords="247,107,338,133"/>
+</map>

@@ -1,0 +1,223 @@
+\hypertarget{class_connection}{}\doxysection{Connection Class Reference}
+\label{class_connection}\index{Connection@{Connection}}
+
+
+The \mbox{\hyperlink{class_connection}{Connection}} class used t house all the logic a connection from a client needs.  
+
+
+
+
+{\ttfamily \#include $<$connection.\+h$>$}
+
+
+
+Inheritance diagram for Connection\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_connection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Connection\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_connection__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_connection_a80e664b0491082b60897e3b0b8360523}{disconnected}} (\mbox{\hyperlink{class_connection}{Connection}} $\ast$connection)
+\begin{DoxyCompactList}\small\item\em Disconnected signal used for when the server broker has disconnected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_connection_a80262c00224e2a15ff9bb52b4a8230f7}{Connection}} (Q\+Tcp\+Socket $\ast$socket, \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$\mbox{\hyperlink{class_connection_aed0366ef40b696cc96e706f1eb0d11c6}{marketplace}}, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_connection}{Connection}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_connection_a2e4352edf667bea83001569e9da8a24d}{$\sim$\+Connection}} ()
+\item 
+void \mbox{\hyperlink{class_connection_a4b6ffd3763351e2871f8a87bde4307ae}{run}} () override
+\begin{DoxyCompactList}\small\item\em Begins running the thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_connection_adf9f855ab7c7e6e8fc00ce821b96a56b}{log\+In}} (Q\+String email, Q\+String password)
+\begin{DoxyCompactList}\small\item\em Logs user into the system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_connection_af55356929c8695138db639f9de0639a2}{register\+Attempt}} (Q\+String name, Q\+String email, Q\+String password, Q\+String confirm\+Pass, Q\+String address, Q\+String postcode, Q\+String user\+Type)
+\begin{DoxyCompactList}\small\item\em Registers the user into the system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_connection_af57383dd10e54457a0a0058f0c05bde2}{broker\+Disconnected}} ()
+\begin{DoxyCompactList}\small\item\em Triggers the signal to tell the system that the connection has disconnected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_connection_a1c798db36c0990f1ea04d1a3ad26c7d3}{change\+Slots\+And\+Signals\+To\+Context}} ()
+\begin{DoxyCompactList}\small\item\em Removes the login and register signles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_server_broker}{Server\+Broker}} $\ast$ \mbox{\hyperlink{class_connection_abdd4a7b34a2077745c8798d27adcdc75}{broker}}
+\item 
+\mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_connection_aed0366ef40b696cc96e706f1eb0d11c6}{marketplace}}
+\item 
+\mbox{\hyperlink{class_controller}{Controller}} $\ast$ \mbox{\hyperlink{class_connection_a130341671104d04ab41abc3b9fb64501}{controller}}
+\item 
+\mbox{\hyperlink{class_account_manager}{Account\+Manager}} \mbox{\hyperlink{class_connection_a2c0c5099e277bfb83dd90b8a01872a4a}{account\+Manager}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_connection}{Connection}} class used t house all the logic a connection from a client needs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_connection_a80262c00224e2a15ff9bb52b4a8230f7}\label{class_connection_a80262c00224e2a15ff9bb52b4a8230f7}} 
+\index{Connection@{Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{Connection()}{Connection()}}
+{\footnotesize\ttfamily Connection\+::\+Connection (\begin{DoxyParamCaption}\item[{Q\+Tcp\+Socket $\ast$}]{socket,  }\item[{\mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$}]{marketplace,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_connection}{Connection}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The T\+CP socket that connects to the client. \\
+\hline
+{\em marketplace} & The marketplace of orders which is shared between conecctions. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_connection_a2e4352edf667bea83001569e9da8a24d}\label{class_connection_a2e4352edf667bea83001569e9da8a24d}} 
+\index{Connection@{Connection}!````~Connection@{$\sim$Connection}}
+\index{````~Connection@{$\sim$Connection}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{$\sim$Connection()}{~Connection()}}
+{\footnotesize\ttfamily Connection\+::$\sim$\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_connection_af57383dd10e54457a0a0058f0c05bde2}\label{class_connection_af57383dd10e54457a0a0058f0c05bde2}} 
+\index{Connection@{Connection}!brokerDisconnected@{brokerDisconnected}}
+\index{brokerDisconnected@{brokerDisconnected}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{brokerDisconnected}{brokerDisconnected}}
+{\footnotesize\ttfamily void Connection\+::broker\+Disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Triggers the signal to tell the system that the connection has disconnected. 
+
+\mbox{\Hypertarget{class_connection_a1c798db36c0990f1ea04d1a3ad26c7d3}\label{class_connection_a1c798db36c0990f1ea04d1a3ad26c7d3}} 
+\index{Connection@{Connection}!changeSlotsAndSignalsToContext@{changeSlotsAndSignalsToContext}}
+\index{changeSlotsAndSignalsToContext@{changeSlotsAndSignalsToContext}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{changeSlotsAndSignalsToContext()}{changeSlotsAndSignalsToContext()}}
+{\footnotesize\ttfamily void Connection\+::change\+Slots\+And\+Signals\+To\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Removes the login and register signles. 
+
+\mbox{\Hypertarget{class_connection_a80e664b0491082b60897e3b0b8360523}\label{class_connection_a80e664b0491082b60897e3b0b8360523}} 
+\index{Connection@{Connection}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{disconnected}{disconnected}}
+{\footnotesize\ttfamily void Connection\+::disconnected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_connection}{Connection}} $\ast$}]{connection }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Disconnected signal used for when the server broker has disconnected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em connection} & The connection which is disconnecting. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_connection_adf9f855ab7c7e6e8fc00ce821b96a56b}\label{class_connection_adf9f855ab7c7e6e8fc00ce821b96a56b}} 
+\index{Connection@{Connection}!logIn@{logIn}}
+\index{logIn@{logIn}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{logIn}{logIn}}
+{\footnotesize\ttfamily void Connection\+::log\+In (\begin{DoxyParamCaption}\item[{Q\+String}]{email,  }\item[{Q\+String}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Logs user into the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user logging in. \\
+\hline
+{\em password} & The password of the user logging in. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_connection_af55356929c8695138db639f9de0639a2}\label{class_connection_af55356929c8695138db639f9de0639a2}} 
+\index{Connection@{Connection}!registerAttempt@{registerAttempt}}
+\index{registerAttempt@{registerAttempt}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{registerAttempt}{registerAttempt}}
+{\footnotesize\ttfamily void Connection\+::register\+Attempt (\begin{DoxyParamCaption}\item[{Q\+String}]{name,  }\item[{Q\+String}]{email,  }\item[{Q\+String}]{password,  }\item[{Q\+String}]{confirm\+Pass,  }\item[{Q\+String}]{address,  }\item[{Q\+String}]{postcode,  }\item[{Q\+String}]{user\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Registers the user into the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the user. \\
+\hline
+{\em email} & The email of the user. \\
+\hline
+{\em password} & The password of the user. \\
+\hline
+{\em confirm\+Pass} & The password to match with. \\
+\hline
+{\em address} & The address of the user. \\
+\hline
+{\em postcode} & The postcode of the user. \\
+\hline
+{\em user\+Type} & The user type (shipper, forwarder or driver) of the user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_connection_a4b6ffd3763351e2871f8a87bde4307ae}\label{class_connection_a4b6ffd3763351e2871f8a87bde4307ae}} 
+\index{Connection@{Connection}!run@{run}}
+\index{run@{run}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Connection\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Begins running the thread. 
+
+Sets up basic connection slots and signals. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_connection_a2c0c5099e277bfb83dd90b8a01872a4a}\label{class_connection_a2c0c5099e277bfb83dd90b8a01872a4a}} 
+\index{Connection@{Connection}!accountManager@{accountManager}}
+\index{accountManager@{accountManager}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{accountManager}{accountManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_account_manager}{Account\+Manager}} Connection\+::account\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_connection_abdd4a7b34a2077745c8798d27adcdc75}\label{class_connection_abdd4a7b34a2077745c8798d27adcdc75}} 
+\index{Connection@{Connection}!broker@{broker}}
+\index{broker@{broker}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{broker}{broker}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_server_broker}{Server\+Broker}}$\ast$ Connection\+::broker\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_connection_a130341671104d04ab41abc3b9fb64501}\label{class_connection_a130341671104d04ab41abc3b9fb64501}} 
+\index{Connection@{Connection}!controller@{controller}}
+\index{controller@{controller}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_controller}{Controller}}$\ast$ Connection\+::controller\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_connection_aed0366ef40b696cc96e706f1eb0d11c6}\label{class_connection_aed0366ef40b696cc96e706f1eb0d11c6}} 
+\index{Connection@{Connection}!marketplace@{marketplace}}
+\index{marketplace@{marketplace}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{marketplace}{marketplace}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}}$\ast$$>$$\ast$ Connection\+::marketplace\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{connection_8h}{connection.\+h}}\end{DoxyCompactItemize}

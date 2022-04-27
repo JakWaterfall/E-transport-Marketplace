@@ -1,0 +1,225 @@
+\hypertarget{class_user}{}\doxysection{User Class Reference}
+\label{class_user}\index{User@{User}}
+
+
+The \mbox{\hyperlink{class_user}{User}} class is the base class of all the user types in the system.  
+
+
+
+
+{\ttfamily \#include $<$user.\+h$>$}
+
+
+
+Inheritance diagram for User\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{class_user__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_a4b00d925b42ac2fbc31379100cc744d7}{User}} (Q\+String \mbox{\hyperlink{class_user_a182c8e0056fab1df2af8318cc3f5c058}{name}}, Q\+String \mbox{\hyperlink{class_user_a5b7a66a134d017ae18c2d1464f34eb67}{email}}, Q\+String \mbox{\hyperlink{class_user_a76fc8a2aaf88f4fafbe68b033f44dc57}{address}}, Q\+String \mbox{\hyperlink{class_user_a11ab3ee8a33137c7500f2ad4b8ac7a30}{postcode}}, Q\+Vector$<$ Q\+String $>$ \mbox{\hyperlink{class_user_aeb4e353e0d0dd6db0ed20ef0330438c7}{orders\+I\+Ds}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_user}{User}} constuctor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}{$\sim$\+User}} ()
+\item 
+const Q\+String \& \mbox{\hyperlink{class_user_a4f50dc9f840ec838033ef12e90301c94}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Returns the users name. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_user_a910407c9f73a68fd32b4475752d2cf6a}{get\+Email}} ()
+\begin{DoxyCompactList}\small\item\em Returns the users email. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_user_adce72640531642395324de297b47ed5d}{get\+Address}} ()
+\begin{DoxyCompactList}\small\item\em Returns the users address. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_user_a55e46ed8f0bdbcd8ed8b5260af91174e}{get\+Postcode}} ()
+\begin{DoxyCompactList}\small\item\em Returns the users postcode. \end{DoxyCompactList}\item 
+const Q\+Vector$<$ Q\+String $>$ \mbox{\hyperlink{class_user_a3bfd05dafb73ad0f68e7f7afd037afae}{get\+Order\+I\+Ds}} ()
+\begin{DoxyCompactList}\small\item\em Returns the users associated order I\+Ds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_ae040a5daaae9aa2819f55ecc1d21996c}{insert\+Order\+ID}} (Q\+String ID)
+\begin{DoxyCompactList}\small\item\em Adds a new order ID to the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_a9ac59e7aedf71e5e95db06eef06b8f82}{remove\+Order\+ID}} (const Q\+String \&ID)
+\begin{DoxyCompactList}\small\item\em Removes an order ID from the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \mbox{\hyperlink{class_user_a182c8e0056fab1df2af8318cc3f5c058}{name}}
+\item 
+Q\+String \mbox{\hyperlink{class_user_a5b7a66a134d017ae18c2d1464f34eb67}{email}}
+\item 
+Q\+String \mbox{\hyperlink{class_user_a76fc8a2aaf88f4fafbe68b033f44dc57}{address}}
+\item 
+Q\+String \mbox{\hyperlink{class_user_a11ab3ee8a33137c7500f2ad4b8ac7a30}{postcode}}
+\item 
+Q\+Vector$<$ Q\+String $>$ \mbox{\hyperlink{class_user_aeb4e353e0d0dd6db0ed20ef0330438c7}{orders\+I\+Ds}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_user}{User}} class is the base class of all the user types in the system. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_user_a4b00d925b42ac2fbc31379100cc744d7}\label{class_user_a4b00d925b42ac2fbc31379100cc744d7}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{Q\+String}]{name,  }\item[{Q\+String}]{email,  }\item[{Q\+String}]{address,  }\item[{Q\+String}]{postcode,  }\item[{Q\+Vector$<$ Q\+String $>$}]{orders\+I\+Ds }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_user}{User}} constuctor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the user. \\
+\hline
+{\em email} & The email of the user. \\
+\hline
+{\em address} & The address of the user. \\
+\hline
+{\em postcode} & The postcode of the user. \\
+\hline
+{\em orders\+I\+Ds} & The associated order I\+Ds of the user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}} 
+\index{User@{User}!````~User@{$\sim$User}}
+\index{````~User@{$\sim$User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{$\sim$User()}{~User()}}
+{\footnotesize\ttfamily User\+::$\sim$\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_user_adce72640531642395324de297b47ed5d}\label{class_user_adce72640531642395324de297b47ed5d}} 
+\index{User@{User}!getAddress@{getAddress}}
+\index{getAddress@{getAddress}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAddress()}{getAddress()}}
+{\footnotesize\ttfamily const Q\+String\& User\+::get\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the users address. 
+
+\begin{DoxyReturn}{Returns}
+The address of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a910407c9f73a68fd32b4475752d2cf6a}\label{class_user_a910407c9f73a68fd32b4475752d2cf6a}} 
+\index{User@{User}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily const Q\+String\& User\+::get\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the users email. 
+
+\begin{DoxyReturn}{Returns}
+The email of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a4f50dc9f840ec838033ef12e90301c94}\label{class_user_a4f50dc9f840ec838033ef12e90301c94}} 
+\index{User@{User}!getName@{getName}}
+\index{getName@{getName}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const Q\+String\& User\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the users name. 
+
+\begin{DoxyReturn}{Returns}
+The name of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a3bfd05dafb73ad0f68e7f7afd037afae}\label{class_user_a3bfd05dafb73ad0f68e7f7afd037afae}} 
+\index{User@{User}!getOrderIDs@{getOrderIDs}}
+\index{getOrderIDs@{getOrderIDs}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getOrderIDs()}{getOrderIDs()}}
+{\footnotesize\ttfamily const Q\+Vector$<$Q\+String$>$ User\+::get\+Order\+I\+Ds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the users associated order I\+Ds. 
+
+\begin{DoxyReturn}{Returns}
+The order I\+Ds associated with the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a55e46ed8f0bdbcd8ed8b5260af91174e}\label{class_user_a55e46ed8f0bdbcd8ed8b5260af91174e}} 
+\index{User@{User}!getPostcode@{getPostcode}}
+\index{getPostcode@{getPostcode}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPostcode()}{getPostcode()}}
+{\footnotesize\ttfamily const Q\+String\& User\+::get\+Postcode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the users postcode. 
+
+\begin{DoxyReturn}{Returns}
+The postcode of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_ae040a5daaae9aa2819f55ecc1d21996c}\label{class_user_ae040a5daaae9aa2819f55ecc1d21996c}} 
+\index{User@{User}!insertOrderID@{insertOrderID}}
+\index{insertOrderID@{insertOrderID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{insertOrderID()}{insertOrderID()}}
+{\footnotesize\ttfamily void User\+::insert\+Order\+ID (\begin{DoxyParamCaption}\item[{Q\+String}]{ID }\end{DoxyParamCaption})}
+
+
+
+Adds a new order ID to the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & The new order ID to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_a9ac59e7aedf71e5e95db06eef06b8f82}\label{class_user_a9ac59e7aedf71e5e95db06eef06b8f82}} 
+\index{User@{User}!removeOrderID@{removeOrderID}}
+\index{removeOrderID@{removeOrderID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{removeOrderID()}{removeOrderID()}}
+{\footnotesize\ttfamily void User\+::remove\+Order\+ID (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{ID }\end{DoxyParamCaption})}
+
+
+
+Removes an order ID from the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & The order ID to be removed. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_user_a76fc8a2aaf88f4fafbe68b033f44dc57}\label{class_user_a76fc8a2aaf88f4fafbe68b033f44dc57}} 
+\index{User@{User}!address@{address}}
+\index{address@{address}!User@{User}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily Q\+String User\+::address\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_user_a5b7a66a134d017ae18c2d1464f34eb67}\label{class_user_a5b7a66a134d017ae18c2d1464f34eb67}} 
+\index{User@{User}!email@{email}}
+\index{email@{email}!User@{User}}
+\doxysubsubsection{\texorpdfstring{email}{email}}
+{\footnotesize\ttfamily Q\+String User\+::email\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_user_a182c8e0056fab1df2af8318cc3f5c058}\label{class_user_a182c8e0056fab1df2af8318cc3f5c058}} 
+\index{User@{User}!name@{name}}
+\index{name@{name}!User@{User}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily Q\+String User\+::name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_user_aeb4e353e0d0dd6db0ed20ef0330438c7}\label{class_user_aeb4e353e0d0dd6db0ed20ef0330438c7}} 
+\index{User@{User}!ordersIDs@{ordersIDs}}
+\index{ordersIDs@{ordersIDs}!User@{User}}
+\doxysubsubsection{\texorpdfstring{ordersIDs}{ordersIDs}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+String$>$ User\+::orders\+I\+Ds\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_user_a11ab3ee8a33137c7500f2ad4b8ac7a30}\label{class_user_a11ab3ee8a33137c7500f2ad4b8ac7a30}} 
+\index{User@{User}!postcode@{postcode}}
+\index{postcode@{postcode}!User@{User}}
+\doxysubsubsection{\texorpdfstring{postcode}{postcode}}
+{\footnotesize\ttfamily Q\+String User\+::postcode\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{user_8h}{user.\+h}}\end{DoxyCompactItemize}

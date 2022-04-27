@@ -1,0 +1,8 @@
+<map id="ForwarderPage" name="ForwarderPage">
+<area shape="rect" id="node1" title="The ForwarderPage class holds all the logic for the Forwarder client side view." alt="" coords="24,323,143,349"/>
+<area shape="rect" id="node2" href="$class_page.html" title="The Page class that acts as an interface for other types of pages." alt="" coords="57,247,110,273"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,157,84,184"/>
+<area shape="rect" id="node4" href="$class_client_broker.html" title="The ClientBroker class holds all the logic to send messages back and forth with the server." alt="" coords="108,157,211,184"/>
+<area shape="rect" id="node5" href="$class_broker.html" title="The Broker class is the parent class of the client and server brokers. It holds logic that is needed ..." alt="" coords="127,81,191,108"/>
+<area shape="rect" id="node6" title=" " alt="" coords="122,5,197,32"/>
+</map>

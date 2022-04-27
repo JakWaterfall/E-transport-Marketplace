@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,80,108"/>
+<area shape="rect" id="node2" href="$class_account_manager.html" title="The AccountManager class that hold the logic dealing with user accounts." alt="" coords="128,5,259,32"/>
+<area shape="rect" id="node3" href="$class_broker.html" title="The Broker class is the parent class of the client and server brokers. It holds logic that is needed ..." alt="" coords="161,56,225,83"/>
+<area shape="rect" id="node6" href="$class_controller.html" title="The Controller class that acts as an interface for other types of contollers." alt="" coords="150,107,237,133"/>
+<area shape="rect" id="node10" href="$class_server.html" title="The Server class." alt="" coords="161,157,225,184"/>
+<area shape="rect" id="node4" href="$class_client_broker.html" title="The ClientBroker class holds all the logic to send messages back and forth with the server." alt="" coords="331,5,433,32"/>
+<area shape="rect" id="node5" href="$class_server_broker.html" title="The ServerBroker class holds all the logic to send messages back and forth with the client." alt="" coords="329,56,435,83"/>
+<area shape="rect" id="node7" href="$class_driver_controller.html" title="The DriverController class holds all the logic for the Driver." alt="" coords="319,107,445,133"/>
+<area shape="rect" id="node8" href="$class_forwarder_controller.html" title="The ForwarderController class holds all the logic for the Forwarder." alt="" coords="307,157,457,184"/>
+<area shape="rect" id="node9" href="$class_shipper_controller.html" title="The ShipperController class holds all the logic for the Shipper." alt="" coords="315,208,449,235"/>
+</map>

@@ -1,0 +1,503 @@
+\hypertarget{class_seller_page}{}\doxysection{Seller\+Page Class Reference}
+\label{class_seller_page}\index{SellerPage@{SellerPage}}
+
+
+The \mbox{\hyperlink{class_seller_page}{Seller\+Page}} class holds all the logic for the Shippers client side view.  
+
+
+
+
+{\ttfamily \#include $<$sellerpage.\+h$>$}
+
+
+
+Inheritance diagram for Seller\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{class_seller_page__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Seller\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{class_seller_page__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_seller_page_ac11311704084e43e95ed8aa7a6240718}{Seller\+Page}} (\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$\mbox{\hyperlink{class_page_a13d51915e40d10dd54134a91b81cb395}{broker}}, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_seller_page}{Seller\+Page}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_seller_page_a039889c238a16fc9e652038198ab9c00}{$\sim$\+Seller\+Page}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_seller_page_ad81a8c0eef3a651c31fe6cad889f44cf}{on\+\_\+home\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sets the current window to the home page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a0fa013545cb24824fc357e114d1792c8}{on\+\_\+send\+Order\+Screen\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sets the current window to the new orderpage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_aad81b1637a009b1839cc7d003f32698d}{on\+\_\+view\+Order\+Screen\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sets the current window to the view order page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_aaf7f43618d120ed564887c7cd31c3750}{process\+Order\+Contracts}} (Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&order\+Contracts)
+\begin{DoxyCompactList}\small\item\em Processes and places order contracts into the correct list widget for display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a3883579ca9101be9cad8303b9a1d2983}{on\+\_\+refresh\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Triggers request from the server to refreash the users related order contracts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a1a1d97b8b0ef3fab4af560f5fa9da33a}{on\+\_\+view\+Completed\+Order\+Screen\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sets the current window to the view completed orders page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a2fb57bfcdc59c06bec0cdc9e3e82feec}{on\+\_\+submit\+Btn\+\_\+\+New\+Order\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new order from the infomation provided by the user and sends it to the marketplace. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a90def72e97867d4f7e103847e8d13567}{on\+\_\+awaiting\+Bids\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the order details page with order that was double clicked on from the Awaiting Bids list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a5aa3eba166d1193e519280afe8919fd0}{on\+\_\+back\+Btn\+\_\+\+Order\+Details\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns the user back to the home page from the order details page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_ac85a6b3b9a660a6f45c018b6dec1173f}{on\+\_\+awaiting\+Delivery\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the order details page with the order that was double clicked on from the Awaiting Delivery list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_ad427a82b01a296b6deb4729bb97fbd49}{on\+\_\+comp\+Orders\+List\+Widget\+\_\+\+Comp\+Orders\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the order details page with the order that was double clicked on from the Completed Orders list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_ad45b459959a2155185b0f774d4cc273b}{on\+\_\+view\+Bids\+Btn\+\_\+\+Order\+Details\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens up the View Bids page with the bids from the currently selected order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a95a68db4855a05db6926089a807b6721}{on\+\_\+bids\+List\+Widget\+\_\+\+Bids\+\_\+item\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Loads the bid from the order into the G\+UI for the user to see. Also enables the accept bid button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_afc2ca291d74029bd2698e6ed211255ec}{on\+\_\+back\+Btn\+\_\+\+Bids\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns to the order details page from the bids page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a7e9fbeb3f27ed7cc6fd1335819df9689}{on\+\_\+accept\+Btn\+\_\+\+Bids\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sends a message to the server to accept the currently selected bid on an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a52009e5904ff2e830244369ca12eb044}{on\+\_\+source\+Postcode\+Combo\+Box\+\_\+\+New\+Order\+\_\+activated}} (const Q\+String \&arg1)
+\begin{DoxyCompactList}\small\item\em Triggers the calculate shipping rate when the user changes the source postcode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a336a2aefa99c09bc955cb4041080dc3e}{on\+\_\+dest\+Postcode\+Combo\+Box\+\_\+\+New\+Order\+\_\+activated}} (const Q\+String \&arg1)
+\begin{DoxyCompactList}\small\item\em Triggers the calculate shipping rate when the user changes the destination postcode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_seller_page_a7b701f0628202d412e61cb9fb1aff4eb}{clear\+New\+Order\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em Clears the new order screen of any remaining information in the widgets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a8950563c828ecccea129e5603834ac78}{setup\+Order\+Details\+Page}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Sets up the order details screen with the data from an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_aaf4332034c2ebd129e453d7f76dfbb58}{setup\+Bids\+Page}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Sets up the bid page with the bid data from an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_seller_page_a4590d02e65819bff72090a39b0260bd4}{calculate\+Shipping\+Rate}} ()
+\begin{DoxyCompactList}\small\item\em Caluclates the shipping rate in the new order screen based on the source and destination postcodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Seller\+Page $\ast$ \mbox{\hyperlink{class_seller_page_a075efd921bec0cdad69b1d8495f374e3}{ui}}
+\item 
+Q\+Vector$<$ Q\+Line\+Edit $\ast$ $>$ \mbox{\hyperlink{class_seller_page_af34677076da1deb52b9082476034ef2e}{new\+Order\+Line\+Edits}}
+\item 
+Q\+Vector$<$ Q\+Plain\+Text\+Edit $\ast$ $>$ \mbox{\hyperlink{class_seller_page_a0548ca823f3ced77d9c62534cca918ce}{new\+Order\+Plain\+Text\+Edits}}
+\item 
+Q\+Vector$<$ Q\+Double\+Spin\+Box $\ast$ $>$ \mbox{\hyperlink{class_seller_page_ae29300b109540e7c760189e8a21ed4ea}{new\+Order\+Spin\+Boxes}}
+\item 
+Q\+Vector$<$ Q\+Line\+Edit $\ast$ $>$ \mbox{\hyperlink{class_seller_page_af8f3d2f06a5e1f8b4fb3a412f86f17de}{order\+Details\+Line\+Edits}}
+\item 
+Q\+Vector$<$ Q\+Plain\+Text\+Edit $\ast$ $>$ \mbox{\hyperlink{class_seller_page_a8386a70c65fa49f2e92446f383dc8585}{order\+Details\+Plain\+Text\+Edits}}
+\item 
+Q\+Vector$<$ Q\+Double\+Spin\+Box $\ast$ $>$ \mbox{\hyperlink{class_seller_page_a88f17510d660cbe053c74f4713b852ba}{order\+Details\+Spin\+Boxes}}
+\item 
+Q\+String \mbox{\hyperlink{class_seller_page_a9f3ef0330962afde291023c6cc4b5c7b}{currently\+Selected\+Order\+ID}}
+\item 
+\mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} \mbox{\hyperlink{class_seller_page_a24744850a157bae5bcd38bfaed870679}{currently\+Selected\+Bid}}
+\item 
+const int \mbox{\hyperlink{class_seller_page_abc0078e932ca37366e10bfd63e63fe0d}{home\+Page}} = 0
+\item 
+const int \mbox{\hyperlink{class_seller_page_af4604f51360da3cc33bbb5e29f45c3d2}{make\+Order\+Page}} = 1
+\item 
+const int \mbox{\hyperlink{class_seller_page_abfaa03034658201686329a47f4b7c838}{view\+Pending\+Order\+Page}} = 2
+\item 
+const int \mbox{\hyperlink{class_seller_page_a50415d93cc3ab14e125cff5993cdc97b}{view\+Completed\+Order\+Page}} = 3
+\item 
+const int \mbox{\hyperlink{class_seller_page_a3745da1a2aef36dce77acd439f1b2431}{order\+Details\+Page}} = 4
+\item 
+const int \mbox{\hyperlink{class_seller_page_a3a9da0b8e7af96168ddd5fe94e660361}{bids\+Page}} = 5
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_seller_page}{Seller\+Page}} class holds all the logic for the Shippers client side view. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_seller_page_ac11311704084e43e95ed8aa7a6240718}\label{class_seller_page_ac11311704084e43e95ed8aa7a6240718}} 
+\index{SellerPage@{SellerPage}!SellerPage@{SellerPage}}
+\index{SellerPage@{SellerPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{SellerPage()}{SellerPage()}}
+{\footnotesize\ttfamily Seller\+Page\+::\+Seller\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$}]{broker,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_seller_page}{Seller\+Page}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em broker} & The Message broker for the client. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_a039889c238a16fc9e652038198ab9c00}\label{class_seller_page_a039889c238a16fc9e652038198ab9c00}} 
+\index{SellerPage@{SellerPage}!````~SellerPage@{$\sim$SellerPage}}
+\index{````~SellerPage@{$\sim$SellerPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{$\sim$SellerPage()}{~SellerPage()}}
+{\footnotesize\ttfamily Seller\+Page\+::$\sim$\+Seller\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_seller_page_a4590d02e65819bff72090a39b0260bd4}\label{class_seller_page_a4590d02e65819bff72090a39b0260bd4}} 
+\index{SellerPage@{SellerPage}!calculateShippingRate@{calculateShippingRate}}
+\index{calculateShippingRate@{calculateShippingRate}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{calculateShippingRate()}{calculateShippingRate()}}
+{\footnotesize\ttfamily void Seller\+Page\+::calculate\+Shipping\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Caluclates the shipping rate in the new order screen based on the source and destination postcodes. 
+
+\mbox{\Hypertarget{class_seller_page_a7b701f0628202d412e61cb9fb1aff4eb}\label{class_seller_page_a7b701f0628202d412e61cb9fb1aff4eb}} 
+\index{SellerPage@{SellerPage}!clearNewOrderScreen@{clearNewOrderScreen}}
+\index{clearNewOrderScreen@{clearNewOrderScreen}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{clearNewOrderScreen()}{clearNewOrderScreen()}}
+{\footnotesize\ttfamily void Seller\+Page\+::clear\+New\+Order\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Clears the new order screen of any remaining information in the widgets. 
+
+\mbox{\Hypertarget{class_seller_page_a7e9fbeb3f27ed7cc6fd1335819df9689}\label{class_seller_page_a7e9fbeb3f27ed7cc6fd1335819df9689}} 
+\index{SellerPage@{SellerPage}!on\_acceptBtn\_Bids\_clicked@{on\_acceptBtn\_Bids\_clicked}}
+\index{on\_acceptBtn\_Bids\_clicked@{on\_acceptBtn\_Bids\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_acceptBtn\_Bids\_clicked}{on\_acceptBtn\_Bids\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+accept\+Btn\+\_\+\+Bids\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends a message to the server to accept the currently selected bid on an order. 
+
+\mbox{\Hypertarget{class_seller_page_a90def72e97867d4f7e103847e8d13567}\label{class_seller_page_a90def72e97867d4f7e103847e8d13567}} 
+\index{SellerPage@{SellerPage}!on\_awaitingBidsListWidget\_Orders\_itemDoubleClicked@{on\_awaitingBidsListWidget\_Orders\_itemDoubleClicked}}
+\index{on\_awaitingBidsListWidget\_Orders\_itemDoubleClicked@{on\_awaitingBidsListWidget\_Orders\_itemDoubleClicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_awaitingBidsListWidget\_Orders\_itemDoubleClicked}{on\_awaitingBidsListWidget\_Orders\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+awaiting\+Bids\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the order details page with order that was double clicked on from the Awaiting Bids list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_ac85a6b3b9a660a6f45c018b6dec1173f}\label{class_seller_page_ac85a6b3b9a660a6f45c018b6dec1173f}} 
+\index{SellerPage@{SellerPage}!on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked@{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}}
+\index{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked@{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+awaiting\+Delivery\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the order details page with the order that was double clicked on from the Awaiting Delivery list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_afc2ca291d74029bd2698e6ed211255ec}\label{class_seller_page_afc2ca291d74029bd2698e6ed211255ec}} 
+\index{SellerPage@{SellerPage}!on\_backBtn\_Bids\_clicked@{on\_backBtn\_Bids\_clicked}}
+\index{on\_backBtn\_Bids\_clicked@{on\_backBtn\_Bids\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_Bids\_clicked}{on\_backBtn\_Bids\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+back\+Btn\+\_\+\+Bids\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns to the order details page from the bids page. 
+
+\mbox{\Hypertarget{class_seller_page_a5aa3eba166d1193e519280afe8919fd0}\label{class_seller_page_a5aa3eba166d1193e519280afe8919fd0}} 
+\index{SellerPage@{SellerPage}!on\_backBtn\_OrderDetails\_clicked@{on\_backBtn\_OrderDetails\_clicked}}
+\index{on\_backBtn\_OrderDetails\_clicked@{on\_backBtn\_OrderDetails\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_OrderDetails\_clicked}{on\_backBtn\_OrderDetails\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+back\+Btn\+\_\+\+Order\+Details\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns the user back to the home page from the order details page. 
+
+\mbox{\Hypertarget{class_seller_page_a95a68db4855a05db6926089a807b6721}\label{class_seller_page_a95a68db4855a05db6926089a807b6721}} 
+\index{SellerPage@{SellerPage}!on\_bidsListWidget\_Bids\_itemClicked@{on\_bidsListWidget\_Bids\_itemClicked}}
+\index{on\_bidsListWidget\_Bids\_itemClicked@{on\_bidsListWidget\_Bids\_itemClicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_bidsListWidget\_Bids\_itemClicked}{on\_bidsListWidget\_Bids\_itemClicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+bids\+List\+Widget\+\_\+\+Bids\+\_\+item\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Loads the bid from the order into the G\+UI for the user to see. Also enables the accept bid button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the bid index for locating the bid in the order. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_ad427a82b01a296b6deb4729bb97fbd49}\label{class_seller_page_ad427a82b01a296b6deb4729bb97fbd49}} 
+\index{SellerPage@{SellerPage}!on\_compOrdersListWidget\_CompOrders\_itemDoubleClicked@{on\_compOrdersListWidget\_CompOrders\_itemDoubleClicked}}
+\index{on\_compOrdersListWidget\_CompOrders\_itemDoubleClicked@{on\_compOrdersListWidget\_CompOrders\_itemDoubleClicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_compOrdersListWidget\_CompOrders\_itemDoubleClicked}{on\_compOrdersListWidget\_CompOrders\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+comp\+Orders\+List\+Widget\+\_\+\+Comp\+Orders\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the order details page with the order that was double clicked on from the Completed Orders list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_a336a2aefa99c09bc955cb4041080dc3e}\label{class_seller_page_a336a2aefa99c09bc955cb4041080dc3e}} 
+\index{SellerPage@{SellerPage}!on\_destPostcodeComboBox\_NewOrder\_activated@{on\_destPostcodeComboBox\_NewOrder\_activated}}
+\index{on\_destPostcodeComboBox\_NewOrder\_activated@{on\_destPostcodeComboBox\_NewOrder\_activated}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_destPostcodeComboBox\_NewOrder\_activated}{on\_destPostcodeComboBox\_NewOrder\_activated}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+dest\+Postcode\+Combo\+Box\+\_\+\+New\+Order\+\_\+activated (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Triggers the calculate shipping rate when the user changes the destination postcode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg1} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_ad81a8c0eef3a651c31fe6cad889f44cf}\label{class_seller_page_ad81a8c0eef3a651c31fe6cad889f44cf}} 
+\index{SellerPage@{SellerPage}!on\_homeBtn\_clicked@{on\_homeBtn\_clicked}}
+\index{on\_homeBtn\_clicked@{on\_homeBtn\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_homeBtn\_clicked}{on\_homeBtn\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+home\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sets the current window to the home page. 
+
+\mbox{\Hypertarget{class_seller_page_a3883579ca9101be9cad8303b9a1d2983}\label{class_seller_page_a3883579ca9101be9cad8303b9a1d2983}} 
+\index{SellerPage@{SellerPage}!on\_refreshBtn\_clicked@{on\_refreshBtn\_clicked}}
+\index{on\_refreshBtn\_clicked@{on\_refreshBtn\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_refreshBtn\_clicked}{on\_refreshBtn\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+refresh\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Triggers request from the server to refreash the users related order contracts. 
+
+\mbox{\Hypertarget{class_seller_page_a0fa013545cb24824fc357e114d1792c8}\label{class_seller_page_a0fa013545cb24824fc357e114d1792c8}} 
+\index{SellerPage@{SellerPage}!on\_sendOrderScreenBtn\_clicked@{on\_sendOrderScreenBtn\_clicked}}
+\index{on\_sendOrderScreenBtn\_clicked@{on\_sendOrderScreenBtn\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_sendOrderScreenBtn\_clicked}{on\_sendOrderScreenBtn\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+send\+Order\+Screen\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sets the current window to the new orderpage. 
+
+\mbox{\Hypertarget{class_seller_page_a52009e5904ff2e830244369ca12eb044}\label{class_seller_page_a52009e5904ff2e830244369ca12eb044}} 
+\index{SellerPage@{SellerPage}!on\_sourcePostcodeComboBox\_NewOrder\_activated@{on\_sourcePostcodeComboBox\_NewOrder\_activated}}
+\index{on\_sourcePostcodeComboBox\_NewOrder\_activated@{on\_sourcePostcodeComboBox\_NewOrder\_activated}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_sourcePostcodeComboBox\_NewOrder\_activated}{on\_sourcePostcodeComboBox\_NewOrder\_activated}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+source\+Postcode\+Combo\+Box\+\_\+\+New\+Order\+\_\+activated (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Triggers the calculate shipping rate when the user changes the source postcode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg1} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_a2fb57bfcdc59c06bec0cdc9e3e82feec}\label{class_seller_page_a2fb57bfcdc59c06bec0cdc9e3e82feec}} 
+\index{SellerPage@{SellerPage}!on\_submitBtn\_NewOrder\_clicked@{on\_submitBtn\_NewOrder\_clicked}}
+\index{on\_submitBtn\_NewOrder\_clicked@{on\_submitBtn\_NewOrder\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_submitBtn\_NewOrder\_clicked}{on\_submitBtn\_NewOrder\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+submit\+Btn\+\_\+\+New\+Order\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Creates a new order from the infomation provided by the user and sends it to the marketplace. 
+
+\mbox{\Hypertarget{class_seller_page_ad45b459959a2155185b0f774d4cc273b}\label{class_seller_page_ad45b459959a2155185b0f774d4cc273b}} 
+\index{SellerPage@{SellerPage}!on\_viewBidsBtn\_OrderDetails\_clicked@{on\_viewBidsBtn\_OrderDetails\_clicked}}
+\index{on\_viewBidsBtn\_OrderDetails\_clicked@{on\_viewBidsBtn\_OrderDetails\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewBidsBtn\_OrderDetails\_clicked}{on\_viewBidsBtn\_OrderDetails\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+view\+Bids\+Btn\+\_\+\+Order\+Details\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the View Bids page with the bids from the currently selected order. 
+
+\mbox{\Hypertarget{class_seller_page_a1a1d97b8b0ef3fab4af560f5fa9da33a}\label{class_seller_page_a1a1d97b8b0ef3fab4af560f5fa9da33a}} 
+\index{SellerPage@{SellerPage}!on\_viewCompletedOrderScreenBtn\_clicked@{on\_viewCompletedOrderScreenBtn\_clicked}}
+\index{on\_viewCompletedOrderScreenBtn\_clicked@{on\_viewCompletedOrderScreenBtn\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewCompletedOrderScreenBtn\_clicked}{on\_viewCompletedOrderScreenBtn\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+view\+Completed\+Order\+Screen\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sets the current window to the view completed orders page. 
+
+\mbox{\Hypertarget{class_seller_page_aad81b1637a009b1839cc7d003f32698d}\label{class_seller_page_aad81b1637a009b1839cc7d003f32698d}} 
+\index{SellerPage@{SellerPage}!on\_viewOrderScreenBtn\_clicked@{on\_viewOrderScreenBtn\_clicked}}
+\index{on\_viewOrderScreenBtn\_clicked@{on\_viewOrderScreenBtn\_clicked}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewOrderScreenBtn\_clicked}{on\_viewOrderScreenBtn\_clicked}}
+{\footnotesize\ttfamily void Seller\+Page\+::on\+\_\+view\+Order\+Screen\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sets the current window to the view order page. 
+
+\mbox{\Hypertarget{class_seller_page_aaf7f43618d120ed564887c7cd31c3750}\label{class_seller_page_aaf7f43618d120ed564887c7cd31c3750}} 
+\index{SellerPage@{SellerPage}!processOrderContracts@{processOrderContracts}}
+\index{processOrderContracts@{processOrderContracts}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{processOrderContracts}{processOrderContracts}}
+{\footnotesize\ttfamily void Seller\+Page\+::process\+Order\+Contracts (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&}]{order\+Contracts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Processes and places order contracts into the correct list widget for display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Contracts} & The order contracts. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_aaf4332034c2ebd129e453d7f76dfbb58}\label{class_seller_page_aaf4332034c2ebd129e453d7f76dfbb58}} 
+\index{SellerPage@{SellerPage}!setupBidsPage@{setupBidsPage}}
+\index{setupBidsPage@{setupBidsPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{setupBidsPage()}{setupBidsPage()}}
+{\footnotesize\ttfamily void Seller\+Page\+::setup\+Bids\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the bid page with the bid data from an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_seller_page_a8950563c828ecccea129e5603834ac78}\label{class_seller_page_a8950563c828ecccea129e5603834ac78}} 
+\index{SellerPage@{SellerPage}!setupOrderDetailsPage@{setupOrderDetailsPage}}
+\index{setupOrderDetailsPage@{setupOrderDetailsPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{setupOrderDetailsPage()}{setupOrderDetailsPage()}}
+{\footnotesize\ttfamily void Seller\+Page\+::setup\+Order\+Details\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the order details screen with the data from an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_seller_page_a3a9da0b8e7af96168ddd5fe94e660361}\label{class_seller_page_a3a9da0b8e7af96168ddd5fe94e660361}} 
+\index{SellerPage@{SellerPage}!bidsPage@{bidsPage}}
+\index{bidsPage@{bidsPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{bidsPage}{bidsPage}}
+{\footnotesize\ttfamily const int Seller\+Page\+::bids\+Page = 5\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a24744850a157bae5bcd38bfaed870679}\label{class_seller_page_a24744850a157bae5bcd38bfaed870679}} 
+\index{SellerPage@{SellerPage}!currentlySelectedBid@{currentlySelectedBid}}
+\index{currentlySelectedBid@{currentlySelectedBid}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{currentlySelectedBid}{currentlySelectedBid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} Seller\+Page\+::currently\+Selected\+Bid\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a9f3ef0330962afde291023c6cc4b5c7b}\label{class_seller_page_a9f3ef0330962afde291023c6cc4b5c7b}} 
+\index{SellerPage@{SellerPage}!currentlySelectedOrderID@{currentlySelectedOrderID}}
+\index{currentlySelectedOrderID@{currentlySelectedOrderID}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{currentlySelectedOrderID}{currentlySelectedOrderID}}
+{\footnotesize\ttfamily Q\+String Seller\+Page\+::currently\+Selected\+Order\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_abc0078e932ca37366e10bfd63e63fe0d}\label{class_seller_page_abc0078e932ca37366e10bfd63e63fe0d}} 
+\index{SellerPage@{SellerPage}!homePage@{homePage}}
+\index{homePage@{homePage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{homePage}{homePage}}
+{\footnotesize\ttfamily const int Seller\+Page\+::home\+Page = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_af4604f51360da3cc33bbb5e29f45c3d2}\label{class_seller_page_af4604f51360da3cc33bbb5e29f45c3d2}} 
+\index{SellerPage@{SellerPage}!makeOrderPage@{makeOrderPage}}
+\index{makeOrderPage@{makeOrderPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{makeOrderPage}{makeOrderPage}}
+{\footnotesize\ttfamily const int Seller\+Page\+::make\+Order\+Page = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_af34677076da1deb52b9082476034ef2e}\label{class_seller_page_af34677076da1deb52b9082476034ef2e}} 
+\index{SellerPage@{SellerPage}!newOrderLineEdits@{newOrderLineEdits}}
+\index{newOrderLineEdits@{newOrderLineEdits}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{newOrderLineEdits}{newOrderLineEdits}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+Line\+Edit$\ast$$>$ Seller\+Page\+::new\+Order\+Line\+Edits\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a0548ca823f3ced77d9c62534cca918ce}\label{class_seller_page_a0548ca823f3ced77d9c62534cca918ce}} 
+\index{SellerPage@{SellerPage}!newOrderPlainTextEdits@{newOrderPlainTextEdits}}
+\index{newOrderPlainTextEdits@{newOrderPlainTextEdits}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{newOrderPlainTextEdits}{newOrderPlainTextEdits}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+Plain\+Text\+Edit$\ast$$>$ Seller\+Page\+::new\+Order\+Plain\+Text\+Edits\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_ae29300b109540e7c760189e8a21ed4ea}\label{class_seller_page_ae29300b109540e7c760189e8a21ed4ea}} 
+\index{SellerPage@{SellerPage}!newOrderSpinBoxes@{newOrderSpinBoxes}}
+\index{newOrderSpinBoxes@{newOrderSpinBoxes}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{newOrderSpinBoxes}{newOrderSpinBoxes}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+Double\+Spin\+Box$\ast$$>$ Seller\+Page\+::new\+Order\+Spin\+Boxes\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_af8f3d2f06a5e1f8b4fb3a412f86f17de}\label{class_seller_page_af8f3d2f06a5e1f8b4fb3a412f86f17de}} 
+\index{SellerPage@{SellerPage}!orderDetailsLineEdits@{orderDetailsLineEdits}}
+\index{orderDetailsLineEdits@{orderDetailsLineEdits}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{orderDetailsLineEdits}{orderDetailsLineEdits}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+Line\+Edit$\ast$$>$ Seller\+Page\+::order\+Details\+Line\+Edits\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a3745da1a2aef36dce77acd439f1b2431}\label{class_seller_page_a3745da1a2aef36dce77acd439f1b2431}} 
+\index{SellerPage@{SellerPage}!orderDetailsPage@{orderDetailsPage}}
+\index{orderDetailsPage@{orderDetailsPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{orderDetailsPage}{orderDetailsPage}}
+{\footnotesize\ttfamily const int Seller\+Page\+::order\+Details\+Page = 4\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a8386a70c65fa49f2e92446f383dc8585}\label{class_seller_page_a8386a70c65fa49f2e92446f383dc8585}} 
+\index{SellerPage@{SellerPage}!orderDetailsPlainTextEdits@{orderDetailsPlainTextEdits}}
+\index{orderDetailsPlainTextEdits@{orderDetailsPlainTextEdits}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{orderDetailsPlainTextEdits}{orderDetailsPlainTextEdits}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+Plain\+Text\+Edit$\ast$$>$ Seller\+Page\+::order\+Details\+Plain\+Text\+Edits\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a88f17510d660cbe053c74f4713b852ba}\label{class_seller_page_a88f17510d660cbe053c74f4713b852ba}} 
+\index{SellerPage@{SellerPage}!orderDetailsSpinBoxes@{orderDetailsSpinBoxes}}
+\index{orderDetailsSpinBoxes@{orderDetailsSpinBoxes}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{orderDetailsSpinBoxes}{orderDetailsSpinBoxes}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+Double\+Spin\+Box$\ast$$>$ Seller\+Page\+::order\+Details\+Spin\+Boxes\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a075efd921bec0cdad69b1d8495f374e3}\label{class_seller_page_a075efd921bec0cdad69b1d8495f374e3}} 
+\index{SellerPage@{SellerPage}!ui@{ui}}
+\index{ui@{ui}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Seller\+Page$\ast$ Seller\+Page\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_a50415d93cc3ab14e125cff5993cdc97b}\label{class_seller_page_a50415d93cc3ab14e125cff5993cdc97b}} 
+\index{SellerPage@{SellerPage}!viewCompletedOrderPage@{viewCompletedOrderPage}}
+\index{viewCompletedOrderPage@{viewCompletedOrderPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{viewCompletedOrderPage}{viewCompletedOrderPage}}
+{\footnotesize\ttfamily const int Seller\+Page\+::view\+Completed\+Order\+Page = 3\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_seller_page_abfaa03034658201686329a47f4b7c838}\label{class_seller_page_abfaa03034658201686329a47f4b7c838}} 
+\index{SellerPage@{SellerPage}!viewPendingOrderPage@{viewPendingOrderPage}}
+\index{viewPendingOrderPage@{viewPendingOrderPage}!SellerPage@{SellerPage}}
+\doxysubsubsection{\texorpdfstring{viewPendingOrderPage}{viewPendingOrderPage}}
+{\footnotesize\ttfamily const int Seller\+Page\+::view\+Pending\+Order\+Page = 2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{sellerpage_8h}{sellerpage.\+h}}\end{DoxyCompactItemize}

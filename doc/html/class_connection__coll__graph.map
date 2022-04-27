@@ -1,0 +1,10 @@
+<map id="Connection" name="Connection">
+<area shape="rect" id="node1" title="The Connection class used t house all the logic a connection from a client needs." alt="" coords="925,108,1020,135"/>
+<area shape="rect" id="node2" title=" " alt="" coords="729,5,806,32"/>
+<area shape="rect" id="node3" href="$class_thread_safe_map.html" title=" " alt="" coords="372,114,563,155"/>
+<area shape="rect" id="node6" href="$class_controller.html" title="The Controller class that acts as an interface for other types of contollers." alt="" coords="724,179,811,205"/>
+<area shape="rect" id="node4" href="$class_account_manager.html" title="The AccountManager class that hold the logic dealing with user accounts." alt="" coords="217,76,348,103"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,187,80,213"/>
+<area shape="rect" id="node8" href="$class_broker.html" title="The Broker class is the parent class of the client and server brokers. It holds logic that is needed ..." alt="" coords="129,237,193,264"/>
+<area shape="rect" id="node7" href="$class_server_broker.html" title="The ServerBroker class holds all the logic to send messages back and forth with the client." alt="" coords="414,237,521,264"/>
+</map>

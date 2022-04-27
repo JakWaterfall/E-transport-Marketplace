@@ -1,0 +1,5 @@
+<map id="DriverController" name="DriverController">
+<area shape="rect" id="node1" title="The DriverController class holds all the logic for the Driver." alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node2" href="$class_controller.html" title="The Controller class that acts as an interface for other types of contollers." alt="" coords="25,80,112,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="31,5,106,32"/>
+</map>

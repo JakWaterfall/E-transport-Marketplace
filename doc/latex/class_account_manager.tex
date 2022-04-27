@@ -1,0 +1,261 @@
+\hypertarget{class_account_manager}{}\doxysection{Account\+Manager Class Reference}
+\label{class_account_manager}\index{AccountManager@{AccountManager}}
+
+
+The \mbox{\hyperlink{class_account_manager}{Account\+Manager}} class that hold the logic dealing with user accounts.  
+
+
+
+
+{\ttfamily \#include $<$accountmanager.\+h$>$}
+
+
+
+Inheritance diagram for Account\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{class_account_manager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Account\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{class_account_manager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_account_manager_a2700a21a6e7267c040f2c4fbe05942ce}{User\+Type}} \{ \mbox{\hyperlink{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea393946beea6a9a59000e234038bd7a0a}{Shipper\+User}}, 
+\mbox{\hyperlink{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea47934ce4fa94eaa48e27d30e4e78ee35}{Forwarder\+User}}, 
+\mbox{\hyperlink{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea8e74787b33cc9f2eb05d2df080cebe74}{Driver\+User}}
+ \}
+\begin{DoxyCompactList}\small\item\em The User\+Type enum which designates different user types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_account_manager_a9a93ebedc984f3718747a82fc68ed8f2}{Account\+Manager}} (Q\+Object $\ast$parent=nullptr)
+\item 
+bool \mbox{\hyperlink{class_account_manager_ab1f1462f5a844f69b9d2d484cf69fe96}{verify\+Log\+In}} (Q\+String email, Q\+String password)
+\begin{DoxyCompactList}\small\item\em Verifies if user credentials are valid. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_account_manager_af8b82e5a21193d0f7aeb62ab577cb531}{email\+Exists}} (const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Checks if an email is already registered in the system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_account_manager_a2700a21a6e7267c040f2c4fbe05942ce}{User\+Type}} \mbox{\hyperlink{class_account_manager_ab9600b96b9e4beddc0ed069f08cd0019}{get\+User\+Type}} (Q\+String email) const
+\begin{DoxyCompactList}\small\item\em Gets the user type of a user by email. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shipper}{Shipper}} \mbox{\hyperlink{class_account_manager_a75b1bf4998ef228605905c97e6572e0a}{create\+Shipper}} (Q\+String email)
+\begin{DoxyCompactList}\small\item\em Creates a user of type shipper. Thier data is pulled from the database using thier email. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_forwarder}{Forwarder}} \mbox{\hyperlink{class_account_manager_ab727f6921526e510bb324efad549e745}{create\+Forwarder}} (Q\+String email)
+\begin{DoxyCompactList}\small\item\em Creates a user of type forwarder. Thier data is pulled from the database using thier email. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_driver}{Driver}} \mbox{\hyperlink{class_account_manager_afc019fd1d875e0d762a2f9a1465f2681}{create\+Driver}} (Q\+String email)
+\begin{DoxyCompactList}\small\item\em Creates a user of type driver. Thier data is pulled from the database using thier email. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_account_manager_a86532a063397cc71cb2828471c8f951e}{create\+User}} (const Q\+String \&name, const Q\+String \&email, const Q\+String \&password, const Q\+String \&address, const Q\+String \&postcode, const Q\+String \&user\+Type)
+\begin{DoxyCompactList}\small\item\em Creates and places a user into the system database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Vector$<$ Q\+String $>$ \mbox{\hyperlink{class_account_manager_ab8ce7a9a70c97151e4686cee95a03113}{order\+C\+S\+V\+To\+Vector}} (Q\+String \&order\+C\+SV)
+\begin{DoxyCompactList}\small\item\em Creates a vector of order I\+Ds from a C\+SV string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_account_manager}{Account\+Manager}} class that hold the logic dealing with user accounts. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_account_manager_a2700a21a6e7267c040f2c4fbe05942ce}\label{class_account_manager_a2700a21a6e7267c040f2c4fbe05942ce}} 
+\index{AccountManager@{AccountManager}!UserType@{UserType}}
+\index{UserType@{UserType}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{UserType}{UserType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_account_manager_a2700a21a6e7267c040f2c4fbe05942ce}{Account\+Manager\+::\+User\+Type}}}
+
+
+
+The User\+Type enum which designates different user types. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ShipperUser@{ShipperUser}!AccountManager@{AccountManager}}\index{AccountManager@{AccountManager}!ShipperUser@{ShipperUser}}}\mbox{\Hypertarget{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea393946beea6a9a59000e234038bd7a0a}\label{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea393946beea6a9a59000e234038bd7a0a}} 
+Shipper\+User&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ForwarderUser@{ForwarderUser}!AccountManager@{AccountManager}}\index{AccountManager@{AccountManager}!ForwarderUser@{ForwarderUser}}}\mbox{\Hypertarget{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea47934ce4fa94eaa48e27d30e4e78ee35}\label{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea47934ce4fa94eaa48e27d30e4e78ee35}} 
+Forwarder\+User&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DriverUser@{DriverUser}!AccountManager@{AccountManager}}\index{AccountManager@{AccountManager}!DriverUser@{DriverUser}}}\mbox{\Hypertarget{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea8e74787b33cc9f2eb05d2df080cebe74}\label{class_account_manager_a2700a21a6e7267c040f2c4fbe05942cea8e74787b33cc9f2eb05d2df080cebe74}} 
+Driver\+User&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_account_manager_a9a93ebedc984f3718747a82fc68ed8f2}\label{class_account_manager_a9a93ebedc984f3718747a82fc68ed8f2}} 
+\index{AccountManager@{AccountManager}!AccountManager@{AccountManager}}
+\index{AccountManager@{AccountManager}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{AccountManager()}{AccountManager()}}
+{\footnotesize\ttfamily Account\+Manager\+::\+Account\+Manager (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_account_manager_afc019fd1d875e0d762a2f9a1465f2681}\label{class_account_manager_afc019fd1d875e0d762a2f9a1465f2681}} 
+\index{AccountManager@{AccountManager}!createDriver@{createDriver}}
+\index{createDriver@{createDriver}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{createDriver()}{createDriver()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_driver}{Driver}} Account\+Manager\+::create\+Driver (\begin{DoxyParamCaption}\item[{Q\+String}]{email }\end{DoxyParamCaption})}
+
+
+
+Creates a user of type driver. Thier data is pulled from the database using thier email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_user}{User}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_manager_ab727f6921526e510bb324efad549e745}\label{class_account_manager_ab727f6921526e510bb324efad549e745}} 
+\index{AccountManager@{AccountManager}!createForwarder@{createForwarder}}
+\index{createForwarder@{createForwarder}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{createForwarder()}{createForwarder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_forwarder}{Forwarder}} Account\+Manager\+::create\+Forwarder (\begin{DoxyParamCaption}\item[{Q\+String}]{email }\end{DoxyParamCaption})}
+
+
+
+Creates a user of type forwarder. Thier data is pulled from the database using thier email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_user}{User}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_manager_a75b1bf4998ef228605905c97e6572e0a}\label{class_account_manager_a75b1bf4998ef228605905c97e6572e0a}} 
+\index{AccountManager@{AccountManager}!createShipper@{createShipper}}
+\index{createShipper@{createShipper}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{createShipper()}{createShipper()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shipper}{Shipper}} Account\+Manager\+::create\+Shipper (\begin{DoxyParamCaption}\item[{Q\+String}]{email }\end{DoxyParamCaption})}
+
+
+
+Creates a user of type shipper. Thier data is pulled from the database using thier email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_user}{User}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_manager_a86532a063397cc71cb2828471c8f951e}\label{class_account_manager_a86532a063397cc71cb2828471c8f951e}} 
+\index{AccountManager@{AccountManager}!createUser@{createUser}}
+\index{createUser@{createUser}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily void Account\+Manager\+::create\+User (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{const Q\+String \&}]{email,  }\item[{const Q\+String \&}]{password,  }\item[{const Q\+String \&}]{address,  }\item[{const Q\+String \&}]{postcode,  }\item[{const Q\+String \&}]{user\+Type }\end{DoxyParamCaption})}
+
+
+
+Creates and places a user into the system database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the user. \\
+\hline
+{\em email} & The email of the user. \\
+\hline
+{\em password} & The password of the user. \\
+\hline
+{\em address} & The address of the user. \\
+\hline
+{\em postcode} & The postcode of the user. \\
+\hline
+{\em user\+Type} & The user type of the user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_account_manager_af8b82e5a21193d0f7aeb62ab577cb531}\label{class_account_manager_af8b82e5a21193d0f7aeb62ab577cb531}} 
+\index{AccountManager@{AccountManager}!emailExists@{emailExists}}
+\index{emailExists@{emailExists}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{emailExists()}{emailExists()}}
+{\footnotesize\ttfamily bool Account\+Manager\+::email\+Exists (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Checks if an email is already registered in the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if email exists in the system. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_manager_ab9600b96b9e4beddc0ed069f08cd0019}\label{class_account_manager_ab9600b96b9e4beddc0ed069f08cd0019}} 
+\index{AccountManager@{AccountManager}!getUserType@{getUserType}}
+\index{getUserType@{getUserType}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{getUserType()}{getUserType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_account_manager_a2700a21a6e7267c040f2c4fbe05942ce}{User\+Type}} Account\+Manager\+::get\+User\+Type (\begin{DoxyParamCaption}\item[{Q\+String}]{email }\end{DoxyParamCaption}) const}
+
+
+
+Gets the user type of a user by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email to of the user to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The user type of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_manager_ab8ce7a9a70c97151e4686cee95a03113}\label{class_account_manager_ab8ce7a9a70c97151e4686cee95a03113}} 
+\index{AccountManager@{AccountManager}!orderCSVToVector@{orderCSVToVector}}
+\index{orderCSVToVector@{orderCSVToVector}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{orderCSVToVector()}{orderCSVToVector()}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+String$>$ Account\+Manager\+::order\+C\+S\+V\+To\+Vector (\begin{DoxyParamCaption}\item[{Q\+String \&}]{order\+C\+SV }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a vector of order I\+Ds from a C\+SV string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+C\+SV} & The order\+I\+Ds in a C\+SV format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of order I\+Ds. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_manager_ab1f1462f5a844f69b9d2d484cf69fe96}\label{class_account_manager_ab1f1462f5a844f69b9d2d484cf69fe96}} 
+\index{AccountManager@{AccountManager}!verifyLogIn@{verifyLogIn}}
+\index{verifyLogIn@{verifyLogIn}!AccountManager@{AccountManager}}
+\doxysubsubsection{\texorpdfstring{verifyLogIn()}{verifyLogIn()}}
+{\footnotesize\ttfamily bool Account\+Manager\+::verify\+Log\+In (\begin{DoxyParamCaption}\item[{Q\+String}]{email,  }\item[{Q\+String}]{password }\end{DoxyParamCaption})}
+
+
+
+Verifies if user credentials are valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of user. \\
+\hline
+{\em password} & The password of user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if user credentials match in the system 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{accountmanager_8h}{accountmanager.\+h}}\end{DoxyCompactItemize}

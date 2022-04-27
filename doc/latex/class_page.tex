@@ -1,0 +1,194 @@
+\hypertarget{class_page}{}\doxysection{Page Class Reference}
+\label{class_page}\index{Page@{Page}}
+
+
+The \mbox{\hyperlink{class_page}{Page}} class that acts as an interface for other types of pages.  
+
+
+
+
+{\ttfamily \#include $<$page.\+h$>$}
+
+
+
+Inheritance diagram for Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_page__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_page__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_page_a067afeed90aac2212fb98cdca1ab9316}{Page}} (\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$\mbox{\hyperlink{class_page_a13d51915e40d10dd54134a91b81cb395}{broker}}, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_page}{Page}} Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_page_a5eabcbc4b0d9cffba49bf786c97d751c}{refresh\+Orders}} ()
+\begin{DoxyCompactList}\small\item\em Makes a request from the server to refreash the users related order contracts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_page_a13406f883625ad67cffcf6407467ab02}{refresh\+Market}} ()
+\begin{DoxyCompactList}\small\item\em Makes a request from the server to refreash the marketplace order contracts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_page_adb298afdc54bea7763c827eb88295e49}{add\+To\+List\+Widget}} (Q\+List\+Widget $\ast$list, const Q\+String \&name, const Q\+Variant \&ID)
+\begin{DoxyCompactList}\small\item\em Adds an item to a List Widget object. This is used to add order contracts to a list that is displayed to the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_page_af4acf4c5b0f649cd77bdc6a4b46ef70e}{clear\+Assorted\+Widgets}} (Q\+Vector$<$ Q\+Line\+Edit $\ast$ $>$ line\+Edits, Q\+Vector$<$ Q\+Plain\+Text\+Edit $\ast$ $>$ plain\+Texts, Q\+Vector$<$ Q\+Double\+Spin\+Box $\ast$ $>$ spin\+Boxs)
+\begin{DoxyCompactList}\small\item\em Helper function to clear an assortment of widgets. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_page_a3540c6f32252d6e2175a9f5d925f1778}{get\+Shipping\+Rate}} (const Q\+String \&source\+Postcode, const Q\+String \&dest\+Postcode)
+\begin{DoxyCompactList}\small\item\em Returns the shipping rate between 2 postcodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$ \mbox{\hyperlink{class_page_a13d51915e40d10dd54134a91b81cb395}{broker}}
+\item 
+Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \mbox{\hyperlink{class_page_a599a7fdc477b3866820e03ff3e30315c}{cashed\+Order\+Contracts}}
+\item 
+Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \mbox{\hyperlink{class_page_a6bb6639da4f10c61b312876d29a3f0cc}{cashed\+Market}}
+\item 
+Q\+Map$<$ Q\+String, Q\+Vector2D $>$ \mbox{\hyperlink{class_page_af2af3caa1933b5e7bbc4ed778477ad78}{postcode\+To\+Point}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_page}{Page}} class that acts as an interface for other types of pages. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_page_a067afeed90aac2212fb98cdca1ab9316}\label{class_page_a067afeed90aac2212fb98cdca1ab9316}} 
+\index{Page@{Page}!Page@{Page}}
+\index{Page@{Page}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{Page()}{Page()}}
+{\footnotesize\ttfamily Page\+::\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$}]{broker,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_page}{Page}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em broker} & The Message broker for the client. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_page_adb298afdc54bea7763c827eb88295e49}\label{class_page_adb298afdc54bea7763c827eb88295e49}} 
+\index{Page@{Page}!addToListWidget@{addToListWidget}}
+\index{addToListWidget@{addToListWidget}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{addToListWidget()}{addToListWidget()}}
+{\footnotesize\ttfamily void Page\+::add\+To\+List\+Widget (\begin{DoxyParamCaption}\item[{Q\+List\+Widget $\ast$}]{list,  }\item[{const Q\+String \&}]{name,  }\item[{const Q\+Variant \&}]{ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Adds an item to a List Widget object. This is used to add order contracts to a list that is displayed to the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list widget that is to be appended to. \\
+\hline
+{\em name} & The name to be displayed in the list. \\
+\hline
+{\em ID} & The order ID to be stored in the list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_page_af4acf4c5b0f649cd77bdc6a4b46ef70e}\label{class_page_af4acf4c5b0f649cd77bdc6a4b46ef70e}} 
+\index{Page@{Page}!clearAssortedWidgets@{clearAssortedWidgets}}
+\index{clearAssortedWidgets@{clearAssortedWidgets}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{clearAssortedWidgets()}{clearAssortedWidgets()}}
+{\footnotesize\ttfamily void Page\+::clear\+Assorted\+Widgets (\begin{DoxyParamCaption}\item[{Q\+Vector$<$ Q\+Line\+Edit $\ast$ $>$}]{line\+Edits,  }\item[{Q\+Vector$<$ Q\+Plain\+Text\+Edit $\ast$ $>$}]{plain\+Texts,  }\item[{Q\+Vector$<$ Q\+Double\+Spin\+Box $\ast$ $>$}]{spin\+Boxs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Helper function to clear an assortment of widgets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Edits} & The Line Edit widgets to be cleared. \\
+\hline
+{\em plain\+Texts} & The Plain Text widgets to be cleared. \\
+\hline
+{\em spin\+Boxs} & The Spinbox widgets to be cleared. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_page_a3540c6f32252d6e2175a9f5d925f1778}\label{class_page_a3540c6f32252d6e2175a9f5d925f1778}} 
+\index{Page@{Page}!getShippingRate@{getShippingRate}}
+\index{getShippingRate@{getShippingRate}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{getShippingRate()}{getShippingRate()}}
+{\footnotesize\ttfamily float Page\+::get\+Shipping\+Rate (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{source\+Postcode,  }\item[{const Q\+String \&}]{dest\+Postcode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Returns the shipping rate between 2 postcodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+Postcode} & The source postcode. \\
+\hline
+{\em dest\+Postcode} & The destination postcode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shipping rate in pounds. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_page_a13406f883625ad67cffcf6407467ab02}\label{class_page_a13406f883625ad67cffcf6407467ab02}} 
+\index{Page@{Page}!refreshMarket@{refreshMarket}}
+\index{refreshMarket@{refreshMarket}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{refreshMarket()}{refreshMarket()}}
+{\footnotesize\ttfamily void Page\+::refresh\+Market (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Makes a request from the server to refreash the marketplace order contracts. 
+
+\mbox{\Hypertarget{class_page_a5eabcbc4b0d9cffba49bf786c97d751c}\label{class_page_a5eabcbc4b0d9cffba49bf786c97d751c}} 
+\index{Page@{Page}!refreshOrders@{refreshOrders}}
+\index{refreshOrders@{refreshOrders}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{refreshOrders()}{refreshOrders()}}
+{\footnotesize\ttfamily void Page\+::refresh\+Orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Makes a request from the server to refreash the users related order contracts. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_page_a13d51915e40d10dd54134a91b81cb395}\label{class_page_a13d51915e40d10dd54134a91b81cb395}} 
+\index{Page@{Page}!broker@{broker}}
+\index{broker@{broker}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{broker}{broker}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_client_broker}{Client\+Broker}}$\ast$ Page\+::broker\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_page_a6bb6639da4f10c61b312876d29a3f0cc}\label{class_page_a6bb6639da4f10c61b312876d29a3f0cc}} 
+\index{Page@{Page}!cashedMarket@{cashedMarket}}
+\index{cashedMarket@{cashedMarket}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{cashedMarket}{cashedMarket}}
+{\footnotesize\ttfamily Q\+Map$<$Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}}$>$ Page\+::cashed\+Market\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_page_a599a7fdc477b3866820e03ff3e30315c}\label{class_page_a599a7fdc477b3866820e03ff3e30315c}} 
+\index{Page@{Page}!cashedOrderContracts@{cashedOrderContracts}}
+\index{cashedOrderContracts@{cashedOrderContracts}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{cashedOrderContracts}{cashedOrderContracts}}
+{\footnotesize\ttfamily Q\+Map$<$Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}}$>$ Page\+::cashed\+Order\+Contracts\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_page_af2af3caa1933b5e7bbc4ed778477ad78}\label{class_page_af2af3caa1933b5e7bbc4ed778477ad78}} 
+\index{Page@{Page}!postcodeToPoint@{postcodeToPoint}}
+\index{postcodeToPoint@{postcodeToPoint}!Page@{Page}}
+\doxysubsubsection{\texorpdfstring{postcodeToPoint}{postcodeToPoint}}
+{\footnotesize\ttfamily Q\+Map$<$Q\+String, Q\+Vector2D$>$ Page\+::postcode\+To\+Point\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{page_8h}{page.\+h}}\end{DoxyCompactItemize}

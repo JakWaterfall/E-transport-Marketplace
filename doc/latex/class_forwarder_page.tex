@@ -1,0 +1,397 @@
+\hypertarget{class_forwarder_page}{}\doxysection{Forwarder\+Page Class Reference}
+\label{class_forwarder_page}\index{ForwarderPage@{ForwarderPage}}
+
+
+The \mbox{\hyperlink{class_forwarder_page}{Forwarder\+Page}} class holds all the logic for the \mbox{\hyperlink{class_forwarder}{Forwarder}} client side view.  
+
+
+
+
+{\ttfamily \#include $<$forwarderpage.\+h$>$}
+
+
+
+Inheritance diagram for Forwarder\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_forwarder_page__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Forwarder\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_forwarder_page__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_forwarder_page_a7770842dbc45f9b6bf6cd9c3256bced1}{Forwarder\+Page}} (\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$\mbox{\hyperlink{class_page_a13d51915e40d10dd54134a91b81cb395}{broker}}, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_forwarder_page}{Forwarder\+Page}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_forwarder_page_a270484d28036732e4fe5eabdc94870fd}{$\sim$\+Forwarder\+Page}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_forwarder_page_a0bf0ff01a9b60d1b85603a0540d93eb7}{on\+\_\+order\+Market\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens the marketplace window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a1106600c15c1c187db656bd4515b50b5}{on\+\_\+home\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens the home page window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a05886e5cc13c1ecc4d1a4bca6d4d8f88}{on\+\_\+refresh\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Triggers request from the server to refreash the users related order contracts and the marketplace orders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a085d2354eaf9f2173cfd7e0155083708}{on\+\_\+view\+Order\+Screen\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens orders screen window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_acb2b1fde5b69f6d81e44ffc77d3b6922}{on\+\_\+view\+Completed\+Order\+Screen\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens completed orders screen window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a65f58be35e6d1db2fed7d9c7f64a6a9f}{process\+Order\+Contracts}} (Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&order\+Contracts)
+\begin{DoxyCompactList}\small\item\em Processes and places order contracts into the correct list widget for display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a38f8aa7e00587929358b4243df1da7e8}{process\+Market}} (Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&market\+Orders)
+\begin{DoxyCompactList}\small\item\em Processes and places marketplace orders into the marketplace list widget for display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a25f243de642746a6b824d4cc01f08907}{on\+\_\+back\+Btn\+\_\+\+Bid\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Retruns back to the marketplace window from the bids page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_af9766e5892aaeec292c15b72c9bfc419}{on\+\_\+make\+Bid\+Btn\+\_\+\+Bid\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Creates a Bid from the infomation provided by the user and sends it to be placed on the currently selected order in the marketplace. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a6164915ca17dc4daa034a118adf99d6a}{on\+\_\+market\+Orders\+List\+Widget\+\_\+\+Market\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the bid page with order that was double clicked on from the Marketplace Orders list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_abd2a30b955e7e50960f629a38cdeda76}{on\+\_\+offers\+Made\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the order details page with order that was double clicked on from the Offers Made list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a8c5f2215354bf8f6852b9b4b31df65ce}{on\+\_\+view\+Bid\+Btn\+\_\+\+Order\+Details\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens up the view bid page for the user to view thier current bid on an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a94b0742c8aadeae6747f7a8fed91908c}{on\+\_\+back\+Btn\+\_\+\+View\+Bid\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns back to the order details page from the view bid page. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_aa10405398caa5bae0fcf0a6ed5b2a46c}{on\+\_\+awaiting\+Delivery\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked}} (Q\+List\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Opens up the order details page with order that was double clicked on from the Awaiting Delivery list widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a4b9d2adb5d73b23858abf1b11b6cec46}{on\+\_\+back\+Btn\+\_\+\+Order\+Details\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns back to the orders page from the order details page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_forwarder_page_a5f16bb866f20e7233bdf1781732c195f}{setup\+Bid\+Page}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Sets up bid page with an order for the forwarder to place a bid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forwarder_page_a8efdeefb1da561399f9333c03ff2e16a}{setup\+Order\+Details\+Page}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Sets up the order details screen with the data from an order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Forwarder\+Page $\ast$ \mbox{\hyperlink{class_forwarder_page_acbb0a523582eb6a1eb02219d1ffa457c}{ui}}
+\item 
+Q\+String \mbox{\hyperlink{class_forwarder_page_a15876ad5ce0e945fdacca69326f1f0c6}{currently\+Selected\+Order\+ID}}
+\item 
+const int \mbox{\hyperlink{class_forwarder_page_ab903ce879c7c86b76a74028b0ffc4ef5}{home\+Page}} = 0
+\item 
+const int \mbox{\hyperlink{class_forwarder_page_a141d4b5b83dfdab82179343c2bcc75e7}{market\+Page}} = 1
+\item 
+const int \mbox{\hyperlink{class_forwarder_page_afea89a0938d5d96b04e09dd7a574351f}{make\+Bid\+Page}} = 2
+\item 
+const int \mbox{\hyperlink{class_forwarder_page_aadda8a61eeea66f5e3ed5310e01407da}{orders\+Page}} = 3
+\item 
+const int \mbox{\hyperlink{class_forwarder_page_acf0c42d4b640951824fe6f77e1907e29}{complete\+Orders\+Page}} = 4
+\item 
+const int \mbox{\hyperlink{class_forwarder_page_ad799f65471a21ea012f97e637a1c9391}{order\+Details\+Page}} = 5
+\item 
+const int \mbox{\hyperlink{class_forwarder_page_ad071544006e3eef843e8333753b6a0bc}{view\+Bid\+Page}} = 6
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_forwarder_page}{Forwarder\+Page}} class holds all the logic for the \mbox{\hyperlink{class_forwarder}{Forwarder}} client side view. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_forwarder_page_a7770842dbc45f9b6bf6cd9c3256bced1}\label{class_forwarder_page_a7770842dbc45f9b6bf6cd9c3256bced1}} 
+\index{ForwarderPage@{ForwarderPage}!ForwarderPage@{ForwarderPage}}
+\index{ForwarderPage@{ForwarderPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{ForwarderPage()}{ForwarderPage()}}
+{\footnotesize\ttfamily Forwarder\+Page\+::\+Forwarder\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$}]{broker,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_forwarder_page}{Forwarder\+Page}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em broker} & The Message broker for the client. \\
+\hline
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_forwarder_page_a270484d28036732e4fe5eabdc94870fd}\label{class_forwarder_page_a270484d28036732e4fe5eabdc94870fd}} 
+\index{ForwarderPage@{ForwarderPage}!````~ForwarderPage@{$\sim$ForwarderPage}}
+\index{````~ForwarderPage@{$\sim$ForwarderPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{$\sim$ForwarderPage()}{~ForwarderPage()}}
+{\footnotesize\ttfamily Forwarder\+Page\+::$\sim$\+Forwarder\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_forwarder_page_aa10405398caa5bae0fcf0a6ed5b2a46c}\label{class_forwarder_page_aa10405398caa5bae0fcf0a6ed5b2a46c}} 
+\index{ForwarderPage@{ForwarderPage}!on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked@{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}}
+\index{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked@{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}{on\_awaitingDeliveryListWidget\_Orders\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+awaiting\+Delivery\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the order details page with order that was double clicked on from the Awaiting Delivery list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_forwarder_page_a25f243de642746a6b824d4cc01f08907}\label{class_forwarder_page_a25f243de642746a6b824d4cc01f08907}} 
+\index{ForwarderPage@{ForwarderPage}!on\_backBtn\_Bid\_clicked@{on\_backBtn\_Bid\_clicked}}
+\index{on\_backBtn\_Bid\_clicked@{on\_backBtn\_Bid\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_Bid\_clicked}{on\_backBtn\_Bid\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+back\+Btn\+\_\+\+Bid\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Retruns back to the marketplace window from the bids page. 
+
+\mbox{\Hypertarget{class_forwarder_page_a4b9d2adb5d73b23858abf1b11b6cec46}\label{class_forwarder_page_a4b9d2adb5d73b23858abf1b11b6cec46}} 
+\index{ForwarderPage@{ForwarderPage}!on\_backBtn\_OrderDetails\_clicked@{on\_backBtn\_OrderDetails\_clicked}}
+\index{on\_backBtn\_OrderDetails\_clicked@{on\_backBtn\_OrderDetails\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_OrderDetails\_clicked}{on\_backBtn\_OrderDetails\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+back\+Btn\+\_\+\+Order\+Details\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns back to the orders page from the order details page. 
+
+\mbox{\Hypertarget{class_forwarder_page_a94b0742c8aadeae6747f7a8fed91908c}\label{class_forwarder_page_a94b0742c8aadeae6747f7a8fed91908c}} 
+\index{ForwarderPage@{ForwarderPage}!on\_backBtn\_ViewBid\_clicked@{on\_backBtn\_ViewBid\_clicked}}
+\index{on\_backBtn\_ViewBid\_clicked@{on\_backBtn\_ViewBid\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_backBtn\_ViewBid\_clicked}{on\_backBtn\_ViewBid\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+back\+Btn\+\_\+\+View\+Bid\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns back to the order details page from the view bid page. 
+
+\mbox{\Hypertarget{class_forwarder_page_a1106600c15c1c187db656bd4515b50b5}\label{class_forwarder_page_a1106600c15c1c187db656bd4515b50b5}} 
+\index{ForwarderPage@{ForwarderPage}!on\_homeBtn\_clicked@{on\_homeBtn\_clicked}}
+\index{on\_homeBtn\_clicked@{on\_homeBtn\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_homeBtn\_clicked}{on\_homeBtn\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+home\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens the home page window. 
+
+\mbox{\Hypertarget{class_forwarder_page_af9766e5892aaeec292c15b72c9bfc419}\label{class_forwarder_page_af9766e5892aaeec292c15b72c9bfc419}} 
+\index{ForwarderPage@{ForwarderPage}!on\_makeBidBtn\_Bid\_clicked@{on\_makeBidBtn\_Bid\_clicked}}
+\index{on\_makeBidBtn\_Bid\_clicked@{on\_makeBidBtn\_Bid\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_makeBidBtn\_Bid\_clicked}{on\_makeBidBtn\_Bid\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+make\+Bid\+Btn\+\_\+\+Bid\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Creates a Bid from the infomation provided by the user and sends it to be placed on the currently selected order in the marketplace. 
+
+\mbox{\Hypertarget{class_forwarder_page_a6164915ca17dc4daa034a118adf99d6a}\label{class_forwarder_page_a6164915ca17dc4daa034a118adf99d6a}} 
+\index{ForwarderPage@{ForwarderPage}!on\_marketOrdersListWidget\_Market\_itemDoubleClicked@{on\_marketOrdersListWidget\_Market\_itemDoubleClicked}}
+\index{on\_marketOrdersListWidget\_Market\_itemDoubleClicked@{on\_marketOrdersListWidget\_Market\_itemDoubleClicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_marketOrdersListWidget\_Market\_itemDoubleClicked}{on\_marketOrdersListWidget\_Market\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+market\+Orders\+List\+Widget\+\_\+\+Market\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the bid page with order that was double clicked on from the Marketplace Orders list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_forwarder_page_abd2a30b955e7e50960f629a38cdeda76}\label{class_forwarder_page_abd2a30b955e7e50960f629a38cdeda76}} 
+\index{ForwarderPage@{ForwarderPage}!on\_offersMadeListWidget\_Orders\_itemDoubleClicked@{on\_offersMadeListWidget\_Orders\_itemDoubleClicked}}
+\index{on\_offersMadeListWidget\_Orders\_itemDoubleClicked@{on\_offersMadeListWidget\_Orders\_itemDoubleClicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_offersMadeListWidget\_Orders\_itemDoubleClicked}{on\_offersMadeListWidget\_Orders\_itemDoubleClicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+offers\+Made\+List\+Widget\+\_\+\+Orders\+\_\+item\+Double\+Clicked (\begin{DoxyParamCaption}\item[{Q\+List\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the order details page with order that was double clicked on from the Offers Made list widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The list widget item that has the order infomation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_forwarder_page_a0bf0ff01a9b60d1b85603a0540d93eb7}\label{class_forwarder_page_a0bf0ff01a9b60d1b85603a0540d93eb7}} 
+\index{ForwarderPage@{ForwarderPage}!on\_orderMarketBtn\_clicked@{on\_orderMarketBtn\_clicked}}
+\index{on\_orderMarketBtn\_clicked@{on\_orderMarketBtn\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_orderMarketBtn\_clicked}{on\_orderMarketBtn\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+order\+Market\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens the marketplace window. 
+
+\mbox{\Hypertarget{class_forwarder_page_a05886e5cc13c1ecc4d1a4bca6d4d8f88}\label{class_forwarder_page_a05886e5cc13c1ecc4d1a4bca6d4d8f88}} 
+\index{ForwarderPage@{ForwarderPage}!on\_refreshBtn\_clicked@{on\_refreshBtn\_clicked}}
+\index{on\_refreshBtn\_clicked@{on\_refreshBtn\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_refreshBtn\_clicked}{on\_refreshBtn\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+refresh\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Triggers request from the server to refreash the users related order contracts and the marketplace orders. 
+
+\mbox{\Hypertarget{class_forwarder_page_a8c5f2215354bf8f6852b9b4b31df65ce}\label{class_forwarder_page_a8c5f2215354bf8f6852b9b4b31df65ce}} 
+\index{ForwarderPage@{ForwarderPage}!on\_viewBidBtn\_OrderDetails\_clicked@{on\_viewBidBtn\_OrderDetails\_clicked}}
+\index{on\_viewBidBtn\_OrderDetails\_clicked@{on\_viewBidBtn\_OrderDetails\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewBidBtn\_OrderDetails\_clicked}{on\_viewBidBtn\_OrderDetails\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+view\+Bid\+Btn\+\_\+\+Order\+Details\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the view bid page for the user to view thier current bid on an order. 
+
+\mbox{\Hypertarget{class_forwarder_page_acb2b1fde5b69f6d81e44ffc77d3b6922}\label{class_forwarder_page_acb2b1fde5b69f6d81e44ffc77d3b6922}} 
+\index{ForwarderPage@{ForwarderPage}!on\_viewCompletedOrderScreenBtn\_clicked@{on\_viewCompletedOrderScreenBtn\_clicked}}
+\index{on\_viewCompletedOrderScreenBtn\_clicked@{on\_viewCompletedOrderScreenBtn\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewCompletedOrderScreenBtn\_clicked}{on\_viewCompletedOrderScreenBtn\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+view\+Completed\+Order\+Screen\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens completed orders screen window. 
+
+\mbox{\Hypertarget{class_forwarder_page_a085d2354eaf9f2173cfd7e0155083708}\label{class_forwarder_page_a085d2354eaf9f2173cfd7e0155083708}} 
+\index{ForwarderPage@{ForwarderPage}!on\_viewOrderScreenBtn\_clicked@{on\_viewOrderScreenBtn\_clicked}}
+\index{on\_viewOrderScreenBtn\_clicked@{on\_viewOrderScreenBtn\_clicked}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{on\_viewOrderScreenBtn\_clicked}{on\_viewOrderScreenBtn\_clicked}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::on\+\_\+view\+Order\+Screen\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens orders screen window. 
+
+\mbox{\Hypertarget{class_forwarder_page_a38f8aa7e00587929358b4243df1da7e8}\label{class_forwarder_page_a38f8aa7e00587929358b4243df1da7e8}} 
+\index{ForwarderPage@{ForwarderPage}!processMarket@{processMarket}}
+\index{processMarket@{processMarket}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{processMarket}{processMarket}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::process\+Market (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&}]{market\+Orders }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Processes and places marketplace orders into the marketplace list widget for display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em market\+Orders} & The order contracts from the marketplace. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_forwarder_page_a65f58be35e6d1db2fed7d9c7f64a6a9f}\label{class_forwarder_page_a65f58be35e6d1db2fed7d9c7f64a6a9f}} 
+\index{ForwarderPage@{ForwarderPage}!processOrderContracts@{processOrderContracts}}
+\index{processOrderContracts@{processOrderContracts}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{processOrderContracts}{processOrderContracts}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::process\+Order\+Contracts (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&}]{order\+Contracts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Processes and places order contracts into the correct list widget for display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Contracts} & The order contracts. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_forwarder_page_a5f16bb866f20e7233bdf1781732c195f}\label{class_forwarder_page_a5f16bb866f20e7233bdf1781732c195f}} 
+\index{ForwarderPage@{ForwarderPage}!setupBidPage@{setupBidPage}}
+\index{setupBidPage@{setupBidPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{setupBidPage()}{setupBidPage()}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::setup\+Bid\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up bid page with an order for the forwarder to place a bid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_forwarder_page_a8efdeefb1da561399f9333c03ff2e16a}\label{class_forwarder_page_a8efdeefb1da561399f9333c03ff2e16a}} 
+\index{ForwarderPage@{ForwarderPage}!setupOrderDetailsPage@{setupOrderDetailsPage}}
+\index{setupOrderDetailsPage@{setupOrderDetailsPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{setupOrderDetailsPage()}{setupOrderDetailsPage()}}
+{\footnotesize\ttfamily void Forwarder\+Page\+::setup\+Order\+Details\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the order details screen with the data from an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_forwarder_page_acf0c42d4b640951824fe6f77e1907e29}\label{class_forwarder_page_acf0c42d4b640951824fe6f77e1907e29}} 
+\index{ForwarderPage@{ForwarderPage}!completeOrdersPage@{completeOrdersPage}}
+\index{completeOrdersPage@{completeOrdersPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{completeOrdersPage}{completeOrdersPage}}
+{\footnotesize\ttfamily const int Forwarder\+Page\+::complete\+Orders\+Page = 4\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_a15876ad5ce0e945fdacca69326f1f0c6}\label{class_forwarder_page_a15876ad5ce0e945fdacca69326f1f0c6}} 
+\index{ForwarderPage@{ForwarderPage}!currentlySelectedOrderID@{currentlySelectedOrderID}}
+\index{currentlySelectedOrderID@{currentlySelectedOrderID}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{currentlySelectedOrderID}{currentlySelectedOrderID}}
+{\footnotesize\ttfamily Q\+String Forwarder\+Page\+::currently\+Selected\+Order\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_ab903ce879c7c86b76a74028b0ffc4ef5}\label{class_forwarder_page_ab903ce879c7c86b76a74028b0ffc4ef5}} 
+\index{ForwarderPage@{ForwarderPage}!homePage@{homePage}}
+\index{homePage@{homePage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{homePage}{homePage}}
+{\footnotesize\ttfamily const int Forwarder\+Page\+::home\+Page = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_afea89a0938d5d96b04e09dd7a574351f}\label{class_forwarder_page_afea89a0938d5d96b04e09dd7a574351f}} 
+\index{ForwarderPage@{ForwarderPage}!makeBidPage@{makeBidPage}}
+\index{makeBidPage@{makeBidPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{makeBidPage}{makeBidPage}}
+{\footnotesize\ttfamily const int Forwarder\+Page\+::make\+Bid\+Page = 2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_a141d4b5b83dfdab82179343c2bcc75e7}\label{class_forwarder_page_a141d4b5b83dfdab82179343c2bcc75e7}} 
+\index{ForwarderPage@{ForwarderPage}!marketPage@{marketPage}}
+\index{marketPage@{marketPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{marketPage}{marketPage}}
+{\footnotesize\ttfamily const int Forwarder\+Page\+::market\+Page = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_ad799f65471a21ea012f97e637a1c9391}\label{class_forwarder_page_ad799f65471a21ea012f97e637a1c9391}} 
+\index{ForwarderPage@{ForwarderPage}!orderDetailsPage@{orderDetailsPage}}
+\index{orderDetailsPage@{orderDetailsPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{orderDetailsPage}{orderDetailsPage}}
+{\footnotesize\ttfamily const int Forwarder\+Page\+::order\+Details\+Page = 5\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_aadda8a61eeea66f5e3ed5310e01407da}\label{class_forwarder_page_aadda8a61eeea66f5e3ed5310e01407da}} 
+\index{ForwarderPage@{ForwarderPage}!ordersPage@{ordersPage}}
+\index{ordersPage@{ordersPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{ordersPage}{ordersPage}}
+{\footnotesize\ttfamily const int Forwarder\+Page\+::orders\+Page = 3\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_acbb0a523582eb6a1eb02219d1ffa457c}\label{class_forwarder_page_acbb0a523582eb6a1eb02219d1ffa457c}} 
+\index{ForwarderPage@{ForwarderPage}!ui@{ui}}
+\index{ui@{ui}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Forwarder\+Page$\ast$ Forwarder\+Page\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_forwarder_page_ad071544006e3eef843e8333753b6a0bc}\label{class_forwarder_page_ad071544006e3eef843e8333753b6a0bc}} 
+\index{ForwarderPage@{ForwarderPage}!viewBidPage@{viewBidPage}}
+\index{viewBidPage@{viewBidPage}!ForwarderPage@{ForwarderPage}}
+\doxysubsubsection{\texorpdfstring{viewBidPage}{viewBidPage}}
+{\footnotesize\ttfamily const int Forwarder\+Page\+::view\+Bid\+Page = 6\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{forwarderpage_8h}{forwarderpage.\+h}}\end{DoxyCompactItemize}

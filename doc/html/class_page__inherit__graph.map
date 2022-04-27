@@ -1,0 +1,7 @@
+<map id="Page" name="Page">
+<area shape="rect" id="node1" title="The Page class that acts as an interface for other types of pages." alt="" coords="156,80,209,107"/>
+<area shape="rect" id="node3" href="$class_driver_page.html" title="The DriverPage class holds all the logic for the Driver client side view." alt="" coords="5,155,99,181"/>
+<area shape="rect" id="node4" href="$class_forwarder_page.html" title="The ForwarderPage class holds all the logic for the Forwarder client side view." alt="" coords="123,155,242,181"/>
+<area shape="rect" id="node5" href="$class_seller_page.html" title="The SellerPage class holds all the logic for the Shippers client side view." alt="" coords="267,155,357,181"/>
+<area shape="rect" id="node2" title=" " alt="" coords="143,5,222,32"/>
+</map>

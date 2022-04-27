@@ -1,0 +1,107 @@
+\hypertarget{struct_order_contract_1_1_bid}{}\doxysection{Order\+Contract\+::Bid Struct Reference}
+\label{struct_order_contract_1_1_bid}\index{OrderContract::Bid@{OrderContract::Bid}}
+
+
+The \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} struct holds infomation of bids of an order.  
+
+
+
+
+{\ttfamily \#include $<$ordercontract.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \mbox{\hyperlink{struct_order_contract_1_1_bid_ababe16889494b36455e6b8db3e027c7b}{optional\+Extras}}
+\item 
+double \mbox{\hyperlink{struct_order_contract_1_1_bid_add6679230c9afe4f6f9e44faff33d1aa}{amount}}
+\item 
+double \mbox{\hyperlink{struct_order_contract_1_1_bid_a2f8c5e34c6a5550afd7e97f1e18fed2d}{driver\+Price}}
+\item 
+Q\+String \mbox{\hyperlink{struct_order_contract_1_1_bid_a1c4d9f99702c79c514857707ea82ee80}{forwarder\+Email}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{struct_order_contract_1_1_bid_aa871c5ebb98f88873f723bd4a4c69278}{operator$<$$<$}} (Q\+Data\+Stream \&stream, const \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} \&bid)
+\begin{DoxyCompactList}\small\item\em Serializes and places Bids into a datastream. \end{DoxyCompactList}\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{struct_order_contract_1_1_bid_a67ba15b7cf51c8d5252973915cc2a10f}{operator$>$$>$}} (Q\+Data\+Stream \&stream, \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} \&bid)
+\begin{DoxyCompactList}\small\item\em Places serialized data into a bid object from a datastream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} struct holds infomation of bids of an order. 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{struct_order_contract_1_1_bid_aa871c5ebb98f88873f723bd4a4c69278}\label{struct_order_contract_1_1_bid_aa871c5ebb98f88873f723bd4a4c69278}} 
+\index{OrderContract::Bid@{OrderContract::Bid}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!OrderContract::Bid@{OrderContract::Bid}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream,  }\item[{const \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} \&}]{bid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Serializes and places Bids into a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is to be put into. \\
+\hline
+{\em bid} & The bid to be serialized. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The datastream. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_order_contract_1_1_bid_a67ba15b7cf51c8d5252973915cc2a10f}\label{struct_order_contract_1_1_bid_a67ba15b7cf51c8d5252973915cc2a10f}} 
+\index{OrderContract::Bid@{OrderContract::Bid}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!OrderContract::Bid@{OrderContract::Bid}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream,  }\item[{\mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} \&}]{bid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Places serialized data into a bid object from a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is coming from. \\
+\hline
+{\em bid} & The bid object to be populated with data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The datastream. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_order_contract_1_1_bid_add6679230c9afe4f6f9e44faff33d1aa}\label{struct_order_contract_1_1_bid_add6679230c9afe4f6f9e44faff33d1aa}} 
+\index{OrderContract::Bid@{OrderContract::Bid}!amount@{amount}}
+\index{amount@{amount}!OrderContract::Bid@{OrderContract::Bid}}
+\doxysubsubsection{\texorpdfstring{amount}{amount}}
+{\footnotesize\ttfamily double Order\+Contract\+::\+Bid\+::amount}
+
+\mbox{\Hypertarget{struct_order_contract_1_1_bid_a2f8c5e34c6a5550afd7e97f1e18fed2d}\label{struct_order_contract_1_1_bid_a2f8c5e34c6a5550afd7e97f1e18fed2d}} 
+\index{OrderContract::Bid@{OrderContract::Bid}!driverPrice@{driverPrice}}
+\index{driverPrice@{driverPrice}!OrderContract::Bid@{OrderContract::Bid}}
+\doxysubsubsection{\texorpdfstring{driverPrice}{driverPrice}}
+{\footnotesize\ttfamily double Order\+Contract\+::\+Bid\+::driver\+Price}
+
+\mbox{\Hypertarget{struct_order_contract_1_1_bid_a1c4d9f99702c79c514857707ea82ee80}\label{struct_order_contract_1_1_bid_a1c4d9f99702c79c514857707ea82ee80}} 
+\index{OrderContract::Bid@{OrderContract::Bid}!forwarderEmail@{forwarderEmail}}
+\index{forwarderEmail@{forwarderEmail}!OrderContract::Bid@{OrderContract::Bid}}
+\doxysubsubsection{\texorpdfstring{forwarderEmail}{forwarderEmail}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::\+Bid\+::forwarder\+Email}
+
+\mbox{\Hypertarget{struct_order_contract_1_1_bid_ababe16889494b36455e6b8db3e027c7b}\label{struct_order_contract_1_1_bid_ababe16889494b36455e6b8db3e027c7b}} 
+\index{OrderContract::Bid@{OrderContract::Bid}!optionalExtras@{optionalExtras}}
+\index{optionalExtras@{optionalExtras}!OrderContract::Bid@{OrderContract::Bid}}
+\doxysubsubsection{\texorpdfstring{optionalExtras}{optionalExtras}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::\+Bid\+::optional\+Extras}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ordercontract_8h}{ordercontract.\+h}}\end{DoxyCompactItemize}

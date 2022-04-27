@@ -1,0 +1,133 @@
+\hypertarget{class_server}{}\doxysection{Server Class Reference}
+\label{class_server}\index{Server@{Server}}
+
+
+The \mbox{\hyperlink{class_server}{Server}} class.  
+
+
+
+
+{\ttfamily \#include $<$server.\+h$>$}
+
+
+
+Inheritance diagram for Server\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{class_server__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Server\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_server__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_server_aaf98d5194faee831c6340cc736b9b879}{Server}} (Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_server_a4b3aa2579cb1c8cd1d069582c14d0fa6}{$\sim$\+Server}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_server_a4caf81e22e3a0535dd5955b422b897f0}{new\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new connection to a client and put it on its own thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_server_a75bdba0206c65ac5de278e31b680c375}{remove\+Connection}} (\mbox{\hyperlink{class_connection}{Connection}} $\ast$connection)
+\begin{DoxyCompactList}\small\item\em Removes a connection from the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_server_a168718c273a2a8f16d96bb37d584d60e}{marketplace}}
+\item 
+Q\+Tcp\+Server $\ast$ \mbox{\hyperlink{class_server_adf90e9ec05e1c353fb792f78daae2da3}{tcp\+Server}}
+\item 
+Q\+Vector$<$ \mbox{\hyperlink{class_connection}{Connection}} $\ast$ $>$ \mbox{\hyperlink{class_server_afaf9eb11b1d391e716f57ef795d80df5}{connections}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_server}{Server}} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_server_aaf98d5194faee831c6340cc736b9b879}\label{class_server_aaf98d5194faee831c6340cc736b9b879}} 
+\index{Server@{Server}!Server@{Server}}
+\index{Server@{Server}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{Server()}{Server()}}
+{\footnotesize\ttfamily Server\+::\+Server (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+Creates the \mbox{\hyperlink{class_server}{Server}} object and sets up the T\+CP connection to listen for clients. 
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent object for QT Framework \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_server_a4b3aa2579cb1c8cd1d069582c14d0fa6}\label{class_server_a4b3aa2579cb1c8cd1d069582c14d0fa6}} 
+\index{Server@{Server}!````~Server@{$\sim$Server}}
+\index{````~Server@{$\sim$Server}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{$\sim$Server()}{~Server()}}
+{\footnotesize\ttfamily Server\+::$\sim$\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_server_a4caf81e22e3a0535dd5955b422b897f0}\label{class_server_a4caf81e22e3a0535dd5955b422b897f0}} 
+\index{Server@{Server}!newConnection@{newConnection}}
+\index{newConnection@{newConnection}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{newConnection}{newConnection}}
+{\footnotesize\ttfamily void Server\+::new\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Creates a new connection to a client and put it on its own thread. 
+
+\mbox{\Hypertarget{class_server_a75bdba0206c65ac5de278e31b680c375}\label{class_server_a75bdba0206c65ac5de278e31b680c375}} 
+\index{Server@{Server}!removeConnection@{removeConnection}}
+\index{removeConnection@{removeConnection}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{removeConnection}{removeConnection}}
+{\footnotesize\ttfamily void Server\+::remove\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_connection}{Connection}} $\ast$}]{connection }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Removes a connection from the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em connection} & The connection to be removed. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_server_afaf9eb11b1d391e716f57ef795d80df5}\label{class_server_afaf9eb11b1d391e716f57ef795d80df5}} 
+\index{Server@{Server}!connections@{connections}}
+\index{connections@{connections}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{connections}{connections}}
+{\footnotesize\ttfamily Q\+Vector$<$\mbox{\hyperlink{class_connection}{Connection}}$\ast$$>$ Server\+::connections\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_server_a168718c273a2a8f16d96bb37d584d60e}\label{class_server_a168718c273a2a8f16d96bb37d584d60e}} 
+\index{Server@{Server}!marketplace@{marketplace}}
+\index{marketplace@{marketplace}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{marketplace}{marketplace}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_thread_safe_map}{Thread\+Safe\+Map}}$<$Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}}$\ast$$>$$\ast$ Server\+::marketplace\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_server_adf90e9ec05e1c353fb792f78daae2da3}\label{class_server_adf90e9ec05e1c353fb792f78daae2da3}} 
+\index{Server@{Server}!tcpServer@{tcpServer}}
+\index{tcpServer@{tcpServer}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{tcpServer}{tcpServer}}
+{\footnotesize\ttfamily Q\+Tcp\+Server$\ast$ Server\+::tcp\+Server\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{server_8h}{server.\+h}}\end{DoxyCompactItemize}

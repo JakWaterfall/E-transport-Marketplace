@@ -1,0 +1,790 @@
+\hypertarget{class_order_contract}{}\doxysection{Order\+Contract Class Reference}
+\label{class_order_contract}\index{OrderContract@{OrderContract}}
+
+
+The \mbox{\hyperlink{class_order_contract}{Order\+Contract}} class which stores order contract infomation.  
+
+
+
+
+{\ttfamily \#include $<$ordercontract.\+h$>$}
+
+
+
+Collaboration diagram for Order\+Contract\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_order_contract__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} struct holds infomation of bids of an order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}} \{ \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda80814dea433f458743e5c73b8f0d3852}{State\+::on\+Market}}, 
+\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda336db06b907d9e3e8ea564fe6dc4bdbb}{State\+::in\+Forwarder\+Inventory}}, 
+\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda3907dce08dd91511f73041f86c82bfe6}{State\+::in\+Driver\+Inventory}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}} \{ \newline
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5aba1f2a108f931939e5d67c8369b8ef07}{Delivery\+State\+::not\+Applicable}}, 
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5abf3d894f5a8d91cef865e2918c573282}{Delivery\+State\+::in\+Transit}}, 
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5a8382b198833b566bbf99866ff4d0215a}{Delivery\+State\+::at\+Depot}}, 
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5afbddc9599fda3b41b8788baf02ebc2cf}{Delivery\+State\+::out\+For\+Delivery}}, 
+\newline
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5ae46532f886318971744da50fedb1d95a}{Delivery\+State\+::failed\+To\+Deliver}}, 
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5abe056d09bfb80f80488d05247e23c6d1}{Delivery\+State\+::successfully\+Delivered}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_order_contract_a89b425fe79d756d51e2fa2302a74902d}{Order\+Contract}} ()
+\begin{DoxyCompactList}\small\item\em Default \mbox{\hyperlink{class_order_contract}{Order\+Contract}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_contract_a38f41639e85c6412102e885e79552bec}{Order\+Contract}} (\mbox{\hyperlink{class_order}{Order}} \mbox{\hyperlink{class_order_contract_ad9e8779985515c2ad41843fad15087be}{order}}, Q\+String \mbox{\hyperlink{class_order_contract_ad9de8f3c259b2c174f0f7fb1537caadb}{consignee\+Name}}, Q\+String \mbox{\hyperlink{class_order_contract_a46a0234786dd371408dc4bd7d1089f8e}{consignee\+Number}}, Q\+String \+\_\+\+ID=nullptr, \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}} \mbox{\hyperlink{class_order_contract_aca72a3d5241faba7edcde726919b23e5}{state}}=\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda80814dea433f458743e5c73b8f0d3852}{State\+::on\+Market}}, \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}} \mbox{\hyperlink{class_order_contract_a595368b5c3b7e2b9cff3a8a2c1258bbd}{delivery\+State}}=\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5aba1f2a108f931939e5d67c8369b8ef07}{Delivery\+State\+::not\+Applicable}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_order_contract}{Order\+Contract}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_contract_af864ba29f14dce86de63a7ecd8bc5d5d}{$\sim$\+Order\+Contract}} ()
+\item 
+const Q\+String \& \mbox{\hyperlink{class_order_contract_ac81344c0c14ac0c270265e0ab5a7fff6}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Returns the orders ID. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_order}{Order}} \& \mbox{\hyperlink{class_order_contract_abb85d5990abeb587d7a5385b263dd716}{get\+Order}} () const
+\begin{DoxyCompactList}\small\item\em Returns the order object of the contract. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_order_contract_ae5ea3a3ab726d1ba572333b1bb164914}{get\+Shipper\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Returns the shippers email that is associated with the order. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_order_contract_a956c0a73a80ef498b7a703e7f2e34028}{get\+Forwarder\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Returns the forwarders email that is associated with the order. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_order_contract_adb1256e0f7ccd3bec6f2d0847e7f59ed}{get\+Driver\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Returns the drivers email that is associated with the order. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_order_contract_a08208d8b120df3939869d45bf7e47a5e}{get\+Consignee\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Returns the name of the consignee of the order. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{class_order_contract_a165dafad7176f31e21b9480c5c0af652}{get\+Consignee\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Returns the contact number of the consignee of the order. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_order_contract_aeda81d5e07878057e572f112cb3aea5a}{get\+Final\+Bid}} () const
+\begin{DoxyCompactList}\small\item\em Returns the final agreed upon bid amount of the order. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_order_contract_af5a2eeae5dfae1b08c94b50c6cc99483}{get\+Final\+Driver\+Price}} () const
+\begin{DoxyCompactList}\small\item\em Returns the final agreed upon driver salery of the order. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}} \mbox{\hyperlink{class_order_contract_a56338c8f93b5743b69392b9b5fb6e281}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em Returns the state of the order. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}} \mbox{\hyperlink{class_order_contract_a8120f28cff11b74ee0d318a400a14101}{get\+Delivery\+State}} () const
+\begin{DoxyCompactList}\small\item\em Returns the delivery state of the order. \end{DoxyCompactList}\item 
+const Q\+Vector$<$ \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} $>$ \mbox{\hyperlink{class_order_contract_ad7217c6eeb88f07444d4f39475a731cf}{get\+Bids}} () const
+\begin{DoxyCompactList}\small\item\em Returns all the bids the order currently has. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_acaed7c97f4de8101ceba90dc52cecd0f}{set\+Shipper\+Email}} (const Q\+String email)
+\begin{DoxyCompactList}\small\item\em Sets the shippers email that will be associated with the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_a28b307d270fe6e103daf4dec5aa48852}{set\+Forwarder\+Email}} (const Q\+String email)
+\begin{DoxyCompactList}\small\item\em Sets the forwarders email that will be associated with the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_a7328bd5910f5e95da7fe8082d6d9558b}{set\+Driver\+Email}} (const Q\+String email)
+\begin{DoxyCompactList}\small\item\em Sets the drivers email that will be associated with the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_a2179dda1afa6758d5f56db8c3e9e1d71}{set\+Final\+Bid}} (const double amount)
+\begin{DoxyCompactList}\small\item\em Sets the final agreed upon price of the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_aa461a54d187a9ce9bf31534d38dec6b9}{set\+Final\+Driver\+Price}} (const double amount)
+\begin{DoxyCompactList}\small\item\em Sets the final agreed upon salery of the driver for the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_a29e355feb32697b831e9dd720f20292e}{make\+Bid}} (\mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} bid)
+\begin{DoxyCompactList}\small\item\em Adds a bid to the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_a8b74ff9b3ce869548eaf31a2881c4db2}{set\+State}} (\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}} \+\_\+state)
+\begin{DoxyCompactList}\small\item\em Sets the state of the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_a661a6ef0bd3763f8683f241ec9b26dce}{set\+Delvery\+State}} (\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}} \mbox{\hyperlink{class_order_contract_aca72a3d5241faba7edcde726919b23e5}{state}})
+\begin{DoxyCompactList}\small\item\em Sets the delivery state of the order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_a1108f728511b5bcf90e8f9473670e5f8}{clear\+Bids}} ()
+\begin{DoxyCompactList}\small\item\em Clears the order of all bids. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_order_contract_a49fc64798882395511b9bbb132f15d16}{has\+Bidded}} (const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Checks if a user has already bidded on an order by email. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_contract_aec99fe1e582b1e482b17335f08972d04}{remove\+All\+Other\+Bids}} (const Q\+String \&email)
+\begin{DoxyCompactList}\small\item\em Removes all bids from an order expect for one bid that matches an email. \end{DoxyCompactList}\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{class_order_contract_a7e05eb9a45e1a0fd744055f29a554422}{read}} (Q\+Data\+Stream \&stream)
+\begin{DoxyCompactList}\small\item\em Places serialized data into this object from a datastream. \end{DoxyCompactList}\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{class_order_contract_af9ef6c7d5a07d48db83d0db12e5c7a2e}{write}} (Q\+Data\+Stream \&stream) const
+\begin{DoxyCompactList}\small\item\em Serializes and places this order contact into a datastream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const static Q\+Map$<$ \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}}, Q\+String $>$ \mbox{\hyperlink{class_order_contract_ae76be2bc93299e5bd940b95cd46b7721}{state\+To\+String}}
+\item 
+const static Q\+Map$<$ \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}}, Q\+String $>$ \mbox{\hyperlink{class_order_contract_a856517e93e99f0c9448370e016a03576}{Delivery\+State\+To\+String}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \mbox{\hyperlink{class_order_contract_a4a01d7f285fbd067a778514fdfb640ab}{ID}}
+\item 
+\mbox{\hyperlink{class_order}{Order}} \mbox{\hyperlink{class_order_contract_ad9e8779985515c2ad41843fad15087be}{order}}
+\item 
+Q\+String \mbox{\hyperlink{class_order_contract_aa300b3e63b9609c0114c9cb9b6898216}{shipper\+Email}}
+\item 
+Q\+String \mbox{\hyperlink{class_order_contract_aab8b429a31ee24cb3509210829d6ba84}{forwarder\+Email}}
+\item 
+Q\+String \mbox{\hyperlink{class_order_contract_a9e9b69245d9854409f5bebb4e2228e94}{driver\+Email}}
+\item 
+Q\+String \mbox{\hyperlink{class_order_contract_ad9de8f3c259b2c174f0f7fb1537caadb}{consignee\+Name}}
+\item 
+Q\+String \mbox{\hyperlink{class_order_contract_a46a0234786dd371408dc4bd7d1089f8e}{consignee\+Number}}
+\item 
+double \mbox{\hyperlink{class_order_contract_aaec9767f527b99c2850fb654bbf7c90b}{final\+Bid}}
+\item 
+double \mbox{\hyperlink{class_order_contract_a1515e86e88be0e1051ad016e1951a518}{final\+Driver\+Price}}
+\item 
+\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}} \mbox{\hyperlink{class_order_contract_aca72a3d5241faba7edcde726919b23e5}{state}}
+\item 
+\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}} \mbox{\hyperlink{class_order_contract_a595368b5c3b7e2b9cff3a8a2c1258bbd}{delivery\+State}}
+\item 
+Q\+Vector$<$ \mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}} $>$ \mbox{\hyperlink{class_order_contract_aac6b9c768e417d3ae5a294161fc205e0}{bids}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{class_order_contract_ac22dcd6890bc19935978b285cf5d210a}{operator$<$$<$}} (Q\+Data\+Stream \&stream, const \mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&order\+Contract)
+\begin{DoxyCompactList}\small\item\em Serializes and places an order contact into a datastream. \end{DoxyCompactList}\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{class_order_contract_a70760a7e311a286a8146da72904b18a2}{operator$>$$>$}} (Q\+Data\+Stream \&stream, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&order\+Contract)
+\begin{DoxyCompactList}\small\item\em Places serialized data into a order contact object from a datastream. \end{DoxyCompactList}\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{class_order_contract_a443b41168dacb43fd49b2041eae9abab}{operator$<$$<$}} (Q\+Data\+Stream \&stream, const \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&\mbox{\hyperlink{class_order_contract_aca72a3d5241faba7edcde726919b23e5}{state}})
+\begin{DoxyCompactList}\small\item\em Serializes and places an delivery state into a datastream. \end{DoxyCompactList}\item 
+Q\+Data\+Stream \& \mbox{\hyperlink{class_order_contract_a6b5454cde34da031111a2793f6a34153}{operator$>$$>$}} (Q\+Data\+Stream \&stream, \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&\mbox{\hyperlink{class_order_contract_aca72a3d5241faba7edcde726919b23e5}{state}})
+\begin{DoxyCompactList}\small\item\em Places serialized state into object from a datastream. \end{DoxyCompactList}\item 
+Q\+Debug \mbox{\hyperlink{class_order_contract_a1c4c3ef56636d26e54b15795b4606c8e}{operator$<$$<$}} (Q\+Debug debug, const \mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&contract)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_order_contract}{Order\+Contract}} class which stores order contract infomation. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}\label{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}} 
+\index{OrderContract@{OrderContract}!DeliveryState@{DeliveryState}}
+\index{DeliveryState@{DeliveryState}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{DeliveryState}{DeliveryState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{notApplicable@{notApplicable}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!notApplicable@{notApplicable}}}\mbox{\Hypertarget{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5aba1f2a108f931939e5d67c8369b8ef07}\label{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5aba1f2a108f931939e5d67c8369b8ef07}} 
+not\+Applicable&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{inTransit@{inTransit}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!inTransit@{inTransit}}}\mbox{\Hypertarget{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5abf3d894f5a8d91cef865e2918c573282}\label{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5abf3d894f5a8d91cef865e2918c573282}} 
+in\+Transit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{atDepot@{atDepot}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!atDepot@{atDepot}}}\mbox{\Hypertarget{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5a8382b198833b566bbf99866ff4d0215a}\label{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5a8382b198833b566bbf99866ff4d0215a}} 
+at\+Depot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{outForDelivery@{outForDelivery}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!outForDelivery@{outForDelivery}}}\mbox{\Hypertarget{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5afbddc9599fda3b41b8788baf02ebc2cf}\label{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5afbddc9599fda3b41b8788baf02ebc2cf}} 
+out\+For\+Delivery&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{failedToDeliver@{failedToDeliver}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!failedToDeliver@{failedToDeliver}}}\mbox{\Hypertarget{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5ae46532f886318971744da50fedb1d95a}\label{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5ae46532f886318971744da50fedb1d95a}} 
+failed\+To\+Deliver&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{successfullyDelivered@{successfullyDelivered}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!successfullyDelivered@{successfullyDelivered}}}\mbox{\Hypertarget{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5abe056d09bfb80f80488d05247e23c6d1}\label{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5abe056d09bfb80f80488d05247e23c6d1}} 
+successfully\+Delivered&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}\label{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}} 
+\index{OrderContract@{OrderContract}!State@{State}}
+\index{State@{State}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{Order\+Contract\+::\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{onMarket@{onMarket}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!onMarket@{onMarket}}}\mbox{\Hypertarget{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda80814dea433f458743e5c73b8f0d3852}\label{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda80814dea433f458743e5c73b8f0d3852}} 
+on\+Market&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{inForwarderInventory@{inForwarderInventory}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!inForwarderInventory@{inForwarderInventory}}}\mbox{\Hypertarget{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda336db06b907d9e3e8ea564fe6dc4bdbb}\label{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda336db06b907d9e3e8ea564fe6dc4bdbb}} 
+in\+Forwarder\+Inventory&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{inDriverInventory@{inDriverInventory}!OrderContract@{OrderContract}}\index{OrderContract@{OrderContract}!inDriverInventory@{inDriverInventory}}}\mbox{\Hypertarget{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda3907dce08dd91511f73041f86c82bfe6}\label{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda3907dce08dd91511f73041f86c82bfe6}} 
+in\+Driver\+Inventory&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_order_contract_a89b425fe79d756d51e2fa2302a74902d}\label{class_order_contract_a89b425fe79d756d51e2fa2302a74902d}} 
+\index{OrderContract@{OrderContract}!OrderContract@{OrderContract}}
+\index{OrderContract@{OrderContract}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{OrderContract()}{OrderContract()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Order\+Contract\+::\+Order\+Contract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default \mbox{\hyperlink{class_order_contract}{Order\+Contract}} Constructor. 
+
+\mbox{\Hypertarget{class_order_contract_a38f41639e85c6412102e885e79552bec}\label{class_order_contract_a38f41639e85c6412102e885e79552bec}} 
+\index{OrderContract@{OrderContract}!OrderContract@{OrderContract}}
+\index{OrderContract@{OrderContract}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{OrderContract()}{OrderContract()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Order\+Contract\+::\+Order\+Contract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order}{Order}}}]{order,  }\item[{Q\+String}]{consignee\+Name,  }\item[{Q\+String}]{consignee\+Number,  }\item[{Q\+String}]{\+\_\+\+ID = {\ttfamily nullptr},  }\item[{\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}}}]{state = {\ttfamily \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbda80814dea433f458743e5c73b8f0d3852}{State\+::on\+Market}}},  }\item[{\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}}}]{delivery\+State = {\ttfamily \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5aba1f2a108f931939e5d67c8369b8ef07}{Delivery\+State\+::not\+Applicable}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_order_contract}{Order\+Contract}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & The details of the order. \\
+\hline
+{\em consignee\+Name} & The name of the consignee. \\
+\hline
+{\em consignee\+Number} & The number of the consignee. \\
+\hline
+{\em \+\_\+\+ID} & The unique identifier of the order. \\
+\hline
+{\em state} & The current state of the order. \\
+\hline
+{\em delivery\+State} & The current delivery state of the order. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_af864ba29f14dce86de63a7ecd8bc5d5d}\label{class_order_contract_af864ba29f14dce86de63a7ecd8bc5d5d}} 
+\index{OrderContract@{OrderContract}!````~OrderContract@{$\sim$OrderContract}}
+\index{````~OrderContract@{$\sim$OrderContract}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{$\sim$OrderContract()}{~OrderContract()}}
+{\footnotesize\ttfamily Order\+Contract\+::$\sim$\+Order\+Contract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_order_contract_a1108f728511b5bcf90e8f9473670e5f8}\label{class_order_contract_a1108f728511b5bcf90e8f9473670e5f8}} 
+\index{OrderContract@{OrderContract}!clearBids@{clearBids}}
+\index{clearBids@{clearBids}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{clearBids()}{clearBids()}}
+{\footnotesize\ttfamily void Order\+Contract\+::clear\+Bids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the order of all bids. 
+
+\mbox{\Hypertarget{class_order_contract_ad7217c6eeb88f07444d4f39475a731cf}\label{class_order_contract_ad7217c6eeb88f07444d4f39475a731cf}} 
+\index{OrderContract@{OrderContract}!getBids@{getBids}}
+\index{getBids@{getBids}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getBids()}{getBids()}}
+{\footnotesize\ttfamily const Q\+Vector$<$\mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}}$>$ Order\+Contract\+::get\+Bids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns all the bids the order currently has. 
+
+\begin{DoxyReturn}{Returns}
+The bids on an order. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a08208d8b120df3939869d45bf7e47a5e}\label{class_order_contract_a08208d8b120df3939869d45bf7e47a5e}} 
+\index{OrderContract@{OrderContract}!getConsigneeName@{getConsigneeName}}
+\index{getConsigneeName@{getConsigneeName}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getConsigneeName()}{getConsigneeName()}}
+{\footnotesize\ttfamily const Q\+String\& Order\+Contract\+::get\+Consignee\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the name of the consignee of the order. 
+
+\begin{DoxyReturn}{Returns}
+The name of the consignee. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a165dafad7176f31e21b9480c5c0af652}\label{class_order_contract_a165dafad7176f31e21b9480c5c0af652}} 
+\index{OrderContract@{OrderContract}!getConsigneeNumber@{getConsigneeNumber}}
+\index{getConsigneeNumber@{getConsigneeNumber}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getConsigneeNumber()}{getConsigneeNumber()}}
+{\footnotesize\ttfamily const Q\+String\& Order\+Contract\+::get\+Consignee\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the contact number of the consignee of the order. 
+
+\begin{DoxyReturn}{Returns}
+The contact number of the consignee. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a8120f28cff11b74ee0d318a400a14101}\label{class_order_contract_a8120f28cff11b74ee0d318a400a14101}} 
+\index{OrderContract@{OrderContract}!getDeliveryState@{getDeliveryState}}
+\index{getDeliveryState@{getDeliveryState}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getDeliveryState()}{getDeliveryState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}} Order\+Contract\+::get\+Delivery\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the delivery state of the order. 
+
+\begin{DoxyReturn}{Returns}
+The orders delivery state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_adb1256e0f7ccd3bec6f2d0847e7f59ed}\label{class_order_contract_adb1256e0f7ccd3bec6f2d0847e7f59ed}} 
+\index{OrderContract@{OrderContract}!getDriverEmail@{getDriverEmail}}
+\index{getDriverEmail@{getDriverEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getDriverEmail()}{getDriverEmail()}}
+{\footnotesize\ttfamily const Q\+String\& Order\+Contract\+::get\+Driver\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the drivers email that is associated with the order. 
+
+\begin{DoxyReturn}{Returns}
+The drivers email. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_aeda81d5e07878057e572f112cb3aea5a}\label{class_order_contract_aeda81d5e07878057e572f112cb3aea5a}} 
+\index{OrderContract@{OrderContract}!getFinalBid@{getFinalBid}}
+\index{getFinalBid@{getFinalBid}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getFinalBid()}{getFinalBid()}}
+{\footnotesize\ttfamily double Order\+Contract\+::get\+Final\+Bid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the final agreed upon bid amount of the order. 
+
+\begin{DoxyReturn}{Returns}
+The final bid amount. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_af5a2eeae5dfae1b08c94b50c6cc99483}\label{class_order_contract_af5a2eeae5dfae1b08c94b50c6cc99483}} 
+\index{OrderContract@{OrderContract}!getFinalDriverPrice@{getFinalDriverPrice}}
+\index{getFinalDriverPrice@{getFinalDriverPrice}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getFinalDriverPrice()}{getFinalDriverPrice()}}
+{\footnotesize\ttfamily double Order\+Contract\+::get\+Final\+Driver\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the final agreed upon driver salery of the order. 
+
+\begin{DoxyReturn}{Returns}
+The final driver price. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a956c0a73a80ef498b7a703e7f2e34028}\label{class_order_contract_a956c0a73a80ef498b7a703e7f2e34028}} 
+\index{OrderContract@{OrderContract}!getForwarderEmail@{getForwarderEmail}}
+\index{getForwarderEmail@{getForwarderEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getForwarderEmail()}{getForwarderEmail()}}
+{\footnotesize\ttfamily const Q\+String\& Order\+Contract\+::get\+Forwarder\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the forwarders email that is associated with the order. 
+
+\begin{DoxyReturn}{Returns}
+The forwarders email. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_ac81344c0c14ac0c270265e0ab5a7fff6}\label{class_order_contract_ac81344c0c14ac0c270265e0ab5a7fff6}} 
+\index{OrderContract@{OrderContract}!getID@{getID}}
+\index{getID@{getID}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily const Q\+String\& Order\+Contract\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the orders ID. 
+
+\begin{DoxyReturn}{Returns}
+The ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_abb85d5990abeb587d7a5385b263dd716}\label{class_order_contract_abb85d5990abeb587d7a5385b263dd716}} 
+\index{OrderContract@{OrderContract}!getOrder@{getOrder}}
+\index{getOrder@{getOrder}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getOrder()}{getOrder()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_order}{Order}}\& Order\+Contract\+::get\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the order object of the contract. 
+
+\begin{DoxyReturn}{Returns}
+The order object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_ae5ea3a3ab726d1ba572333b1bb164914}\label{class_order_contract_ae5ea3a3ab726d1ba572333b1bb164914}} 
+\index{OrderContract@{OrderContract}!getShipperEmail@{getShipperEmail}}
+\index{getShipperEmail@{getShipperEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getShipperEmail()}{getShipperEmail()}}
+{\footnotesize\ttfamily const Q\+String\& Order\+Contract\+::get\+Shipper\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the shippers email that is associated with the order. 
+
+\begin{DoxyReturn}{Returns}
+The shippers email. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a56338c8f93b5743b69392b9b5fb6e281}\label{class_order_contract_a56338c8f93b5743b69392b9b5fb6e281}} 
+\index{OrderContract@{OrderContract}!getState@{getState}}
+\index{getState@{getState}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}} Order\+Contract\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the state of the order. 
+
+\begin{DoxyReturn}{Returns}
+The orders state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a49fc64798882395511b9bbb132f15d16}\label{class_order_contract_a49fc64798882395511b9bbb132f15d16}} 
+\index{OrderContract@{OrderContract}!hasBidded@{hasBidded}}
+\index{hasBidded@{hasBidded}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{hasBidded()}{hasBidded()}}
+{\footnotesize\ttfamily bool Order\+Contract\+::has\+Bidded (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Checks if a user has already bidded on an order by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the user has already bidded on the order. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a29e355feb32697b831e9dd720f20292e}\label{class_order_contract_a29e355feb32697b831e9dd720f20292e}} 
+\index{OrderContract@{OrderContract}!makeBid@{makeBid}}
+\index{makeBid@{makeBid}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{makeBid()}{makeBid()}}
+{\footnotesize\ttfamily void Order\+Contract\+::make\+Bid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}}}]{bid }\end{DoxyParamCaption})}
+
+
+
+Adds a bid to the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bid} & The bid to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_a7e05eb9a45e1a0fd744055f29a554422}\label{class_order_contract_a7e05eb9a45e1a0fd744055f29a554422}} 
+\index{OrderContract@{OrderContract}!read@{read}}
+\index{read@{read}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& Order\+Contract\+::read (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+Places serialized data into this object from a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is coming from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The datastream. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_aec99fe1e582b1e482b17335f08972d04}\label{class_order_contract_aec99fe1e582b1e482b17335f08972d04}} 
+\index{OrderContract@{OrderContract}!removeAllOtherBids@{removeAllOtherBids}}
+\index{removeAllOtherBids@{removeAllOtherBids}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{removeAllOtherBids()}{removeAllOtherBids()}}
+{\footnotesize\ttfamily void Order\+Contract\+::remove\+All\+Other\+Bids (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Removes all bids from an order expect for one bid that matches an email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the bid to keep in the order. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_a661a6ef0bd3763f8683f241ec9b26dce}\label{class_order_contract_a661a6ef0bd3763f8683f241ec9b26dce}} 
+\index{OrderContract@{OrderContract}!setDelveryState@{setDelveryState}}
+\index{setDelveryState@{setDelveryState}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{setDelveryState()}{setDelveryState()}}
+{\footnotesize\ttfamily void Order\+Contract\+::set\+Delvery\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}}}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the delivery state of the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The new delivery state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_a7328bd5910f5e95da7fe8082d6d9558b}\label{class_order_contract_a7328bd5910f5e95da7fe8082d6d9558b}} 
+\index{OrderContract@{OrderContract}!setDriverEmail@{setDriverEmail}}
+\index{setDriverEmail@{setDriverEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{setDriverEmail()}{setDriverEmail()}}
+{\footnotesize\ttfamily void Order\+Contract\+::set\+Driver\+Email (\begin{DoxyParamCaption}\item[{const Q\+String}]{email }\end{DoxyParamCaption})}
+
+
+
+Sets the drivers email that will be associated with the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The drivers email. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_a2179dda1afa6758d5f56db8c3e9e1d71}\label{class_order_contract_a2179dda1afa6758d5f56db8c3e9e1d71}} 
+\index{OrderContract@{OrderContract}!setFinalBid@{setFinalBid}}
+\index{setFinalBid@{setFinalBid}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{setFinalBid()}{setFinalBid()}}
+{\footnotesize\ttfamily void Order\+Contract\+::set\+Final\+Bid (\begin{DoxyParamCaption}\item[{const double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the final agreed upon price of the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The final price. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_aa461a54d187a9ce9bf31534d38dec6b9}\label{class_order_contract_aa461a54d187a9ce9bf31534d38dec6b9}} 
+\index{OrderContract@{OrderContract}!setFinalDriverPrice@{setFinalDriverPrice}}
+\index{setFinalDriverPrice@{setFinalDriverPrice}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{setFinalDriverPrice()}{setFinalDriverPrice()}}
+{\footnotesize\ttfamily void Order\+Contract\+::set\+Final\+Driver\+Price (\begin{DoxyParamCaption}\item[{const double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the final agreed upon salery of the driver for the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The salery of the driver. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_a28b307d270fe6e103daf4dec5aa48852}\label{class_order_contract_a28b307d270fe6e103daf4dec5aa48852}} 
+\index{OrderContract@{OrderContract}!setForwarderEmail@{setForwarderEmail}}
+\index{setForwarderEmail@{setForwarderEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{setForwarderEmail()}{setForwarderEmail()}}
+{\footnotesize\ttfamily void Order\+Contract\+::set\+Forwarder\+Email (\begin{DoxyParamCaption}\item[{const Q\+String}]{email }\end{DoxyParamCaption})}
+
+
+
+Sets the forwarders email that will be associated with the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The forwarders email. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_acaed7c97f4de8101ceba90dc52cecd0f}\label{class_order_contract_acaed7c97f4de8101ceba90dc52cecd0f}} 
+\index{OrderContract@{OrderContract}!setShipperEmail@{setShipperEmail}}
+\index{setShipperEmail@{setShipperEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{setShipperEmail()}{setShipperEmail()}}
+{\footnotesize\ttfamily void Order\+Contract\+::set\+Shipper\+Email (\begin{DoxyParamCaption}\item[{const Q\+String}]{email }\end{DoxyParamCaption})}
+
+
+
+Sets the shippers email that will be associated with the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The shippers email. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_a8b74ff9b3ce869548eaf31a2881c4db2}\label{class_order_contract_a8b74ff9b3ce869548eaf31a2881c4db2}} 
+\index{OrderContract@{OrderContract}!setState@{setState}}
+\index{setState@{setState}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Order\+Contract\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}}}]{\+\_\+state }\end{DoxyParamCaption})}
+
+
+
+Sets the state of the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+state} & The new state of the order. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_contract_af9ef6c7d5a07d48db83d0db12e5c7a2e}\label{class_order_contract_af9ef6c7d5a07d48db83d0db12e5c7a2e}} 
+\index{OrderContract@{OrderContract}!write@{write}}
+\index{write@{write}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& Order\+Contract\+::write (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream }\end{DoxyParamCaption}) const}
+
+
+
+Serializes and places this order contact into a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is to be put into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The datastream. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_order_contract_ac22dcd6890bc19935978b285cf5d210a}\label{class_order_contract_ac22dcd6890bc19935978b285cf5d210a}} 
+\index{OrderContract@{OrderContract}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream,  }\item[{const \mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&}]{order\+Contract }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Serializes and places an order contact into a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is to be put into. \\
+\hline
+{\em order\+Contract} & The order contact to be serialized. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The datastream. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a443b41168dacb43fd49b2041eae9abab}\label{class_order_contract_a443b41168dacb43fd49b2041eae9abab}} 
+\index{OrderContract@{OrderContract}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream,  }\item[{const \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Serializes and places an delivery state into a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is to be put into. \\
+\hline
+{\em state} & The delivery state to be serialized. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The datastream. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a1c4c3ef56636d26e54b15795b4606c8e}\label{class_order_contract_a1c4c3ef56636d26e54b15795b4606c8e}} 
+\index{OrderContract@{OrderContract}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Q\+Debug operator$<$$<$ (\begin{DoxyParamCaption}\item[{Q\+Debug}]{debug,  }\item[{const \mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&}]{contract }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_order_contract_a70760a7e311a286a8146da72904b18a2}\label{class_order_contract_a70760a7e311a286a8146da72904b18a2}} 
+\index{OrderContract@{OrderContract}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream,  }\item[{\mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&}]{order\+Contract }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Places serialized data into a order contact object from a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is coming from. \\
+\hline
+{\em order\+Contract} & The order contract object to be populated with data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The datastream. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_contract_a6b5454cde34da031111a2793f6a34153}\label{class_order_contract_a6b5454cde34da031111a2793f6a34153}} 
+\index{OrderContract@{OrderContract}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Q\+Data\+Stream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{stream,  }\item[{\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Places serialized state into object from a datastream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The datastream the data is coming from. \\
+\hline
+{\em state} & The delivery state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_order_contract_aac6b9c768e417d3ae5a294161fc205e0}\label{class_order_contract_aac6b9c768e417d3ae5a294161fc205e0}} 
+\index{OrderContract@{OrderContract}!bids@{bids}}
+\index{bids@{bids}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{bids}{bids}}
+{\footnotesize\ttfamily Q\+Vector$<$\mbox{\hyperlink{struct_order_contract_1_1_bid}{Bid}}$>$ Order\+Contract\+::bids\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_ad9de8f3c259b2c174f0f7fb1537caadb}\label{class_order_contract_ad9de8f3c259b2c174f0f7fb1537caadb}} 
+\index{OrderContract@{OrderContract}!consigneeName@{consigneeName}}
+\index{consigneeName@{consigneeName}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{consigneeName}{consigneeName}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::consignee\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_a46a0234786dd371408dc4bd7d1089f8e}\label{class_order_contract_a46a0234786dd371408dc4bd7d1089f8e}} 
+\index{OrderContract@{OrderContract}!consigneeNumber@{consigneeNumber}}
+\index{consigneeNumber@{consigneeNumber}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{consigneeNumber}{consigneeNumber}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::consignee\+Number\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_a595368b5c3b7e2b9cff3a8a2c1258bbd}\label{class_order_contract_a595368b5c3b7e2b9cff3a8a2c1258bbd}} 
+\index{OrderContract@{OrderContract}!deliveryState@{deliveryState}}
+\index{deliveryState@{deliveryState}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{deliveryState}{deliveryState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}} Order\+Contract\+::delivery\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_a856517e93e99f0c9448370e016a03576}\label{class_order_contract_a856517e93e99f0c9448370e016a03576}} 
+\index{OrderContract@{OrderContract}!DeliveryStateToString@{DeliveryStateToString}}
+\index{DeliveryStateToString@{DeliveryStateToString}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{DeliveryStateToString}{DeliveryStateToString}}
+{\footnotesize\ttfamily const static Q\+Map$<$\mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Delivery\+State}}, Q\+String$>$ Order\+Contract\+::\+Delivery\+State\+To\+String\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_order_contract_a9e9b69245d9854409f5bebb4e2228e94}\label{class_order_contract_a9e9b69245d9854409f5bebb4e2228e94}} 
+\index{OrderContract@{OrderContract}!driverEmail@{driverEmail}}
+\index{driverEmail@{driverEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{driverEmail}{driverEmail}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::driver\+Email\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_aaec9767f527b99c2850fb654bbf7c90b}\label{class_order_contract_aaec9767f527b99c2850fb654bbf7c90b}} 
+\index{OrderContract@{OrderContract}!finalBid@{finalBid}}
+\index{finalBid@{finalBid}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{finalBid}{finalBid}}
+{\footnotesize\ttfamily double Order\+Contract\+::final\+Bid\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_a1515e86e88be0e1051ad016e1951a518}\label{class_order_contract_a1515e86e88be0e1051ad016e1951a518}} 
+\index{OrderContract@{OrderContract}!finalDriverPrice@{finalDriverPrice}}
+\index{finalDriverPrice@{finalDriverPrice}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{finalDriverPrice}{finalDriverPrice}}
+{\footnotesize\ttfamily double Order\+Contract\+::final\+Driver\+Price\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_aab8b429a31ee24cb3509210829d6ba84}\label{class_order_contract_aab8b429a31ee24cb3509210829d6ba84}} 
+\index{OrderContract@{OrderContract}!forwarderEmail@{forwarderEmail}}
+\index{forwarderEmail@{forwarderEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{forwarderEmail}{forwarderEmail}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::forwarder\+Email\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_a4a01d7f285fbd067a778514fdfb640ab}\label{class_order_contract_a4a01d7f285fbd067a778514fdfb640ab}} 
+\index{OrderContract@{OrderContract}!ID@{ID}}
+\index{ID@{ID}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_ad9e8779985515c2ad41843fad15087be}\label{class_order_contract_ad9e8779985515c2ad41843fad15087be}} 
+\index{OrderContract@{OrderContract}!order@{order}}
+\index{order@{order}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_order}{Order}} Order\+Contract\+::order\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_aa300b3e63b9609c0114c9cb9b6898216}\label{class_order_contract_aa300b3e63b9609c0114c9cb9b6898216}} 
+\index{OrderContract@{OrderContract}!shipperEmail@{shipperEmail}}
+\index{shipperEmail@{shipperEmail}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{shipperEmail}{shipperEmail}}
+{\footnotesize\ttfamily Q\+String Order\+Contract\+::shipper\+Email\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_aca72a3d5241faba7edcde726919b23e5}\label{class_order_contract_aca72a3d5241faba7edcde726919b23e5}} 
+\index{OrderContract@{OrderContract}!state@{state}}
+\index{state@{state}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}} Order\+Contract\+::state\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_order_contract_ae76be2bc93299e5bd940b95cd46b7721}\label{class_order_contract_ae76be2bc93299e5bd940b95cd46b7721}} 
+\index{OrderContract@{OrderContract}!stateToString@{stateToString}}
+\index{stateToString@{stateToString}!OrderContract@{OrderContract}}
+\doxysubsubsection{\texorpdfstring{stateToString}{stateToString}}
+{\footnotesize\ttfamily const static Q\+Map$<$\mbox{\hyperlink{class_order_contract_a0f5b9a675a971a96ce2b95a9cfeaccbd}{State}}, Q\+String$>$ Order\+Contract\+::state\+To\+String\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ordercontract_8h}{ordercontract.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,406 @@
+\hypertarget{class_client_broker}{}\doxysection{Client\+Broker Class Reference}
+\label{class_client_broker}\index{ClientBroker@{ClientBroker}}
+
+
+The \mbox{\hyperlink{class_client_broker}{Client\+Broker}} class holds all the logic to send messages back and forth with the server.  
+
+
+
+
+{\ttfamily \#include $<$clientbroker.\+h$>$}
+
+
+
+Inheritance diagram for Client\+Broker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_client_broker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Client\+Broker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_client_broker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_client_broker_af28d742312ac746127a2e8545450f985}{sign\+In\+To\+Page}} (const Q\+String \&page\+Name)
+\begin{DoxyCompactList}\small\item\em Emits a sign into page instruction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a9714b4e7a2f932387240f8c372007fc9}{received\+Error\+Message}} (const Q\+String \&error\+Message)
+\begin{DoxyCompactList}\small\item\em Emits an error message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a772eb0f135c2b072ecf24e63b91d931a}{received\+Message}} (const Q\+String \&message)
+\begin{DoxyCompactList}\small\item\em Emits a normal message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_acfce4e04fb9f70a3f9c17298e49501e9}{orders\+Received}} (Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&order\+Contracts)
+\begin{DoxyCompactList}\small\item\em Emits the user related order contracts that have been received. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_aa6e84b1097b9ee7988a0c76bdc98862e}{market\+Received}} (Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&market\+Orders)
+\begin{DoxyCompactList}\small\item\em Emits the order contracts from the markeplace received. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_client_broker_a0b4f541a65aa3a06f700ddd55ec173d5}{Client\+Broker}} (Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_client_broker}{Client\+Broker}} constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_aca7f976693d7b17caab8bd40b25b7f37}{log\+In\+Attempt}} (const Q\+String \&email, const Q\+String \&password)
+\begin{DoxyCompactList}\small\item\em Sends a login attempt to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a9e4af0f68f4b1415231bb1de491add66}{register\+Attempt}} (const Q\+String \&name, const Q\+String \&email, const Q\+String \&password, const Q\+String \&confirm\+Password, const Q\+String \&address, const Q\+String \&postcode, const Q\+String \&user\+Type)
+\begin{DoxyCompactList}\small\item\em Sends a register attempt to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a466bdf1728d2dc0574427afcb9a3ba91}{send\+Order\+To\+Marketplace}} (const \mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&order\+Contract)
+\begin{DoxyCompactList}\small\item\em Sends a new order to market. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_ab27af588e953f983db6ed7680934c5f0}{make\+Bid\+On\+Order}} (const Q\+String \&order\+ID, const \mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} \&bid)
+\begin{DoxyCompactList}\small\item\em Makes a bid on an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a2ea739f57ce8d677ce6378f400df2939}{send\+Accept\+Bid\+Message}} (const Q\+String \&order\+ID, \mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} \&bid)
+\begin{DoxyCompactList}\small\item\em Accepts a bid on an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_ad1e25e06d4a5546da803a4f534aa3700}{accept\+Job}} (const Q\+String \&order\+ID)
+\begin{DoxyCompactList}\small\item\em Accepts a job for a order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a5a0e149c933989e6372a5fa778dbc4fd}{update\+Delivery\+State}} (const Q\+String \&order\+ID, const \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&delivery\+State)
+\begin{DoxyCompactList}\small\item\em Updates the delivery state of an order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a09270ad0cb1b75ccb6b73d0046b1e764}{request\+Order\+Contracts}} ()
+\begin{DoxyCompactList}\small\item\em Sends a request for all the users associated order contracts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_broker_a6dd3014b1a58ca9b1ebcd5eb4effa0a9}{request\+Market}} ()
+\begin{DoxyCompactList}\small\item\em Sends a request for all the orders in the marketplace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_client_broker_a8a2fb78b689c31466644318cf250a731}{read\+Body}} (Q\+Data\+Stream \&in\+Stream) override
+\begin{DoxyCompactList}\small\item\em Reads and processes the body of the message based on the header. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_broker_a24928b45308d74c94864e900fb676316}{process\+Page\+Sign\+In}} (Q\+Data\+Stream \&in\+Stream)
+\begin{DoxyCompactList}\small\item\em Processes a page sign in message and emits it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_broker_a62a34641c5eb542103992a36bb8eff7c}{process\+Order\+Contracts}} (Q\+Data\+Stream \&in\+Stream, void(Client\+Broker\+::$\ast$func)(Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&))
+\begin{DoxyCompactList}\small\item\em Processes a order contract message and emits it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_broker_a77fd7b0bb692896f582ed44b6fd77e46}{process\+New\+Message}} (Q\+Data\+Stream \&in\+Stream, void(Client\+Broker\+::$\ast$func)(const Q\+String \&))
+\begin{DoxyCompactList}\small\item\em Processes a new message(error or normal) message and emits it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_client_broker}{Client\+Broker}} class holds all the logic to send messages back and forth with the server. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_client_broker_a0b4f541a65aa3a06f700ddd55ec173d5}\label{class_client_broker_a0b4f541a65aa3a06f700ddd55ec173d5}} 
+\index{ClientBroker@{ClientBroker}!ClientBroker@{ClientBroker}}
+\index{ClientBroker@{ClientBroker}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{ClientBroker()}{ClientBroker()}}
+{\footnotesize\ttfamily Client\+Broker\+::\+Client\+Broker (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_client_broker}{Client\+Broker}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_client_broker_ad1e25e06d4a5546da803a4f534aa3700}\label{class_client_broker_ad1e25e06d4a5546da803a4f534aa3700}} 
+\index{ClientBroker@{ClientBroker}!acceptJob@{acceptJob}}
+\index{acceptJob@{acceptJob}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{acceptJob()}{acceptJob()}}
+{\footnotesize\ttfamily void Client\+Broker\+::accept\+Job (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID }\end{DoxyParamCaption})}
+
+
+
+Accepts a job for a order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The order ID for the job you are accepting. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_aca7f976693d7b17caab8bd40b25b7f37}\label{class_client_broker_aca7f976693d7b17caab8bd40b25b7f37}} 
+\index{ClientBroker@{ClientBroker}!logInAttempt@{logInAttempt}}
+\index{logInAttempt@{logInAttempt}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{logInAttempt()}{logInAttempt()}}
+{\footnotesize\ttfamily void Client\+Broker\+::log\+In\+Attempt (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{email,  }\item[{const Q\+String \&}]{password }\end{DoxyParamCaption})}
+
+
+
+Sends a login attempt to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email of the user trying to login. \\
+\hline
+{\em password} & The password of the user trying to login. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_ab27af588e953f983db6ed7680934c5f0}\label{class_client_broker_ab27af588e953f983db6ed7680934c5f0}} 
+\index{ClientBroker@{ClientBroker}!makeBidOnOrder@{makeBidOnOrder}}
+\index{makeBidOnOrder@{makeBidOnOrder}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{makeBidOnOrder()}{makeBidOnOrder()}}
+{\footnotesize\ttfamily void Client\+Broker\+::make\+Bid\+On\+Order (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID,  }\item[{const \mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} \&}]{bid }\end{DoxyParamCaption})}
+
+
+
+Makes a bid on an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order to be bidded on. \\
+\hline
+{\em bid} & The bid to be sent. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_aa6e84b1097b9ee7988a0c76bdc98862e}\label{class_client_broker_aa6e84b1097b9ee7988a0c76bdc98862e}} 
+\index{ClientBroker@{ClientBroker}!marketReceived@{marketReceived}}
+\index{marketReceived@{marketReceived}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{marketReceived}{marketReceived}}
+{\footnotesize\ttfamily void Client\+Broker\+::market\+Received (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&}]{market\+Orders }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emits the order contracts from the markeplace received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em market\+Orders} & The orders from the marketplace. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_acfce4e04fb9f70a3f9c17298e49501e9}\label{class_client_broker_acfce4e04fb9f70a3f9c17298e49501e9}} 
+\index{ClientBroker@{ClientBroker}!ordersReceived@{ordersReceived}}
+\index{ordersReceived@{ordersReceived}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{ordersReceived}{ordersReceived}}
+{\footnotesize\ttfamily void Client\+Broker\+::orders\+Received (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&}]{order\+Contracts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emits the user related order contracts that have been received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Contracts} & The order contracts. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_a77fd7b0bb692896f582ed44b6fd77e46}\label{class_client_broker_a77fd7b0bb692896f582ed44b6fd77e46}} 
+\index{ClientBroker@{ClientBroker}!processNewMessage@{processNewMessage}}
+\index{processNewMessage@{processNewMessage}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{processNewMessage()}{processNewMessage()}}
+{\footnotesize\ttfamily bool Client\+Broker\+::process\+New\+Message (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{in\+Stream,  }\item[{void(Client\+Broker\+::$\ast$)(const Q\+String \&)}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes a new message(error or normal) message and emits it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Stream} & The datastream of the socket for incoming messages. \\
+\hline
+{\em func} & The function pointer to the signal to be emitted after the message was successfully read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the message was successfully read. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_client_broker_a62a34641c5eb542103992a36bb8eff7c}\label{class_client_broker_a62a34641c5eb542103992a36bb8eff7c}} 
+\index{ClientBroker@{ClientBroker}!processOrderContracts@{processOrderContracts}}
+\index{processOrderContracts@{processOrderContracts}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{processOrderContracts()}{processOrderContracts()}}
+{\footnotesize\ttfamily bool Client\+Broker\+::process\+Order\+Contracts (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{in\+Stream,  }\item[{void(Client\+Broker\+::$\ast$)(Q\+Map$<$ Q\+String, \mbox{\hyperlink{class_order_contract}{Order\+Contract}} $>$ \&)}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes a order contract message and emits it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Stream} & The datastream of the socket for incoming messages. \\
+\hline
+{\em func} & The function pointer to the signal to be emitted after the message was successfully read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the message was successfully read. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_client_broker_a24928b45308d74c94864e900fb676316}\label{class_client_broker_a24928b45308d74c94864e900fb676316}} 
+\index{ClientBroker@{ClientBroker}!processPageSignIn@{processPageSignIn}}
+\index{processPageSignIn@{processPageSignIn}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{processPageSignIn()}{processPageSignIn()}}
+{\footnotesize\ttfamily bool Client\+Broker\+::process\+Page\+Sign\+In (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{in\+Stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes a page sign in message and emits it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Stream} & The datastream of the socket for incoming messages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the message was successfully read. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_client_broker_a8a2fb78b689c31466644318cf250a731}\label{class_client_broker_a8a2fb78b689c31466644318cf250a731}} 
+\index{ClientBroker@{ClientBroker}!readBody@{readBody}}
+\index{readBody@{readBody}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{readBody()}{readBody()}}
+{\footnotesize\ttfamily bool Client\+Broker\+::read\+Body (\begin{DoxyParamCaption}\item[{Q\+Data\+Stream \&}]{in\+Stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Reads and processes the body of the message based on the header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Stream} & The datastream of the socket for incoming messages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the message was successfully read. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_broker_ae78db18e5cc9d307548676b74e4f5134}{Broker}}.
+
+\mbox{\Hypertarget{class_client_broker_a9714b4e7a2f932387240f8c372007fc9}\label{class_client_broker_a9714b4e7a2f932387240f8c372007fc9}} 
+\index{ClientBroker@{ClientBroker}!receivedErrorMessage@{receivedErrorMessage}}
+\index{receivedErrorMessage@{receivedErrorMessage}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{receivedErrorMessage}{receivedErrorMessage}}
+{\footnotesize\ttfamily void Client\+Broker\+::received\+Error\+Message (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emits an error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Message} & The error message. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_a772eb0f135c2b072ecf24e63b91d931a}\label{class_client_broker_a772eb0f135c2b072ecf24e63b91d931a}} 
+\index{ClientBroker@{ClientBroker}!receivedMessage@{receivedMessage}}
+\index{receivedMessage@{receivedMessage}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{receivedMessage}{receivedMessage}}
+{\footnotesize\ttfamily void Client\+Broker\+::received\+Message (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emits a normal message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_a9e4af0f68f4b1415231bb1de491add66}\label{class_client_broker_a9e4af0f68f4b1415231bb1de491add66}} 
+\index{ClientBroker@{ClientBroker}!registerAttempt@{registerAttempt}}
+\index{registerAttempt@{registerAttempt}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{registerAttempt()}{registerAttempt()}}
+{\footnotesize\ttfamily void Client\+Broker\+::register\+Attempt (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{const Q\+String \&}]{email,  }\item[{const Q\+String \&}]{password,  }\item[{const Q\+String \&}]{confirm\+Password,  }\item[{const Q\+String \&}]{address,  }\item[{const Q\+String \&}]{postcode,  }\item[{const Q\+String \&}]{user\+Type }\end{DoxyParamCaption})}
+
+
+
+Sends a register attempt to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the user trying to register. \\
+\hline
+{\em email} & The emails of the user trying to register. \\
+\hline
+{\em password} & The password of the user trying to register. \\
+\hline
+{\em confirm\+Password} & The password to match with. \\
+\hline
+{\em address} & The address of the user trying to register. \\
+\hline
+{\em postcode} & The postcode of the user trying to register. \\
+\hline
+{\em user\+Type} & The user type (shipper, forwarder or driver) of the user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_a6dd3014b1a58ca9b1ebcd5eb4effa0a9}\label{class_client_broker_a6dd3014b1a58ca9b1ebcd5eb4effa0a9}} 
+\index{ClientBroker@{ClientBroker}!requestMarket@{requestMarket}}
+\index{requestMarket@{requestMarket}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{requestMarket()}{requestMarket()}}
+{\footnotesize\ttfamily void Client\+Broker\+::request\+Market (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends a request for all the orders in the marketplace. 
+
+\mbox{\Hypertarget{class_client_broker_a09270ad0cb1b75ccb6b73d0046b1e764}\label{class_client_broker_a09270ad0cb1b75ccb6b73d0046b1e764}} 
+\index{ClientBroker@{ClientBroker}!requestOrderContracts@{requestOrderContracts}}
+\index{requestOrderContracts@{requestOrderContracts}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{requestOrderContracts()}{requestOrderContracts()}}
+{\footnotesize\ttfamily void Client\+Broker\+::request\+Order\+Contracts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends a request for all the users associated order contracts. 
+
+\mbox{\Hypertarget{class_client_broker_a2ea739f57ce8d677ce6378f400df2939}\label{class_client_broker_a2ea739f57ce8d677ce6378f400df2939}} 
+\index{ClientBroker@{ClientBroker}!sendAcceptBidMessage@{sendAcceptBidMessage}}
+\index{sendAcceptBidMessage@{sendAcceptBidMessage}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{sendAcceptBidMessage()}{sendAcceptBidMessage()}}
+{\footnotesize\ttfamily void Client\+Broker\+::send\+Accept\+Bid\+Message (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID,  }\item[{\mbox{\hyperlink{struct_order_contract_1_1_bid}{Order\+Contract\+::\+Bid}} \&}]{bid }\end{DoxyParamCaption})}
+
+
+
+Accepts a bid on an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order of the bid. \\
+\hline
+{\em bid} & The bid to be accepted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_a466bdf1728d2dc0574427afcb9a3ba91}\label{class_client_broker_a466bdf1728d2dc0574427afcb9a3ba91}} 
+\index{ClientBroker@{ClientBroker}!sendOrderToMarketplace@{sendOrderToMarketplace}}
+\index{sendOrderToMarketplace@{sendOrderToMarketplace}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{sendOrderToMarketplace()}{sendOrderToMarketplace()}}
+{\footnotesize\ttfamily void Client\+Broker\+::send\+Order\+To\+Marketplace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_order_contract}{Order\+Contract}} \&}]{order\+Contract }\end{DoxyParamCaption})}
+
+
+
+Sends a new order to market. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Contract} & The order the user is sending to the marketplace. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_af28d742312ac746127a2e8545450f985}\label{class_client_broker_af28d742312ac746127a2e8545450f985}} 
+\index{ClientBroker@{ClientBroker}!signInToPage@{signInToPage}}
+\index{signInToPage@{signInToPage}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{signInToPage}{signInToPage}}
+{\footnotesize\ttfamily void Client\+Broker\+::sign\+In\+To\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{page\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emits a sign into page instruction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page\+Name} & The name of the page to be signed into. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_client_broker_a5a0e149c933989e6372a5fa778dbc4fd}\label{class_client_broker_a5a0e149c933989e6372a5fa778dbc4fd}} 
+\index{ClientBroker@{ClientBroker}!updateDeliveryState@{updateDeliveryState}}
+\index{updateDeliveryState@{updateDeliveryState}!ClientBroker@{ClientBroker}}
+\doxysubsubsection{\texorpdfstring{updateDeliveryState()}{updateDeliveryState()}}
+{\footnotesize\ttfamily void Client\+Broker\+::update\+Delivery\+State (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{order\+ID,  }\item[{const \mbox{\hyperlink{class_order_contract_aaa8889423e86b633d1d63efd6d7badd5}{Order\+Contract\+::\+Delivery\+State}} \&}]{delivery\+State }\end{DoxyParamCaption})}
+
+
+
+Updates the delivery state of an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order. \\
+\hline
+{\em delivery\+State} & The new delivery state. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clientbroker_8h}{clientbroker.\+h}}\end{DoxyCompactItemize}

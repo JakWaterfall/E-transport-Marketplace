@@ -1,0 +1,9 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="node1" title="The MainWindow class hold the logic of the main window before the user has logged in." alt="" coords="111,336,218,363"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,247,121,273"/>
+<area shape="rect" id="node3" href="$class_client_broker.html" title="The ClientBroker class holds all the logic to send messages back and forth with the server." alt="" coords="203,157,305,184"/>
+<area shape="rect" id="node6" href="$class_page.html" title="The Page class that acts as an interface for other types of pages." alt="" coords="146,247,199,273"/>
+<area shape="rect" id="node4" href="$class_broker.html" title="The Broker class is the parent class of the client and server brokers. It holds logic that is needed ..." alt="" coords="222,81,286,108"/>
+<area shape="rect" id="node5" title=" " alt="" coords="217,5,291,32"/>
+<area shape="rect" id="node7" title=" " alt="" coords="100,157,179,184"/>
+</map>

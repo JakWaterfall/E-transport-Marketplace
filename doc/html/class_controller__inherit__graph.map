@@ -1,0 +1,7 @@
+<map id="Controller" name="Controller">
+<area shape="rect" id="node1" title="The Controller class that acts as an interface for other types of contollers." alt="" coords="188,80,275,107"/>
+<area shape="rect" id="node3" href="$class_driver_controller.html" title="The DriverController class holds all the logic for the Driver." alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node4" href="$class_forwarder_controller.html" title="The ForwarderController class holds all the logic for the Forwarder." alt="" coords="156,155,307,181"/>
+<area shape="rect" id="node5" href="$class_shipper_controller.html" title="The ShipperController class holds all the logic for the Shipper." alt="" coords="331,155,465,181"/>
+<area shape="rect" id="node2" title=" " alt="" coords="194,5,269,32"/>
+</map>

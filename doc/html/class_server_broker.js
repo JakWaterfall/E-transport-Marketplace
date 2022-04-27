@@ -1,0 +1,27 @@
+var class_server_broker =
+[
+    [ "ServerBroker", "class_server_broker.html#a8d3bec7da15b96d54df85b34ed95e82a", null ],
+    [ "acceptBid", "class_server_broker.html#a31f3a0c9d38d8c3c12525aa57b71bc58", null ],
+    [ "acceptJob", "class_server_broker.html#aaa642d7a35259ee95d288a8974e82c1a", null ],
+    [ "logInAttempt", "class_server_broker.html#aa9a2633692061d435928f0a72ac75f72", null ],
+    [ "newBidOnOrder", "class_server_broker.html#a99a56bf655e76ef119aa9dc935d03135", null ],
+    [ "newOrderContract", "class_server_broker.html#a7d9ee82d3dc0ccaae671758a1540a811", null ],
+    [ "processAcceptBid", "class_server_broker.html#a7f3f77228f12e94c85c7faebccac2c9c", null ],
+    [ "processAcceptJob", "class_server_broker.html#ad4567dd4cbf282a241d843da8cc5f529", null ],
+    [ "processLogIn", "class_server_broker.html#a448b8490e1706c159c520c0d5fc5e89c", null ],
+    [ "processNewBid", "class_server_broker.html#a36947eba722120fb7961210060b1f254", null ],
+    [ "processNewOrder", "class_server_broker.html#ad4dd1e12db88bb0d5affa362a30fe199", null ],
+    [ "processRegister", "class_server_broker.html#a4d450cd330c011e8e12dd728c5bb0f05", null ],
+    [ "processUpdateDeliveryState", "class_server_broker.html#ad11b7fa83454ed1c5f857c5f7e829da3", null ],
+    [ "readBody", "class_server_broker.html#a4cfaecbda9c75597d178c788b5aaf923", null ],
+    [ "registerAttempt", "class_server_broker.html#aa669ebc84d4968fb733f3a19105edc89", null ],
+    [ "requestForMarket", "class_server_broker.html#ae654ecec998fe1767d13c36cd314f33e", null ],
+    [ "requestForOrderContracts", "class_server_broker.html#af5cb31e77be4446e7436788dd28d9496", null ],
+    [ "sendErrorMessage", "class_server_broker.html#a759a05bbbdf3413d62553ac78642c8cd", null ],
+    [ "sendMarketOrderContracts", "class_server_broker.html#ab83c4374a9e7c58dd675cd017580292d", null ],
+    [ "sendMessage", "class_server_broker.html#a7c69110d9098de5a0904d7a43765a8e0", null ],
+    [ "sendOrderContracts", "class_server_broker.html#a924cfb808a04af3264e178684885cbb7", null ],
+    [ "sendPageSignIn", "class_server_broker.html#a1078f061bb1b1dea929bbfa3e91e4d34", null ],
+    [ "sendUserRelatedOrderContracts", "class_server_broker.html#a38bc69f50d9436777fbf598bd5a82659", null ],
+    [ "updateDeliveryState", "class_server_broker.html#a57c9f428223774bab86b8ad72f305800", null ]
+];

@@ -1,0 +1,254 @@
+\hypertarget{class_main_window}{}\doxysection{Main\+Window Class Reference}
+\label{class_main_window}\index{MainWindow@{MainWindow}}
+
+
+The \mbox{\hyperlink{class_main_window}{Main\+Window}} class hold the logic of the main window before the user has logged in.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{class_main_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Main\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{class_main_window__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_main_window}{Main\+Window}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_ab7f81268ba51e545dbfc55bf753d6d1c}{on\+\_\+login\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sends a login attempt to the server with the users inputted infomation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_ae27a698c65840df1d04afe8877d811be}{sign\+Into\+Page}} (const Q\+String \&page\+Name)
+\begin{DoxyCompactList}\small\item\em Signs into a spesific user page such as shipper, forwarder and driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a5baae45510567d061df927ef26d4840d}{on\+Error\+Recived}} (const Q\+String \&error\+Message)
+\begin{DoxyCompactList}\small\item\em Opens up and displays the error message dialog box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a822003a56db3512520a4d818632c0a2f}{on\+Message\+Recived}} (const Q\+String \&message)
+\begin{DoxyCompactList}\small\item\em Opens up and displays the message dialog box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a8aeee03c8bd136fd78eaae5b03ceddae}{on\+\_\+register\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Opens up the register screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a387c7dcc86d1be629b631550bfd18e4e}{on\+\_\+back\+Register\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Returns back to the login screen from the register screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_af019fee7f605949cdffb4746659b3bd4}{on\+\_\+confirm\+Register\+Btn\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Sends a register attempt to the server with the users inputted infomation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a38b836dc6facbd90742f4adf78d23c6f}{on\+\_\+action\+Log\+\_\+out\+\_\+triggered}} ()
+\begin{DoxyCompactList}\small\item\em Logs user out of the system and returns back to the login screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a27f16728966cfddc280db1efa160d8f3}{setup\+User\+Type\+Combo\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Sets up the user type combo box of the registraion page with all the user types in string form. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Main\+Window $\ast$ \mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}
+\item 
+\mbox{\hyperlink{class_page}{Page}} $\ast$ \mbox{\hyperlink{class_main_window_a15fbaff1427cfcdf7092b21fd7236f04}{main\+Page}} = nullptr
+\item 
+\mbox{\hyperlink{class_client_broker}{Client\+Broker}} $\ast$ \mbox{\hyperlink{class_main_window_af0ff7416bd4e724a751dc6a8aba1a15e}{broker}}
+\item 
+const int \mbox{\hyperlink{class_main_window_ae6abb6c8d0b12f0cda23a990d4b9d66f}{login\+Index}} = 0
+\item 
+const int \mbox{\hyperlink{class_main_window_a3c64ac4e237ce1705138a843ac2aa646}{register\+Index}} = 1
+\item 
+const int \mbox{\hyperlink{class_main_window_ad70852469415d66e8e22944f55ca9026}{main\+Page\+Index}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_main_window}{Main\+Window}} class hold the logic of the main window before the user has logged in. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_main_window_a996c5a2b6f77944776856f08ec30858d}\label{class_main_window_a996c5a2b6f77944776856f08ec30858d}} 
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_main_window}{Main\+Window}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent object for QT Framework. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{MainWindow@{MainWindow}!````~MainWindow@{$\sim$MainWindow}}
+\index{````~MainWindow@{$\sim$MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$MainWindow()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_window_a38b836dc6facbd90742f4adf78d23c6f}\label{class_main_window_a38b836dc6facbd90742f4adf78d23c6f}} 
+\index{MainWindow@{MainWindow}!on\_actionLog\_out\_triggered@{on\_actionLog\_out\_triggered}}
+\index{on\_actionLog\_out\_triggered@{on\_actionLog\_out\_triggered}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{on\_actionLog\_out\_triggered}{on\_actionLog\_out\_triggered}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+action\+Log\+\_\+out\+\_\+triggered (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Logs user out of the system and returns back to the login screen. 
+
+\mbox{\Hypertarget{class_main_window_a387c7dcc86d1be629b631550bfd18e4e}\label{class_main_window_a387c7dcc86d1be629b631550bfd18e4e}} 
+\index{MainWindow@{MainWindow}!on\_backRegisterBtn\_clicked@{on\_backRegisterBtn\_clicked}}
+\index{on\_backRegisterBtn\_clicked@{on\_backRegisterBtn\_clicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{on\_backRegisterBtn\_clicked}{on\_backRegisterBtn\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+back\+Register\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Returns back to the login screen from the register screen. 
+
+\mbox{\Hypertarget{class_main_window_af019fee7f605949cdffb4746659b3bd4}\label{class_main_window_af019fee7f605949cdffb4746659b3bd4}} 
+\index{MainWindow@{MainWindow}!on\_confirmRegisterBtn\_clicked@{on\_confirmRegisterBtn\_clicked}}
+\index{on\_confirmRegisterBtn\_clicked@{on\_confirmRegisterBtn\_clicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{on\_confirmRegisterBtn\_clicked}{on\_confirmRegisterBtn\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+confirm\+Register\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends a register attempt to the server with the users inputted infomation. 
+
+\mbox{\Hypertarget{class_main_window_ab7f81268ba51e545dbfc55bf753d6d1c}\label{class_main_window_ab7f81268ba51e545dbfc55bf753d6d1c}} 
+\index{MainWindow@{MainWindow}!on\_loginBtn\_clicked@{on\_loginBtn\_clicked}}
+\index{on\_loginBtn\_clicked@{on\_loginBtn\_clicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{on\_loginBtn\_clicked}{on\_loginBtn\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+login\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sends a login attempt to the server with the users inputted infomation. 
+
+\mbox{\Hypertarget{class_main_window_a8aeee03c8bd136fd78eaae5b03ceddae}\label{class_main_window_a8aeee03c8bd136fd78eaae5b03ceddae}} 
+\index{MainWindow@{MainWindow}!on\_registerBtn\_clicked@{on\_registerBtn\_clicked}}
+\index{on\_registerBtn\_clicked@{on\_registerBtn\_clicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{on\_registerBtn\_clicked}{on\_registerBtn\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+register\+Btn\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up the register screen. 
+
+\mbox{\Hypertarget{class_main_window_a5baae45510567d061df927ef26d4840d}\label{class_main_window_a5baae45510567d061df927ef26d4840d}} 
+\index{MainWindow@{MainWindow}!onErrorRecived@{onErrorRecived}}
+\index{onErrorRecived@{onErrorRecived}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onErrorRecived}{onErrorRecived}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+Error\+Recived (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up and displays the error message dialog box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Message} & The error message to be displayed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_main_window_a822003a56db3512520a4d818632c0a2f}\label{class_main_window_a822003a56db3512520a4d818632c0a2f}} 
+\index{MainWindow@{MainWindow}!onMessageRecived@{onMessageRecived}}
+\index{onMessageRecived@{onMessageRecived}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onMessageRecived}{onMessageRecived}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+Message\+Recived (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Opens up and displays the message dialog box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be displayed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_main_window_a27f16728966cfddc280db1efa160d8f3}\label{class_main_window_a27f16728966cfddc280db1efa160d8f3}} 
+\index{MainWindow@{MainWindow}!setupUserTypeComboBox@{setupUserTypeComboBox}}
+\index{setupUserTypeComboBox@{setupUserTypeComboBox}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setupUserTypeComboBox()}{setupUserTypeComboBox()}}
+{\footnotesize\ttfamily void Main\+Window\+::setup\+User\+Type\+Combo\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the user type combo box of the registraion page with all the user types in string form. 
+
+\mbox{\Hypertarget{class_main_window_ae27a698c65840df1d04afe8877d811be}\label{class_main_window_ae27a698c65840df1d04afe8877d811be}} 
+\index{MainWindow@{MainWindow}!signIntoPage@{signIntoPage}}
+\index{signIntoPage@{signIntoPage}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{signIntoPage}{signIntoPage}}
+{\footnotesize\ttfamily void Main\+Window\+::sign\+Into\+Page (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{page\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Signs into a spesific user page such as shipper, forwarder and driver. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page\+Name} & The name of the page to be signed into. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_main_window_af0ff7416bd4e724a751dc6a8aba1a15e}\label{class_main_window_af0ff7416bd4e724a751dc6a8aba1a15e}} 
+\index{MainWindow@{MainWindow}!broker@{broker}}
+\index{broker@{broker}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{broker}{broker}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_client_broker}{Client\+Broker}}$\ast$ Main\+Window\+::broker\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_ae6abb6c8d0b12f0cda23a990d4b9d66f}\label{class_main_window_ae6abb6c8d0b12f0cda23a990d4b9d66f}} 
+\index{MainWindow@{MainWindow}!loginIndex@{loginIndex}}
+\index{loginIndex@{loginIndex}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{loginIndex}{loginIndex}}
+{\footnotesize\ttfamily const int Main\+Window\+::login\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_a15fbaff1427cfcdf7092b21fd7236f04}\label{class_main_window_a15fbaff1427cfcdf7092b21fd7236f04}} 
+\index{MainWindow@{MainWindow}!mainPage@{mainPage}}
+\index{mainPage@{mainPage}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{mainPage}{mainPage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_page}{Page}}$\ast$ Main\+Window\+::main\+Page = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_ad70852469415d66e8e22944f55ca9026}\label{class_main_window_ad70852469415d66e8e22944f55ca9026}} 
+\index{MainWindow@{MainWindow}!mainPageIndex@{mainPageIndex}}
+\index{mainPageIndex@{mainPageIndex}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{mainPageIndex}{mainPageIndex}}
+{\footnotesize\ttfamily const int Main\+Window\+::main\+Page\+Index = 2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_a3c64ac4e237ce1705138a843ac2aa646}\label{class_main_window_a3c64ac4e237ce1705138a843ac2aa646}} 
+\index{MainWindow@{MainWindow}!registerIndex@{registerIndex}}
+\index{registerIndex@{registerIndex}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{registerIndex}{registerIndex}}
+{\footnotesize\ttfamily const int Main\+Window\+::register\+Index = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_a35466a70ed47252a0191168126a352a5}\label{class_main_window_a35466a70ed47252a0191168126a352a5}} 
+\index{MainWindow@{MainWindow}!ui@{ui}}
+\index{ui@{ui}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Main\+Window$\ast$ Main\+Window\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\end{DoxyCompactItemize}

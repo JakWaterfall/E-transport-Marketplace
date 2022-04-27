@@ -1,0 +1,7 @@
+<map id="Controller" name="Controller">
+<area shape="rect" id="node1" title="The Controller class that acts as an interface for other types of contollers." alt="" coords="74,261,161,288"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node5" href="$class_broker.html" title="The Broker class is the parent class of the client and server brokers. It holds logic that is needed ..." alt="" coords="75,81,139,108"/>
+<area shape="rect" id="node3" href="$class_thread_safe_map.html" title=" " alt="" coords="195,157,386,199"/>
+<area shape="rect" id="node4" href="$class_server_broker.html" title="The ServerBroker class holds all the logic to send messages back and forth with the client." alt="" coords="64,165,171,191"/>
+</map>
