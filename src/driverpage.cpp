@@ -168,7 +168,7 @@ void DriverPage::on_inInventoryOrdersListWidget_Orders_itemDoubleClicked(QListWi
 void DriverPage::on_backBtn_OrderDetails_clicked()
 {
     refreshOrders();
-    ui->driverWindow->setCurrentIndex(orderDetailsPage);
+    ui->driverWindow->setCurrentIndex(ordersPage);
 }
 
 void DriverPage::on_updateDeliveryStateBtn_OrderDetails_clicked()

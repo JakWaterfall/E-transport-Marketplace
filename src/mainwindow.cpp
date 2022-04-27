@@ -32,29 +32,33 @@ void MainWindow::setupUserTypeComboBox()
 void MainWindow::on_loginBtn_clicked()
 {
     broker->logInAttempt(ui->emailInput->text(), ui->passInput->text());
-    // blank password on attempt.
+    ui->passInput->clear();
 }
 
 void MainWindow::signIntoPage(const QString &pageName)
 {
-        if (pageName == "shipper")
-        {
-            mainPage = new SellerPage(broker, this);
-        }
-        else if (pageName == "forwarder")
-        {
-            mainPage = new ForwarderPage(broker, this);
-        }
-        else if (pageName == "driver")
-        {
-            mainPage = new DriverPage(broker, this);
-        }
-        else
-        {
-            // error?
-        }
-        ui->stackedWidget->insertWidget(mainPageIndex, mainPage);
-        ui->stackedWidget->setCurrentIndex(mainPageIndex);
+    ui->emailInput->clear();
+    ui->passInput->clear();
+
+    if (pageName == "shipper")
+    {
+        mainPage = new SellerPage(broker, this);
+    }
+    else if (pageName == "forwarder")
+    {
+        mainPage = new ForwarderPage(broker, this);
+    }
+    else if (pageName == "driver")
+    {
+        mainPage = new DriverPage(broker, this);
+    }
+    else
+    {
+        // error - page name was malformed.
+        return;
+    }
+    ui->stackedWidget->insertWidget(mainPageIndex, mainPage);
+    ui->stackedWidget->setCurrentIndex(mainPageIndex);
 }
 
 void MainWindow::onErrorRecived(const QString& errorMessage)

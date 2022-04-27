@@ -101,19 +101,13 @@ void ClientBroker::requestMarket()
 
 bool ClientBroker::readBody(QDataStream &inStream)
 {
-    // Header Only messages
-    if(currentHeader == "")
-    {
-
-    }
-
     // Header and Body messages
     inStream.startTransaction();
     if(currentHeader == "pageSignIn")
     {
         return processPageSignIn(inStream);
     }
-    else if (currentHeader == "orderContracts")
+    else if (currentHeader == "orderContracts") // The 4 methods below also take a function pointer to the signal that will be emitted.
     {
         return processOrderContracts(inStream, &ClientBroker::ordersReceived);
     }
@@ -151,7 +145,7 @@ bool ClientBroker::processOrderContracts(QDataStream& inStream, void(ClientBroke
     if(!inStream.commitTransaction())
         return false;
 
-    emit(this->*func)(orders);
+    emit(this->*func)(orders); // Emit the signal that was passed as a function pointer
     return true;
 }
 
@@ -163,6 +157,6 @@ bool ClientBroker::processNewMessage(QDataStream &inStream, void (ClientBroker::
     if(!inStream.commitTransaction())
         return false;
 
-    emit(this->*func)(message);
+    emit(this->*func)(message); // Emit the signal that was passed as a function pointer
     return true;
 }

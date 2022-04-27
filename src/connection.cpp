@@ -15,7 +15,6 @@ Connection::~Connection()
 
 void Connection::run()
 {
-//    qDebug() << "Thread started";
     connect(broker, &ServerBroker::disconnected, this, &Connection::brokerDisconnected);
     connect(broker, &ServerBroker::logInAttempt, this, &Connection::logIn);
     connect(broker, &ServerBroker::registerAttempt, this, &Connection::registerAttempt);
@@ -26,7 +25,7 @@ void Connection::run()
 void Connection::changeSlotsAndSignalsToContext()
 {
     disconnect(broker, &ServerBroker::logInAttempt, this, &Connection::logIn);
-    // maybe disconnect broker disconnect here? unless it can save conext data to database before context is deleted?
+    disconnect(broker, &ServerBroker::registerAttempt, this, &Connection::registerAttempt);
 }
 
 void Connection::logIn(QString email, QString password)
@@ -41,7 +40,6 @@ void Connection::logIn(QString email, QString password)
             break;
 
         case AccountManager::UserType::ForwarderUser:
-            // QString firstName, QString lastName, QString email, QString password, QString address
             controller = new ForwarderController(accountManager.createForwarder(email), broker, marketplace, this);
             broker->sendPageSignIn("forwarder");
             break;

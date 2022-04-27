@@ -7,12 +7,16 @@
 #include "connection.h"
 #include "threadsafemap.h"
 
+/**
+ * @brief The Server class.
+ */
 class Server : public QObject
 {
     Q_OBJECT
 public:
+
     /**
-     *
+     * Creates the Server object and sets up the TCP connection to listen for clients.
      * @brief Constructor
      * @param parent The parent object for QT Framework
      */
@@ -20,13 +24,15 @@ public:
     ~Server();
 
 private slots:
+
     /**
-     * @brief newConnection
+     * @brief Creates a new connection to a client and put it on its own thread.
      */
     void newConnection();
+
     /**
-     * @brief removeConnection
-     * @param connection
+     * @brief Removes a connection from the system.
+     * @param connection The connection to be removed.
      */
     void removeConnection(Connection* connection);
 
