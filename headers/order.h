@@ -5,6 +5,9 @@
 #include <QDataStream>
 #include <QDebug>
 
+/**
+ * @brief The Order class which stores order infomation.
+ */
 class Order
 {
 

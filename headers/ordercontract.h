@@ -8,7 +8,7 @@
 #include "order.h"
 
 /**
- * @brief The OrderContract class which stores order infomation.
+ * @brief The OrderContract class which stores order contract infomation.
  */
 class OrderContract
 {
