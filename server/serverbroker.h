@@ -2,7 +2,7 @@
 #define SERVERBROKER_H
 
 #include <QObject>
-#include "broker.h"
+#include "common/broker.h"
 
 /**
  * @brief The ServerBroker class holds all the logic to send messages back and forth with the client.

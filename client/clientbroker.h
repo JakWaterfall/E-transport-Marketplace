@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QHostAddress>
-#include <broker.h>
+#include <common/broker.h>
 
 /**
  * @brief The ClientBroker class holds all the logic to send messages back and forth with the server.

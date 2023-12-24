@@ -19,23 +19,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += headers/
 
 SOURCES += \
-    src/database.cpp \
-    src/driver.cpp \
-    src/drivercontroller.cpp \
-    src/forwardercontroller.cpp \
-    src/accountmanager.cpp \
-    src/connection.cpp \
-    src/controller.cpp \
-    src/serverbroker.cpp \
-    src/broker.cpp \
-    src/forwarder.cpp \
-    src/order.cpp \
-    src/ordercontract.cpp \
-    src/server.cpp \
-    src/main_server.cpp \
-    src/shipper.cpp \
-    src/shippercontroller.cpp \
-    src/user.cpp
+    server/database.cpp \
+    server/driver.cpp \
+    server/drivercontroller.cpp \
+    server/forwardercontroller.cpp \
+    server/accountmanager.cpp \
+    server/connection.cpp \
+    server/controller.cpp \
+    server/serverbroker.cpp \
+    common/broker.cpp \
+    server/forwarder.cpp \
+    common/order.cpp \
+    common/ordercontract.cpp \
+    server/server.cpp \
+    server/main_server.cpp \
+    server/shipper.cpp \
+    server/shippercontroller.cpp \
+    server/user.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -43,20 +43,20 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    headers/database.h \
-    headers/driver.h \
-    headers/drivercontroller.h \
-    headers/forwardercontroller.h \
-    headers/accountmanager.h \
-    headers/connection.h \
-    headers/broker.h \
-    headers/controller.h \
-    headers/forwarder.h \
-    headers/order.h \
-    headers/ordercontract.h \
-    headers/server.h \
-    headers/shipper.h \
-    headers/shippercontroller.h \
-    headers/user.h \
-    headers/serverbroker.h \
-    headers/threadsafemap.h
+    server/database.h \
+    server/driver.h \
+    server/drivercontroller.h \
+    server/forwardercontroller.h \
+    server/accountmanager.h \
+    server/connection.h \
+    common/broker.h \
+    server/controller.h \
+    server/forwarder.h \
+    common/order.h \
+    common/ordercontract.h \
+    server/server.h \
+    server/shipper.h \
+    server/shippercontroller.h \
+    server/user.h \
+    server/serverbroker.h \
+    server/threadsafemap.h

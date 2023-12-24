@@ -8,7 +8,7 @@
 #include <QLineEdit>
 
 #include "clientbroker.h"
-#include "ordercontract.h"
+#include "common/ordercontract.h"
 
 /**
  * @brief The Page class that acts as an interface for other types of pages.

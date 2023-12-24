@@ -2,8 +2,8 @@
 #define FORWARDER_H
 
 #include "user.h"
-#include "order.h"
-#include "ordercontract.h"
+#include "common/order.h"
+#include "common/ordercontract.h"
 #include <QObject>
 #include <QMap>
 

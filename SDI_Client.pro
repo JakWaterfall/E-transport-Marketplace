@@ -18,27 +18,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += headers/
 
 SOURCES += \
-    src/driverpage.cpp \
-    src/clientbroker.cpp \
-    src/broker.cpp \
-    src/forwarderpage.cpp \
-    src/main_client.cpp \
-    src/mainwindow.cpp \
-    src/order.cpp \
-    src/ordercontract.cpp \
-    src/page.cpp \
-    src/sellerpage.cpp
+    client/driverpage.cpp \
+    client/clientbroker.cpp \
+    common/broker.cpp \
+    client/forwarderpage.cpp \
+    client/main_client.cpp \
+    client/mainwindow.cpp \
+    common/order.cpp \
+    common/ordercontract.cpp \
+    client/page.cpp \
+    client/sellerpage.cpp
 
 HEADERS += \
-    headers/driverpage.h \
-    headers/clientbroker.h \
-    headers/broker.h \
-    headers/forwarderpage.h \
-    headers/mainwindow.h \
-    headers/order.h \
-    headers/ordercontract.h \
-    headers/page.h \
-    headers/sellerpage.h
+    client/driverpage.h \
+    client/clientbroker.h \
+    common/broker.h \
+    client/forwarderpage.h \
+    client/mainwindow.h \
+    common/order.h \
+    common/ordercontract.h \
+    client/page.h \
+    client/sellerpage.h
 
 FORMS += \
     ui/driverpage.ui \
